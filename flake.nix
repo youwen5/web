@@ -119,6 +119,7 @@
             rust-analyzer
             rustfmt
             clippy
+            typst
           ];
         };
       }
