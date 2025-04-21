@@ -46,7 +46,7 @@
             ];
         };
 
-        adamantite-crate = craneLib.buildPackage (
+        apogee-crate = craneLib.buildPackage (
           commonArgs
           // {
             cargoArtifacts = craneLib.buildDepsOnly commonArgs;
@@ -61,11 +61,11 @@
       in
       {
         checks = {
-          inherit adamantite-crate;
+          inherit apogee-crate;
           formatting = treefmtEval.config.build.check self;
         };
 
-        packages.default = adamantite-crate;
+        packages.default = apogee-crate;
 
         packages.book = pkgs.callPackage (
           {
@@ -73,7 +73,7 @@
             mdbook,
           }:
           stdenvNoCC.mkDerivation {
-            pname = "adamantite-book";
+            pname = "apogee-book";
             version = if (self ? rev) then builtins.substring 0 6 self.rev else "unstable";
 
             src = ./docs;
@@ -92,7 +92,7 @@
         ) { };
 
         apps.default = flake-utils.lib.mkApp {
-          drv = adamantite-crate;
+          drv = apogee-crate;
         };
 
         apps.book = {
