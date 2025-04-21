@@ -1,6 +1,6 @@
 #import "./lib/html-shim.typ": html-shim
 
-#html-shim()
+#show: html-shim
 
 = This is an index page
 

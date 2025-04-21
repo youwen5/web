@@ -1,6 +1,5 @@
+use hypertext::{GlobalAttributes, Raw, Renderable, html_elements, maud};
 use std::{io::Read, path::Path};
-mod world;
-use hypertext::{html_elements, maud, GlobalAttributes, Raw, Renderable};
 
 fn truncate_lines(content: &str, n_start: usize, n_end: usize) -> String {
     let lines: Vec<&str> = content.lines().collect();
@@ -20,7 +19,7 @@ fn truncate_lines(content: &str, n_start: usize, n_end: usize) -> String {
 }
 
 fn main() {
-    world::build_html_artifacts().unwrap();
+    apogee::world::build_html_artifacts().unwrap();
 
     let mut file = std::fs::File::open("./.apogee/typst-html/About.html").unwrap();
     let mut contents = String::new();

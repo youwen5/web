@@ -106,7 +106,7 @@ pub fn build_html_artifacts() -> Result<(), std::io::Error> {
 
     std::fs::create_dir(&html_artifacts_path)?;
 
-    let temp_file_names = [std::path::Path::new("./example/About.typ")];
+    let temp_file_names = [std::path::Path::new("./routes/About.typ")];
 
     for file in temp_file_names.iter() {
         let output_path = html_artifacts_path.join(std::path::PathBuf::from(format!(
