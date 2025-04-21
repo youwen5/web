@@ -1,6 +1,8 @@
+mod templates;
+
+use apogee::templating::Template;
 use apogee::world;
-use hypertext::{GlobalAttributes, Raw, Renderable, html_elements, maud};
-use std::{io::Read, path::Path};
+use std::path::Path;
 
 fn main() {
     let working_dirs = world::WorkingDirs::get_dirs().unwrap();
@@ -9,5 +11,10 @@ fn main() {
     let mut doc = world::TypstDoc::new(Path::new("./routes/About.typ")).unwrap();
 
     the_world.realize_doc(&mut doc).unwrap();
-    println!("{}", the_world.get_doc_contents(doc).unwrap());
+    let doc_raw = the_world.get_doc_contents(doc).unwrap();
+    let mainpage = templates::mainpage::MainPageTemplate {};
+    let final_html: String = mainpage
+        .populate_with_generated_content(hypertext::Raw(doc_raw))
+        .into();
+    std::fs::write("./dist/Index.html", &final_html).unwrap();
 }
