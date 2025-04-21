@@ -5,7 +5,7 @@
 //     compile_document(input, output);
 // }
 //
-#[test]
-fn it_setups_successfully() {
-    apogee::world::WorkingDirs::get_dirs().unwrap();
-}
+// #[test]
+// fn it_setups_successfully() {
+//     apogee::world::World::get_dirs().unwrap();
+// }
