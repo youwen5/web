@@ -1,5 +1,5 @@
-/// Procedures for interacting with the World.
-use std::{path, process::Command};
+/// Utilities for interacting with the World.
+use std::{io::Read, path, process::Command};
 
 /// Given a path to an entrypoint `main.typ` and an output location, use the Typst CLI to compile
 /// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
@@ -48,6 +48,7 @@ pub struct WorkingDirs {
     factory: std::path::PathBuf,
 }
 
+/// Utilities for `.apogee` and `dist`
 impl WorkingDirs {
     /// Set up the working directories, `dist` for built artifacts and `.apogee` for intermediate
     /// artifacts, as well as intermediate directories.
@@ -94,27 +95,96 @@ impl WorkingDirs {
     }
 }
 
-/// Build all Typst documents into HTML artifacts for further processing.
-pub fn build_html_artifacts() -> Result<(), std::io::Error> {
-    let dirs = WorkingDirs::get_dirs()?;
-    let mut html_artifacts_path = dirs.factory.clone();
-    html_artifacts_path.push(std::path::Path::new("./typst-html"));
+/// Abstracts away the World we are interacting with. If the world is _realized_, that means
+/// all files have been generated and paths are guaranteed to be valid.
+pub struct World {
+    working_dirs: WorkingDirs,
+    realized: bool,
+}
 
-    if html_artifacts_path.is_dir() || std::fs::exists(&html_artifacts_path)? {
-        std::fs::remove_dir_all(&html_artifacts_path)?;
+pub struct TypstDoc {
+    source_path: std::path::PathBuf,
+    pub compiled_path: Option<std::path::PathBuf>,
+}
+
+impl TypstDoc {
+    pub fn new(path_to_html: &std::path::Path) -> Result<TypstDoc, std::io::Error> {
+        let doc = TypstDoc {
+            source_path: path_to_html.to_path_buf(),
+            compiled_path: None,
+        };
+
+        Ok(doc)
+    }
+}
+
+impl World {
+    pub fn new(working_dirs: WorkingDirs) -> World {
+        World {
+            working_dirs,
+            realized: false,
+        }
     }
 
-    std::fs::create_dir(&html_artifacts_path)?;
+    /// Build all Typst documents into HTML artifacts for further processing.
+    fn build_html_artifacts(&self, mut files: Vec<&mut TypstDoc>) -> Result<(), std::io::Error> {
+        let dirs = &self.working_dirs;
+        let mut html_artifacts_path = dirs.factory.clone();
+        html_artifacts_path.push(std::path::Path::new("./typst-html"));
 
-    let temp_file_names = [std::path::Path::new("./routes/About.typ")];
+        if html_artifacts_path.is_dir() || std::fs::exists(&html_artifacts_path)? {
+            std::fs::remove_dir_all(&html_artifacts_path)?;
+        }
 
-    for file in temp_file_names.iter() {
-        let output_path = html_artifacts_path.join(std::path::PathBuf::from(format!(
-            "./{}.html",
-            file.file_stem().unwrap().to_str().unwrap()
-        )));
-        compile_document(file, &output_path).expect("Could not compile document.");
+        std::fs::create_dir(&html_artifacts_path)?;
+
+        for file in files.iter_mut() {
+            let output_path = html_artifacts_path.join(std::path::PathBuf::from(format!(
+                "./{}.html",
+                file.source_path.file_stem().unwrap().to_str().unwrap()
+            )));
+            compile_document(&file.source_path, &output_path).expect("Could not compile document.");
+            file.compiled_path = Some(output_path);
+        }
+
+        Ok(())
     }
 
-    Ok(())
+    /// Realize this Typst doc in the World. For now it just calls `build_html_artifacts()` to
+    /// compile all documents, but this leaves the door open for fine-grained incremental
+    /// compilation.
+    pub fn realize_doc(&mut self, doc: &mut TypstDoc) -> Result<(), std::io::Error> {
+        self.build_html_artifacts(vec![doc])?;
+        self.realized = true;
+        Ok(())
+    }
+    pub fn get_doc_contents(&self, doc: TypstDoc) -> Result<String, std::io::Error> {
+        if !self.realized {
+            panic!("The world isn't realized!");
+        }
+        let mut file = std::fs::File::open(doc.compiled_path.unwrap())
+            .expect("Something has gone wrong opening the contents of a compiled document.");
+        let mut contents = String::new();
+        file.read_to_string(&mut contents).unwrap();
+        let truncated_source = truncate_lines(&contents, 7, 2);
+
+        Ok(truncated_source)
+    }
+}
+
+fn truncate_lines(content: &str, n_start: usize, n_end: usize) -> String {
+    let lines: Vec<&str> = content.lines().collect();
+
+    let total_lines = lines.len();
+
+    if total_lines <= n_start + n_end {
+        return String::new();
+    }
+
+    let start_index = n_start;
+    let end_index = total_lines - n_end;
+
+    let relevant_lines = &lines[start_index..end_index];
+
+    relevant_lines.join("\n")
 }

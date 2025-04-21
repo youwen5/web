@@ -1,1 +1,1 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable};
+use hypertext::{GlobalAttributes, Renderable, html_elements, maud};
