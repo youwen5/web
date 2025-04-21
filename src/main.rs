@@ -1,8 +1,6 @@
 use std::path::Path;
+mod world;
 
 fn main() {
-    println!("hello world");
-    let input = Path::new("./tests/test.typ");
-    let output = Path::new("./out.html");
-    apogee::compile_document(input, output);
+    world::build_html_artifacts().unwrap();
 }
