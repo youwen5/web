@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 clap = "4.5.37"
+hypertext = "0.6.3"
