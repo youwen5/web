@@ -1,5 +1,10 @@
 /// Utilities for interacting with the World.
-use std::{io::Read, path, process::Command};
+use std::{
+    collections::HashMap,
+    io::Read,
+    path::{self, Path, PathBuf},
+    process::Command,
+};
 
 /// Given a path to an entrypoint `main.typ` and an output location, use the Typst CLI to compile
 /// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
@@ -100,6 +105,7 @@ impl WorkingDirs {
 pub struct World {
     working_dirs: WorkingDirs,
     realized: bool,
+    root: std::path::PathBuf,
 }
 
 pub struct TypstDoc {
@@ -123,6 +129,7 @@ impl World {
         World {
             working_dirs,
             realized: false,
+            root: PathBuf::from("./"),
         }
     }
 
@@ -169,6 +176,41 @@ impl World {
         let truncated_source = truncate_lines(&contents, 7, 2);
 
         Ok(truncated_source)
+    }
+
+    pub fn index_routes(&self) {
+        let routes_dir = self.root.join("./routes");
+        if !routes_dir.exists() {
+            panic!("Routes folder was not found!");
+        }
+        for dirs in routes_dir.read_dir().unwrap() {}
+    }
+}
+
+enum RouteNode {
+    Path(PathBuf),
+    HashMap,
+}
+
+fn walk_dirs(dir: &Path) {
+    let mut tree: HashMap<String, RouteNode> = HashMap::new();
+    for entry in dir
+        .read_dir()
+        .expect("Error while walking routes: the directory doesn't exist!")
+        .flatten()
+    {
+        let path = entry.path();
+        if path.is_dir() {
+            tree.insert(
+                path.file_stem()
+                    .unwrap()
+                    .to_ascii_lowercase()
+                    .to_str()
+                    .unwrap()
+                    .to_string(),
+                RouteNode::Path(path.canonicalize().unwrap()),
+            );
+        }
     }
 }
 
