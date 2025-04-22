@@ -49,8 +49,8 @@ pub fn compile_document(input: &path::Path, output: &path::Path) -> Result<(), s
 }
 
 pub struct WorkingDirs {
-    dist: std::path::PathBuf,
-    factory: std::path::PathBuf,
+    dist: PathBuf,
+    factory: PathBuf,
 }
 
 /// Utilities for `.apogee` and `dist`
@@ -58,8 +58,8 @@ impl WorkingDirs {
     /// Set up the working directories, `dist` for built artifacts and `.apogee` for intermediate
     /// artifacts, as well as intermediate directories.
     fn setup_working_dirs() -> Result<WorkingDirs, std::io::Error> {
-        let dist_path = std::path::Path::new("./dist");
-        let factory_path = std::path::Path::new("./.apogee");
+        let dist_path = Path::new("./dist");
+        let factory_path = Path::new("./.apogee");
         if std::fs::exists(dist_path)? {
             std::fs::remove_dir_all(dist_path)?;
         }
@@ -75,8 +75,8 @@ impl WorkingDirs {
     }
 
     pub fn working_dirs_exist() -> Result<bool, std::io::Error> {
-        let dist_path = std::path::Path::new("./dist");
-        let factory_path = std::path::Path::new("./.apogee");
+        let dist_path = Path::new("./dist");
+        let factory_path = Path::new("./.apogee");
 
         Ok(std::fs::exists(dist_path)?
             && std::fs::exists(factory_path)?
@@ -90,8 +90,8 @@ impl WorkingDirs {
             return WorkingDirs::setup_working_dirs();
         }
 
-        let dist_path = std::path::Path::new("./dist");
-        let factory_path = std::path::Path::new("./.apogee");
+        let dist_path = Path::new("./dist");
+        let factory_path = Path::new("./.apogee");
 
         Ok(WorkingDirs {
             dist: dist_path.to_path_buf(),
@@ -105,16 +105,16 @@ impl WorkingDirs {
 pub struct World {
     working_dirs: WorkingDirs,
     realized: bool,
-    root: std::path::PathBuf,
+    root: PathBuf,
 }
 
 pub struct TypstDoc {
-    source_path: std::path::PathBuf,
-    pub compiled_path: Option<std::path::PathBuf>,
+    source_path: PathBuf,
+    pub compiled_path: Option<PathBuf>,
 }
 
 impl TypstDoc {
-    pub fn new(path_to_html: &std::path::Path) -> Result<TypstDoc, std::io::Error> {
+    pub fn new(path_to_html: &Path) -> Result<TypstDoc, std::io::Error> {
         let doc = TypstDoc {
             source_path: path_to_html.to_path_buf(),
             compiled_path: None,
@@ -137,7 +137,7 @@ impl World {
     fn build_html_artifacts(&self, mut files: Vec<&mut TypstDoc>) -> Result<(), std::io::Error> {
         let dirs = &self.working_dirs;
         let mut html_artifacts_path = dirs.factory.clone();
-        html_artifacts_path.push(std::path::Path::new("./typst-html"));
+        html_artifacts_path.push(Path::new("./typst-html"));
 
         if html_artifacts_path.is_dir() || std::fs::exists(&html_artifacts_path)? {
             std::fs::remove_dir_all(&html_artifacts_path)?;
@@ -146,7 +146,7 @@ impl World {
         std::fs::create_dir(&html_artifacts_path)?;
 
         for file in files.iter_mut() {
-            let output_path = html_artifacts_path.join(std::path::PathBuf::from(format!(
+            let output_path = html_artifacts_path.join(PathBuf::from(format!(
                 "./{}.html",
                 file.source_path.file_stem().unwrap().to_str().unwrap()
             )));
