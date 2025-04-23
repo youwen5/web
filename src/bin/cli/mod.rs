@@ -43,7 +43,7 @@ pub fn run() {
                 };
                 rendered
             });
-            the_world.build_routes(&site).unwrap();
+            the_world.realize_site(&site).unwrap();
         }
     }
 }

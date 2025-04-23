@@ -207,7 +207,7 @@ impl World {
     }
 
     /// Get routes from the world.
-    pub fn get_routes(&self) -> Routes {
+    fn get_routes(&self) -> Routes {
         Routes {
             tree: reconcile_raw_routes(&self.index_routes()),
         }
@@ -215,14 +215,38 @@ impl World {
 
     /// Given a `&Site`, perform all the necessary actions (e.g. running the Typst compiler,
     /// generating metadata, etc.) and output the artifacts in `dist`.
-    pub fn build_routes(&self, site: &Site) -> Result<(), Error> {
-        self.site_builder_helper(&site.routes.tree, "".to_string(), &site.templater)?;
+    fn build_routes(&self, site: &Site) -> Result<(), Error> {
+        self.route_builder_helper(&site.routes.tree, "".to_string(), &site.templater)?;
+        Ok(())
+    }
+
+    fn copy_public_dir(&self, site: &Site) -> Result<(), Error> {
+        if !site.public_dir.exists() {
+            event!(Level::ERROR, "The public directory doesn't exist!");
+            panic!();
+        }
+
+        dircpy::CopyBuilder::new(
+            &site.public_dir,
+            self.working_dirs.dist.join(Path::new("./public")),
+        )
+        .overwrite_if_newer(true)
+        .overwrite_if_size_differs(true)
+        .run()
+        .unwrap();
+
+        Ok(())
+    }
+
+    pub fn realize_site(&self, site: &Site) -> Result<(), Error> {
+        self.build_routes(site)?;
+
         Ok(())
     }
 
     /// Helper function to recursively traverse a tree of routes for implementing `build_site`.
     /// Renders each document and applies the template rule.
-    fn site_builder_helper(
+    fn route_builder_helper(
         &self,
         routes: &RouteTree,
         parent_route: String,
@@ -255,7 +279,7 @@ impl World {
                     std::fs::write(target_path, rendered.as_str())?;
                 }
                 (slug, RouteNode::Nested(nested_tree)) => {
-                    self.site_builder_helper(
+                    self.route_builder_helper(
                         nested_tree,
                         parent_route.clone() + "/" + slug,
                         templater,
