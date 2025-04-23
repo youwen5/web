@@ -1,8 +1,7 @@
 name: Build site and push to GH pages
 
 on:
-  pull_request:
-  push:
+  push: main
 
 jobs:
   build-nix:
