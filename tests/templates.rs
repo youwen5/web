@@ -1,9 +1,9 @@
 use apogee::templating::Template;
-use hypertext::{Renderable, Rendered, html_elements, maud};
+use hypertext::{html_elements, maud, Renderable, Rendered};
 
 struct TestTemplate {}
 impl Template for TestTemplate {
-    fn populate_with_generated_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
+    fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         maud! {
             div {
                 h1 {"here's some content"}
@@ -19,7 +19,7 @@ fn it_templates_successfully() {
     let template = TestTemplate {};
     let injection = hypertext::Raw(String::from("<p>test content!</p>"));
     assert_eq!(
-        template.populate_with_generated_content(injection),
+        template.render_page_with_content(injection),
         maud! {
             div {
                 h1 {"here's some content"}
