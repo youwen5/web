@@ -1,10 +1,28 @@
-/// Utilities for interacting with the World.
+/// Utilities for interacting with and obtaining information from the World.
 use std::{
     collections::HashMap,
     io::{Error, Read},
     path::{self, Path, PathBuf},
     process::Command,
 };
+
+use crate::site::{RouteNode, RouteTree, Routes, Site, TemplateRules};
+
+impl TypstDoc {
+    pub fn new(path_to_html: &Path) -> Result<TypstDoc, std::io::Error> {
+        let doc = TypstDoc {
+            source_path: path_to_html.to_path_buf(),
+        };
+
+        Ok(doc)
+    }
+}
+
+/// A representation of a Typst source file. In the future, it will contain metadata from files.
+#[derive(Debug, Clone)]
+pub struct TypstDoc {
+    source_path: PathBuf,
+}
 
 /// Given a path to an entrypoint `main.typ` and an output location, use the Typst CLI to compile
 /// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
@@ -108,23 +126,6 @@ pub struct World {
     root: PathBuf,
 }
 
-#[derive(Debug)]
-pub struct TypstDoc {
-    source_path: PathBuf,
-    pub compiled_path: Option<PathBuf>,
-}
-
-impl TypstDoc {
-    pub fn new(path_to_html: &Path) -> Result<TypstDoc, Error> {
-        let doc = TypstDoc {
-            source_path: path_to_html.to_path_buf(),
-            compiled_path: None,
-        };
-
-        Ok(doc)
-    }
-}
-
 impl World {
     pub fn new(working_dirs: WorkingDirs) -> World {
         World {
@@ -134,8 +135,7 @@ impl World {
         }
     }
 
-    /// Build all Typst documents into HTML artifacts for further processing.
-    fn build_html_artifacts(&self, mut files: Vec<&mut TypstDoc>) -> Result<(), Error> {
+    fn build_doc(&self, doc: &TypstDoc) -> Result<PathBuf, Error> {
         let dirs = &self.working_dirs;
         let mut html_artifacts_path = dirs.factory.clone();
         html_artifacts_path.push(Path::new("./typst-html"));
@@ -145,35 +145,23 @@ impl World {
         }
 
         std::fs::create_dir(&html_artifacts_path)?;
+        let output_path = html_artifacts_path.join(PathBuf::from(format!(
+            "./{}.html",
+            doc.source_path.file_stem().unwrap().to_str().unwrap()
+        )));
+        compile_document(&doc.source_path, &output_path)?;
 
-        for file in files.iter_mut() {
-            let output_path = html_artifacts_path.join(PathBuf::from(format!(
-                "./{}.html",
-                file.source_path.file_stem().unwrap().to_str().unwrap()
-            )));
-            compile_document(&file.source_path, &output_path).expect("Could not compile document.");
-            file.compiled_path = Some(output_path);
-        }
-
-        Ok(())
-    }
-
-    /// Realize this Typst doc in the World. For now it just calls `build_html_artifacts()` to
-    /// compile all documents, but this leaves the door open for fine-grained incremental
-    /// compilation.
-    pub fn realize_doc(&mut self, doc: &mut TypstDoc) -> Result<(), Error> {
-        self.build_html_artifacts(vec![doc])?;
-        self.realized = true;
-        Ok(())
+        Ok(output_path)
     }
 
     /// Given a `TypstDoc`, interact with the World to obtain its contents, with <DOCTYPE>, <html>,
     /// <head>, and <body> tags truncated.
-    pub fn get_doc_contents(&self, doc: TypstDoc) -> Result<String, Error> {
-        if !self.realized {
-            panic!("The world isn't realized!");
-        }
-        let mut file = std::fs::File::open(doc.compiled_path.unwrap())
+    pub fn get_doc_contents(&self, doc: &TypstDoc) -> Result<String, Error> {
+        let build_path = self
+            .build_doc(&doc)
+            .expect("Something went wrong building a document.");
+
+        let mut file = std::fs::File::open(build_path)
             .expect("Something has gone wrong opening the contents of a compiled document.");
         let mut contents = String::new();
         file.read_to_string(&mut contents).unwrap();
@@ -197,18 +185,25 @@ impl World {
             tree: reconcile_raw_routes(&self.index_routes()),
         }
     }
-}
 
-pub type RouteTree = HashMap<String, RouteNode>;
-#[derive(Debug)]
-pub enum RouteNode {
-    Page(TypstDoc),
-    Nested(RouteTree),
-}
+    pub fn build_site(&self, site: &Site) -> Result<(), Error> {
+        self.site_builder_helper(&site.routes.tree, &site.templater)?;
+        Ok(())
+    }
 
-#[derive(Debug)]
-pub struct Routes {
-    tree: RouteTree,
+    fn site_builder_helper(&self, routes: &RouteTree, templater: &String) -> Result<(), Error> {
+        for node in routes.iter() {
+            match node {
+                (slug, RouteNode::Page(doc)) => {
+                    println!("{}", self.get_doc_contents(doc)?)
+                }
+                (slug, RouteNode::Nested(nested_tree)) => {
+                    self.site_builder_helper(&nested_tree, templater);
+                }
+            }
+        }
+        Ok(())
+    }
 }
 
 /// Takes the raw tree structure of the routes directory and walks through it, throwing away
