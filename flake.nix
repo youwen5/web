@@ -65,7 +65,24 @@
           formatting = treefmtEval.config.build.check self;
         };
 
-        packages.default = apogee-crate;
+        # doesn't work right now because we have to provide Typst packages, or else we get network error
+        packages.default = pkgs.stdenv.mkDerivation {
+          name = "site";
+
+          src = ./.;
+
+          nativeBuildInputs = [ self.packages.${system}.apogee ];
+
+          buildPhase = ''
+            site build
+          '';
+
+          installPhase = ''
+            cp -r dist result
+          '';
+        };
+
+        packages.apogee = apogee-crate;
 
         packages.book = pkgs.callPackage (
           {
