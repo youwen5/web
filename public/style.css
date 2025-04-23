@@ -1,0 +1,235 @@
+/* redaction-latin-400-italic */
+@font-face {
+  font-family: 'Redaction';
+  font-style: italic;
+  font-display: auto;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-italic.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-italic.woff) format('woff');
+}
+
+/* redaction-latin-700-italic */
+@font-face {
+  font-family: 'Redaction';
+  font-style: italic;
+  font-display: auto;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-italic.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-italic.woff) format('woff');
+}
+/* redaction-latin-400-normal */
+@font-face {
+  font-family: 'Redaction';
+  font-style: normal;
+  font-display: auto;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-normal.woff) format('woff');
+}
+
+/* redaction-latin-700-normal */
+@font-face {
+  font-family: 'Redaction';
+  font-style: normal;
+  font-display: auto;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-normal.woff) format('woff');
+}
+
+:root {
+  /* Core Semantic Colors */
+  --base:    #faf4ed;
+  --surface: #fffaf3;
+  --overlay: #f2e9e1;
+  --muted:   #9893a5;
+  --subtle:  #797593;
+  --text:    #575279;
+
+  /* Accent Colors */
+  --love:    #b4637a;
+  --gold:    #ea9d34;
+  --rose:    #d7827e;
+  --pine:    #286983;
+  --foam:    #56949f;
+  --iris:    #907aa9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base:    #232136;
+    --surface: #2a273f;
+    --overlay: #393552;
+    --muted:   #6e6a86;
+    --subtle:  #908caa;
+    --text:    #e0def4;
+
+    --love:    #eb6f92;
+    --gold:    #f6c177;
+    --rose:    #ea9a97;
+    --pine:    #3e8fb0;
+    --foam:    #44415a;
+    --iris:    #56526e;
+  }
+}
+
+/* ======================================================
+   Global Resets & Base Styles
+   ====================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Consistent box model */
+}
+
+html {
+  font-size: 1.3em;
+}
+
+body {
+  margin: 0; /* Remove default body margin */
+  padding: 1.2rem 10px 2rem 10px;
+  font-family: "Redaction", serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: var(--base);
+  color: var(--text);
+  line-height: 1.6; /* Improve readability */
+}
+
+.main-content {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+}
+
+.navbar {
+  border-bottom-color: var(--muted);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em,
+}
+
+/* ======================================================
+   Typography
+   ====================================================== */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.2; /* Tighter line height for headings */
+  color: var(--text); /* Ensure headings use the main text color */
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.75em; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.25em; }
+h6 { font-size: 1em; }
+
+p {
+  margin-top: 0;
+}
+
+/* ======================================================
+   Links
+   ====================================================== */
+a {
+  color: inherit; /* Keep link text the same color as surrounding text */
+  text-decoration-line: underline;
+  text-decoration-color: var(--love); /* Use accent color for underline */
+  text-decoration-thickness: 2px;     /* Make underline thick */
+  text-underline-offset: 3px;         /* Add space between text and underline */
+  transition: text-decoration-color 0.2s ease-in-out; /* Smooth hover transition */
+}
+
+a:hover,
+a:focus {
+  text-decoration-color: var(--foam); /* Change underline color on hover/focus */
+  outline: none; /* Optional: remove default focus outline if desired */
+}
+
+/* Add a specific focus style for keyboard navigation */
+a:focus-visible {
+   outline: 2px solid var(--iris);
+   outline-offset: 3px;
+   text-decoration-color: var(--foam); /* Keep hover color consistent */
+}
+
+
+/* ======================================================
+   Buttons
+   ====================================================== */
+button {
+  /* Reset base styles */
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+
+  /* Custom minimalistic geometric style */
+  display: inline-block; /* Allow padding and sizing */
+  padding: 0.75em 1.5em; /* Comfortable padding */
+  background-color: var(--pine); /* Use accent color for background */
+  color: var(--base); /* Use light text color for contrast */
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0; /* Sharp corners - explicitly unrounded */
+  transition: filter 0.2s ease-in-out, outline-offset 0.1s ease; /* Smooth transitions */
+}
+
+button:hover {
+  filter: brightness(90%); /* Slightly darken on hover */
+}
+
+button:focus {
+  outline: none; /* Remove default focus outline */
+}
+
+button:focus-visible {
+  /* Add a clear focus indicator for accessibility */
+  outline: 3px solid var(--iris);
+  outline-offset: 2px;
+}
+
+button:active {
+    filter: brightness(80%); /* Slightly darker when actively pressed */
+}
+
+/* ======================================================
+   Other Basic Elements (Optional Examples)
+   ====================================================== */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--subtle);
+  margin: 2rem 0;
+}
+
+code {
+  background-color: var(--overlay);
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+  border-radius: 3px; /* Small rounding for code blocks is often acceptable */
+}
+
+pre {
+  background-color: var(--overlay);
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 3px;
+}
+
+blockquote {
+  border-left: 4px solid var(--subtle);
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  color: var(--muted);
+}

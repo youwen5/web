@@ -1,9 +1,9 @@
-use apogee::{
+use hypertext::Raw;
+use luminite::{
     site::Site,
     templating::Template,
     world::{WorkingDirs, World},
 };
-use hypertext::Raw;
 
 use crate::templates;
 
@@ -31,6 +31,7 @@ pub fn run() {
             let main_page = templates::MainPage {};
             let about_page = templates::AboutPage {};
             let blog = templates::Blog {};
+            let impressum = templates::Impressum {};
 
             let the_world = World::new(WorkingDirs::get_dirs().unwrap());
             let site = Site::new(the_world.get_routes(), move |slug, content| {
@@ -39,6 +40,7 @@ pub fn run() {
                     "/" => main_page.render_page_with_content(raw_content),
                     "/about" => about_page.render_page_with_content(raw_content),
                     "/blog" => blog.render_page_with_content(raw_content),
+                    "/impressum" => impressum.render_page_with_content(raw_content),
                     _ => main_page.render_page_with_content(raw_content),
                 };
                 rendered

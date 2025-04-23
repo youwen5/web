@@ -46,7 +46,7 @@
             ];
         };
 
-        apogee-crate = craneLib.buildPackage (
+        luminite-crate = craneLib.buildPackage (
           commonArgs
           // {
             cargoArtifacts = craneLib.buildDepsOnly commonArgs;
@@ -61,7 +61,7 @@
       in
       {
         checks = {
-          inherit apogee-crate;
+          inherit luminite-crate;
           formatting = treefmtEval.config.build.check self;
         };
 
@@ -71,7 +71,7 @@
 
           src = ./.;
 
-          nativeBuildInputs = [ self.packages.${system}.apogee ];
+          nativeBuildInputs = [ self.packages.${system}.luminite ];
 
           buildPhase = ''
             site build
@@ -82,7 +82,7 @@
           '';
         };
 
-        packages.apogee = apogee-crate;
+        packages.luminite = luminite-crate;
 
         packages.book = pkgs.callPackage (
           {
@@ -90,7 +90,7 @@
             mdbook,
           }:
           stdenvNoCC.mkDerivation {
-            pname = "apogee-book";
+            pname = "luminite-book";
             version = if (self ? rev) then builtins.substring 0 6 self.rev else "unstable";
 
             src = ./docs;
@@ -109,7 +109,7 @@
         ) { };
 
         apps.default = flake-utils.lib.mkApp {
-          drv = apogee-crate;
+          drv = luminite-crate;
         };
 
         apps.book = {

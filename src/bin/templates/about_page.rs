@@ -1,7 +1,7 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
+use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 pub struct AboutPage {}
 
-impl apogee::templating::Template for AboutPage {
+impl luminite::templating::Template for AboutPage {
     fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         maud! {
             !DOCTYPE

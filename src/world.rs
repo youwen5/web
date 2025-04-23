@@ -94,13 +94,13 @@ pub struct WorkingDirs {
     factory: PathBuf,
 }
 
-/// Utilities for `.apogee` and `dist`
+/// Utilities for `.luminite` and `dist`
 impl WorkingDirs {
-    /// Set up the working directories, `dist` for built artifacts and `.apogee` for intermediate
+    /// Set up the working directories, `dist` for built artifacts and `.luminite` for intermediate
     /// artifacts, as well as intermediate directories.
     fn setup_working_dirs() -> Result<WorkingDirs, Error> {
         let dist_path = Path::new("./dist");
-        let factory_path = Path::new("./.apogee");
+        let factory_path = Path::new("./.luminite");
         if std::fs::exists(dist_path)? {
             std::fs::remove_dir_all(dist_path)?;
         }
@@ -108,7 +108,7 @@ impl WorkingDirs {
             std::fs::remove_dir_all(factory_path)?;
         }
         std::fs::create_dir_all("./dist")?;
-        std::fs::create_dir_all("./.apogee")?;
+        std::fs::create_dir_all("./.luminite")?;
         Ok(WorkingDirs {
             dist: dist_path.to_path_buf(),
             factory: factory_path.to_path_buf(),
@@ -117,7 +117,7 @@ impl WorkingDirs {
 
     pub fn working_dirs_exist() -> Result<bool, Error> {
         let dist_path = Path::new("./dist");
-        let factory_path = Path::new("./.apogee");
+        let factory_path = Path::new("./.luminite");
 
         Ok(std::fs::exists(dist_path)?
             && std::fs::exists(factory_path)?
@@ -132,7 +132,7 @@ impl WorkingDirs {
         }
 
         let dist_path = Path::new("./dist");
-        let factory_path = Path::new("./.apogee");
+        let factory_path = Path::new("./.luminite");
 
         Ok(WorkingDirs {
             dist: dist_path.to_path_buf(),
