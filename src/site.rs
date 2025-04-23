@@ -29,8 +29,9 @@ pub struct Site {
     pub routes: Routes,
     /// A templater function.
     pub templater: Box<Templater>,
-    /// Assets which should be copied over verbatim.
-    pub assets: Vec<PathBuf>,
+    /// Assets which should be copied over verbatim. **WILL** overwrite anything compiled from
+    /// templates!
+    pub public_dir: PathBuf,
 }
 
 impl Site {
@@ -41,7 +42,7 @@ impl Site {
         Site {
             routes,
             templater: Box::new(templater_fn),
-            assets: Vec::<PathBuf>::new(),
+            public_dir: PathBuf::from("./public"),
         }
     }
 }
