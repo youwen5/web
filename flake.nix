@@ -28,7 +28,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
-        pnpm = pkgs.pnpm;
+        pnpm = pkgs.pnpm_10;
 
         craneLib = crane.mkLib pkgs;
 
@@ -59,34 +59,39 @@
           }
         );
 
-        web-assets = pkgs.stdenv.mkDerivation (finalAttrs: {
-          pname = "web-assets";
-          version = "unstable";
+        web-assets =
+          let
+            pnpmDeps = pnpm.fetchDeps {
+              pname = "site-pnpm-deps";
+              src = ./web;
+              hash = "sha256-Gao17MHn/sj0TGTQpVBpeTLkJjz3XAf65Jn1bvMs4R0=";
+            };
+          in
+          pkgs.stdenv.mkDerivation (finalAttrs: {
+            pname = "web-assets";
+            version = "unstable";
 
-          src = ./.;
+            src = ./.;
 
-          pnpmDeps = pnpm.fetchDeps {
-            inherit (finalAttrs) pname version src;
-            hash = "sha256-Gao17MHn/sj0TGTQpVBpeTLkJjz3XAf65Jn1bvMs4R0=";
-          };
+            pnpmRoot = "./web";
 
-          pnpmRoot = "web";
+            nativeBuildInputs = [
+              pkgs.nodejs
+              pnpm.configHook
+            ];
 
-          nativeBuildInputs = [
-            pkgs.nodejs
-            pnpm.configHook
-          ];
+            inherit pnpmDeps;
 
-          buildPhase = ''
-            cd web
-            ln -s ${finalAttrs.pnpmDeps} node_modules
-            pnpm build
-          '';
+            buildPhase = ''
+              cd web
+              ln -s ${pnpmDeps} node_modules
+              pnpm build
+            '';
 
-          installPhase = ''
-            cp -r dist $out
-          '';
-        });
+            installPhase = ''
+              cp -r dist $out
+            '';
+          });
 
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix;
       in
