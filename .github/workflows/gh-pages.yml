@@ -17,16 +17,14 @@ concurrency:
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
       - run: nix build --accept-flake-config
-      - name: Artifact pages
-        uses: actions/upload-artifact@v4
-        with:
-          name: pages
-          path: result/dist
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
