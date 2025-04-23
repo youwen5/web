@@ -62,8 +62,16 @@ pub fn compile_document(
         )
         .spawn()?;
 
-    typst.wait().expect("failed to wait on Typst");
-    Ok(())
+    match typst.wait() {
+        Ok(_) => Ok(()),
+        Err(err) => {
+            panic!(
+                "Tried to compile {}, but I failed with the error {}. Are you sure that Typst is in $PATH?",
+                input.to_str().unwrap(),
+                err,
+            );
+        }
+    }
 }
 
 pub struct WorkingDirs {
