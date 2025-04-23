@@ -17,15 +17,18 @@ code, a Rust toolchain is highly recommended in addition to Nix.
 With Nix:
 ```sh
 nix build
-result/bin/site build
 ```
+
+The site will be built in `result/`.
 
 With Cargo:
 ```sh
 cargo run --release -- build
 ```
 
-## Luminited
+The site will be built in `dist/`.
+
+## Luminite
 
 `luminite` is a Rust _library_ for writing static site generators centered around
 Typst. It is not a batteries-included unified program controlled by
