@@ -1,7 +1,7 @@
 /// Utilities for interacting with the World.
 use std::{
     collections::HashMap,
-    io::Read,
+    io::{Error, Read},
     path::{self, Path, PathBuf},
     process::Command,
 };
@@ -9,11 +9,11 @@ use std::{
 /// Given a path to an entrypoint `main.typ` and an output location, use the Typst CLI to compile
 /// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
 /// an error will occur.
-pub fn compile_document(input: &path::Path, output: &path::Path) -> Result<(), std::io::Error> {
+pub fn compile_document(input: &path::Path, output: &path::Path) -> Result<(), Error> {
     let resolved_document = input.canonicalize()?;
     if let Some(dir) = output.parent() {
         if !dir.exists() {
-            return Err(std::io::Error::new(
+            return Err(Error::new(
                 std::io::ErrorKind::Other,
                 "Directory doesn't exist.",
             ));
@@ -57,7 +57,7 @@ pub struct WorkingDirs {
 impl WorkingDirs {
     /// Set up the working directories, `dist` for built artifacts and `.apogee` for intermediate
     /// artifacts, as well as intermediate directories.
-    fn setup_working_dirs() -> Result<WorkingDirs, std::io::Error> {
+    fn setup_working_dirs() -> Result<WorkingDirs, Error> {
         let dist_path = Path::new("./dist");
         let factory_path = Path::new("./.apogee");
         if std::fs::exists(dist_path)? {
@@ -74,7 +74,7 @@ impl WorkingDirs {
         })
     }
 
-    pub fn working_dirs_exist() -> Result<bool, std::io::Error> {
+    pub fn working_dirs_exist() -> Result<bool, Error> {
         let dist_path = Path::new("./dist");
         let factory_path = Path::new("./.apogee");
 
@@ -85,7 +85,7 @@ impl WorkingDirs {
     }
 
     /// Guarantees that the working directories exist and returns their `PathBuf`s.
-    pub fn get_dirs() -> Result<WorkingDirs, std::io::Error> {
+    pub fn get_dirs() -> Result<WorkingDirs, Error> {
         if !WorkingDirs::working_dirs_exist()? {
             return WorkingDirs::setup_working_dirs();
         }
@@ -115,7 +115,7 @@ pub struct TypstDoc {
 }
 
 impl TypstDoc {
-    pub fn new(path_to_html: &Path) -> Result<TypstDoc, std::io::Error> {
+    pub fn new(path_to_html: &Path) -> Result<TypstDoc, Error> {
         let doc = TypstDoc {
             source_path: path_to_html.to_path_buf(),
             compiled_path: None,
@@ -135,7 +135,7 @@ impl World {
     }
 
     /// Build all Typst documents into HTML artifacts for further processing.
-    fn build_html_artifacts(&self, mut files: Vec<&mut TypstDoc>) -> Result<(), std::io::Error> {
+    fn build_html_artifacts(&self, mut files: Vec<&mut TypstDoc>) -> Result<(), Error> {
         let dirs = &self.working_dirs;
         let mut html_artifacts_path = dirs.factory.clone();
         html_artifacts_path.push(Path::new("./typst-html"));
@@ -161,7 +161,7 @@ impl World {
     /// Realize this Typst doc in the World. For now it just calls `build_html_artifacts()` to
     /// compile all documents, but this leaves the door open for fine-grained incremental
     /// compilation.
-    pub fn realize_doc(&mut self, doc: &mut TypstDoc) -> Result<(), std::io::Error> {
+    pub fn realize_doc(&mut self, doc: &mut TypstDoc) -> Result<(), Error> {
         self.build_html_artifacts(vec![doc])?;
         self.realized = true;
         Ok(())
@@ -169,7 +169,7 @@ impl World {
 
     /// Given a `TypstDoc`, interact with the World to obtain its contents, with <DOCTYPE>, <html>,
     /// <head>, and <body> tags truncated.
-    pub fn get_doc_contents(&self, doc: TypstDoc) -> Result<String, std::io::Error> {
+    pub fn get_doc_contents(&self, doc: TypstDoc) -> Result<String, Error> {
         if !self.realized {
             panic!("The world isn't realized!");
         }
