@@ -6,7 +6,7 @@ use std::{
     process::Command,
 };
 
-use crate::site::{RouteNode, RouteTree, Routes, Site, TemplateRules};
+use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
 
 impl TypstDoc {
     pub fn new(path_to_html: &Path) -> Result<TypstDoc, std::io::Error> {
@@ -24,7 +24,7 @@ pub struct TypstDoc {
     source_path: PathBuf,
 }
 
-/// Given a path to an entrypoint `main.typ` and an output location, use the Typst CLI to compile
+/// Given a path to an entry point `main.typ` and an output location, use the Typst CLI to compile
 /// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
 /// an error will occur.
 pub fn compile_document(
@@ -67,7 +67,7 @@ pub fn compile_document(
 }
 
 pub struct WorkingDirs {
-    dist: PathBuf,
+    _dist: PathBuf,
     factory: PathBuf,
 }
 
@@ -87,7 +87,7 @@ impl WorkingDirs {
         std::fs::create_dir_all("./dist")?;
         std::fs::create_dir_all("./.apogee")?;
         Ok(WorkingDirs {
-            dist: dist_path.to_path_buf(),
+            _dist: dist_path.to_path_buf(),
             factory: factory_path.to_path_buf(),
         })
     }
@@ -112,7 +112,7 @@ impl WorkingDirs {
         let factory_path = Path::new("./.apogee");
 
         Ok(WorkingDirs {
-            dist: dist_path.to_path_buf(),
+            _dist: dist_path.to_path_buf(),
             factory: factory_path.to_path_buf(),
         })
     }
@@ -122,7 +122,7 @@ impl WorkingDirs {
 /// all files have been generated and paths are guaranteed to be valid.
 pub struct World {
     working_dirs: WorkingDirs,
-    realized: bool,
+    _realized: bool,
     root: PathBuf,
 }
 
@@ -130,11 +130,13 @@ impl World {
     pub fn new(working_dirs: WorkingDirs) -> World {
         World {
             working_dirs,
-            realized: false,
+            _realized: false,
             root: PathBuf::from("./"),
         }
     }
 
+    /// Given a `TypstDoc`, build it in the World and return a path to it (which is guaranteed to
+    /// exist).
     fn build_doc(&self, doc: &TypstDoc) -> Result<PathBuf, Error> {
         let dirs = &self.working_dirs;
         let mut html_artifacts_path = dirs.factory.clone();
@@ -154,8 +156,8 @@ impl World {
         Ok(output_path)
     }
 
-    /// Given a `TypstDoc`, interact with the World to obtain its contents, with <DOCTYPE>, <html>,
-    /// <head>, and <body> tags truncated.
+    /// Given a `TypstDoc`, realize it in the World and obtain its contents, with <DOCTYPE>,
+    /// <html>, <head>, and <body> tags truncated.
     pub fn get_doc_contents(&self, doc: &TypstDoc) -> Result<String, Error> {
         let build_path = self
             .build_doc(&doc)
@@ -191,14 +193,15 @@ impl World {
         Ok(())
     }
 
-    fn site_builder_helper(&self, routes: &RouteTree, templater: &String) -> Result<(), Error> {
+    fn site_builder_helper(&self, routes: &RouteTree, templater: &Templater) -> Result<(), Error> {
         for node in routes.iter() {
             match node {
                 (slug, RouteNode::Page(doc)) => {
-                    println!("{}", self.get_doc_contents(doc)?)
+                    let contents = self.get_doc_contents(doc)?;
+                    templater(slug, contents);
                 }
                 (slug, RouteNode::Nested(nested_tree)) => {
-                    self.site_builder_helper(&nested_tree, templater);
+                    self.site_builder_helper(nested_tree, templater)?;
                 }
             }
         }
@@ -248,7 +251,8 @@ enum RawRouteNode {
     Dir(RawRouteTree),
 }
 
-/// Helper function to recursively walk down the `routes` directory.
+/// Helper function to recursively walk down the `routes` directory and generate a raw tree
+/// representation of it.
 fn walk_dirs(dir: &Path) -> RawRouteTree {
     let mut tree: HashMap<String, RawRouteNode> = HashMap::new();
     for entry in dir

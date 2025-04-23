@@ -16,15 +16,21 @@ pub struct Routes {
     pub tree: RouteTree,
 }
 
-pub type TemplateRules = Box<dyn Fn(String, String) -> Rendered<String> + Send + Sync + 'static>;
+pub type Templater = dyn Fn(&String, String) -> Rendered<String>;
 
 pub struct Site {
     pub routes: Routes,
-    pub templater: String,
+    pub templater: Box<Templater>,
 }
 
 impl Site {
-    pub fn new(routes: Routes, templater: String) -> Site {
-        Site { routes, templater }
+    pub fn new<F>(routes: Routes, templater_fn: F) -> Self
+    where
+        F: Fn(&String, String) -> Rendered<String> + 'static,
+    {
+        Site {
+            routes,
+            templater: Box::new(templater_fn),
+        }
     }
 }
