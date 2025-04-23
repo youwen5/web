@@ -1,0 +1,40 @@
+name: Build site and push to GH pages
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  build-nix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: nix build --accept-flake-config
+      - name: Artifact pages
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages
+          path: result/dist
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: [build-nix]
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pages
+          path: result
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v4.1.0
+        with:
+          build_dir: result
+          target_branch: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

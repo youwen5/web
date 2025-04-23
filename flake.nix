@@ -80,7 +80,8 @@
           '';
 
           installPhase = ''
-            cp -r dist $out
+            mkdir -p $out
+            cp -r dist $out/dist
           '';
         };
 
