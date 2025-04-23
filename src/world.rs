@@ -1,7 +1,8 @@
 /// Utilities for interacting with and obtaining information from the World.
 use std::{
     collections::HashMap,
-    io::{Error, Read},
+    fs::{self, File},
+    io::{self, Error, Read},
     path::{self, Path, PathBuf},
     process::Command,
 };
@@ -74,8 +75,20 @@ pub fn compile_document(
     }
 }
 
+fn create_file_resilient<P: AsRef<Path>>(path: P) -> io::Result<File> {
+    let path = path.as_ref();
+
+    if let Some(parent_dir) = path.parent() {
+        fs::create_dir_all(parent_dir)?;
+    }
+
+    let file = File::create(path)?;
+
+    Ok(file)
+}
+
 pub struct WorkingDirs {
-    _dist: PathBuf,
+    dist: PathBuf,
     factory: PathBuf,
 }
 
@@ -95,7 +108,7 @@ impl WorkingDirs {
         std::fs::create_dir_all("./dist")?;
         std::fs::create_dir_all("./.apogee")?;
         Ok(WorkingDirs {
-            _dist: dist_path.to_path_buf(),
+            dist: dist_path.to_path_buf(),
             factory: factory_path.to_path_buf(),
         })
     }
@@ -120,7 +133,7 @@ impl WorkingDirs {
         let factory_path = Path::new("./.apogee");
 
         Ok(WorkingDirs {
-            _dist: dist_path.to_path_buf(),
+            dist: dist_path.to_path_buf(),
             factory: factory_path.to_path_buf(),
         })
     }
@@ -168,7 +181,7 @@ impl World {
     /// <html>, <head>, and <body> tags truncated.
     pub fn get_doc_contents(&self, doc: &TypstDoc) -> Result<String, Error> {
         let build_path = self
-            .build_doc(&doc)
+            .build_doc(doc)
             .expect("Something went wrong building a document.");
 
         let mut file = std::fs::File::open(build_path)
@@ -180,7 +193,7 @@ impl World {
         Ok(truncated_source)
     }
 
-    /// Index the `routes` directory in the World, and return a tree representing the route
+    /// Index the `routes` directory in the World, and return a tree representing the raw directory
     /// structure.
     fn index_routes(&self) -> RawRouteTree {
         let routes_dir = self.root.join("./routes");
@@ -190,17 +203,22 @@ impl World {
         walk_dirs(&routes_dir)
     }
 
-    pub fn to_routes(&self) -> Routes {
+    /// Get routes from the world.
+    pub fn get_routes(&self) -> Routes {
         Routes {
             tree: reconcile_raw_routes(&self.index_routes()),
         }
     }
 
+    /// Given a `&Site`, perform all the necessary actions (e.g. running the Typst compiler,
+    /// generating metadata, etc.) and output the artifacts in `dist`.
     pub fn build_site(&self, site: &Site) -> Result<(), Error> {
         self.site_builder_helper(&site.routes.tree, "".to_string(), &site.templater)?;
         Ok(())
     }
 
+    /// Helper function to recursively traverse a tree of routes for implementing `build_site`.
+    /// Renders each document and applies the template rule.
     fn site_builder_helper(
         &self,
         routes: &RouteTree,
@@ -210,12 +228,28 @@ impl World {
         for node in routes.iter() {
             match node {
                 (slug, RouteNode::Page(doc)) => {
-                    let contents = self.get_doc_contents(doc)?;
                     let output_route = match slug.as_str() {
                         "index" => parent_route.clone() + "/",
                         _ => parent_route.clone() + "/" + slug,
                     };
-                    templater(output_route, contents);
+
+                    println!("Rendering {}.", output_route.as_str());
+
+                    let contents = self.get_doc_contents(doc)?;
+                    let rendered = templater(output_route.clone(), contents);
+                    let target_path = match output_route.as_str() {
+                        "/" => self.working_dirs.dist.join(PathBuf::from(
+                            output_route.trim_start_matches("/").to_owned() + "./index",
+                        )),
+                        _ => self
+                            .working_dirs
+                            .dist
+                            .join(PathBuf::from(output_route.trim_start_matches("/"))),
+                    }
+                    .with_extension("html");
+
+                    create_file_resilient(&target_path)?;
+                    std::fs::write(target_path, rendered.as_str())?;
                 }
                 (slug, RouteNode::Nested(nested_tree)) => {
                     self.site_builder_helper(
