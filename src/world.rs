@@ -207,7 +207,7 @@ impl World {
     }
 
     /// Get routes from the world.
-    fn get_routes(&self) -> Routes {
+    pub fn get_routes(&self) -> Routes {
         Routes {
             tree: reconcile_raw_routes(&self.index_routes()),
         }
