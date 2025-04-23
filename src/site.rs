@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, path::PathBuf};
 
 use hypertext::Rendered;
 
@@ -24,8 +24,13 @@ pub type Templater = dyn Fn(String, String) -> Rendered<String>;
 
 /// Representation of a website. Contains routes, a templater for routes, and describes assets.
 pub struct Site {
+    /// Routes of the website. Can be generated from the `routes/` directory by
+    /// `world::World::get_routes`.
     pub routes: Routes,
+    /// A templater function.
     pub templater: Box<Templater>,
+    /// Assets which should be copied over verbatim.
+    pub assets: Vec<PathBuf>,
 }
 
 impl Site {
@@ -36,6 +41,7 @@ impl Site {
         Site {
             routes,
             templater: Box::new(templater_fn),
+            assets: Vec::<PathBuf>::new(),
         }
     }
 }
