@@ -9,6 +9,22 @@ mainly for producing beautiful (PDF) documents, but it can also do HTML output!
 This site generator uses Typst to generate HTML markup which is then inserted
 into HTML templates (written as Rust macros) to produce the final site.
 
+## Build instructions
+
+You need either a Rust toolchain or the Nix package manager. To hack on the
+code, a Rust toolchain is highly recommended in addition to Nix.
+
+With Nix:
+```sh
+nix build
+result/bin/site build
+```
+
+With Cargo:
+```sh
+cargo run --release -- build
+```
+
 ## Apogee
 
 Apogee is a Rust _library_ for writing static site generators centered around
