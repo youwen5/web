@@ -27,7 +27,11 @@ pub struct TypstDoc {
 /// Given a path to an entrypoint `main.typ` and an output location, use the Typst CLI to compile
 /// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
 /// an error will occur.
-pub fn compile_document(input: &path::Path, output: &path::Path) -> Result<(), Error> {
+pub fn compile_document(
+    input: &path::Path,
+    output: &path::Path,
+    root: &path::Path,
+) -> Result<(), Error> {
     let resolved_document = input.canonicalize()?;
     if let Some(dir) = output.parent() {
         if !dir.exists() {
@@ -44,11 +48,7 @@ pub fn compile_document(input: &path::Path, output: &path::Path) -> Result<(), E
         .args(["--format", "html"])
         .args([
             "--root",
-            resolved_document
-                .parent()
-                .unwrap()
-                .to_str()
-                .expect("Could not cast document directory to a string."),
+            root.to_str().expect("could not cast root dir to a string."),
         ])
         .arg(
             resolved_document
@@ -149,7 +149,7 @@ impl World {
             "./{}.html",
             doc.source_path.file_stem().unwrap().to_str().unwrap()
         )));
-        compile_document(&doc.source_path, &output_path)?;
+        compile_document(&doc.source_path, &output_path, &self.root)?;
 
         Ok(output_path)
     }
