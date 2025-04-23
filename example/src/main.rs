@@ -19,5 +19,5 @@ fn main() {
     std::fs::write("./dist/Index.html", &final_html).unwrap();
 
     let the_world = World::new(WorkingDirs::get_dirs().unwrap());
-    println!("{:?}", the_world.index_routes());
+    println!("{:?}", the_world.to_routes());
 }
