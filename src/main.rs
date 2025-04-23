@@ -6,8 +6,8 @@ use apogee::world::{WorkingDirs, World};
 use hypertext::Raw;
 
 fn main() {
-    let mainpage = templates::mainpage::MainPage {};
-    let aboutpage = templates::aboutpage::AboutPage {};
+    let mainpage = templates::MainPage {};
+    let aboutpage = templates::AboutPage {};
 
     let the_world = World::new(WorkingDirs::get_dirs().unwrap());
     let site = Site::new(the_world.get_routes(), move |slug, content| {
