@@ -212,7 +212,7 @@ impl World {
 
     /// Given a `&Site`, perform all the necessary actions (e.g. running the Typst compiler,
     /// generating metadata, etc.) and output the artifacts in `dist`.
-    pub fn build_site(&self, site: &Site) -> Result<(), Error> {
+    pub fn build_routes(&self, site: &Site) -> Result<(), Error> {
         self.site_builder_helper(&site.routes.tree, "".to_string(), &site.templater)?;
         Ok(())
     }
