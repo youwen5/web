@@ -1,7 +1,7 @@
 use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
-pub struct MainPage {}
+pub struct AboutPage {}
 
-impl apogee::templating::Template for MainPage {
+impl apogee::templating::Template for AboutPage {
     fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         maud! {
             !DOCTYPE
@@ -31,7 +31,7 @@ impl apogee::templating::Template for MainPage {
                 }
                 body {
                     h1.important {
-                        "A rendered Typst document"
+                        "About."
                     }
                     div id="typst-injected" {
                         (content)
