@@ -3,6 +3,9 @@
 This is my personal site. It is built using a custom site generator I
 implemented in Rust called `luminite`, located in this repository.
 
+You can view the site at [web.youwen.dev](https://web.youwen.dev), deployed to
+GitHub pages using Nix.
+
 Unlike most site generators, it uses the typesetting system Typst as the
 primary markup language rather than Markdown. Typst is a system like LaTeX
 mainly for producing beautiful (PDF) documents, but it can also do HTML output!
