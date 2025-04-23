@@ -189,19 +189,32 @@ impl World {
     }
 
     pub fn build_site(&self, site: &Site) -> Result<(), Error> {
-        self.site_builder_helper(&site.routes.tree, &site.templater)?;
+        self.site_builder_helper(&site.routes.tree, "".to_string(), &site.templater)?;
         Ok(())
     }
 
-    fn site_builder_helper(&self, routes: &RouteTree, templater: &Templater) -> Result<(), Error> {
+    fn site_builder_helper(
+        &self,
+        routes: &RouteTree,
+        parent_route: String,
+        templater: &Templater,
+    ) -> Result<(), Error> {
         for node in routes.iter() {
             match node {
                 (slug, RouteNode::Page(doc)) => {
                     let contents = self.get_doc_contents(doc)?;
-                    templater(slug, contents);
+                    let output_route = match slug.as_str() {
+                        "index" => parent_route.clone() + "/",
+                        _ => parent_route.clone() + "/" + slug,
+                    };
+                    templater(output_route, contents);
                 }
                 (slug, RouteNode::Nested(nested_tree)) => {
-                    self.site_builder_helper(nested_tree, templater)?;
+                    self.site_builder_helper(
+                        nested_tree,
+                        parent_route.clone() + "/" + slug,
+                        templater,
+                    )?;
                 }
             }
         }
