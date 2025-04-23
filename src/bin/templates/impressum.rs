@@ -27,7 +27,7 @@ impl luminite::templating::Template for Impressum {
                     // meta name="twitter:description" content=(DESCRIPTION);
                     // meta name="twitter:image" content=(&*image_path);
 
-                    link rel="stylesheet" href="/style.css";
+                    link rel="stylesheet" href="/bundle.css";
                 }
                 body class="main-content" {
                     div class="navbar" {

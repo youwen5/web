@@ -1,0 +1,124 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* redaction-latin-400-italic */
+@font-face {
+  font-family: 'Redaction';
+  font-style: italic;
+  font-display: auto;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-italic.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-italic.woff) format('woff');
+}
+
+/* redaction-latin-700-italic */
+@font-face {
+  font-family: 'Redaction';
+  font-style: italic;
+  font-display: auto;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-italic.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-italic.woff) format('woff');
+}
+/* redaction-latin-400-normal */
+@font-face {
+  font-family: 'Redaction';
+  font-style: normal;
+  font-display: auto;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-normal.woff) format('woff');
+}
+
+/* redaction-latin-700-normal */
+@font-face {
+  font-family: 'Redaction';
+  font-style: normal;
+  font-display: auto;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-normal.woff) format('woff');
+}
+
+:root {
+  --base-color:            250 244 237;
+  --foreground-color:      87  82 121;
+  --surface-color:         255 250 243;
+  --overlay-color:         242 233 225;
+  --muted-color:           152 147 165;
+  --subtle-color:          121 117 147;
+  --love-color:            180  99 122;
+  --rose-color:            215 130 126;
+  --pine-color:            40  105 131;
+  --foam-color:            86  148 159;
+  --iris-color:            144 122 169;
+  --gold-color:            234 157  52;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base-color:            35  33  54;
+    --foreground-color:      224 222 244;
+    --surface-color:         42  39  63;
+    --overlay-color:         57  53  82;
+    --muted-color:           110 106 134;
+    --subtle-color:          144 140 170;
+    --love-color:            235 111 146;
+    --rose-color:            234 154 151;
+    --pine-color:            62  143 176;
+    --foam-color:            156 207 216;
+    --iris-color:            196 167 231;
+    --gold-color:            246 193 119;
+  }
+}
+
+/* :root[class~="dark"] { */
+/*   --base-color:            35  33  54; */
+/*   --foreground-color:      224 222 244; */
+/*   --surface-color:         42  39  63; */
+/*   --overlay-color:         57  53  82; */
+/*   --muted-color:           110 106 134; */
+/*   --subtle-color:          144 140 170; */
+/*   --love-color:            235 111 146; */
+/*   --rose-color:            234 154 151; */
+/*   --pine-color:            62  143 176; */
+/*   --foam-color:            156 207 216; */
+/*   --iris-color:            196 167 231; */
+/*   --gold-color:            246 193 119; */
+/* } */
+
+/* ─── theme-aware color definitions ─────────────────────────────────── */
+@theme inline {
+  --color-base:            rgb(var(--base-color));
+  --color-foreground:      rgb(var(--foreground-color));
+  --color-surface:         rgb(var(--surface-color));
+  --color-overlay:         rgb(var(--overlay-color));
+  --color-muted:           rgb(var(--muted-color));
+  --color-subtle:          rgb(var(--subtle-color));
+  --color-love:            rgb(var(--love-color));
+  --color-rose:            rgb(var(--rose-color));
+  --color-pine:            rgb(var(--pine-color));
+  --color-foam:            rgb(var(--foam-color));
+  --color-iris:            rgb(var(--iris-color));
+  --color-gold:            rgb(var(--gold-color));
+}
+
+@theme {
+  --font-serif: "Redaction", sans-serif;
+}
+
+.small-caps {
+  font-variant: all-small-caps;
+}
+
+body {
+  @apply font-serif text-foreground bg-base;
+}
+
+a {
+  @apply underline decoration-solid decoration-2 underline-offset-2 hover:text-love decoration-love;
+}
+
+.navbar {
+  @apply border-b border-solid border-muted mb-4 flex justify-between items-center gap-4;
+}
+
+.main-content {
+  @apply max-w-2xl mx-auto px-4 prose-lg lg:prose-xl;
+}

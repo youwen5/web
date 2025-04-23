@@ -28,6 +28,8 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
+        pnpm = pkgs.pnpm;
+
         craneLib = crane.mkLib pkgs;
 
         # Common arguments can be set here to avoid repeating them later
@@ -134,13 +136,17 @@
           # MY_CUSTOM_DEVELOPMENT_VAR = "something else";
 
           # Extra inputs can be added here; cargo and rustc are provided by default.
-          packages = with pkgs; [
-            # pkgs.ripgrep
-            rust-analyzer
-            rustfmt
-            clippy
-            typst
-          ];
+          packages =
+            [ pnpm ]
+            ++ (with pkgs; [
+              # pkgs.ripgrep
+              rust-analyzer
+              rustfmt
+              clippy
+              typst
+              tailwindcss-language-server
+              nodejs
+            ]);
         };
       }
     );

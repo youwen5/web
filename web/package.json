@@ -1,0 +1,21 @@
+{
+  "name": "luminite",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "GPL-v3",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@tailwindcss/postcss": "^4.1.4",
+    "postcss": "^8.5.3",
+    "postcss-minify": "^1.1.0",
+    "rollup": "^4.40.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^4.1.4"
+  }
+}
