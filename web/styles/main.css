@@ -120,5 +120,5 @@ a {
 }
 
 .main-content {
-  @apply max-w-2xl mx-auto px-4 prose-lg lg:prose-xl;
+  @apply max-w-3xl mx-auto px-4 prose-lg lg:prose-xl;
 }

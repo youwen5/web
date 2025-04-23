@@ -59,6 +59,32 @@
           }
         );
 
+        web-assets = pkgs.stdenv.mkDerivation (finalAttrs: {
+          pname = "web-assets";
+          version = "unstable";
+
+          src = ./web;
+
+          pnpmDeps = pnpm.fetchDeps {
+            inherit (finalAttrs) pname version src;
+            hash = "sha256-Gao17MHn/sj0TGTQpVBpeTLkJjz3XAf65Jn1bvMs4R0=";
+          };
+
+          nativeBuildInputs = [
+            pkgs.nodejs
+            pnpm.configHook
+          ];
+
+          buildPhase = ''
+            ln -s ${finalAttrs.pnpmDeps} node_modules
+            pnpm build
+          '';
+
+          installPhase = ''
+            cp -r dist $out
+          '';
+        });
+
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix;
       in
       {
@@ -83,6 +109,7 @@
 
           installPhase = ''
             mkdir -p $out
+            cp -r ${web-assets}/* dist/
             cp -r dist $out/dist
           '';
         };
