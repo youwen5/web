@@ -16,8 +16,13 @@ pub struct Routes {
     pub tree: RouteTree,
 }
 
+/// A templater function, `URL -> TypstContent -> Rendered`. The consumer should implement this
+/// function. Given a URL, the function can (optionally) match on it and then render the
+/// TypstContent (which a string) into an HTML document (using `maud!`). They should return the
+/// `Rendered<String>` which will then be written into the correct place in `dist/`.
 pub type Templater = dyn Fn(String, String) -> Rendered<String>;
 
+/// Representation of a website. Contains routes, a templater for routes, and describes assets.
 pub struct Site {
     pub routes: Routes,
     pub templater: Box<Templater>,
