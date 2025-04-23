@@ -19,5 +19,5 @@ fn main() {
         };
         rendered
     });
-    the_world.build_site(&site).unwrap();
+    the_world.build_routes(&site).unwrap();
 }
