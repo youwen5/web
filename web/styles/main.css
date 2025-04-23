@@ -116,11 +116,3 @@ body {
 a {
   @apply underline decoration-solid decoration-2 underline-offset-2 hover:text-love decoration-love;
 }
-
-.navbar {
-  @apply border-b border-solid border-muted mb-4 flex justify-between items-center gap-4;
-}
-
-.main-content {
-  @apply max-w-3xl mx-auto px-4 prose-lg lg:prose-xl;
-}
