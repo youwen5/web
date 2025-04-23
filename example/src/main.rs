@@ -23,7 +23,7 @@ fn main() {
     let the_world = World::new(WorkingDirs::get_dirs().unwrap());
     let site = Site::new(the_world.to_routes(), move |slug, content| {
         let rendered = mainpage.render_page_with_content(Raw(content));
-        println!("{}", rendered.as_str());
+        println!("{}", slug);
         rendered
     });
     the_world.build_site(&site).unwrap();

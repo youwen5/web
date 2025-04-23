@@ -16,7 +16,7 @@ pub struct Routes {
     pub tree: RouteTree,
 }
 
-pub type Templater = dyn Fn(&String, String) -> Rendered<String>;
+pub type Templater = dyn Fn(String, String) -> Rendered<String>;
 
 pub struct Site {
     pub routes: Routes,
@@ -26,7 +26,7 @@ pub struct Site {
 impl Site {
     pub fn new<F>(routes: Routes, templater_fn: F) -> Self
     where
-        F: Fn(&String, String) -> Rendered<String> + 'static,
+        F: Fn(String, String) -> Rendered<String> + 'static,
     {
         Site {
             routes,
