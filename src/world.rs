@@ -211,24 +211,31 @@ pub struct Routes {
     tree: RouteTree,
 }
 
+/// Takes the raw tree structure of the routes directory and walks through it, throwing away
+/// anything that isn't a route, and turning page nodes into valid `TypstDoc` objects.
 fn reconcile_raw_routes(tree: &RawRouteTree) -> RouteTree {
     let mut new_tree: RouteTree = RouteTree::new();
 
     for node in tree.iter() {
         match node {
             (filename, RawRouteNode::Dir(dir)) => {
-                new_tree.insert(
-                    filename.clone(),
-                    RouteNode::Nested(reconcile_raw_routes(dir)),
-                );
+                let nested_node = reconcile_raw_routes(dir);
+                if !nested_node.is_empty() {
+                    new_tree.insert(
+                        filename.clone(),
+                        RouteNode::Nested(reconcile_raw_routes(dir)),
+                    );
+                }
             }
             (filename, RawRouteNode::File(file)) => {
-                new_tree.insert(
-                    filename.clone(),
-                    RouteNode::Page(
-                        TypstDoc::new(file).expect("Error failed parsing routes tree."),
-                    ),
-                );
+                if file.extension().is_some_and(|ext| ext == "typ") && filename.starts_with('+') {
+                    new_tree.insert(
+                        filename.strip_prefix("+").unwrap().to_string(),
+                        RouteNode::Page(
+                            TypstDoc::new(file).expect("Error failed parsing routes tree."),
+                        ),
+                    );
+                }
             }
         }
     }

@@ -8,7 +8,7 @@ fn main() {
     let working_dirs = world::WorkingDirs::get_dirs().unwrap();
     let mut the_world = World::new(working_dirs);
 
-    let mut doc = world::TypstDoc::new(Path::new("./routes/About.typ")).unwrap();
+    let mut doc = world::TypstDoc::new(Path::new("./routes/+About.typ")).unwrap();
 
     the_world.realize_doc(&mut doc).unwrap();
     let doc_raw = the_world.get_doc_contents(doc).unwrap();
