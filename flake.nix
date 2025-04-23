@@ -63,12 +63,14 @@
           pname = "web-assets";
           version = "unstable";
 
-          src = ./web;
+          src = ./.;
 
           pnpmDeps = pnpm.fetchDeps {
             inherit (finalAttrs) pname version src;
             hash = "sha256-Gao17MHn/sj0TGTQpVBpeTLkJjz3XAf65Jn1bvMs4R0=";
           };
+
+          pnpmRoot = "web";
 
           nativeBuildInputs = [
             pkgs.nodejs
@@ -76,6 +78,7 @@
           ];
 
           buildPhase = ''
+            cd web
             ln -s ${finalAttrs.pnpmDeps} node_modules
             pnpm build
           '';
