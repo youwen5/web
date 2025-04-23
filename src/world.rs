@@ -108,6 +108,7 @@ pub struct World {
     root: PathBuf,
 }
 
+#[derive(Debug)]
 pub struct TypstDoc {
     source_path: PathBuf,
     pub compiled_path: Option<PathBuf>,
@@ -183,28 +184,71 @@ impl World {
 
     /// Index the `routes` directory in the World, and return a tree representing the route
     /// structure.
-    pub fn index_routes(&self) -> RouteTree {
+    fn index_routes(&self) -> RawRouteTree {
         let routes_dir = self.root.join("./routes");
         if !routes_dir.exists() {
             panic!("Routes folder was not found!");
         }
         walk_dirs(&routes_dir)
     }
+
+    pub fn to_routes(&self) -> Routes {
+        Routes {
+            tree: reconcile_raw_routes(&self.index_routes()),
+        }
+    }
+}
+
+pub type RouteTree = HashMap<String, RouteNode>;
+#[derive(Debug)]
+pub enum RouteNode {
+    Page(TypstDoc),
+    Nested(RouteTree),
+}
+
+#[derive(Debug)]
+pub struct Routes {
+    tree: RouteTree,
+}
+
+fn reconcile_raw_routes(tree: &RawRouteTree) -> RouteTree {
+    let mut new_tree: RouteTree = RouteTree::new();
+
+    for node in tree.iter() {
+        match node {
+            (filename, RawRouteNode::Dir(dir)) => {
+                new_tree.insert(
+                    filename.clone(),
+                    RouteNode::Nested(reconcile_raw_routes(dir)),
+                );
+            }
+            (filename, RawRouteNode::File(file)) => {
+                new_tree.insert(
+                    filename.clone(),
+                    RouteNode::Page(
+                        TypstDoc::new(file).expect("Error failed parsing routes tree."),
+                    ),
+                );
+            }
+        }
+    }
+
+    new_tree
 }
 
 /// A tree structure representing the `routes` directory.
-pub type RouteTree = HashMap<String, RouteNode>;
+type RawRouteTree = HashMap<String, RawRouteNode>;
 
 /// A node in `RouteTree`. Either a file or a directory that contains a nested tree.
 #[derive(Debug)]
-pub enum RouteNode {
+enum RawRouteNode {
     File(PathBuf),
-    Dir(RouteTree),
+    Dir(RawRouteTree),
 }
 
 /// Helper function to recursively walk down the `routes` directory.
-fn walk_dirs(dir: &Path) -> RouteTree {
-    let mut tree: HashMap<String, RouteNode> = HashMap::new();
+fn walk_dirs(dir: &Path) -> RawRouteTree {
+    let mut tree: HashMap<String, RawRouteNode> = HashMap::new();
     for entry in dir
         .read_dir()
         .expect("Error while walking routes: the directory doesn't exist!")
@@ -219,7 +263,7 @@ fn walk_dirs(dir: &Path) -> RouteTree {
                     .to_str()
                     .unwrap()
                     .to_string(),
-                RouteNode::Dir(walk_dirs(&path)),
+                RawRouteNode::Dir(walk_dirs(&path)),
             );
         } else {
             tree.insert(
@@ -229,7 +273,7 @@ fn walk_dirs(dir: &Path) -> RouteTree {
                     .to_str()
                     .unwrap()
                     .to_string(),
-                RouteNode::File(path.canonicalize().unwrap()),
+                RawRouteNode::File(path.canonicalize().unwrap()),
             );
         }
     }
