@@ -7,7 +7,7 @@ use std::{
     process::Command,
 };
 
-use tracing::{Level, event};
+use tracing::{event, Level};
 
 use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
 

@@ -13,6 +13,8 @@
     ".direnv/*"
     ".envrc"
     "dist/"
+    "pnpm-lock.yaml"
+    "web/pnpm-lock.yaml"
     ".luminite/"
   ];
 }

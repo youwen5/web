@@ -1,4 +1,4 @@
-use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
+use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
 pub struct Blog {}
 
 impl luminite::templating::Template for Blog {
