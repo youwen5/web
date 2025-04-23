@@ -8,6 +8,7 @@ use hypertext::Raw;
 fn main() {
     let mainpage = templates::MainPage {};
     let aboutpage = templates::AboutPage {};
+    let blog = templates::Blog {};
 
     let the_world = World::new(WorkingDirs::get_dirs().unwrap());
     let site = Site::new(the_world.get_routes(), move |slug, content| {
@@ -15,6 +16,7 @@ fn main() {
         let rendered = match slug.as_str() {
             "/" => mainpage.render_page_with_content(raw_content),
             "/about" => aboutpage.render_page_with_content(raw_content),
+            "/blog" => blog.render_page_with_content(raw_content),
             _ => mainpage.render_page_with_content(raw_content),
         };
         rendered
