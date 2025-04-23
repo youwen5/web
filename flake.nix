@@ -65,20 +65,22 @@
           formatting = treefmtEval.config.build.check self;
         };
 
-        # doesn't work right now because we have to provide Typst packages, or else we get network error
         packages.default = pkgs.stdenv.mkDerivation {
           name = "site";
 
           src = ./.;
 
-          nativeBuildInputs = [ self.packages.${system}.luminite ];
+          nativeBuildInputs = [
+            self.packages.${system}.luminite
+            pkgs.typst
+          ];
 
           buildPhase = ''
             site build
           '';
 
           installPhase = ''
-            cp -r dist result
+            cp -r dist $out
           '';
         };
 
