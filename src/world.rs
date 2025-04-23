@@ -7,6 +7,8 @@ use std::{
     process::Command,
 };
 
+use tracing::{Level, event};
+
 use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
 
 impl TypstDoc {
@@ -196,6 +198,7 @@ impl World {
     /// Index the `routes` directory in the World, and return a tree representing the raw directory
     /// structure.
     fn index_routes(&self) -> RawRouteTree {
+        event!(Level::INFO, "Indexing routes...");
         let routes_dir = self.root.join("./routes");
         if !routes_dir.exists() {
             panic!("Routes folder was not found!");
@@ -233,7 +236,7 @@ impl World {
                         _ => parent_route.clone() + "/" + slug,
                     };
 
-                    println!("Rendering {}.", output_route.as_str());
+                    event!(Level::INFO, "Compiling {}.", output_route.as_str());
 
                     let contents = self.get_doc_contents(doc)?;
                     let rendered = templater(output_route.clone(), contents);

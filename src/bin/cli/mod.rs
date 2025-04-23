@@ -1,11 +1,13 @@
-mod templates;
-
-use apogee::site::Site;
-use apogee::templating::Template;
-use apogee::world::{WorkingDirs, World};
+use apogee::{
+    site::Site,
+    templating::Template,
+    world::{WorkingDirs, World},
+};
 use hypertext::Raw;
 
-fn main() {
+use crate::templates;
+
+pub fn run() {
     let mainpage = templates::MainPage {};
     let aboutpage = templates::AboutPage {};
     let blog = templates::Blog {};
