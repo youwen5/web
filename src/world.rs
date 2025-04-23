@@ -68,11 +68,13 @@ pub fn compile_document(
     match typst.wait() {
         Ok(_) => Ok(()),
         Err(err) => {
-            panic!(
+            event!(
+                Level::ERROR,
                 "Tried to compile {}, but I failed with the error {}. Are you sure that Typst is in $PATH?",
                 input.to_str().unwrap(),
                 err,
             );
+            panic!();
         }
     }
 }
@@ -201,7 +203,8 @@ impl World {
         event!(Level::INFO, "Indexing routes...");
         let routes_dir = self.root.join("./routes");
         if !routes_dir.exists() {
-            panic!("Routes folder was not found!");
+            event!(Level::ERROR, "Routes folder was not found!");
+            panic!();
         }
         walk_dirs(&routes_dir)
     }
