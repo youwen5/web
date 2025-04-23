@@ -2,7 +2,7 @@ use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 pub struct MainPageTemplate {}
 
 impl apogee::templating::Template for MainPageTemplate {
-    fn populate_with_generated_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
+    fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         maud! {
             !DOCTYPE
             html lang="en" {
