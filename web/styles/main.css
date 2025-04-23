@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@source "../../src";
+@source "../../routes";
 @plugin "@tailwindcss/typography";
 
 /* redaction-latin-400-italic */

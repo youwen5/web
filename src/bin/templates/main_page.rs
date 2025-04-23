@@ -1,4 +1,4 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
+use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 pub struct MainPage {}
 
 impl luminite::templating::Template for MainPage {
@@ -29,16 +29,18 @@ impl luminite::templating::Template for MainPage {
 
                     link rel="stylesheet" href="/bundle.css";
                 }
-                body class="main-content" {
+                body {
                     div class="navbar" {
-                        p style="font-weight: bold; font-size: 2em; margin-top: 10px; margin-bottom: 2px;" {"Youwen Wu"}
-                        div style="padding-top: 10px;" {
-                            a style="font-size: 1.2em; margin-left: 14px;" href="/" {"Home"}
-                            a style="font-size: 1.2em; margin-left: 14px;" href="/impressum" {"Impressum"}
+                        p class="font-bold text-xl" {"Youwen Wu"}
+                        div class="pt-4 space-x-2" {
+                            a class="text-lg" href="/" {"Home"}
+                            a class="text-lg" href="/impressum" {"Impressum"}
                         }
                     }
-                    div id="typst-injected" {
-                        (content)
+                    div class="main-content" {
+                        div id="typst-injected" {
+                            (content)
+                        }
                     }
                 }
             }
