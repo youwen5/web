@@ -28,18 +28,18 @@ pub fn run() {
 
     match &cli.command {
         Commands::Build => {
-            let mainpage = templates::MainPage {};
-            let aboutpage = templates::AboutPage {};
+            let main_page = templates::MainPage {};
+            let about_page = templates::AboutPage {};
             let blog = templates::Blog {};
 
             let the_world = World::new(WorkingDirs::get_dirs().unwrap());
             let site = Site::new(the_world.get_routes(), move |slug, content| {
                 let raw_content = Raw(content);
                 let rendered = match slug.as_str() {
-                    "/" => mainpage.render_page_with_content(raw_content),
-                    "/about" => aboutpage.render_page_with_content(raw_content),
+                    "/" => main_page.render_page_with_content(raw_content),
+                    "/about" => about_page.render_page_with_content(raw_content),
                     "/blog" => blog.render_page_with_content(raw_content),
-                    _ => mainpage.render_page_with_content(raw_content),
+                    _ => main_page.render_page_with_content(raw_content),
                 };
                 rendered
             });
