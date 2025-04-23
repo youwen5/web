@@ -1,7 +1,9 @@
 name: Build site and push to GH pages
 
 on:
-  push: main
+  push:
+    branches:
+      - main
 
 jobs:
   build-nix:
