@@ -29,8 +29,8 @@ pub struct Site {
     pub routes: Routes,
     /// A templater function.
     pub templater: Box<Templater>,
-    /// Assets which should be copied over verbatim. **WILL** overwrite anything compiled from
-    /// templates!
+    /// Assets which should be copied over verbatim. **WILL BE** overwriten by anything compiled
+    /// from templates!
     pub public_dir: PathBuf,
 }
 

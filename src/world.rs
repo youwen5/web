@@ -226,9 +226,11 @@ impl World {
             panic!();
         }
 
+        event!(Level::INFO, "Copying assets over from public/");
+
         dircpy::CopyBuilder::new(
             &site.public_dir,
-            self.working_dirs.dist.join(Path::new("./public")),
+            self.working_dirs.dist.join(Path::new("./.")),
         )
         .overwrite_if_newer(true)
         .overwrite_if_size_differs(true)
@@ -239,6 +241,7 @@ impl World {
     }
 
     pub fn realize_site(&self, site: &Site) -> Result<(), Error> {
+        self.copy_public_dir(site)?;
         self.build_routes(site)?;
 
         Ok(())
