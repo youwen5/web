@@ -5,6 +5,7 @@ use apogee::templating::Template;
 use apogee::world::{self, WorkingDirs, World};
 use hypertext::Raw;
 use std::path::Path;
+use templates::aboutpage;
 
 fn main() {
     // let working_dirs = world::WorkingDirs::get_dirs().unwrap();
@@ -14,7 +15,8 @@ fn main() {
     //
     // the_world.realize_doc(&mut doc).unwrap();
     // let doc_raw = the_world.get_doc_contents(doc).unwrap();
-    let mainpage = templates::mainpage::MainPageTemplate {};
+    let mainpage = templates::mainpage::MainPage {};
+    let aboutpage = templates::aboutpage::AboutPage {};
     // let final_html: String = mainpage
     //     .populate_with_generated_content(hypertext::Raw(doc_raw))
     //     .into();
@@ -22,8 +24,13 @@ fn main() {
 
     let the_world = World::new(WorkingDirs::get_dirs().unwrap());
     let site = Site::new(the_world.to_routes(), move |slug, content| {
-        let rendered = mainpage.render_page_with_content(Raw(content));
-        println!("{}", slug);
+        let raw_content = Raw(content);
+        let rendered = match slug.as_str() {
+            "/" => mainpage.render_page_with_content(raw_content),
+            "/about" => aboutpage.render_page_with_content(raw_content),
+            _ => mainpage.render_page_with_content(raw_content),
+        };
+        println!("{:?}", rendered);
         rendered
     });
     the_world.build_site(&site).unwrap();
