@@ -12,5 +12,7 @@
   settings.global.excludes = [
     ".direnv/*"
     ".envrc"
+    "dist/"
+    ".luminite/"
   ];
 }

@@ -1,7 +1,7 @@
 use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 pub struct Blog {}
 
-impl apogee::templating::Template for Blog {
+impl luminite::templating::Template for Blog {
     fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         maud! {
             !DOCTYPE

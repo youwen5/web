@@ -1,5 +1,5 @@
-use apogee::templating::Template;
-use hypertext::{html_elements, maud, Renderable, Rendered};
+use hypertext::{Renderable, Rendered, html_elements, maud};
+use luminite::templating::Template;
 
 struct TestTemplate {}
 impl Template for TestTemplate {

@@ -1,4 +1,4 @@
-# Apogee
+# Luminite
 
 This is a system for building a static site generator using Typst as the
 primary way of setting content.
@@ -30,6 +30,7 @@ centered around Typst. Thus all configuration will be done in Rust files.
 - [ ] Set up a templating system that can embed the HTML (see [hypertext](https://github.com/vidhanio/hypertext)).
 - [ ] Set up TailwindCSS and a nice Big Beautiful Stylesheet.
 - [ ] Figure out how to do metadata...should be able to extract it from Typst source files?
+- [ ] "nested" templating for implementing Navbar.
 
 ## Wishlist
 

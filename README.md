@@ -1,7 +1,7 @@
 # Youwen's website
 
 This is my personal site. It is built using a custom site generator I
-implemented in Rust called Apogee, located in this repository.
+implemented in Rust called `luminite`, located in this repository.
 
 Unlike most site generators, it uses the typesetting system Typst as the
 primary markup language rather than Markdown. Typst is a system like LaTeX
@@ -25,9 +25,9 @@ With Cargo:
 cargo run --release -- build
 ```
 
-## Apogee
+## Luminited
 
-Apogee is a Rust _library_ for writing static site generators centered around
+`luminite` is a Rust _library_ for writing static site generators centered around
 Typst. It is not a batteries-included unified program controlled by
 configuration files like e.g. Hexo, Jekyll, etc. It is somewhere in between
 Hakyll and a more traditional site generator. It provides abstractions for
