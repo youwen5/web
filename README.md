@@ -1,4 +1,4 @@
-# Youwen's website
+# About
 
 This is my personal site. It is built using a custom site generator I
 implemented in Rust called `luminite`, located in this repository.
