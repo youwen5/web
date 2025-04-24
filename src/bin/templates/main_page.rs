@@ -4,8 +4,8 @@ pub struct MainPage {}
 impl luminite::templating::Template for MainPage {
     fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         let nav_items = maud! {
-            nav class="space-y-4 text-2xl" {
-                ul {
+            nav class="space-y-4 text-2xl mt-4" {
+                ul class="space-y-2" {
                     li {a href="/" {"Home"}}
                     li {a href="/impressum" {"Impressum"}}
                 }
