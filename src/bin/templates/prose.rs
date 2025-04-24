@@ -1,7 +1,7 @@
 use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
-pub struct Blog {}
+pub struct Prose {}
 
-impl luminite::templating::Template for Blog {
+impl luminite::templating::Template for Prose {
     fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         let nav_items = maud! {
             nav class="space-y-4 text-2xl mt-4" {

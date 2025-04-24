@@ -30,7 +30,7 @@ pub fn run() {
         Commands::Build => {
             let main_page = templates::MainPage {};
             let about_page = templates::AboutPage {};
-            let blog = templates::Blog {};
+            let prose = templates::Prose {};
             let impressum = templates::Impressum {};
 
             let the_world = World::new(WorkingDirs::get_dirs().unwrap());
@@ -39,7 +39,7 @@ pub fn run() {
                 let rendered = match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content),
                     "/about" => about_page.render_page_with_content(raw_content),
-                    "/math-test" => blog.render_page_with_content(raw_content),
+                    "/math-test" => prose.render_page_with_content(raw_content),
                     "/impressum" => impressum.render_page_with_content(raw_content),
                     _ => main_page.render_page_with_content(raw_content),
                 };
