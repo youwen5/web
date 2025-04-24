@@ -94,6 +94,29 @@
           });
 
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix;
+
+        typst-packages = pkgs.fetchFromGitHub {
+          owner = "typst";
+          repo = "packages";
+          rev = "e851e6d6638e47ec73aeee04d6a808cf8f72df38";
+          hash = "sha256-dzZk2wDjJGYTGp0EKRyf9qNu9aBlOFwI2ME/ZCPScqs=";
+          sparseCheckout = [
+            "packages/preview/cetz/0.3.4"
+            "packages/preview/oxifmt/0.2.1"
+          ];
+        };
+
+        typstPackagesSrc = "${typst-packages}/packages";
+
+        typstPackagesCache = pkgs.stdenv.mkDerivation {
+          name = "typst-packages-cache";
+          src = typstPackagesSrc;
+          dontBuild = true;
+          installPhase = ''
+            mkdir -p "$out/typst/packages"
+            cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
+          '';
+        };
       in
       {
         checks = {
@@ -110,6 +133,8 @@
             self.packages.${system}.luminite
             pkgs.typst
           ];
+
+          XDG_CACHE_HOME = typstPackagesCache;
 
           buildPhase = ''
             site build
