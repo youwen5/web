@@ -27,7 +27,9 @@ Let $f : S -> V$ is a map. Let $tau_f$ be a linear map that satisfies $tau_f
 Suppose there was another linear map, $tau'_f$, where
 $tau'_f (u_i) = f(u_i)$ for all $i = 1,...,n$. Because $S$ is a basis, the representation $x = lambda_1 u_1 + dots.c + lambda_n u_n$ is unique, so $tau'_f (x) = lambda_1 tau'_f (u_1) + dots.c + lambda_n tau'_f (u_n) = lambda_1 f(u_1) + dots.c + lambda_n f(u_n)$. So $forall x in U$, $tau_f (x) = tau'_f (x)$ and $tau_f = tau'_f$.
 
-== And we can even render graphs
+== And we can even render graphics
+
+This is not an image. It is generated at compile time by CeTZ code (best results in light mode). Although text is not fully rendered properly, this is just a proof-of-concept.
 
 #figure(
   cetz.canvas({
