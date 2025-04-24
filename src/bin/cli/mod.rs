@@ -39,7 +39,7 @@ pub fn run() {
                 let rendered = match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content),
                     "/about" => about_page.render_page_with_content(raw_content),
-                    "/blog" => blog.render_page_with_content(raw_content),
+                    "/math-test" => blog.render_page_with_content(raw_content),
                     "/impressum" => impressum.render_page_with_content(raw_content),
                     _ => main_page.render_page_with_content(raw_content),
                 };
