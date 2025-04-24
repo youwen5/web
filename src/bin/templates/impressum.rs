@@ -1,11 +1,11 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
+use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 pub struct Impressum {}
 
 impl luminite::templating::Template for Impressum {
     fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         let nav_items = maud! {
-            nav class="space-y-4 text-2xl" {
-                ul {
+            nav class="space-y-4 text-2xl mt-4" {
+                ul class="space-y-2" {
                     li {a href="/" {"Home"}}
                     li {a href="/impressum" {"Impressum"}}
                 }
