@@ -24,7 +24,7 @@ jobs:
           github-token: ${{ secrets.GH_TOKEN }}
       - uses: cachix/cachix-action@v16
         with:
-          name: suntheme
+          name: luminite
           authToken: "${{ secrets.CACHIX_TOKEN }}"
       - run: nix build .#full --accept-flake-config
       - name: Setup Pages
