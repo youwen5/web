@@ -133,7 +133,7 @@
         };
 
         # the actual site, with the fonts bundled within
-        packages.default = self.packages.${system}.without-fonts.overrideAttrs (
+        packages.full = self.packages.${system}.default.overrideAttrs (
           finalAttrs: prevAttrs: {
             name = "site";
 
@@ -148,7 +148,7 @@
         );
 
         # builds the site without fonts which are in private repo
-        packages.without-fonts = pkgs.stdenv.mkDerivation {
+        packages.default = pkgs.stdenv.mkDerivation {
           name = "site-without-fonts";
 
           src = ./.;

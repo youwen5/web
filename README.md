@@ -14,11 +14,19 @@ into HTML templates (written as Rust macros) to produce the final site.
 
 ## Build instructions
 
-A note: this site uses the
-[Valkyrie](https://mbtype.com/fonts/valkyrie/buy.html) font, which,
-importantly, is _not_ a free font. I paid for this professional font and I am
-licensed to use it. However, I cannot distribute it with the source code.
-Hence, building the site as detailed below will not load the fonts.
+### Note about the font
+
+This site uses the [Valkyrie](https://mbtype.com/fonts/valkyrie/buy.html)
+typeface designed by Matthew Butterick, which, importantly, is _not_ a free
+font. I paid for this professional font and I am licensed to use it. However, I
+cannot distribute it with the source code.
+
+Therefore, `nix build` will _not_ fetch these font files, and the locally built
+artifacts will not contain them. (To build the actual site, I have a derivation
+that overrides and adds a line to copy the fonts over from a private GitHub
+repository. So we still have perfect reproducibility.)
+
+### Instructions
 
 You need either a Rust toolchain or the Nix package manager. To hack on the
 code, a Rust toolchain is highly recommended in addition to Nix.
