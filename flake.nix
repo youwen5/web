@@ -206,4 +206,13 @@
           };
         }
       );
+
+  nixConfig = {
+    extra-substituters = [
+      "https://luminite.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "luminite.cachix.org-1:+VgO/GJMmqsp4U79+QFle7TtEwT8LrJXPiImA8a3a3o="
+    ];
+  };
 }

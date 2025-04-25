@@ -22,6 +22,10 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
+      - uses: cachix/cachix-action@v16
+        with:
+          name: suntheme
+          authToken: "${{ secrets.CACHIX_TOKEN }}"
       - run: nix build .#full --accept-flake-config
       - name: Setup Pages
         uses: actions/configure-pages@v5

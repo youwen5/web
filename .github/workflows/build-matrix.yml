@@ -16,7 +16,6 @@ jobs:
       id-token: write
       contents: read
     with:
-      github-token: ${{ secrets.GH_TOKEN }}
       fail-fast: false
       runner-map: |
         {
