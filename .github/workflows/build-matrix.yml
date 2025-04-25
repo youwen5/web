@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   DeterminateCI:
-    uses: ./determinate-ci.yml
+    uses: ./.github/workflows/determinate-ci.yml
     permissions:
       id-token: write
       contents: read
