@@ -3,39 +3,76 @@
 @source "../../routes";
 @plugin "@tailwindcss/typography";
 
-/* redaction-latin-400-italic */
 @font-face {
-  font-family: 'Redaction';
-  font-style: italic;
-  font-display: auto;
-  font-weight: 400;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-italic.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-italic.woff) format('woff');
+font-family: valkyrie_ot_a;
+font-style: normal;
+font-weight: normal;
+font-stretch: normal;
+font-display: auto;
+src: url('/fonts/valkyrie_ot_a_regular.woff2') format('woff2');
 }
 
-/* redaction-latin-700-italic */
 @font-face {
-  font-family: 'Redaction';
-  font-style: italic;
-  font-display: auto;
-  font-weight: 700;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-italic.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-italic.woff) format('woff');
-}
-/* redaction-latin-400-normal */
-@font-face {
-  font-family: 'Redaction';
-  font-style: normal;
-  font-display: auto;
-  font-weight: 400;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-normal.woff) format('woff');
+font-family: valkyrie_ot_a;
+font-style: italic;
+font-weight: normal;
+font-stretch: normal;
+font-display: auto;
+src: url('/fonts/valkyrie_ot_a_italic.woff2') format('woff2');
 }
 
-/* redaction-latin-700-normal */
 @font-face {
-  font-family: 'Redaction';
-  font-style: normal;
-  font-display: auto;
-  font-weight: 700;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-normal.woff) format('woff');
+font-family: valkyrie_ot_a;
+font-style: normal;
+font-weight: bold;
+font-stretch: normal;
+font-display: auto;
+src: url('/fonts/valkyrie_ot_a_bold.woff2') format('woff2');
+}
+
+@font-face {
+font-family: valkyrie_ot_a;
+font-style: italic;
+font-weight: bold;
+font-stretch: normal;
+font-display: auto;
+src: url('/fonts/valkyrie_ot_a_bold_italic.woff2') format('woff2');
+}
+
+@font-face {
+font-family: valkyrie_ot_b;
+font-style: normal;
+font-weight: normal;
+font-stretch: normal;
+font-display: auto;
+src: url('/fonts/valkyrie_ot_b_regular.woff2') format('woff2');
+}
+
+@font-face {
+font-family: valkyrie_ot_b;
+font-style: italic;
+font-weight: normal;
+font-stretch: normal;
+font-display: auto;
+src: url('/fonts/valkyrie_ot_b_italic.woff2') format('woff2');
+}
+
+@font-face {
+font-family: valkyrie_ot_b;
+font-style: normal;
+font-weight: bold;
+font-stretch: normal;
+font-display: auto;
+src: url('/fonts/valkyrie_ot_b_bold.woff2') format('woff2');
+}
+
+@font-face {
+font-family: valkyrie_ot_b;
+font-style: italic;
+font-weight: bold;
+font-stretch: normal;
+font-display: auto;
+src: url('/fonts/valkyrie_ot_b_bold_italic.woff2') format('woff2');
 }
 
 :root {
@@ -102,7 +139,7 @@
 }
 
 @theme {
-  --font-serif: "Redaction", sans-serif;
+  --font-serif: "valkyrie_ot_b", sans-serif;
 }
 
 .small-caps {
