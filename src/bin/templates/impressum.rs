@@ -1,15 +1,11 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
+use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 pub struct Impressum {}
 
 impl luminite::templating::Template for Impressum {
     fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String> {
         let nav_items = maud! {
-            nav class="space-y-4 text-2xl mt-4" {
-                ul class="space-y-2" {
-                    li {a href="/" {"Home"}}
-                    li {a href="/impressum" {"Impressum"}}
-                }
-            }
+            li {a href="/" {"Home"}}
+            li {a href="/impressum" {"Impressum"}}
         };
 
         maud! {
@@ -41,20 +37,23 @@ impl luminite::templating::Template for Impressum {
                 body class="font-sans antialiased leading-relaxed max-w-[1200px] mx-auto" {
                     div class="flex gap-4 px-4 lg:px-6 lg:mt-20" {
                         aside class="hidden lg:block w-64 flex-none md:sticky lg:top-4 lg:max-h-screen lg:overflow-y-auto" {
-                            p class="font-bold text-[2.5em]" {"Youwen Wu"}
-                            (nav_items)
-                        }
-                        main class="main-content flex-1 lg:mt-2" {
-                            div class="lg:hidden border-b border-solid border-muted mb-4 flex justify-between items-center gap-4"  {
-                                p class="font-bold text-[3em]" {"Youwen Wu"}
-                                details {
-                                    summary class="lg:hidden " {
-                                        "Sitemap"
-                                    }
+                            p class="italic text-[3em]" {"youwen wu"}
+                            nav class="space-y-4 text-2xl mt-4" {
+                                ul class="space-y-2" {
                                     (nav_items)
                                 }
                             }
-                            div id="typst-injected" class="prose-xl lg:prose-2xl" {
+                        }
+                        main class="main-content flex-1 lg:mt-2" {
+                            div class="lg:hidden border-b border-solid border-muted mb-4 flex justify-between items-center gap-4"  {
+                                p class="italic text-[3em]" {"youwen wu"}
+                                nav class="space-y-4 text-2xl" {
+                                    ul class="flex gap-2" {
+                                        (nav_items)
+                                    }
+                                }
+                            }
+                            div id="typst-injected" class="prose-2xl mt-2" {
                                 (content)
                             }
                             footer class="border-t border-solid border-muted mb-4 flex justify-between items-center gap-4 text-lg text-muted py-1 mt-4" {

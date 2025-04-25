@@ -140,9 +140,14 @@
 
 @theme {
   --font-serif: "valkyrie_ot_b", serif;
+  --font-serif-thick: "valkyrie_ot_a", serif;
 }
 
-.small-caps {
+@utility smallcaps {
+  font-variant: small-caps;
+}
+
+@utility all-smallcaps {
   font-variant: all-small-caps;
 }
 
