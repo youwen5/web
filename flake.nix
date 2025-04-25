@@ -173,41 +173,8 @@
 
         packages.luminite = luminite-crate;
 
-        packages.book = pkgs.callPackage (
-          {
-            stdenvNoCC,
-            mdbook,
-          }:
-          stdenvNoCC.mkDerivation {
-            pname = "luminite-book";
-            version = if (self ? rev) then builtins.substring 0 6 self.rev else "unstable";
-
-            src = ./docs;
-
-            nativeBuildInputs = [ mdbook ];
-
-            buildPhase = ''
-              mdbook build
-            '';
-
-            installPhase = ''
-              mkdir -p $out
-              cp -r book/* $out
-            '';
-          }
-        ) { };
-
         apps.default = flake-utils.lib.mkApp {
           drv = luminite-crate;
-        };
-
-        apps.book = {
-          type = "app";
-          program = builtins.toString (
-            pkgs.writeShellScript "serve" ''
-              ${pkgs.live-server}/bin/live-server ${self.packages.${system}.book} --port 8080
-            ''
-          );
         };
 
         formatter = treefmtEval.config.build.wrapper;
