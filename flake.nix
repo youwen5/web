@@ -132,8 +132,24 @@
           formatting = treefmtEval.config.build.check self;
         };
 
-        packages.default = pkgs.stdenv.mkDerivation {
-          name = "site";
+        # the actual site, with the fonts bundled within
+        packages.default = self.packages.${system}.without-fonts.overrideAttrs (
+          finalAttrs: prevAttrs: {
+            name = "site";
+
+            buildPhase =
+              ''
+                # install fonts
+                mkdir -p public/fonts
+                cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 public/fonts
+              ''
+              + prevAttrs.buildPhase;
+          }
+        );
+
+        # builds the site without fonts which are in private repo
+        packages.without-fonts = pkgs.stdenv.mkDerivation {
+          name = "site-without-fonts";
 
           src = ./.;
 
@@ -145,10 +161,6 @@
           XDG_CACHE_HOME = typstPackagesCache;
 
           buildPhase = ''
-            # install fonts
-            mkdir -p public/fonts
-            cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 public/fonts
-
             site build
           '';
 
