@@ -12,6 +12,13 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # this is a professional, licensed font. you'll have to remove or replace
+    # it to build the site locally
+    valkyrie-font = {
+      url = "github:youwen5/valkyrie";
+      flake = false;
+    };
   };
 
   outputs =
@@ -21,6 +28,7 @@
       crane,
       flake-utils,
       treefmt-nix,
+      valkyrie-font,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
@@ -137,6 +145,10 @@
           XDG_CACHE_HOME = typstPackagesCache;
 
           buildPhase = ''
+            # install fonts
+            mkdir -p public/fonts
+            cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 public/fonts
+
             site build
           '';
 

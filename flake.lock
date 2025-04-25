@@ -54,7 +54,8 @@
         "crane": "crane",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
-        "treefmt-nix": "treefmt-nix"
+        "treefmt-nix": "treefmt-nix",
+        "valkyrie-font": "valkyrie-font"
       }
     },
     "systems": {
@@ -89,6 +90,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "valkyrie-font": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745569140,
+        "narHash": "sha256-ruSpAGBHPDW32yurVh3faiYyUXNn86Ssk6ROU+qc1yQ=",
+        "owner": "youwen5",
+        "repo": "valkyrie",
+        "rev": "e009e35c732c4f08336f5a92fa57c63fa18ae75b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "valkyrie",
         "type": "github"
       }
     }
