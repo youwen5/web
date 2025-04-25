@@ -7,6 +7,7 @@
     taplo.enable = true;
     rustfmt.enable = true;
     yamlfmt.enable = true;
+    prettier.enable = true;
   };
 
   settings.global.excludes = [

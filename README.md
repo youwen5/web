@@ -14,10 +14,17 @@ into HTML templates (written as Rust macros) to produce the final site.
 
 ## Build instructions
 
+A note: this site uses the
+[Valkyrie](https://mbtype.com/fonts/valkyrie/buy.html) font, which,
+importantly, is _not_ a free font. I paid for this professional font and I am
+licensed to use it. However, I cannot distribute it with the source code.
+Hence, building the site as detailed below will not load the fonts.
+
 You need either a Rust toolchain or the Nix package manager. To hack on the
 code, a Rust toolchain is highly recommended in addition to Nix.
 
 With Nix:
+
 ```sh
 nix build
 ```
@@ -25,6 +32,7 @@ nix build
 The site will be built in `result/`.
 
 With Cargo:
+
 ```sh
 cargo run --release -- build
 ```

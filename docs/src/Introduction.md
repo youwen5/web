@@ -18,11 +18,11 @@ centered around Typst. Thus all configuration will be done in Rust files.
 ## Started
 
 - [ ] Basic utilities with interacting with the world, e.g. Typst compiler, build intermediate artifacts.
-    - [x] Typst compiler wrapper
-    - [x] Build list of Typst dirs into HTML outputs
-    - [ ] Automatically generate routes using Typst. The rule for this should
-      be a special dir (routes?) where capitalized filename (e.g. `About.typ`)
-      or nested directory (e.g. `about/Me.typ`) indicates routes.
+  - [x] Typst compiler wrapper
+  - [x] Build list of Typst dirs into HTML outputs
+  - [ ] Automatically generate routes using Typst. The rule for this should
+        be a special dir (routes?) where capitalized filename (e.g. `About.typ`)
+        or nested directory (e.g. `about/Me.typ`) indicates routes.
 
 ## Triage
 

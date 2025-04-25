@@ -1,109 +1,109 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @source "../../src";
 @source "../../routes";
 @plugin "@tailwindcss/typography";
 
 @font-face {
-font-family: valkyrie_ot_a;
-font-style: normal;
-font-weight: normal;
-font-stretch: normal;
-font-display: auto;
-src: url('/fonts/valkyrie_ot_a_regular.woff2') format('woff2');
+  font-family: valkyrie_ot_a;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_ot_a_regular.woff2") format("woff2");
 }
 
 @font-face {
-font-family: valkyrie_ot_a;
-font-style: italic;
-font-weight: normal;
-font-stretch: normal;
-font-display: auto;
-src: url('/fonts/valkyrie_ot_a_italic.woff2') format('woff2');
+  font-family: valkyrie_ot_a;
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_ot_a_italic.woff2") format("woff2");
 }
 
 @font-face {
-font-family: valkyrie_ot_a;
-font-style: normal;
-font-weight: bold;
-font-stretch: normal;
-font-display: auto;
-src: url('/fonts/valkyrie_ot_a_bold.woff2') format('woff2');
+  font-family: valkyrie_ot_a;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_ot_a_bold.woff2") format("woff2");
 }
 
 @font-face {
-font-family: valkyrie_ot_a;
-font-style: italic;
-font-weight: bold;
-font-stretch: normal;
-font-display: auto;
-src: url('/fonts/valkyrie_ot_a_bold_italic.woff2') format('woff2');
+  font-family: valkyrie_ot_a;
+  font-style: italic;
+  font-weight: bold;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_ot_a_bold_italic.woff2") format("woff2");
 }
 
 @font-face {
-font-family: valkyrie_ot_b;
-font-style: normal;
-font-weight: normal;
-font-stretch: normal;
-font-display: auto;
-src: url('/fonts/valkyrie_ot_b_regular.woff2') format('woff2');
+  font-family: valkyrie_ot_b;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_ot_b_regular.woff2") format("woff2");
 }
 
 @font-face {
-font-family: valkyrie_ot_b;
-font-style: italic;
-font-weight: normal;
-font-stretch: normal;
-font-display: auto;
-src: url('/fonts/valkyrie_ot_b_italic.woff2') format('woff2');
+  font-family: valkyrie_ot_b;
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_ot_b_italic.woff2") format("woff2");
 }
 
 @font-face {
-font-family: valkyrie_ot_b;
-font-style: normal;
-font-weight: bold;
-font-stretch: normal;
-font-display: auto;
-src: url('/fonts/valkyrie_ot_b_bold.woff2') format('woff2');
+  font-family: valkyrie_ot_b;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_ot_b_bold.woff2") format("woff2");
 }
 
 @font-face {
-font-family: valkyrie_ot_b;
-font-style: italic;
-font-weight: bold;
-font-stretch: normal;
-font-display: auto;
-src: url('/fonts/valkyrie_ot_b_bold_italic.woff2') format('woff2');
+  font-family: valkyrie_ot_b;
+  font-style: italic;
+  font-weight: bold;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_ot_b_bold_italic.woff2") format("woff2");
 }
 
 :root {
-  --base-color:            250 244 237;
-  --foreground-color:      87  82 121;
-  --surface-color:         255 250 243;
-  --overlay-color:         242 233 225;
-  --muted-color:           152 147 165;
-  --subtle-color:          121 117 147;
-  --love-color:            180  99 122;
-  --rose-color:            215 130 126;
-  --pine-color:            40  105 131;
-  --foam-color:            86  148 159;
-  --iris-color:            144 122 169;
-  --gold-color:            234 157  52;
+  --base-color: 250 244 237;
+  --foreground-color: 87 82 121;
+  --surface-color: 255 250 243;
+  --overlay-color: 242 233 225;
+  --muted-color: 152 147 165;
+  --subtle-color: 121 117 147;
+  --love-color: 180 99 122;
+  --rose-color: 215 130 126;
+  --pine-color: 40 105 131;
+  --foam-color: 86 148 159;
+  --iris-color: 144 122 169;
+  --gold-color: 234 157 52;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --base-color:            35  33  54;
-    --foreground-color:      224 222 244;
-    --surface-color:         42  39  63;
-    --overlay-color:         57  53  82;
-    --muted-color:           110 106 134;
-    --subtle-color:          144 140 170;
-    --love-color:            235 111 146;
-    --rose-color:            234 154 151;
-    --pine-color:            62  143 176;
-    --foam-color:            156 207 216;
-    --iris-color:            196 167 231;
-    --gold-color:            246 193 119;
+    --base-color: 35 33 54;
+    --foreground-color: 224 222 244;
+    --surface-color: 42 39 63;
+    --overlay-color: 57 53 82;
+    --muted-color: 110 106 134;
+    --subtle-color: 144 140 170;
+    --love-color: 235 111 146;
+    --rose-color: 234 154 151;
+    --pine-color: 62 143 176;
+    --foam-color: 156 207 216;
+    --iris-color: 196 167 231;
+    --gold-color: 246 193 119;
   }
 }
 
@@ -124,22 +124,22 @@ src: url('/fonts/valkyrie_ot_b_bold_italic.woff2') format('woff2');
 
 /* ─── theme-aware color definitions ─────────────────────────────────── */
 @theme inline {
-  --color-base:            rgb(var(--base-color));
-  --color-foreground:      rgb(var(--foreground-color));
-  --color-surface:         rgb(var(--surface-color));
-  --color-overlay:         rgb(var(--overlay-color));
-  --color-muted:           rgb(var(--muted-color));
-  --color-subtle:          rgb(var(--subtle-color));
-  --color-love:            rgb(var(--love-color));
-  --color-rose:            rgb(var(--rose-color));
-  --color-pine:            rgb(var(--pine-color));
-  --color-foam:            rgb(var(--foam-color));
-  --color-iris:            rgb(var(--iris-color));
-  --color-gold:            rgb(var(--gold-color));
+  --color-base: rgb(var(--base-color));
+  --color-foreground: rgb(var(--foreground-color));
+  --color-surface: rgb(var(--surface-color));
+  --color-overlay: rgb(var(--overlay-color));
+  --color-muted: rgb(var(--muted-color));
+  --color-subtle: rgb(var(--subtle-color));
+  --color-love: rgb(var(--love-color));
+  --color-rose: rgb(var(--rose-color));
+  --color-pine: rgb(var(--pine-color));
+  --color-foam: rgb(var(--foam-color));
+  --color-iris: rgb(var(--iris-color));
+  --color-gold: rgb(var(--gold-color));
 }
 
 @theme {
-  --font-serif: "valkyrie_ot_b", sans-serif;
+  --font-serif: "valkyrie_ot_b", serif;
 }
 
 .small-caps {
