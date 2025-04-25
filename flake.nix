@@ -31,174 +31,179 @@
       valkyrie-font,
       ...
     }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
+    flake-utils.lib.eachSystem
+      [
+        "aarch64-linux"
+        "x86_64-linux"
+      ]
+      (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
 
-        pnpm = pkgs.pnpm_10;
+          pnpm = pkgs.pnpm_10;
 
-        craneLib = crane.mkLib pkgs;
+          craneLib = crane.mkLib pkgs;
 
-        # Common arguments can be set here to avoid repeating them later
-        # Note: changes here will rebuild all dependency crates
-        commonArgs = {
-          src = craneLib.cleanCargoSource ./.;
-          strictDeps = true;
+          # Common arguments can be set here to avoid repeating them later
+          # Note: changes here will rebuild all dependency crates
+          commonArgs = {
+            src = craneLib.cleanCargoSource ./.;
+            strictDeps = true;
 
-          buildInputs =
-            [
-              # Add additional build inputs here
-            ]
-            ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
-              # Additional darwin specific inputs can be set here
-              pkgs.libiconv
+            buildInputs =
+              [
+                # Add additional build inputs here
+              ]
+              ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
+                # Additional darwin specific inputs can be set here
+                pkgs.libiconv
+              ];
+          };
+
+          luminite-crate = craneLib.buildPackage (
+            commonArgs
+            // {
+              cargoArtifacts = craneLib.buildDepsOnly commonArgs;
+
+              # Additional environment variables or build phases/hooks can be set
+              # here *without* rebuilding all dependency crates
+              # MY_CUSTOM_VAR = "some value";
+            }
+          );
+
+          web-assets =
+            let
+              pnpmDeps = pnpm.fetchDeps {
+                pname = "site-pnpm-deps";
+                src = ./web;
+                hash = "sha256-Gao17MHn/sj0TGTQpVBpeTLkJjz3XAf65Jn1bvMs4R0=";
+              };
+            in
+            pkgs.stdenv.mkDerivation (finalAttrs: {
+              pname = "web-assets";
+              version = "unstable";
+
+              src = ./.;
+
+              pnpmRoot = "./web";
+
+              nativeBuildInputs = [
+                pkgs.nodejs
+                pnpm.configHook
+              ];
+
+              inherit pnpmDeps;
+
+              buildPhase = ''
+                cd web
+                ln -s ${pnpmDeps} node_modules
+                pnpm build
+              '';
+
+              installPhase = ''
+                cp -r dist $out
+              '';
+            });
+
+          treefmtEval = treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix;
+
+          typst-packages = pkgs.fetchFromGitHub {
+            owner = "typst";
+            repo = "packages";
+            rev = "e851e6d6638e47ec73aeee04d6a808cf8f72df38";
+            hash = "sha256-dzZk2wDjJGYTGp0EKRyf9qNu9aBlOFwI2ME/ZCPScqs=";
+            sparseCheckout = [
+              "packages/preview/cetz/0.3.4"
+              "packages/preview/oxifmt/0.2.1"
             ];
-        };
+          };
 
-        luminite-crate = craneLib.buildPackage (
-          commonArgs
-          // {
-            cargoArtifacts = craneLib.buildDepsOnly commonArgs;
+          typstPackagesSrc = "${typst-packages}/packages";
 
-            # Additional environment variables or build phases/hooks can be set
-            # here *without* rebuilding all dependency crates
-            # MY_CUSTOM_VAR = "some value";
-          }
-        );
+          typstPackagesCache = pkgs.stdenv.mkDerivation {
+            name = "typst-packages-cache";
+            src = typstPackagesSrc;
+            dontBuild = true;
+            installPhase = ''
+              mkdir -p "$out/typst/packages"
+              cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
+            '';
+          };
+        in
+        {
+          checks = {
+            inherit luminite-crate;
+            formatting = treefmtEval.config.build.check self;
+          };
 
-        web-assets =
-          let
-            pnpmDeps = pnpm.fetchDeps {
-              pname = "site-pnpm-deps";
-              src = ./web;
-              hash = "sha256-Gao17MHn/sj0TGTQpVBpeTLkJjz3XAf65Jn1bvMs4R0=";
-            };
-          in
-          pkgs.stdenv.mkDerivation (finalAttrs: {
-            pname = "web-assets";
-            version = "unstable";
+          # the actual site, with the fonts bundled within
+          packages.full = self.packages.${system}.default.overrideAttrs (
+            finalAttrs: prevAttrs: {
+              name = "site";
+
+              buildPhase =
+                # install licensed fonts from private repo
+                ''
+                  mkdir -p public/fonts
+                  cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 public/fonts
+                ''
+                + prevAttrs.buildPhase;
+            }
+          );
+
+          # builds the site without fonts which are in private repo
+          packages.default = pkgs.stdenv.mkDerivation {
+            name = "site-without-fonts";
 
             src = ./.;
 
-            pnpmRoot = "./web";
-
             nativeBuildInputs = [
-              pkgs.nodejs
-              pnpm.configHook
+              self.packages.${system}.luminite
+              pkgs.typst
             ];
 
-            inherit pnpmDeps;
+            XDG_CACHE_HOME = typstPackagesCache;
 
             buildPhase = ''
-              cd web
-              ln -s ${pnpmDeps} node_modules
-              pnpm build
+              site build
             '';
 
             installPhase = ''
-              cp -r dist $out
+              mkdir -p $out
+              cp -r ${web-assets}/* dist/
+              cp -r dist $out/dist
             '';
-          });
+          };
 
-        treefmtEval = treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix;
+          packages.luminite = luminite-crate;
 
-        typst-packages = pkgs.fetchFromGitHub {
-          owner = "typst";
-          repo = "packages";
-          rev = "e851e6d6638e47ec73aeee04d6a808cf8f72df38";
-          hash = "sha256-dzZk2wDjJGYTGp0EKRyf9qNu9aBlOFwI2ME/ZCPScqs=";
-          sparseCheckout = [
-            "packages/preview/cetz/0.3.4"
-            "packages/preview/oxifmt/0.2.1"
-          ];
-        };
+          apps.default = flake-utils.lib.mkApp {
+            drv = luminite-crate;
+          };
 
-        typstPackagesSrc = "${typst-packages}/packages";
+          formatter = treefmtEval.config.build.wrapper;
 
-        typstPackagesCache = pkgs.stdenv.mkDerivation {
-          name = "typst-packages-cache";
-          src = typstPackagesSrc;
-          dontBuild = true;
-          installPhase = ''
-            mkdir -p "$out/typst/packages"
-            cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
-          '';
-        };
-      in
-      {
-        checks = {
-          inherit luminite-crate;
-          formatting = treefmtEval.config.build.check self;
-        };
+          devShells.default = craneLib.devShell {
+            # Inherit inputs from checks.
+            checks = self.checks.${system};
 
-        # the actual site, with the fonts bundled within
-        packages.full = self.packages.${system}.default.overrideAttrs (
-          finalAttrs: prevAttrs: {
-            name = "site";
+            # Additional dev-shell environment variables can be set directly
+            # MY_CUSTOM_DEVELOPMENT_VAR = "something else";
 
-            buildPhase =
-              # install licensed fonts from private repo
-              ''
-                mkdir -p public/fonts
-                cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 public/fonts
-              ''
-              + prevAttrs.buildPhase;
-          }
-        );
-
-        # builds the site without fonts which are in private repo
-        packages.default = pkgs.stdenv.mkDerivation {
-          name = "site-without-fonts";
-
-          src = ./.;
-
-          nativeBuildInputs = [
-            self.packages.${system}.luminite
-            pkgs.typst
-          ];
-
-          XDG_CACHE_HOME = typstPackagesCache;
-
-          buildPhase = ''
-            site build
-          '';
-
-          installPhase = ''
-            mkdir -p $out
-            cp -r ${web-assets}/* dist/
-            cp -r dist $out/dist
-          '';
-        };
-
-        packages.luminite = luminite-crate;
-
-        apps.default = flake-utils.lib.mkApp {
-          drv = luminite-crate;
-        };
-
-        formatter = treefmtEval.config.build.wrapper;
-
-        devShells.default = craneLib.devShell {
-          # Inherit inputs from checks.
-          checks = self.checks.${system};
-
-          # Additional dev-shell environment variables can be set directly
-          # MY_CUSTOM_DEVELOPMENT_VAR = "something else";
-
-          # Extra inputs can be added here; cargo and rustc are provided by default.
-          packages =
-            [ pnpm ]
-            ++ (with pkgs; [
-              # pkgs.ripgrep
-              rust-analyzer
-              rustfmt
-              clippy
-              typst
-              tailwindcss-language-server
-              nodejs
-            ]);
-        };
-      }
-    );
+            # Extra inputs can be added here; cargo and rustc are provided by default.
+            packages =
+              [ pnpm ]
+              ++ (with pkgs; [
+                # pkgs.ripgrep
+                rust-analyzer
+                rustfmt
+                clippy
+                typst
+                tailwindcss-language-server
+                nodejs
+              ]);
+          };
+        }
+      );
 }
