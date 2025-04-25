@@ -1,27 +1,177 @@
 on:
-  pull_request:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-    tags:
-      - v?[0-9]+.[0-9]+.[0-9]+*
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  workflow_call:
+    inputs:
+      visibility:
+        description: |
+          `public`, `unlisted`, or `private` ([private flakes](https://docs.determinate.systems/flakehub/private-flakes) are available only on a [FlakeHub paid plan](https://flakehub.com/signup)).
+        required: false
+        type: string
+      default-branch:
+        description: |
+          The [default Git branch](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch) for the repository.
+        required: false
+        default: ${{ github.event.repository.default_branch }}
+        type: string
+      enable-ssh-agent:
+        description: |
+          Whether to enable [`webfactory/ssh-agent`](https://github.com/webfactory/ssh-agent) in the workflow. If you set this to `true` you need to supply a secret named `ssh-private-key`.
+        required: false
+        default: false
+        type: boolean
+      github-token:
+        description: |
+          GitHub token to use for Nix.
+        required: false
+        default: false
+        type: boolean
+      directory:
+        description: |
+          The root directory of your flake.
+        required: false
+        default: "."
+        type: string
+      fail-fast:
+        description: |
+          Whether to cancel all in-progress jobs if any matrix job fails
+        required: false
+        default: true
+        type: boolean
+      flake-iter-flakeref:
+        description: |
+          Flake reference to use for the flake-iter process. Useful for pinning to specific versions should standards require it. Defaults to the latest release available on FlakeHub.
+        type: string
+        required: false
+        default: https://flakehub.com/f/DeterminateSystems/flake-iter/*
+      runner-map:
+        description: |
+          A custom mapping of [Nix system types](https://zero-to-nix.com/concepts/system-specificity) to desired Actions runners
+        required: false
+        type: string
+        default: |
+          {
+            "aarch64-darwin": "macos-latest",
+            "x86_64-darwin": "macos-latest",
+            "x86_64-linux": "ubuntu-latest",
+            "i686-linux": "ubuntu-latest"
+          }
+    outputs:
+      flake_name:
+        value: ${{ jobs.success.outputs.flake_name }}
+        description: |
+          The name of the flake.
+
+          Example: `DeterminateSystems/flakehub-push`
+      flake_version:
+        value: ${{ jobs.success.outputs.flake_version }}
+        description: |
+          Version of the published flake.
+
+          Example: `0.1.99+rev-2075013a3f3544d45a96f4b35df4ed03cd53779c`
+      flakeref_exact:
+        value: ${{ jobs.success.outputs.flakeref_exact }}
+        description: |
+          A precise reference that always resolves to this to this exact release.
+
+          Example: `DeterminateSystems/flakehub-push/=0.1.99+rev-2075013a3f3544d45a96f4b35df4ed03cd53779c`
+      flakeref_at_least:
+        value: ${{ jobs.success.outputs.flakeref_at_least }}
+        description: |
+          A loose reference to this release.
+          Depending on this reference will require at least this version, and will also resolve to newer releases.
+          This output is not sufficient for deployment pipelines, use flake_exact instead.
+
+          Example: `DeterminateSystems/flakehub-push/0.1.99+rev-2075013a3f3544d45a96f4b35df4ed03cd53779c`
+    secrets:
+      ssh-private-key:
+        required: false
 jobs:
-  DeterminateCI:
-    uses: DeterminateSystems/ci/.github/workflows/workflow.yml@main
+  inventory:
+    runs-on: ubuntu-latest
+    outputs:
+      systems: ${{ steps.inventory.outputs.systems }}
     permissions:
-      id-token: write
-      contents: read
-    with:
-      fail-fast: false
-      runner-map: |
-        {
-          "aarch64-darwin": "macos-latest",
-          "x86_64-darwin": "macos-latest",
-          "x86_64-linux": "ubuntu-latest",
-          "i686-linux": "ubuntu-latest",
-          "aarch64-linux": "ubuntu-24.04-arm"
-        }
+      id-token: "write"
+      contents: "read"
+    steps:
+      - uses: actions/checkout@v4
+      # disabled pending strategy discussion on exposing tunables
+      # - uses: Determinatesystems/flake-checker-action@main
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          determinate: true
+      - uses: DeterminateSystems/flakehub-cache-action@main
+      - uses: webfactory/ssh-agent@v0.9.0
+        if: ${{ inputs.enable-ssh-agent }}
+        with:
+          ssh-private-key: ${{ secrets.ssh-private-key }}
+      - name: Inventory the flake for targeted systems
+        id: inventory
+        env:
+          FLAKE_ITER_RUNNER_MAP: ${{ toJson(fromJson(inputs.runner-map)) }}
+          FLAKE_ITER_FLAKEREF: ${{ inputs.flake-iter-flakeref }}
+        working-directory: ${{ inputs.directory }}
+        run: |
+          nix run "$FLAKE_ITER_FLAKEREF" -- systems
+  build:
+    runs-on: ${{ matrix.systems.runner }}
+    needs: inventory
+    strategy:
+      fail-fast: ${{ inputs.fail-fast }}
+      matrix:
+        systems: ${{ fromJSON(needs.inventory.outputs.systems) }}
+    permissions:
+      id-token: "write"
+      contents: "read"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          github-token: ${{ inputs.github-token }}
+          determinate: true
+      - uses: DeterminateSystems/flakehub-cache-action@main
+      - uses: webfactory/ssh-agent@v0.9.0
+        if: ${{ inputs.enable-ssh-agent }}
+        with:
+          ssh-private-key: ${{ secrets.ssh-private-key }}
+      - name: Build for ${{ matrix.systems.nix-system }}
+        env:
+          FLAKE_ITER_NIX_SYSTEM: ${{ matrix.systems.nix-system }}
+          FLAKE_ITER_FLAKEREF: ${{ inputs.flake-iter-flakeref }}
+        working-directory: ${{ inputs.directory }}
+        run: nix run "$FLAKE_ITER_FLAKEREF" -- --verbose build
+  success:
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ always() }}
+    permissions:
+      id-token: "write"
+      contents: "read"
+    outputs:
+      flake_name: ${{ steps.publish.outputs.flake_name }}
+      flake_version: ${{ steps.publish.outputs.flake_version }}
+      flakeref_exact: ${{ steps.publish.outputs.flakeref_exact }}
+      flakeref_at_least: ${{ steps.publish.outputs.flakeref_at_least }}
+    steps:
+      - run: "true"
+      - run: |
+          echo "A dependent in the build matrix failed."
+          exit 1
+        if: |
+          contains(needs.*.result, 'failure') ||
+          contains(needs.*.result, 'cancelled')
+      - uses: actions/checkout@main
+        if: ${{ !github.repository.fork && inputs.visibility != '' && (github.ref == format('refs/heads/{0}', inputs.default-branch) || startsWith(github.ref, 'refs/tags/')) }}
+      - uses: DeterminateSystems/nix-installer-action@main
+        if: ${{ !github.repository.fork && inputs.visibility != '' && (github.ref == format('refs/heads/{0}', inputs.default-branch) || startsWith(github.ref, 'refs/tags/')) }}
+        with:
+          determinate: true
+      - uses: DeterminateSystems/flakehub-cache-action@main
+        if: ${{ !github.repository.fork && inputs.visibility != '' && (github.ref == format('refs/heads/{0}', inputs.default-branch) || startsWith(github.ref, 'refs/tags/')) }}
+      - uses: "DeterminateSystems/flakehub-push@main"
+        if: ${{ !github.repository.fork && inputs.visibility != '' && (github.ref == format('refs/heads/{0}', inputs.default-branch) || startsWith(github.ref, 'refs/tags/')) }}
+        id: publish
+        with:
+          rolling: ${{ github.ref == format('refs/heads/{0}', inputs.default-branch) }}
+          visibility: ${{ inputs.visibility }}
+          include-output-paths: true
+          directory: ${{ inputs.directory }}
