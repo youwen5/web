@@ -3,3 +3,4 @@ result*
 .direnv
 /dist
 .luminite
+public/fonts/*.woff2
