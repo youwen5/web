@@ -138,8 +138,8 @@
             name = "site";
 
             buildPhase =
+              # install licensed fonts from private repo
               ''
-                # install fonts
                 mkdir -p public/fonts
                 cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 public/fonts
               ''
