@@ -155,21 +155,27 @@ body {
   @apply font-serif text-foreground bg-base;
 }
 
-a {
-  @apply underline decoration-solid decoration-2 underline-offset-2 hover:text-love decoration-love;
+@utility link {
+    @apply underline decoration-solid decoration-2 underline-offset-2 hover:text-love decoration-love;
 }
 
-.math {
-  filter: invert(0);
-  display: inline-block;
-}
+.main-content {
+  a {
+    @apply link;
+  }
 
-.block-math {
-  @apply flex justify-center min-w-full overflow-x-auto my-0;
-}
-
-@media (prefers-color-scheme: dark) {
   .math {
-    filter: invert(1);
+    filter: invert(0);
+    display: inline-block;
+  }
+
+  .block-math {
+    @apply flex justify-center min-w-full overflow-x-auto my-0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .math {
+      filter: invert(1);
+    }
   }
 }
