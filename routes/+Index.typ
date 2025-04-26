@@ -2,7 +2,7 @@
 
 #show: html-shim
 
-Hi! Welcome to my site on the World Wide Web. I study (pure) math and computer
+Hey there! Welcome to my site on the World Wide Web. I study (pure) math and computer
 science at UC Santa Barbara (co 2028).
 
 Here is my #link("https://github.com/youwen5")[GitHub], #link("https://www.last.fm/user/couscousdude")[last.fm], and #link("/static/img/cat_babies.jpg")[a picture of my cats].

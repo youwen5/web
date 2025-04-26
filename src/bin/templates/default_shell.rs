@@ -1,4 +1,4 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
+use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 
 use super::components::Head;
 
@@ -12,6 +12,8 @@ impl DefaultShell {
         let nav_items = maud! {
             li {a href="/" {"Home"}}
             li {a href="/impressum" {"Impressum"}}
+            li {a href="/luminite" {"Luminite"}}
+            li {a href="/math-test" {"Math"}}
         };
 
         maud! {
@@ -29,11 +31,16 @@ impl DefaultShell {
                             }
                         }
                         main class="main-content flex-1 lg:mt-2" {
-                            div class="lg:hidden border-b border-solid border-muted mb-4 flex justify-between items-center gap-4"  {
-                                p class="italic text-[3em]" {"youwen wu"}
-                                nav class="space-y-4 text-2xl" {
-                                    ul class="flex gap-2" {
-                                        (nav_items)
+                            div class="lg:hidden border-b border-dashed border-muted mb-4 space-y-4 pb-4"  {
+                                p class="italic text-[3em] lg:text-start text-center" {"youwen wu"}
+                                details class="w-full" {
+                                    summary class="text-center smallcaps text-xl cursor-pointer" {
+                                        "menu"
+                                    }
+                                    nav class="space-y-3 text-2xl" {
+                                        ul class="space-y-4 text-xl" {
+                                            (nav_items)
+                                        }
                                     }
                                 }
                             }
