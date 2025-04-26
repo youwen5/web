@@ -26,7 +26,7 @@ pages that rely on introspecting the system at build time.
 
 == Triage
 
-- #todo Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect].
+- #todo Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect] or #link("https://github.com/tree-sitter/tree-sitter/tree/master/highlight")[tree-sitter-highlight].
 
 == Done
 
