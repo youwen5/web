@@ -30,4 +30,4 @@ build:
     cargo run -- build
 
 build-release:
-    cargo run --release -- build
+    cargo run --release -- build --minify

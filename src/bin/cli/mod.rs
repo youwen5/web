@@ -7,7 +7,7 @@ use luminite::{
 
 use crate::templates;
 
-use clap::{Parser, Subcommand};
+use clap::{Args, Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
@@ -20,14 +20,21 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     /// Compile the website. Must be ran from the root directory of the project.
-    Build,
+    Build(BuildArgs),
+}
+
+#[derive(Args)]
+struct BuildArgs {
+    #[arg(short, long)]
+    /// Minify outputted HTML.
+    minify: bool,
 }
 
 pub fn run() {
     let cli = Cli::parse();
 
     match &cli.command {
-        Commands::Build => {
+        Commands::Build(args) => {
             let main_page = templates::MainPage {};
             let prose = templates::Prose {};
 
@@ -42,7 +49,7 @@ pub fn run() {
                 };
                 rendered
             });
-            the_world.realize_site(&site).unwrap();
+            the_world.realize_site(&site, args.minify).unwrap();
         }
     }
 }

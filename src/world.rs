@@ -7,7 +7,8 @@ use std::{
     process::Command,
 };
 
-use tracing::{event, Level};
+use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
+use tracing::{Level, event};
 
 use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
 
@@ -218,8 +219,8 @@ impl World {
 
     /// Given a `&Site`, perform all the necessary actions (e.g. running the Typst compiler,
     /// generating metadata, etc.) and output the artifacts in `dist`.
-    fn build_routes(&self, site: &Site) -> Result<(), Error> {
-        self.route_builder_helper(&site.routes.tree, "".to_string(), &site.templater)?;
+    fn build_routes(&self, site: &Site, minify: bool) -> Result<(), Error> {
+        self.route_builder_helper(&site.routes.tree, "".to_string(), &site.templater, minify)?;
         Ok(())
     }
 
@@ -243,9 +244,9 @@ impl World {
         Ok(())
     }
 
-    pub fn realize_site(&self, site: &Site) -> Result<(), Error> {
+    pub fn realize_site(&self, site: &Site, minify: bool) -> Result<(), Error> {
         self.copy_public_dir(site)?;
-        self.build_routes(site)?;
+        self.build_routes(site, minify)?;
 
         Ok(())
     }
@@ -257,6 +258,7 @@ impl World {
         routes: &RouteTree,
         parent_route: String,
         templater: &Templater,
+        minify: bool,
     ) -> Result<(), Error> {
         for node in routes.iter() {
             match node {
@@ -266,10 +268,35 @@ impl World {
                         _ => parent_route.clone() + "/" + slug,
                     };
 
+                    let minify_cfg = &Cfg {
+                        minify_js: true,
+                        minify_css: true,
+                    };
+
                     event!(Level::INFO, "Compiling {}.", output_route.as_str());
 
                     let contents = self.get_doc_contents(doc)?;
                     let rendered = templater(output_route.clone(), contents);
+                    let mut rendered = rendered.as_str().to_string();
+                    let rendered = if minify {
+                        match in_place_str(&mut rendered, minify_cfg) {
+                            Ok(minified) => minified,
+                            Err(HtmlError {
+                                error_type,
+                                position,
+                            }) => {
+                                event!(
+                                    Level::WARN,
+                                    "Failed to minify HTML while parsing the file {:?}, with error {:?} at position {position}.",
+                                    &doc.source_path.as_os_str(),
+                                    error_type,
+                                );
+                                &rendered
+                            }
+                        }
+                    } else {
+                        &rendered
+                    };
                     let target_path = match output_route.as_str() {
                         "/" => self.working_dirs.dist.join(PathBuf::from(
                             output_route.trim_start_matches("/").to_owned() + "./index",
@@ -282,13 +309,14 @@ impl World {
                     .with_extension("html");
 
                     create_file_resilient(&target_path)?;
-                    std::fs::write(target_path, rendered.as_str())?;
+                    std::fs::write(target_path, rendered)?;
                 }
                 (slug, RouteNode::Nested(nested_tree)) => {
                     self.route_builder_helper(
                         nested_tree,
                         parent_route.clone() + "/" + slug,
                         templater,
+                        minify,
                     )?;
                 }
             }

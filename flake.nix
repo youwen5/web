@@ -166,7 +166,7 @@
             XDG_CACHE_HOME = typstPackagesCache;
 
             buildPhase = ''
-              site build
+              site build --minify
             '';
 
             installPhase = ''

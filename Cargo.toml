@@ -11,6 +11,7 @@ hypertext = "0.6"
 tracing-subscriber = "0.3"
 tracing = "0.1"
 dircpy = "0.3"
+minify-html-onepass = "0.16.4"
 
 [[bin]]
 name = "site"
