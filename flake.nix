@@ -182,6 +182,33 @@
             drv = luminite-crate;
           };
 
+          apps.preview = flake-utils.lib.mkApp {
+            drv =
+              let
+                caddyfile = pkgs.writeText "Caddyfile" ''
+                  :8000 {
+                      root * ${self.packages.${system}.full}/dist
+                      file_server
+                      try_files {path} {path}.html {path}/ =404
+                  }
+                '';
+
+                formattedCaddyfile = pkgs.runCommand "Caddyfile" {
+                  nativeBuildInputs = [ pkgs.caddy ];
+                } ''(caddy fmt ${caddyfile} || :) > "$out"'';
+
+                script = pkgs.writeShellApplication {
+                  name = "preview";
+
+                  runtimeInputs = [ pkgs.caddy ];
+
+                  text = "caddy run --config ${formattedCaddyfile} --adapter caddyfile";
+                };
+
+              in
+              script;
+          };
+
           formatter = treefmtEval.config.build.wrapper;
 
           devShells.default = craneLib.devShell {
@@ -203,6 +230,7 @@
                 tailwindcss-language-server
                 nodejs
                 just
+                caddy
               ]);
           };
         }

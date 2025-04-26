@@ -1,10 +1,16 @@
-default: && webbundle build
+default: webbundle build
     cp web/dist/* dist
 
-release: && webbundle build-release
+release: webbundle build-release
 
-fresh-init: && install-web-deps
+fresh-init: install-web-deps
     cargo build
+
+preview:
+    caddy run
+
+browse: && preview
+    zen localhost:8080
 
 install-fonts:
     git clone https://github.com/youwen5/valkyrie.git valkyrie
