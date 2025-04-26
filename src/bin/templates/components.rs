@@ -1,5 +1,5 @@
 /// Reusable components that can be placed around the site. Footers, navbars, etc.
-use hypertext::{Renderable, html_elements, maud};
+use hypertext::{html_elements, maud, Renderable};
 
 /// A site-wide usable head tag.
 pub struct Head {
