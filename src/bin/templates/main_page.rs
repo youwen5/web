@@ -1,4 +1,4 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Rendered};
+use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
 use luminite::templating::Template;
 
 use super::{components::Head, default_shell::DefaultShell};
@@ -17,7 +17,7 @@ impl Template for MainPage {
             },
         }
         .render_with_children(maud! {
-            div id="typst-injected" class="prose-xl xl:prose-2xl mt-2 prose-headings:all-smallcaps prose-headings:text-center lg:prose-headings:text-start" {
+            div id="typst-injected" class="prose-xl lg:prose-2xl mt-2 prose-headings:all-smallcaps prose-headings:text-center lg:prose-headings:text-start" {
                 (content)
             }
         })
