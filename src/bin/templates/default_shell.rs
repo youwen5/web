@@ -1,4 +1,4 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
+use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 
 use super::components::Head;
 
@@ -11,7 +11,7 @@ impl DefaultShell {
     pub fn render_with_children(self, children: impl Renderable) -> Rendered<String> {
         let nav_items = maud! {
             li {a class="hover:bg-overlay transition-colors" href="/luminite" {"Luminite"}}
-            li {a class="hover:bg-overlay transition-colors" href="/javascript-is-insane" {"The web is insane"}}
+            li {a class="hover:bg-overlay transition-colors" href="/the-web-is-insane" {"The web is insane"}}
             li {a class="hover:bg-overlay transition-colors" href="/math-test" {"Math"}}
             li {a class="hover:bg-overlay transition-colors" href="/impressum" {"Impressum"}}
         };
