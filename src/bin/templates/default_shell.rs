@@ -30,6 +30,10 @@ impl DefaultShell {
             li {a class="hover:bg-overlay transition-colors" href="/math-test" {"Tidbit: A test of Typst math rendering"}}
         };
 
+        let other = maud! {
+            li {a class="hover:bg-overlay transition-colors" href="/colophon" {"Colophon"}}
+        };
+
         let page_width = match self.width {
             PageWidth::Wide => "",
             PageWidth::Prose => " lg:max-w-2xl",
@@ -59,6 +63,12 @@ impl DefaultShell {
                                         (math)
                                     }
                                 }
+                                div class="space-y-4" {
+                                    p class="text-3xl" {"Other"}
+                                    ul class="italic space-y-2 text-subtle text-xl" {
+                                        (other)
+                                    }
+                                }
                             }
                         }
                         div class="flex-1 lg:mt-2" {
@@ -80,6 +90,10 @@ impl DefaultShell {
                                             p class="text-2xl" {"Math"}
                                             ul class="italic space-y-2 text-subtle text-xl" {
                                                 (math)
+                                            }
+                                            p class="text-2xl" {"Math"}
+                                            ul class="italic space-y-2 text-subtle text-xl" {
+                                                (other)
                                             }
                                 }
                                     }

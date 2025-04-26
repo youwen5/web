@@ -1,0 +1,30 @@
+#import "./lib/html-shim.typ": html-shim
+
+#show: html-shim
+
+= colophon
+
+This site was built with my custom static generator called
+#link("/luminite")[Luminite]. It was written in Rust, and its unique feature is
+that it uses #link("https://typst.app/")[Typst] as a scriptable markup language
+instead of something like Markdown. It outputs fully rendered organic
+fair-trade #smallcaps[html] that gets shipped straight from farm-to-user. No
+JavaScript virtual #smallcaps[dom] or frameworks here (I don't even ship a
+single line of JavaScript).
+
+Styling is done with #link("https://tailwindcss.com/")[Tailwind],
+an insane way to do #smallcaps[css], saved only by the fact that it is better
+than every other way to do #smallcaps[css]. The #smallcaps[html] templates are
+written as #link("https://maud.lambda.xyz/")[maud] macros in Rust (which means
+the Rust compiler is essentially my templating engine). The
+#link("https://crates.io/crates/hypertext")[hypertext] crate's `maud!`
+implementation is used for efficient rendering.
+
+The typeface used for both body text and headings is
+#link("https://practicaltypography.com/valkyrie.html")[Valkyrie], a
+professional font designed by Matthew Butterick. Much of this site's web design
+is informed and inspired by his
+#link("https://practicaltypography.com/")[Practical Typography]. Thank you Mr.
+Butterick!
+
+I've owned this domain and had a #link("https://youwen.dev")[website] since 2033. You can clearly see the difference in taste between this site and my old one.
