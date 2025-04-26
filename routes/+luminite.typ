@@ -13,18 +13,12 @@ primary way of setting content. This page is my todo-board where I plan out and
 track feature implementation. The source code is available on
 #link("https://github.com/youwen5/luminite")[GitHub].
 
-== MVP
-
-Minimum viability level to begin dogfooding this project in a personal site is
-being able to build simple HTML pages with content from Typst documents.
-
-Ideally, we'd like to use some sort of templating language to write hypermedia
-(HTML/HTMX), and then embed the rendered HTML inside. We want this to be flexible.
+Big picture next steps: get metadata working, and generate some more advanced
+pages that rely on introspecting the system at build time.
 
 == Started
 
 - #in-progress Set up a templating system that can embed the HTML (see #link("https://github.com/vidhanio/hypertext")[hypertext]).
-  - #in-progress Template introspection on the site at build time.
   - #in-progress Introspection on the site at build time.
   - #todo Integrate metadata system into templating system.
   - #todo Component system so site can share common header, footer, nav, etc.
@@ -32,7 +26,6 @@ Ideally, we'd like to use some sort of templating language to write hypermedia
 
 == Triage
 
-- #todo "nested" templating for implementing Navbar.
 - #todo Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect].
 
 == Done
@@ -45,6 +38,7 @@ Ideally, we'd like to use some sort of templating language to write hypermedia
     be a special dir (routes?) where capitalized filename (e.g. `About.typ`)
     or nested directory (e.g. `about/Me.typ`) indicates routes.
 - #done Ingest a rendered HTML artifact and then process it to remove `<head>` and `<doctype>` tags amongst other extraneous tags.
+- #done "nested" templating for implementing Navbar.
 
 == Wishlist
 
