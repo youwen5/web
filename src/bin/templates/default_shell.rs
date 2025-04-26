@@ -2,9 +2,15 @@ use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 
 use super::components::Head;
 
+pub enum PageWidth {
+    Wide,
+    Prose,
+}
+
 /// The default "shell" around the page. Renders navigation, footer, and miscellany into place.
 pub struct DefaultShell {
     pub head: Head,
+    pub width: PageWidth,
 }
 
 impl DefaultShell {
@@ -16,11 +22,16 @@ impl DefaultShell {
             li {a class="hover:bg-overlay transition-colors" href="/impressum" {"Impressum"}}
         };
 
+        let page_width = match self.width {
+            PageWidth::Wide => "",
+            PageWidth::Prose => " lg:max-w-2xl",
+        };
+
         maud! {
             !DOCTYPE
             html lang="en" {
                 (self.head)
-                body class="font-sans antialiased leading-relaxed max-w-[1200px] mx-auto" {
+                body class="font-sans antialiased leading-relaxed mx-auto max-w-[1200px]" {
                     div class="flex gap-4 px-4 lg:px-6 lg:mt-20" {
                         aside class="hidden lg:block w-64 flex-none md:sticky lg:top-4 lg:max-h-screen lg:overflow-y-auto" {
                             a class="italic text-[3em] hover:bg-rose/50 transition-colors" href="/" {"youwen wu"}
@@ -30,7 +41,7 @@ impl DefaultShell {
                                 }
                             }
                         }
-                        main class="main-content flex-1 lg:mt-2" {
+                        main class=("main-content flex-1 lg:mt-2".to_owned() + page_width) {
                             div class="lg:hidden border-b border-dashed border-muted mb-4 space-y-4 pb-4"  {
                                 p class="italic text-[3em] lg:text-start text-center" {"youwen wu"}
                                 details class="w-full" {
