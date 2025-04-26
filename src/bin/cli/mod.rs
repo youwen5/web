@@ -29,16 +29,13 @@ pub fn run() {
     match &cli.command {
         Commands::Build => {
             let main_page = templates::MainPage {};
-            let about_page = templates::AboutPage {};
             let prose = templates::Prose {};
-            let impressum = templates::Impressum {};
 
             let the_world = World::new(WorkingDirs::get_dirs().unwrap());
             let site = Site::new(the_world.get_routes(), move |slug, content| {
                 let raw_content = Raw(content);
                 let rendered = match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content),
-                    "/about" => about_page.render_page_with_content(raw_content),
                     "/math-test" => prose.render_page_with_content(raw_content),
                     "/impressum" => main_page.render_page_with_content(raw_content),
                     _ => main_page.render_page_with_content(raw_content),

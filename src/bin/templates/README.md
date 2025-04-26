@@ -1,3 +1,3 @@
 # Templates
 
-All the templates for various pages.
+All the templates and components for various pages, using the `maud!` macro.
