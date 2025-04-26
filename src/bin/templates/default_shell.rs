@@ -16,16 +16,18 @@ pub struct DefaultShell {
 impl DefaultShell {
     pub fn render_with_children(self, children: impl Renderable) -> Rendered<String> {
         let nav_items = maud! {
+            li {a class="hover:bg-overlay transition-colors" href="/projects" {"Projects"}}
+            li {a class="hover:bg-overlay transition-colors" href="/essays" {"Essays"}}
             li {a class="hover:bg-overlay transition-colors" href="/impressum" {"Impressum"}}
         };
 
         let code = maud! {
-            li {a class="hover:bg-overlay transition-colors" href="/the-web-is-insane" {"The web is insane"}}
-            li {a class="hover:bg-overlay transition-colors" href="/luminite" {"Luminite"}}
+            li {a class="hover:bg-overlay transition-colors" href="/the-web-is-insane" {"Essay: The web is insane"}}
+            li {a class="hover:bg-overlay transition-colors" href="/luminite" {"Project: Luminite"}}
         };
 
         let math = maud! {
-            li {a class="hover:bg-overlay transition-colors" href="/math-test" {"A test of Typst math rendering"}}
+            li {a class="hover:bg-overlay transition-colors" href="/math-test" {"Tidbit: A test of Typst math rendering"}}
         };
 
         let page_width = match self.width {
