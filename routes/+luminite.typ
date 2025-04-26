@@ -33,6 +33,7 @@ Ideally, we'd like to use some sort of templating language to write hypermedia
 == Triage
 
 - #todo "nested" templating for implementing Navbar.
+- #todo Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect].
 
 == Done
 
