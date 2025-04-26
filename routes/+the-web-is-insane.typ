@@ -119,7 +119,7 @@ React libraries like #link("https://mui.com/material-ui/")[Material UI] make it
 zero-effort to drop Material components straight into your app.
 
 More recently, the #link("https://vercel.com/geist/introduction")[Vercel-style]
-minimalist design has become popular with
+minimalist design has become popular with startups and indie devs alike.
 
 To be clear, I do not claim that the
 web was better prior to the advent of the modern #smallcaps[npm]--centered web design. Rather, the web has
@@ -139,11 +139,11 @@ serve a mountain of JavaScript, even if its sole purpose is to render some
 #smallcaps[html] that could've just been served directly.
 
 I have no qualms with libraries making Material design components available
-easily or people emulating the look of Vercel. But the net effect has to make
-_passable_ design available to everyone, creating a homogeneous web where every
-site has the same few motifs and styles. Rather than people seeing designs they
-like and thoughtfully copying the elements they enjoy, many sites just end up
-looking like cheap knockoffs.
+easily or people emulating the minimalist Vercel look. But the net effect has
+to make _passable_ design available to everyone, creating a homogeneous web
+where every site has the same few motifs and styles. Rather than people seeing
+designs they like and thoughtfully copying the elements they enjoy, many sites
+just end up looking like cheap knockoffs.
 
 == so what?
 
