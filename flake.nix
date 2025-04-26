@@ -202,6 +202,7 @@
                 typst
                 tailwindcss-language-server
                 nodejs
+                just
               ]);
           };
         }
