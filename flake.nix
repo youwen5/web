@@ -190,6 +190,7 @@
                       root * ${self.packages.${system}.full}/dist
                       file_server
                       try_files {path} {path}.html {path}/ =404
+                      header Cache-Control max-age=0
                   }
                 '';
 
