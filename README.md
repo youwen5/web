@@ -28,22 +28,24 @@ repository. So we still have perfect reproducibility.)
 
 ### Instructions
 
-You need either a Rust toolchain or the Nix package manager. To hack on the
-code, a Rust toolchain is highly recommended in addition to Nix.
+You need either
+
+- Rust toolchain, pnpm, Just, (optional, for previewing), and Caddy
+- The Nix package manager.
 
 With Nix:
-
-```sh
+```nix
 nix build
 ```
 
-The site will be built in `result/`.
+With local tools (for hacking):
 
-With Cargo:
-
-```sh
-cargo run --release -- build
-```
+To hack on the code, I highly recommend having the local development tools
+available in addition to Nix. If you have Nix, you can run `nix develop` and
+they will be made available automatically. You can run `just fresh-init` and
+`just` to build a local site in `dist`. Run `just preview` and a live server
+will be started at `localhost:8080`. Additional commands are available in the
+`justfile`.
 
 The site will be built in `dist/`.
 
