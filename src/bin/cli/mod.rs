@@ -45,7 +45,9 @@ pub fn run() {
                     "/" => main_page.render_page_with_content(raw_content),
                     "/math-test" => prose.render_page_with_content(raw_content),
                     "/impressum" => main_page.render_page_with_content(raw_content),
-                    "/the-web-is-insane" => prose.render_page_with_content(raw_content),
+                    "/hypermedia-and-the-insanity-of-the-web" => {
+                        prose.render_page_with_content(raw_content)
+                    }
                     _ => main_page.render_page_with_content(raw_content),
                 };
                 rendered

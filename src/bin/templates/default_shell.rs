@@ -22,7 +22,7 @@ impl DefaultShell {
         };
 
         let code = maud! {
-            li {a class="hover:bg-overlay transition-colors" href="/the-web-is-insane" {"Essay: The web is insane"}}
+            li {a class="hover:bg-overlay transition-colors" href="/hypermedia-and-the-insanity-of-the-web" {"Essay: Hypermedia and the insanity of the web"}}
             li {a class="hover:bg-overlay transition-colors" href="/luminite" {"Project: Luminite"}}
         };
 
