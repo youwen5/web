@@ -1,8 +1,6 @@
 #import "./lib/html-shim.typ": html-shim
 
-#show: html-shim
-
-= Impressum
+#show: html-shim.with(title: "Impressum")
 
 #smallcaps[
   Youwen Wu \

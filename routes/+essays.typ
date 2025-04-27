@@ -1,7 +1,5 @@
 #import "./lib/html-shim.typ": html-shim
 
-#show: html-shim
-
-= essays
+#show: html-shim.with(title: "Essays")
 
 TODO. Need to finish implementation in #link("/luminite")[Luminite] first. For now, check the sidebar.

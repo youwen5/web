@@ -1,8 +1,6 @@
 #import "./lib/html-shim.typ": *
 
-#show: html-shim
-
-= colophon
+#show: html-shim.with(title: "Colophon")
 
 This site was built with my custom static generator called
 #link("/luminite")[Luminite]. It was written in Rust, and its unique feature is

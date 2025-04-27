@@ -1,12 +1,10 @@
 #import "./lib/html-shim.typ": html-shim
 
-#show: html-shim
+#show: html-shim.with(title: "Luminite")
 
 #let done = emoji.checkmark.box
 #let todo = sym.ballot
 #let in-progress = emoji.clock
-
-= Luminite
 
 This is a system for building a static site generator using Typst as the
 primary way of setting content. This page is my todo-board where I plan out and
