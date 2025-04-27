@@ -1,5 +1,8 @@
 #import "./lib/html-shim.typ": *
-#show: html-shim
+#show: html-shim.with(
+  date: datetime(day: 26, year: 2025, month: 4).display(),
+  location: "Santa Barbara, California",
+)
 
 = hypermedia and the insanity of the web
 

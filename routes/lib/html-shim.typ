@@ -1,4 +1,4 @@
-#let html-shim(body) = {
+#let html-shim(body, date: none, special-author: none, location: none) = {
   show math.equation.where(block: false): it => {
     set text(size: 1.5em)
     html.elem(
@@ -28,6 +28,12 @@
   }
 
   body
+
+  [
+    #metadata(date) <date>
+    #metadata(special-author)<special-author>
+    #metadata(location)<location>
+  ]
 }
 
 #let blockquote = (attribution: none, body) => {
