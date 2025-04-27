@@ -74,7 +74,7 @@ impl DefaultShell {
                         div class="flex-1 lg:mt-2" {
                             div class="lg:hidden border-b border-dashed border-muted mb-8 pb-8 w-full"  {
                                 p class="text-center italic text-[3em] hover:text-subtle mt-8 select-none" {a href="/" {"youwen wu"}}
-                                details class="w-full mt-8" {
+                                details class="w-full mt-4" {
                                     summary class="text-center smallcaps text-xl cursor-pointer" {
                                         "menu"
                                     }
