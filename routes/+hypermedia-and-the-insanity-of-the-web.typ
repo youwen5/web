@@ -74,7 +74,7 @@ The quintessential language for writing hypermedia--based systems is the
 venerable #smallcaps[html], the HyperText Markup Language.
 
 #blockquote(
-  attribution: [Carson Gross, in #link("https://hypermedia.systems/hypermedia-a-reintroduction/", "Hypermedia Systems")],
+  attribution: [---Carson Gross, in #link("https://hypermedia.systems/hypermedia-a-reintroduction/", "Hypermedia Systems")],
 )[
   In a sad turn of events, today, the world’s most popular hypermedia, #smallcaps[html], is
   often viewed resentfully: it is an awkward, legacy markup language that must be

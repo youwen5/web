@@ -46,11 +46,11 @@
 #let blockquote = (attribution: none, body) => {
   html.elem(
     "blockquote",
-    attrs: (class: "border-l-solid border-l-4 border-l-iris px-4"),
+    attrs: (class: "border-l-solid border-l-4 border-l-subtle px-4"),
     {
       body
       if attribution != none {
-        html.elem("div", attrs: (class: "w-full text-end"), [--- #attribution])
+        html.elem("div", attrs: (class: "w-full text-end"), attribution)
       }
     },
   )
