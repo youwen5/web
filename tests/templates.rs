@@ -28,7 +28,8 @@ fn it_templates_successfully() {
             &Metadata {
                 location: None,
                 special_author: None,
-                date: None
+                date: None,
+                title: None,
             }
         ),
         maud! {
