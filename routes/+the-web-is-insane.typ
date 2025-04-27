@@ -1,7 +1,7 @@
 #import "./lib/html-shim.typ": *
 #show: html-shim
 
-= the web is insane
+= hypermedia and the insanity of the web
 
 Earlier I was setting up Tailwind CSS for this site, one of the few
 developments out of the hodgepodge of modern web development that doesn't suck.
@@ -20,7 +20,7 @@ dependencies are bad and JavaScript sucks. Everyone knows these things to be
 true already. Rather, I'd like to have a brief discussion about the nature and
 purpose of the web.
 
-== the web is broken
+== you don't need that framework
 
 As of now, this website ships absolutely no JavaScript to you. I am not sure at
 what point I will have to begin shipping non-trivial site--wide JavaScript, but
@@ -51,8 +51,8 @@ development. I argue that you probably _don't need_ all of that power.
 
 == hypermedia is a great idea
 
-Are you actually building a web *app*? Like, a photo editor or something? If
-so, a framework is likely the right way to go. If you are instead building a
+Are you actually building a proper web *app*? Like, a photo editor or something? Then
+this probably doesn't apply to you. Otherwise, if you are instead building a
 plain old content-focused web#strong[site], presumably you are there to present
 some information in a compelling fashion. You don't necessarily need all the
 systems a framework gives you to implement reactivity, because you aren't
@@ -99,17 +99,20 @@ interactive applications, for example, video editors, require more than just
 hypermedia. But for many less or only moderately complex web apps, hypermedia
 works great too!)
 
-== web design
+== digression on web design
 
-Web developers tend to move like a mob. A company doing a brand refresh or a
-startup will hire nice designers to create a compelling design language and
-nice website. If it's really good, similarly talented people copy the design,
-but typically with slightly less thought of why certain elements were done the
-way they are. If it really catches on, the style begins to permeate throughout
-the rest of the web (especially on new websites built by rookie web devs).
-People start crafting #smallcaps[npm] packages so using the components is as
-easy as importing a library, partially fueling the ridiculous #smallcaps[npm]
-bloat I described earlier.
+Let's briefly talk about the actual visual and UX design of the web itself.
+Trust me, this is all going to connect back with hypermedia.
+
+Web developers tend to move in a #quote[cargo cult]. A company doing a brand
+refresh or a startup will hire nice designers to create a compelling design
+language and nice website. If it's really good, similarly talented people copy
+the design, but typically with slightly less thought of why certain elements
+were done the way they are. If it really catches on, the style begins to
+permeate throughout the rest of the web (especially on new websites built by
+rookie web devs). People start crafting #smallcaps[npm] packages so using the
+components is as easy as importing a library, partially fueling the ridiculous
+#smallcaps[npm] bloat I described earlier.
 
 Case study: #link("https://m3.material.io/")[Material]. A genuinely nice design
 system that helped bring the web out of the grungy early 2010s look. But then
@@ -145,27 +148,58 @@ where every site has the same few motifs and styles. Rather than people seeing
 designs they like and thoughtfully copying the elements they enjoy, many sites
 just end up looking like cheap knockoffs.
 
+== ok, but what does this have to do with hypertext?
+
+The same reason why web design is monotonous and boring today is the same
+reason why websites are increasingly written in pure JavaScript with a massive
+build pipeline consisting of hundreds of megabytes of source code in
+`node_modules` even when complexity is completely unwarranted when considering
+their intended purpose.
+
+We started with hypermedia (and in particular, hypertext). These documents were
+rendered in ugly, disgusting browser layout engines. Sometime in the mid-2010s,
+the baseline of web support reached a critical point where we could start
+enhancing hypermedia applications with JavaScript and create truly unique user
+experiences that looked great.
+
+And once people experienced decent web design, they wanted to do it too. The
+culture of pulling in dependencies that rose around #smallcaps[npm] led to the
+incidents like
+#smallcaps("https://en.wikipedia.org/wiki/Npm_left-pad_incident")[left-pad]
+that drew widespread ridicule. But it also had a more subtle effect, in that
+everyone's sites started to look and feel more and more alike. Instead of
+thinking about intentionality in either design or code, people were more than
+happy to import and plumb together thousands of dependencies to end up with a
+UI composed of various pre-baked components duct taped together alongside a
+massive corpus JavaScript running opaquely in the background, even if they were
+just writing something that could work as a few static #smallcaps[html] files.
+
 == so what?
 
 So should you stop using web frameworks immediately and only write raw
 #smallcaps[html], and have a website that looks imported from the 90's just
-because it's hypermedia and avant--garde now?
+because it's hypermedia and avant--garde?
 
 No, I'm not your dad and I don't care how you make your websites. Keep using
 React, or Vue, or whatever hot framework comes next. What matters more is
 whether you're building useful software that is pleasant to use and benefits
 the public good.
 
-What I hope to see on the web is more _conscious_ design. What is the actual
-fundamental goal of your site? Is platform-native hypermedia good enough? If
-you are designing your site in a certain way, think about _why_ you're adding
-that hamburger menu dropdown, _why_ you're putting that navbar there, and _why_
-you're importing `200mb` of JavaScript to do all that.
+And part of making pleasant and useful software is thinking about what you're
+actually building. Does it need to be built in the first place, and does it
+need to be built in that way? What I hope to see on the web is more _conscious_
+design. The lack of intentionality and care put into the fundamental features
+of most websites is the real issue and the rise of copy-pasted UI components
+and JavaScript plumbers are just natural symptoms of this fact.
 
-And if the reasons are OK with you, then that's fine! But if not, try and think
-about what you actually intend users to get out of your site, and whether or
-not you need to bring in more dependencies. What parts of hypermedia aren't
-enough already? And if it turns out that hypermedia is all your site really
-needs, maybe you don't need that spacetime-distorting `node_modules`, and maybe
-regular old #smallcaps[html] will work for you. It certainly works well enough
-for me.
+What is the actual fundamental goal of your site? What is the most important
+thing users actually get out of it? (I hope you don't answer cynically with a
+response like #quote("sign up for the most SaaS subscriptions").) Is
+platform-native hypermedia good enough? If you are designing your site in a
+certain way, think about _why_ you're adding that hamburger menu dropdown,
+_why_ you're putting that navbar there, and _why_ you're importing `200mb` of
+JavaScript to do all that.
+
+And if it turns out that hypermedia is all your site really needs, maybe you
+don't need that spacetime-distorting `node_modules`, and maybe regular old
+#smallcaps[html] will work for you. It certainly works well enough for me.
