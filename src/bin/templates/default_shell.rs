@@ -91,7 +91,7 @@ impl DefaultShell {
                                             ul class="italic space-y-2 text-subtle text-xl" {
                                                 (math)
                                             }
-                                            p class="text-2xl" {"Math"}
+                                            p class="text-2xl" {"Other"}
                                             ul class="italic space-y-2 text-subtle text-xl" {
                                                 (other)
                                             }
