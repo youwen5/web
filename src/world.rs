@@ -16,16 +16,25 @@ impl TypstDoc {
     pub fn new(path_to_html: &Path) -> Result<TypstDoc, std::io::Error> {
         let doc = TypstDoc {
             source_path: path_to_html.to_path_buf(),
+            metadata: None,
         };
 
         Ok(doc)
     }
 }
 
+#[derive(Debug)]
+pub struct Metadata {
+    pub special_author: Option<String>,
+    pub location: Option<String>,
+    pub date: Option<String>,
+}
+
 /// A representation of a Typst source file. In the future, it will contain metadata from files.
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TypstDoc {
     source_path: PathBuf,
+    pub metadata: Option<Metadata>,
 }
 
 /// Given a path to an entry point `main.typ` and an output location, use the Typst CLI to compile
@@ -78,6 +87,44 @@ pub fn compile_document(
             panic!();
         }
     }
+}
+
+fn query_metadata(value: &str, path: &Path, root: &Path) -> Result<Option<String>, Error> {
+    let value = Command::new("typst")
+        .arg("query")
+        .args(["--features", "html"])
+        .args(["--field", "value"])
+        .arg("--one")
+        .args([
+            "--root",
+            root.to_str().expect("could not cast root dir to a string."),
+        ])
+        .arg(path.to_str().expect("Failed to cast document to a string."))
+        .arg(format!("<{value}>"))
+        .stderr(std::process::Stdio::null())
+        .output()?
+        .stdout;
+
+    let value = match String::from_utf8(value) {
+        Ok(str) => {
+            if str.is_empty() {
+                None
+            } else {
+                Some(str)
+            }
+        }
+        Err(error) => {
+            event!(
+                Level::ERROR,
+                "Failed to convert UTF-8 string while parsing metadata for {:?}, with error: {error}.",
+                path.as_os_str()
+            );
+
+            None
+        }
+    };
+
+    Ok(value)
 }
 
 fn create_file_resilient<P: AsRef<Path>>(path: P) -> io::Result<File> {
@@ -244,6 +291,42 @@ impl World {
         Ok(())
     }
 
+    /// Given a site, extract the metadata from each document.
+    pub fn get_metadata(&self, site: &mut Site) -> std::result::Result<(), Error> {
+        self.get_metadata_helper(&mut site.routes.tree)
+    }
+
+    /// Helper to recursively traverse the route tree and query metadata.
+    fn get_metadata_helper(&self, route_tree: &mut RouteTree) -> Result<(), Error> {
+        for (filename, node) in route_tree.iter_mut() {
+            match node {
+                RouteNode::Page(typst_doc) => {
+                    let date = query_metadata("date", &typst_doc.source_path, &self.root).unwrap();
+                    let special_author =
+                        query_metadata("special-author", &typst_doc.source_path, &self.root)
+                            .unwrap();
+                    let location =
+                        query_metadata("location", &typst_doc.source_path, &self.root).unwrap();
+
+                    event!(
+                        Level::DEBUG,
+                        "Queried metadata from {filename}, at path {:?}",
+                        typst_doc.source_path.as_os_str(),
+                    );
+
+                    typst_doc.metadata = Some(Metadata {
+                        special_author,
+                        location,
+                        date,
+                    });
+                }
+                RouteNode::Nested(hash_map) => self.get_metadata_helper(hash_map)?,
+            };
+        }
+        Ok(())
+    }
+
+    /// Compile a `Site` into `dist`
     pub fn realize_site(&self, site: &Site, minify: bool) -> Result<(), Error> {
         self.copy_public_dir(site)?;
         self.build_routes(site, minify)?;

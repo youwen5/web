@@ -39,7 +39,7 @@ pub fn run() {
             let prose = templates::Prose {};
 
             let the_world = World::new(WorkingDirs::get_dirs().unwrap());
-            let site = Site::new(the_world.get_routes(), move |slug, content| {
+            let mut site = Site::new(the_world.get_routes(), move |slug, content| {
                 let raw_content = Raw(content);
                 let rendered = match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content),
@@ -52,6 +52,8 @@ pub fn run() {
                 };
                 rendered
             });
+            the_world.get_metadata(&mut site).unwrap();
+            println!("{:?}", site.routes.tree);
             the_world.realize_site(&site, args.minify).unwrap();
         }
     }
