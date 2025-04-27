@@ -9,7 +9,7 @@ impl Template for MainPage {
     fn render_page_with_content(
         &self,
         content: hypertext::Raw<String>,
-        metadata: &Metadata,
+        _metadata: &Metadata,
     ) -> Rendered<String> {
         DefaultShell {
             head: Head {
