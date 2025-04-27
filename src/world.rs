@@ -7,8 +7,8 @@ use std::{
     process::Command,
 };
 
-use minify_html_onepass::{in_place_str, Cfg, Error as HtmlError};
-use tracing::{event, Level};
+use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
+use tracing::{Level, event};
 
 use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
 
@@ -28,6 +28,7 @@ pub struct Metadata {
     pub special_author: Option<String>,
     pub location: Option<String>,
     pub date: Option<String>,
+    pub title: Option<String>,
 }
 
 /// A representation of a Typst source file. In the future, it will contain metadata from files.
@@ -305,6 +306,9 @@ impl World {
                     let special_author =
                         query_metadata("special-author", &typst_doc.source_path, &self.root)
                             .unwrap();
+                    let title =
+                        query_metadata("title", &typst_doc.source_path, &self.root).unwrap();
+
                     let location =
                         query_metadata("location", &typst_doc.source_path, &self.root).unwrap();
 
@@ -318,6 +322,7 @@ impl World {
                         special_author,
                         location,
                         date,
+                        title,
                     });
                 }
                 RouteNode::Nested(hash_map) => self.get_metadata_helper(hash_map)?,
@@ -327,9 +332,10 @@ impl World {
     }
 
     /// Compile a `Site` into `dist`
-    pub fn realize_site(&self, site: &Site, minify: bool) -> Result<(), Error> {
-        self.copy_public_dir(site)?;
-        self.build_routes(site, minify)?;
+    pub fn realize_site(&self, mut site: Site, minify: bool) -> Result<(), Error> {
+        self.copy_public_dir(&site)?;
+        self.get_metadata(&mut site)?;
+        self.build_routes(&site, minify)?;
 
         Ok(())
     }
@@ -359,7 +365,11 @@ impl World {
                     event!(Level::INFO, "Compiling {}.", output_route.as_str());
 
                     let contents = self.get_doc_contents(doc)?;
-                    let rendered = templater(output_route.clone(), contents);
+                    let rendered = templater(
+                        output_route.clone(),
+                        contents,
+                        doc.metadata.as_ref().unwrap(),
+                    );
                     let mut rendered = rendered.as_str().to_string();
                     let rendered = if minify {
                         match in_place_str(&mut rendered, minify_cfg) {

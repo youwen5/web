@@ -39,22 +39,21 @@ pub fn run() {
             let prose = templates::Prose {};
 
             let the_world = World::new(WorkingDirs::get_dirs().unwrap());
-            let mut site = Site::new(the_world.get_routes(), move |slug, content| {
+            let mut site = Site::new(the_world.get_routes(), move |slug, content, metadata| {
                 let raw_content = Raw(content);
                 let rendered = match slug.as_str() {
-                    "/" => main_page.render_page_with_content(raw_content),
-                    "/math-test" => prose.render_page_with_content(raw_content),
-                    "/impressum" => main_page.render_page_with_content(raw_content),
+                    "/" => main_page.render_page_with_content(raw_content, metadata),
+                    "/math-test" => prose.render_page_with_content(raw_content, metadata),
+                    "/impressum" => main_page.render_page_with_content(raw_content, metadata),
                     "/hypermedia-and-the-insanity-of-the-web" => {
-                        prose.render_page_with_content(raw_content)
+                        prose.render_page_with_content(raw_content, metadata)
                     }
-                    _ => main_page.render_page_with_content(raw_content),
+                    _ => main_page.render_page_with_content(raw_content, metadata),
                 };
                 rendered
             });
             the_world.get_metadata(&mut site).unwrap();
-            println!("{:?}", site.routes.tree);
-            the_world.realize_site(&site, args.minify).unwrap();
+            the_world.realize_site(site, args.minify).unwrap();
         }
     }
 }

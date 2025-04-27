@@ -1,10 +1,14 @@
 #import "./lib/html-shim.typ": *
-#show: html-shim.with(
-  date: datetime(day: 26, year: 2025, month: 4).display(),
-  location: "Santa Barbara, California",
-)
 
-= hypermedia and the insanity of the web
+#show: html-shim.with(
+  date: datetime(
+    day: 26,
+    year: 2025,
+    month: 4,
+  ).display("[day] [month repr:long] [year]"),
+  location: "Santa Barbara, California",
+  title: "Hypermedia and the insanity of the web",
+)
 
 Earlier I was setting up Tailwind CSS for this site, one of the few
 developments out of the hodgepodge of modern web development that doesn't suck.

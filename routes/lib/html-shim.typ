@@ -1,4 +1,10 @@
-#let html-shim(body, date: none, special-author: none, location: none) = {
+#let html-shim(
+  body,
+  date: none,
+  special-author: none,
+  location: none,
+  title: none,
+) = {
   show math.equation.where(block: false): it => {
     set text(size: 1.5em)
     html.elem(
@@ -33,6 +39,7 @@
     #metadata(date) <date>
     #metadata(special-author)<special-author>
     #metadata(location)<location>
+    #metadata(title) <title>
   ]
 }
 

@@ -1,7 +1,14 @@
-#import "./lib/html-shim.typ": html-shim
+#import "./lib/html-shim.typ": *
 #import "@preview/cetz:0.3.4"
 
-#show: html-shim
+#show: html-shim.with(
+  date: datetime(
+    day: 22,
+    year: 2025,
+    month: 4,
+  ).display("[day] [month repr:long] [year]"),
+  title: "A test of Typst math rendering",
+)
 
 #show <render-svg>: it => {
   set text(size: 1.5em)
@@ -11,9 +18,6 @@
     html.frame(it),
   )
 }
-
-
-= A test of Typst math rendering
 
 Let $U$ and $V$ be $FF$-vector spaces. Suppose that $U$ is finite-dimensional of dimension $n >= 1$. Let $S = {u_1,...,u_n}$ be a basis for $U$. Given any map $f : S -> V$ (of sets), show that there is a unique linear map
 $

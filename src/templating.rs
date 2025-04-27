@@ -2,5 +2,9 @@
 use hypertext::Rendered;
 
 pub trait Template {
-    fn render_page_with_content(&self, content: hypertext::Raw<String>) -> Rendered<String>;
+    fn render_page_with_content(
+        &self,
+        content: hypertext::Raw<String>,
+        metadata: &super::world::Metadata,
+    ) -> Rendered<String>;
 }

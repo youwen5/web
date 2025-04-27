@@ -2,7 +2,7 @@ use std::{collections::HashMap, path::PathBuf};
 
 use hypertext::Rendered;
 
-use crate::world::TypstDoc;
+use crate::world::{Metadata, TypstDoc};
 
 pub type RouteTree = HashMap<String, RouteNode>;
 #[derive(Debug)]
@@ -20,7 +20,7 @@ pub struct Routes {
 /// function. Given a URL, the function can (optionally) match on it and then render the
 /// TypstContent (which a string) into an HTML document (using `maud!`). They should return the
 /// `Rendered<String>` which will then be written into the correct place in `dist/`.
-pub type Templater = dyn Fn(String, String) -> Rendered<String>;
+pub type Templater = dyn Fn(String, String, &Metadata) -> Rendered<String>;
 
 /// Representation of a website. Contains routes, a templater for routes, and describes assets.
 pub struct Site {
@@ -37,7 +37,7 @@ pub struct Site {
 impl Site {
     pub fn new<F>(routes: Routes, templater_fn: F) -> Self
     where
-        F: Fn(String, String) -> Rendered<String> + 'static,
+        F: Fn(String, String, &Metadata) -> Rendered<String> + 'static,
     {
         Site {
             routes,
