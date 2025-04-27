@@ -107,7 +107,8 @@ fn query_metadata(value: &str, path: &Path, root: &Path) -> Result<Option<String
 
     let value = match String::from_utf8(value) {
         Ok(str) => {
-            if str.is_empty() {
+            let str = str.trim_matches(['\'', '\n', '"']).to_string();
+            if str.is_empty() || str == "null" {
                 None
             } else {
                 Some(str)
