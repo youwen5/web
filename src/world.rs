@@ -89,6 +89,7 @@ pub fn compile_document(
     }
 }
 
+/// Use the Typst CLI to query a document from metadata.
 fn query_metadata(value: &str, path: &Path, root: &Path) -> Result<Option<String>, Error> {
     let value = Command::new("typst")
         .arg("query")
@@ -196,7 +197,6 @@ impl WorkingDirs {
 /// all files have been generated and paths are guaranteed to be valid.
 pub struct World {
     working_dirs: WorkingDirs,
-    _realized: bool,
     root: PathBuf,
 }
 
@@ -204,7 +204,6 @@ impl World {
     pub fn new(working_dirs: WorkingDirs) -> World {
         World {
             working_dirs,
-            _realized: false,
             root: PathBuf::from("./"),
         }
     }
