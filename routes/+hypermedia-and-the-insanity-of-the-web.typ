@@ -165,7 +165,7 @@ experiences that looked great.
 And once people experienced decent web design, they wanted to do it too. The
 culture of pulling in dependencies that rose around #smallcaps[npm] led to the
 incidents like
-#smallcaps("https://en.wikipedia.org/wiki/Npm_left-pad_incident")[left-pad]
+#link("https://en.wikipedia.org/wiki/Npm_left-pad_incident")[left-pad]
 that drew widespread ridicule. But it also had a more subtle effect, in that
 everyone's sites started to look and feel more and more alike. Instead of
 thinking about intentionality in either design or code, people were more than
