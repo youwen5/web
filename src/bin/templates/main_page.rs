@@ -1,4 +1,4 @@
-use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
+use hypertext::{html_elements, maud, GlobalAttributes, Rendered};
 use luminite::templating::Template;
 
 use super::{components::Head, default_shell::DefaultShell};

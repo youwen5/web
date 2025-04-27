@@ -7,8 +7,8 @@ use std::{
     process::Command,
 };
 
-use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
-use tracing::{Level, event};
+use minify_html_onepass::{in_place_str, Cfg, Error as HtmlError};
+use tracing::{event, Level};
 
 use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
 

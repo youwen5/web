@@ -156,7 +156,7 @@ body {
 }
 
 @utility link {
-    @apply underline decoration-solid decoration-2 underline-offset-2 hover:text-love decoration-love;
+  @apply underline decoration-solid decoration-2 underline-offset-2 hover:text-love decoration-love;
 }
 
 .main-content {

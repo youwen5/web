@@ -1,4 +1,4 @@
-use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
+use hypertext::{html_elements, maud, GlobalAttributes, Rendered};
 use luminite::templating::Template;
 
 use super::{components::Head, default_shell::DefaultShell};
@@ -20,9 +20,7 @@ impl Template for Prose {
         .render_with_children(maud! {
             div id="typst-injected" class="prose-xl mt-2 prose-headings:all-smallcaps prose-headings:text-center lg:prose-headings:text-start" {
                 (content)
-            
             }
-
             div class="smallcaps text-muted w-full text-center mt-6 mb-8 text-3xl" {
                 "yw"
             }

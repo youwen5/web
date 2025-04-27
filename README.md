@@ -34,6 +34,7 @@ You need either
 - The Nix package manager.
 
 With Nix:
+
 ```nix
 nix build
 ```
