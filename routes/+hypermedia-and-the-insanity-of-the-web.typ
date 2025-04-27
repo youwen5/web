@@ -27,7 +27,7 @@ dependencies are bad and JavaScript sucks. Everyone knows these things to be
 true already. Rather, I'd like to have a brief discussion about the nature and
 purpose of the web.
 
-== you don't need that framework
+= you don't need that framework
 
 As of now, this website ships absolutely no JavaScript to you. I am not sure at
 what point I will have to begin shipping non-trivial site--wide JavaScript, but
@@ -56,7 +56,7 @@ here. We have #link("https://svelte.dev/")[sane] and
 #link("https://elm-lang.org/")[genuinely powerful] ways to do web app
 development. I argue that you probably _don't need_ all of that power.
 
-== hypermedia is a great idea
+= hypermedia is a great idea
 
 Are you actually building a proper web *app*? Like, a photo editor or something? Then
 this probably doesn't apply to you. Otherwise, if you are instead building a
@@ -106,7 +106,7 @@ interactive applications, for example, video editors, require more than just
 hypermedia. But for many less or only moderately complex web apps, hypermedia
 works great too!)
 
-== digression on web design
+= digression on web design
 
 Let's briefly talk about the actual visual and UX design of the web itself.
 Trust me, this is all going to connect back with hypermedia.
@@ -155,7 +155,7 @@ where every site has the same few motifs and styles. Rather than people seeing
 designs they like and thoughtfully copying the elements they enjoy, many sites
 just end up looking like cheap knockoffs.
 
-== ok, but what does this have to do with hypertext?
+= ok, but what does this have to do with hypertext?
 
 The same reason why web design is monotonous and boring today is the same
 reason why websites are increasingly written in pure JavaScript with a massive
@@ -181,7 +181,7 @@ UI composed of various pre-baked components duct taped together alongside a
 massive corpus JavaScript running opaquely in the background, even if they were
 just writing something that could work as a few static #smallcaps[html] files.
 
-== so what?
+= so what?
 
 So should you stop using web frameworks immediately and only write raw
 #smallcaps[html], and have a website that looks imported from the 90's just
