@@ -178,4 +178,8 @@ body {
       filter: invert(1);
     }
   }
+
+  hr {
+    display: none;
+  }
 }

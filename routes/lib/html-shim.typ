@@ -42,3 +42,12 @@
     },
   )
 }
+
+#let dinkus = {
+  html.elem("hr")
+  html.elem(
+    "div",
+    attrs: (class: "w-full text-center text-xl text-subtle"),
+    [⁂],
+  )
+}

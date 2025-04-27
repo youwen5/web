@@ -192,6 +192,8 @@ design. The lack of intentionality and care put into the fundamental features
 of most websites is the real issue and the rise of copy-pasted UI components
 and JavaScript plumbers are just natural symptoms of this fact.
 
+#dinkus
+
 What is the actual fundamental goal of your site? What is the most important
 thing users actually get out of it? (I hope you don't answer cynically with a
 response like #quote("sign up for the most SaaS subscriptions").) Is

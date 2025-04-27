@@ -1,4 +1,4 @@
-#import "./lib/html-shim.typ": html-shim
+#import "./lib/html-shim.typ": *
 
 #show: html-shim
 
@@ -19,6 +19,8 @@ written as #link("https://maud.lambda.xyz/")[maud] macros in Rust (which means
 the Rust compiler is essentially my templating engine). The
 #link("https://crates.io/crates/hypertext")[hypertext] crate's `maud!`
 implementation is used for efficient rendering.
+
+#dinkus
 
 The typeface used for both body text and headings is
 #link("https://practicaltypography.com/valkyrie.html")[Valkyrie], a
