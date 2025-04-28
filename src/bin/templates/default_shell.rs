@@ -52,7 +52,7 @@ impl DefaultShell {
                                     (nav_items)
                                 }
                                 div class="space-y-2" {
-                                    p class="all-smallcaps text-xl" {"Code"}
+                                    p class="all-smallcaps text-xl" {"Hacking"}
                                     ul class="italic space-y-2 text-subtle text-lg" {
                                         (code)
                                     }
@@ -84,7 +84,7 @@ impl DefaultShell {
                                         }
                                         div class="space-y-3" {
                                             div class="space-y-2" {
-                                                p class="all-smallcaps text-xl" {"Code"}
+                                                p class="all-smallcaps text-xl" {"Hacking"}
                                                 ul class="italic space-y-2 text-subtle text-lg" {
                                                     (code)
                                                 }
