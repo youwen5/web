@@ -6,7 +6,7 @@ use luminite::{
     world::{WorkingDirs, World},
 };
 
-use clap::{Args, Parser, Subcommand};
+use clap::{ArgAction, Args, Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
@@ -14,6 +14,10 @@ use clap::{Args, Parser, Subcommand};
 struct Cli {
     #[command(subcommand)]
     command: Commands,
+    #[arg(short, long, action = ArgAction::Count)]
+    verbose: u8,
+    #[arg(short, long, conflicts_with = "verbose")]
+    quiet: bool,
 }
 
 #[derive(Subcommand)]
@@ -31,6 +35,19 @@ struct BuildArgs {
 
 pub fn run() {
     let cli = Cli::parse();
+
+    let log_level = if cli.quiet {
+        tracing::Level::ERROR
+    } else {
+        match cli.verbose {
+            0 => tracing::Level::WARN,
+            1 => tracing::Level::INFO,
+            2 => tracing::Level::DEBUG,
+            _ => tracing::Level::TRACE,
+        }
+    };
+
+    tracing_subscriber::fmt().with_max_level(log_level).init();
 
     match &cli.command {
         Commands::Build(args) => {
@@ -61,7 +78,7 @@ pub fn run() {
                 }
             };
 
-            let mut site = Site::new(routes, move |slug, content, metadata| {
+            let site = Site::new(routes, move |slug, content, metadata| {
                 let raw_content = Raw(content);
                 let rendered = match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content, metadata),
@@ -74,21 +91,24 @@ pub fn run() {
                 };
                 rendered
             });
-            if let Err(err) = the_world.get_metadata(&mut site) {
-                tracing::event!(
-                    tracing::Level::ERROR,
-                    "I tried to query your routes for metadata, but something went wrong! Are you sure you've set up the `html-shim` correctly? Otherwise, metadata won't be generated! I failed with the error {}",
-                    err
-                );
-                return;
-            };
 
             if let Err(err) = the_world.realize_site(site, args.minify) {
-                tracing::event!(
-                    tracing::Level::ERROR,
-                    "I was able to parse your routes and build your site, but something went wrong actually trying to build it! Check your configuration. I failed with the error: {}",
-                    err
-                );
+                match err {
+                    luminite::world::WorldError::TypstQuery => {
+                        tracing::event!(
+                            tracing::Level::ERROR,
+                            "I tried to query your routes for metadata, but something went wrong! Are you sure you've set up the `html-shim` correctly? Otherwise, metadata won't be generated! I failed with the error {}",
+                            err
+                        );
+                    }
+                    _ => {
+                        tracing::event!(
+                            tracing::Level::ERROR,
+                            "I was able to parse your routes and build your site, but something went wrong actually trying to build it! Check your configuration. I failed with the error: {}",
+                            err
+                        );
+                    }
+                }
             };
         }
     }

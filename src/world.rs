@@ -343,7 +343,7 @@ impl World {
         for (filename, node) in route_tree.iter_mut() {
             match node {
                 RouteNode::Page(typst_doc) => {
-                    let metadata = query_metadata(&typst_doc.source_path, &self.root).unwrap();
+                    let metadata = query_metadata(&typst_doc.source_path, &self.root)?;
 
                     event!(
                         Level::DEBUG,
@@ -351,7 +351,7 @@ impl World {
                         typst_doc.source_path.as_os_str(),
                     );
 
-                    println!("{:?}", metadata);
+                    event!(Level::INFO, "Grabbing metadata from {}", filename);
 
                     typst_doc.metadata = Some(metadata);
                 }
