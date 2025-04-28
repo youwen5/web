@@ -51,20 +51,20 @@ impl DefaultShell {
                                 ul class="space-y-2 text-love text-2xl " {
                                     (nav_items)
                                 }
-                                div class="space-y-4" {
-                                    p class="text-3xl" {"Code"}
+                                div class="space-y-2" {
+                                    p class="all-smallcaps text-2xl" {"Code"}
                                     ul class="italic space-y-2 text-subtle text-xl" {
                                         (code)
                                     }
                                 }
-                                div class="space-y-4" {
-                                    p class="text-3xl" {"Math"}
+                                div class="space-y-2" {
+                                    p class="all-smallcaps text-2xl" {"Math"}
                                     ul class="italic space-y-2 text-subtle text-xl" {
                                         (math)
                                     }
                                 }
-                                div class="space-y-4" {
-                                    p class="text-3xl" {"Other"}
+                                div class="space-y-2" {
+                                    p class="all-smallcaps text-2xl" {"Other"}
                                     ul class="italic space-y-2 text-subtle text-xl" {
                                         (other)
                                     }
@@ -83,17 +83,23 @@ impl DefaultShell {
                                             (nav_items)
                                         }
                                         div class="space-y-3" {
-                                            p class="text-2xl" {"Code"}
-                                            ul class="italic space-y-2 text-subtle text-xl" {
-                                                (code)
+                                            div class="space-y-1" {
+                                                p class="all-smallcaps text-xl" {"Code"}
+                                                ul class="italic space-y-2 text-subtle text-xl" {
+                                                    (code)
+                                                }
                                             }
-                                            p class="text-2xl" {"Math"}
-                                            ul class="italic space-y-2 text-subtle text-xl" {
-                                                (math)
+                                            div class="space-y-2" {
+                                                p class="text-xl" {"Math"}
+                                                ul class="all-smallcaps italic space-y-2 text-subtle text-xl" {
+                                                    (math)
+                                                }
                                             }
-                                            p class="text-2xl" {"Other"}
-                                            ul class="italic space-y-2 text-subtle text-xl" {
-                                                (other)
+                                            div class="space-y-1" {
+                                                p class="all-smallcaps text-xl" {"Other"}
+                                                ul class="italic space-y-2 text-subtle text-xl" {
+                                                    (other)
+                                                }
                                             }
                                 }
                                     }
