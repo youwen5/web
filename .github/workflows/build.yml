@@ -1,0 +1,20 @@
+name: Build site and push to GH pages
+on:
+  pull_request:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+      - uses: cachix/cachix-action@v16
+        with:
+          name: luminite
+          authToken: "${{ secrets.CACHIX_TOKEN }}"
+      - run: nix build .#full --accept-flake-config
