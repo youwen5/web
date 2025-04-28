@@ -33,14 +33,18 @@
     it
   }
 
-  body
+  let page_metadata = (
+    date: date,
+    special-author: special-author,
+    location: location,
+    title: title,
+  )
 
   [
-    #metadata(date) <date>
-    #metadata(special-author)<special-author>
-    #metadata(location)<location>
-    #metadata(title) <title>
+    #metadata(page_metadata) <metadata>
   ]
+
+  body
 }
 
 #let blockquote = (attribution: none, body) => {

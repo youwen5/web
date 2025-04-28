@@ -2,18 +2,20 @@
 use std::{
     collections::HashMap,
     fs::{self, File},
-    io::{self, Error, Read},
+    io::{self, Read},
     path::{self, Path, PathBuf},
     process::Command,
 };
 
-use minify_html_onepass::{in_place_str, Cfg, Error as HtmlError};
-use tracing::{event, Level};
+use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
+use serde::{Deserialize, Serialize};
+use thiserror::Error;
+use tracing::{Level, event};
 
 use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
 
 impl TypstDoc {
-    pub fn new(path_to_html: &Path) -> Result<TypstDoc, std::io::Error> {
+    pub fn new(path_to_html: &Path) -> Result<TypstDoc, WorldError> {
         let doc = TypstDoc {
             source_path: path_to_html.to_path_buf(),
             metadata: None,
@@ -23,7 +25,19 @@ impl TypstDoc {
     }
 }
 
-#[derive(Debug)]
+#[derive(Error, Debug)]
+pub enum WorldError {
+    #[error("extracting metadata from document produced no result or invalid result")]
+    TypstQuery,
+    #[error("io error")]
+    Io(#[from] io::Error),
+    #[error("json deserialization error")]
+    JsonDeserialize(#[from] serde_json::Error),
+    #[error("failed to build Typst binary")]
+    TypstBuild,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
 pub struct Metadata {
     pub special_author: Option<String>,
     pub location: Option<String>,
@@ -45,14 +59,27 @@ pub fn compile_document(
     input: &path::Path,
     output: &path::Path,
     root: &path::Path,
-) -> Result<(), Error> {
+) -> Result<(), WorldError> {
     let resolved_document = input.canonicalize()?;
     if let Some(dir) = output.parent() {
         if !dir.exists() {
-            return Err(Error::new(
-                std::io::ErrorKind::Other,
-                "Directory doesn't exist.",
-            ));
+            return Err(WorldError::Io(std::io::Error::new(
+                std::io::ErrorKind::NotFound,
+                "output dir doesn't exist",
+            )));
+        }
+
+        match dir.try_exists() {
+            Ok(exists) => {
+                if !exists {
+                    event!(Level::ERROR, "Outputs directory was not found!");
+                    return Err(WorldError::Io(io::Error::new(
+                        io::ErrorKind::NotFound,
+                        "target directory does not exist",
+                    )));
+                }
+            }
+            Err(error) => return Err(WorldError::Io(error)),
         }
     }
 
@@ -62,18 +89,19 @@ pub fn compile_document(
         .args(["--format", "html"])
         .args([
             "--root",
-            root.to_str().expect("could not cast root dir to a string."),
+            root.to_str().ok_or(std::io::Error::new(
+                std::io::ErrorKind::InvalidData,
+                "could not parse build root to valid UTF-8",
+            ))?,
         ])
-        .arg(
-            resolved_document
-                .to_str()
-                .expect("Failed to cast document to a string."),
-        )
-        .arg(
-            output
-                .to_str()
-                .expect("Failed to cast output path to a string."),
-        )
+        .arg(resolved_document.to_str().ok_or(std::io::Error::new(
+            std::io::ErrorKind::InvalidData,
+            "could not parse document path to valid UTF-8",
+        ))?)
+        .arg(output.to_str().ok_or(std::io::Error::new(
+            std::io::ErrorKind::InvalidData,
+            "could not parse output path to valid UTF-8",
+        ))?)
         .spawn()?;
 
     match typst.wait() {
@@ -85,35 +113,35 @@ pub fn compile_document(
                 input.to_str().unwrap(),
                 err,
             );
-            panic!();
+            Err(WorldError::Io(err))
         }
     }
 }
 
 /// Use the Typst CLI to query a document from metadata.
-fn query_metadata(value: &str, path: &Path, root: &Path) -> Result<Option<String>, Error> {
+fn query_metadata(path: &Path, root: &Path) -> Result<Metadata, WorldError> {
     let value = Command::new("typst")
         .arg("query")
         .args(["--features", "html"])
         .args(["--field", "value"])
         .arg("--one")
+        .args(["--format", "json"])
         .args([
             "--root",
             root.to_str().expect("could not cast root dir to a string."),
         ])
         .arg(path.to_str().expect("Failed to cast document to a string."))
-        .arg(format!("<{value}>"))
+        .arg("<metadata>")
         .stderr(std::process::Stdio::null())
         .output()?
         .stdout;
 
     let value = match String::from_utf8(value) {
         Ok(str) => {
-            let str = str.trim_matches(['\'', '\n', '"']).to_string();
             if str.is_empty() || str == "null" {
-                None
+                return Err(WorldError::TypstQuery);
             } else {
-                Some(str)
+                str
             }
         }
         Err(error) => {
@@ -123,11 +151,11 @@ fn query_metadata(value: &str, path: &Path, root: &Path) -> Result<Option<String
                 path.as_os_str()
             );
 
-            None
+            panic!();
         }
     };
 
-    Ok(value)
+    Ok(serde_json::from_str(&value)?)
 }
 
 fn create_file_resilient<P: AsRef<Path>>(path: P) -> io::Result<File> {
@@ -151,7 +179,7 @@ pub struct WorkingDirs {
 impl WorkingDirs {
     /// Set up the working directories, `dist` for built artifacts and `.luminite` for intermediate
     /// artifacts, as well as intermediate directories.
-    fn setup_working_dirs() -> Result<WorkingDirs, Error> {
+    fn setup_working_dirs() -> Result<WorkingDirs, WorldError> {
         let dist_path = Path::new("./dist");
         let factory_path = Path::new("./.luminite");
         if std::fs::exists(dist_path)? {
@@ -168,7 +196,7 @@ impl WorkingDirs {
         })
     }
 
-    pub fn working_dirs_exist() -> Result<bool, Error> {
+    pub fn working_dirs_exist() -> Result<bool, WorldError> {
         let dist_path = Path::new("./dist");
         let factory_path = Path::new("./.luminite");
 
@@ -179,7 +207,7 @@ impl WorkingDirs {
     }
 
     /// Guarantees that the working directories exist and returns their `PathBuf`s.
-    pub fn get_dirs() -> Result<WorkingDirs, Error> {
+    pub fn get_dirs() -> Result<WorkingDirs, WorldError> {
         if !WorkingDirs::working_dirs_exist()? {
             return WorkingDirs::setup_working_dirs();
         }
@@ -211,7 +239,7 @@ impl World {
 
     /// Given a `TypstDoc`, build it in the World and return a path to it (which is guaranteed to
     /// exist).
-    fn build_doc(&self, doc: &TypstDoc) -> Result<PathBuf, Error> {
+    fn build_doc(&self, doc: &TypstDoc) -> Result<PathBuf, WorldError> {
         let dirs = &self.working_dirs;
         let mut html_artifacts_path = dirs.factory.clone();
         html_artifacts_path.push(Path::new("./typst-html"));
@@ -232,7 +260,7 @@ impl World {
 
     /// Given a `TypstDoc`, realize it in the World and obtain its contents, with <DOCTYPE>,
     /// <html>, <head>, and <body> tags truncated.
-    pub fn get_doc_contents(&self, doc: &TypstDoc) -> Result<String, Error> {
+    pub fn get_doc_contents(&self, doc: &TypstDoc) -> Result<String, WorldError> {
         let build_path = self
             .build_doc(doc)
             .expect("Something went wrong building a document.");
@@ -248,37 +276,51 @@ impl World {
 
     /// Index the `routes` directory in the World, and return a tree representing the raw directory
     /// structure.
-    fn index_routes(&self) -> RawRouteTree {
+    fn index_routes(&self) -> Result<RawRouteTree, WorldError> {
         event!(Level::INFO, "Indexing routes...");
         let routes_dir = self.root.join("./routes");
-        if !routes_dir.exists() {
-            event!(Level::ERROR, "Routes folder was not found!");
-            panic!();
+        match routes_dir.try_exists() {
+            Ok(exists) => {
+                if !exists {
+                    event!(Level::ERROR, "Routes directory was not found!");
+                    return Err(WorldError::Io(io::Error::new(
+                        io::ErrorKind::NotFound,
+                        "target directory does not exist",
+                    )));
+                }
+            }
+            Err(error) => return Err(WorldError::Io(error)),
         }
         walk_dirs(&routes_dir)
     }
 
     /// Get routes from the world.
-    pub fn get_routes(&self) -> Routes {
-        Routes {
-            tree: reconcile_raw_routes(&self.index_routes()),
-        }
+    pub fn get_routes(&self) -> Result<Routes, WorldError> {
+        Ok(Routes {
+            tree: reconcile_raw_routes(&self.index_routes()?),
+        })
     }
 
     /// Given a `&Site`, perform all the necessary actions (e.g. running the Typst compiler,
     /// generating metadata, etc.) and output the artifacts in `dist`.
-    fn build_routes(&self, site: &Site, minify: bool) -> Result<(), Error> {
+    fn build_routes(&self, site: &Site, minify: bool) -> Result<(), WorldError> {
         self.route_builder_helper(&site.routes.tree, "".to_string(), &site.templater, minify)?;
         Ok(())
     }
 
-    fn copy_public_dir(&self, site: &Site) -> Result<(), Error> {
-        if !site.public_dir.exists() {
-            event!(Level::ERROR, "The public directory doesn't exist!");
-            panic!();
-        }
-
-        event!(Level::INFO, "Copying assets over from public/");
+    fn copy_public_dir(&self, site: &Site) -> Result<(), WorldError> {
+        match site.public_dir.try_exists() {
+            Ok(exists) => {
+                if !exists {
+                    event!(Level::INFO, "Copying assets over from public/");
+                    return Err(WorldError::Io(io::Error::new(
+                        io::ErrorKind::NotFound,
+                        "target directory does not exist",
+                    )));
+                }
+            }
+            Err(error) => return Err(WorldError::Io(error)),
+        };
 
         dircpy::CopyBuilder::new(
             &site.public_dir,
@@ -286,31 +328,22 @@ impl World {
         )
         .overwrite_if_newer(true)
         .overwrite_if_size_differs(true)
-        .run()
-        .unwrap();
+        .run()?;
 
         Ok(())
     }
 
     /// Given a site, extract the metadata from each document.
-    pub fn get_metadata(&self, site: &mut Site) -> std::result::Result<(), Error> {
+    pub fn get_metadata(&self, site: &mut Site) -> std::result::Result<(), WorldError> {
         self.get_metadata_helper(&mut site.routes.tree)
     }
 
     /// Helper to recursively traverse the route tree and query metadata.
-    fn get_metadata_helper(&self, route_tree: &mut RouteTree) -> Result<(), Error> {
+    fn get_metadata_helper(&self, route_tree: &mut RouteTree) -> Result<(), WorldError> {
         for (filename, node) in route_tree.iter_mut() {
             match node {
                 RouteNode::Page(typst_doc) => {
-                    let date = query_metadata("date", &typst_doc.source_path, &self.root).unwrap();
-                    let special_author =
-                        query_metadata("special-author", &typst_doc.source_path, &self.root)
-                            .unwrap();
-                    let title =
-                        query_metadata("title", &typst_doc.source_path, &self.root).unwrap();
-
-                    let location =
-                        query_metadata("location", &typst_doc.source_path, &self.root).unwrap();
+                    let metadata = query_metadata(&typst_doc.source_path, &self.root).unwrap();
 
                     event!(
                         Level::DEBUG,
@@ -318,12 +351,9 @@ impl World {
                         typst_doc.source_path.as_os_str(),
                     );
 
-                    typst_doc.metadata = Some(Metadata {
-                        special_author,
-                        location,
-                        date,
-                        title,
-                    });
+                    println!("{:?}", metadata);
+
+                    typst_doc.metadata = Some(metadata);
                 }
                 RouteNode::Nested(hash_map) => self.get_metadata_helper(hash_map)?,
             };
@@ -332,7 +362,7 @@ impl World {
     }
 
     /// Compile a `Site` into `dist`
-    pub fn realize_site(&self, mut site: Site, minify: bool) -> Result<(), Error> {
+    pub fn realize_site(&self, mut site: Site, minify: bool) -> Result<(), WorldError> {
         self.copy_public_dir(&site)?;
         self.get_metadata(&mut site)?;
         self.build_routes(&site, minify)?;
@@ -348,7 +378,7 @@ impl World {
         parent_route: String,
         templater: &Templater,
         minify: bool,
-    ) -> Result<(), Error> {
+    ) -> Result<(), WorldError> {
         for node in routes.iter() {
             match node {
                 (slug, RouteNode::Page(doc)) => {
@@ -462,13 +492,9 @@ enum RawRouteNode {
 
 /// Helper function to recursively walk down the `routes` directory and generate a raw tree
 /// representation of it.
-fn walk_dirs(dir: &Path) -> RawRouteTree {
+fn walk_dirs(dir: &Path) -> Result<RawRouteTree, WorldError> {
     let mut tree: HashMap<String, RawRouteNode> = HashMap::new();
-    for entry in dir
-        .read_dir()
-        .expect("Error while walking routes: the directory doesn't exist!")
-        .flatten()
-    {
+    for entry in dir.read_dir()?.flatten() {
         let path = entry.path();
         if path.is_dir() {
             tree.insert(
@@ -478,7 +504,7 @@ fn walk_dirs(dir: &Path) -> RawRouteTree {
                     .to_str()
                     .unwrap()
                     .to_string(),
-                RawRouteNode::Dir(walk_dirs(&path)),
+                RawRouteNode::Dir(walk_dirs(&path)?),
             );
         } else {
             tree.insert(
@@ -488,11 +514,11 @@ fn walk_dirs(dir: &Path) -> RawRouteTree {
                     .to_str()
                     .unwrap()
                     .to_string(),
-                RawRouteNode::File(path.canonicalize().unwrap()),
+                RawRouteNode::File(path.canonicalize()?),
             );
         }
     }
-    tree
+    Ok(tree)
 }
 
 /// Utility function to trim HTML generated by Typst of `<head>`, `<body>` and `<doctype>` tags
