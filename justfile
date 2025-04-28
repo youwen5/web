@@ -27,7 +27,7 @@ webbundle:
     pnpm build
 
 build:
-    cargo run -- build
+    cargo run -- -v build
 
 build-release:
     cargo run --release -- build --minify
