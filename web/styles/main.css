@@ -39,42 +39,6 @@
   src: url("/fonts/valkyrie_ot_a_bold_italic.woff2") format("woff2");
 }
 
-@font-face {
-  font-family: valkyrie_ot_b;
-  font-style: normal;
-  font-weight: normal;
-  font-stretch: normal;
-  font-display: auto;
-  src: url("/fonts/valkyrie_ot_b_regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: valkyrie_ot_b;
-  font-style: italic;
-  font-weight: normal;
-  font-stretch: normal;
-  font-display: auto;
-  src: url("/fonts/valkyrie_ot_b_italic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: valkyrie_ot_b;
-  font-style: normal;
-  font-weight: bold;
-  font-stretch: normal;
-  font-display: auto;
-  src: url("/fonts/valkyrie_ot_b_bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: valkyrie_ot_b;
-  font-style: italic;
-  font-weight: bold;
-  font-stretch: normal;
-  font-display: auto;
-  src: url("/fonts/valkyrie_ot_b_bold_italic.woff2") format("woff2");
-}
-
 :root {
   --base-color: 250 244 237;
   --foreground-color: 87 82 121;
@@ -140,7 +104,6 @@
 
 @theme {
   --font-serif: "valkyrie_ot_b", serif;
-  --font-serif-thick: "valkyrie_ot_a", serif;
 }
 
 @utility smallcaps {
