@@ -45,7 +45,7 @@ impl DefaultShell {
                 (self.head)
                 body class="antialiased mt-4 lg:mt-20 leading-relaxed mx-auto max-w-[1200px]" {
                     div class="flex gap-8 px-4 lg:px-6" {
-                        aside class="hidden lg:block w-64 flex-none" {
+                        aside class="hidden md:block w-64 flex-none" {
                             a class="italic text-[3em] hover:bg-subtle/50 transition-colors select-none" href="/" {"youwen wu"}
                             nav class="space-y-6 mt-4" {
                                 ul class="space-y-2 text-love text-2xl " {
@@ -71,8 +71,8 @@ impl DefaultShell {
                                 }
                             }
                         }
-                        div class="flex-1 lg:mt-2" {
-                            div class="lg:hidden border-b border-dashed border-muted mb-8 pb-8 w-full"  {
+                        div class="flex-1 md:mt-2" {
+                            div class="md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full"  {
                                 p class="text-center italic text-[3em] hover:text-subtle mt-8 select-none" {a href="/" {"youwen wu"}}
                                 details class="w-full mt-4" {
                                     summary class="text-center smallcaps text-xl cursor-pointer" {
