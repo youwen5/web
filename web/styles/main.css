@@ -4,39 +4,39 @@
 @plugin "@tailwindcss/typography";
 
 @font-face {
-  font-family: valkyrie_ot_a;
+  font-family: valkyrie_ot_b;
   font-style: normal;
   font-weight: normal;
   font-stretch: normal;
   font-display: auto;
-  src: url("/fonts/valkyrie_ot_a_regular.woff2") format("woff2");
+  src: url("/fonts/valkyrie_ot_b_regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: valkyrie_ot_a;
+  font-family: valkyrie_ot_b;
   font-style: italic;
   font-weight: normal;
   font-stretch: normal;
   font-display: auto;
-  src: url("/fonts/valkyrie_ot_a_italic.woff2") format("woff2");
+  src: url("/fonts/valkyrie_ot_b_italic.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: valkyrie_ot_a;
+  font-family: valkyrie_ot_b;
   font-style: normal;
   font-weight: bold;
   font-stretch: normal;
   font-display: auto;
-  src: url("/fonts/valkyrie_ot_a_bold.woff2") format("woff2");
+  src: url("/fonts/valkyrie_ot_b_bold.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: valkyrie_ot_a;
+  font-family: valkyrie_ot_b;
   font-style: italic;
   font-weight: bold;
   font-stretch: normal;
   font-display: auto;
-  src: url("/fonts/valkyrie_ot_a_bold_italic.woff2") format("woff2");
+  src: url("/fonts/valkyrie_ot_b_bold_italic.woff2") format("woff2");
 }
 
 :root {
