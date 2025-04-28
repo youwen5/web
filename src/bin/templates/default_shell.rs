@@ -1,4 +1,4 @@
-use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
+use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
 
 use super::components::Head;
 
@@ -47,25 +47,25 @@ impl DefaultShell {
                     div class="flex gap-8 px-4 lg:px-6" {
                         aside class="hidden lg:block w-64 flex-none" {
                             a class="italic text-[3em] hover:bg-subtle/50 transition-colors select-none" href="/" {"youwen wu"}
-                            nav class="space-y-8 mt-4" {
+                            nav class="space-y-6 mt-4" {
                                 ul class="space-y-2 text-love text-2xl " {
                                     (nav_items)
                                 }
                                 div class="space-y-2" {
-                                    p class="all-smallcaps text-2xl" {"Code"}
-                                    ul class="italic space-y-2 text-subtle text-xl" {
+                                    p class="all-smallcaps text-xl" {"Code"}
+                                    ul class="italic space-y-2 text-subtle text-lg" {
                                         (code)
                                     }
                                 }
                                 div class="space-y-2" {
-                                    p class="all-smallcaps text-2xl" {"Math"}
-                                    ul class="italic space-y-2 text-subtle text-xl" {
+                                    p class="all-smallcaps text-xl" {"Math"}
+                                    ul class="italic space-y-2 text-subtle text-lg" {
                                         (math)
                                     }
                                 }
                                 div class="space-y-2" {
-                                    p class="all-smallcaps text-2xl" {"Other"}
-                                    ul class="italic space-y-2 text-subtle text-xl" {
+                                    p class="all-smallcaps text-xl" {"Other"}
+                                    ul class="italic space-y-2 text-subtle text-lg" {
                                         (other)
                                     }
                                 }
@@ -83,21 +83,21 @@ impl DefaultShell {
                                             (nav_items)
                                         }
                                         div class="space-y-3" {
-                                            div class="space-y-1" {
+                                            div class="space-y-2" {
                                                 p class="all-smallcaps text-xl" {"Code"}
-                                                ul class="italic space-y-2 text-subtle text-xl" {
+                                                ul class="italic space-y-2 text-subtle text-lg" {
                                                     (code)
                                                 }
                                             }
                                             div class="space-y-2" {
-                                                p class="text-xl" {"Math"}
-                                                ul class="all-smallcaps italic space-y-2 text-subtle text-xl" {
+                                                p class="all-smallcaps text-xl" {"Math"}
+                                                ul class="italic space-y-2 text-subtle text-lg" {
                                                     (math)
                                                 }
                                             }
                                             div class="space-y-1" {
                                                 p class="all-smallcaps text-xl" {"Other"}
-                                                ul class="italic space-y-2 text-subtle text-xl" {
+                                                ul class="italic space-y-2 text-subtle text-lg" {
                                                     (other)
                                                 }
                                             }
