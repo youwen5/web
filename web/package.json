@@ -7,16 +7,15 @@
   "author": "",
   "license": "GPL-v3",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rolldown -c"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
     "@tailwindcss/postcss": "^4.1.4",
+    "@tailwindcss/typography": "^0.5.16",
+    "cssnano": "^7.0.6",
     "postcss": "^8.5.3",
-    "postcss-minify": "^1.1.0",
-    "rollup": "^4.40.0",
+    "rolldown": "1.0.0-beta.8",
     "rollup-plugin-postcss": "^4.0.2",
-    "tailwindcss": "^4.1.4",
-    "@tailwindcss/typography": "^0.5.16"
+    "tailwindcss": "^4.1.4"
   }
 }

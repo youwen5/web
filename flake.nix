@@ -77,7 +77,7 @@
               pnpmDeps = pnpm.fetchDeps {
                 pname = "site-pnpm-deps";
                 src = ./web;
-                hash = "sha256-Gao17MHn/sj0TGTQpVBpeTLkJjz3XAf65Jn1bvMs4R0=";
+                hash = "sha256-J5BmBDzLD/g2uIlKeFfEnwEarnT+dx/v4SYA3RARsJo=";
               };
             in
             pkgs.stdenv.mkDerivation (finalAttrs: {
