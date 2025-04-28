@@ -1,4 +1,4 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
+use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 
 use super::components::Head;
 
