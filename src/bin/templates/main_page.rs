@@ -12,14 +12,13 @@ impl Template for MainPage {
         metadata: &Metadata,
     ) -> Rendered<String> {
         let title = metadata.title.clone();
-
         DefaultShell {
             head: Head {
-                page_title: None,
+                page_title: title.clone(),
                 author: None,
                 description: None,
                 image: None,
-                meta_title: None,
+                meta_title: title.clone(),
             },
             width: super::default_shell::PageWidth::Wide,
         }

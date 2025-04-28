@@ -13,11 +13,11 @@ impl Template for Prose {
     ) -> Rendered<String> {
         DefaultShell {
             head: Head {
-                page_title: None,
+                page_title: metadata.title.clone(),
                 author: metadata.special_author.clone(),
                 description: None,
                 image: None,
-                meta_title: None,
+                meta_title: metadata.title.clone(),
             },
             width: super::default_shell::PageWidth::Prose,
         }
