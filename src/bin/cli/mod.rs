@@ -44,7 +44,7 @@ pub fn run() {
                 let rendered = match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content, metadata),
                     "/math-test" => prose.render_page_with_content(raw_content, metadata),
-                    "/impressum" => main_page.render_page_with_content(raw_content, metadata),
+                    "/luminite" => prose.render_page_with_content(raw_content, metadata),
                     "/hypermedia-and-the-insanity-of-the-web" => {
                         prose.render_page_with_content(raw_content, metadata)
                     }
