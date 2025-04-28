@@ -16,7 +16,9 @@ A brief tour:
 
 - [`./routes`](./routes): the content of the site. The structure of the website
   mirrors this directory.
-- [`./src`](./src): the Rust source code that powers the static site generator.
+- [`./src`](./src): the Rust library that powers the static site generator.
+- [`./src/bin`](./src): the source code for the actual website, i.e. CLI and other things.
+- [`./src/bin/templates`](./src): HTML templates for the various pages and components, written as Rust macros.
 - [`./typst`](./typst): support files for Typst.
 - [`./public`](./public): static assets.
 
@@ -75,7 +77,8 @@ describe the _rules_ for building their site in Rust.
 
 For now I am not planning to release it as a standalone library because the
 user experience is not great. However I take care to separate the crate logic
-from the site-specific logic).
+from the site-specific logic and may release it in the future once it is
+polished.
 
 Templates are written using the `hypertext` crate, using either the `maud!` or
 `rsx!` macros (whichever you prefer). Or you could write HTML in Rust strings
