@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @source "../../src";
 @source "../../routes";
+@source "../../typst";
 @plugin "@tailwindcss/typography";
 
 @font-face {

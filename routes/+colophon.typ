@@ -1,4 +1,4 @@
-#import "./lib/html-shim.typ": *
+#import "@luminite/html-shim:0.1.0": *
 
 #show: html-shim.with(title: "Colophon")
 

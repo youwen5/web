@@ -31,3 +31,8 @@ build:
 
 build-release:
     cargo run --release -- build --minify
+
+typst-install-deps:
+    rm -rf ~/.cache/typst/packages/luminite/html-shim
+    mkdir -p ~/.cache/typst/packages/luminite
+    cp -r ./typst/lib/html-shim ~/.cache/typst/packages/luminite

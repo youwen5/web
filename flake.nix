@@ -126,8 +126,11 @@
             src = typstPackagesSrc;
             dontBuild = true;
             installPhase = ''
-              mkdir -p "$out/typst/packages"
+              mkdir -p "$out/typst/packages/luminite"
               cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
+              cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages/luminite" ${
+                self.packages.${system}.default.src
+              }/typst/lib/html-shim
             '';
           };
         in
