@@ -23,7 +23,7 @@ impl Template for Prose {
         }
         .render_with_children(maud! {
             h1 class="all-smallcaps text-2xl text-center mt-4" {(metadata.title.clone())}
-            div class="space-y-1 text-center mt-4 text-subtle text-lg" {
+            div class="space-y-1 text-center mt-4 text-subtle text-md" {
                 p {(metadata.date.clone())}
                 p {(metadata.location.clone())}
             }
