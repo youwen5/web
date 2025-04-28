@@ -1,4 +1,4 @@
-#import "../lib/html-shim.typ": html-shim
+#import "@luminite/html-shim:0.1.0": html-shim
 
 #show: html-shim
 
