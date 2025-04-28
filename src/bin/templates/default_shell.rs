@@ -1,4 +1,4 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Renderable, Rendered};
+use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 
 use super::components::Head;
 
@@ -43,7 +43,7 @@ impl DefaultShell {
             !DOCTYPE
             html lang="en" {
                 (self.head)
-                body class="font-sans antialiased mt-4 lg:mt-20 leading-relaxed mx-auto max-w-[1200px]" {
+                body class="antialiased mt-4 lg:mt-20 leading-relaxed mx-auto max-w-[1200px]" {
                     div class="flex gap-8 px-4 lg:px-6" {
                         aside class="hidden lg:block w-64 flex-none" {
                             a class="italic text-[3em] hover:bg-subtle/50 transition-colors select-none" href="/" {"youwen wu"}
