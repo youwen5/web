@@ -1,4 +1,4 @@
-name: Build site and push to GH pages
+name: Build site
 on:
   pull_request:
 permissions:
