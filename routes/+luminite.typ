@@ -16,7 +16,7 @@ Big picture next steps: get metadata working, and generate some more advanced
 pages that rely on introspecting the system at build time. Then work on
 smoothing around the corners, hot reload, caching.
 
-== Started
+= Started
 
 - #in-progress Set up a templating system that can embed the HTML (see #link("https://github.com/vidhanio/hypertext")[hypertext]).
   - #in-progress Introspection on the site at build time.
@@ -27,13 +27,13 @@ smoothing around the corners, hot reload, caching.
     - Eventually once we have file-watching hot reload this file will work better. But it's faster than multi-second build steps.
     - Maybe also look into extracting multiple pieces of metadata at once. If not possible in Typst CLI, then will have to wait until CLI is replaced by embedding the `typst` create directly.
 
-== Triage
+= Triage
 
 - #todo Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect] or #link("https://github.com/tree-sitter/tree-sitter/tree/master/highlight")[tree-sitter-highlight].
 - #todo Set up the meta-pages that collect posts automatically.
 - #todo #smallcaps[rss]/Atom feed.
 
-== Done
+= Done
 
 - #done Set up TailwindCSS and a nice Big Beautiful Stylesheet.
 - #done Basic utilities with interacting with the world, e.g. Typst compiler, build intermediate artifacts.
@@ -45,7 +45,7 @@ smoothing around the corners, hot reload, caching.
 - #done Ingest a rendered HTML artifact and then process it to remove `<head>` and `<doctype>` tags amongst other extraneous tags.
 - #done "nested" templating for implementing Navbar.
 
-== Wishlist
+= Wishlist
 
 - Advanced print functionality: by compiling a PDF in parallel with HTML, we
   can provide each page with a beautifully typeset PDF to print/save offline
