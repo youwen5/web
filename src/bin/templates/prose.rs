@@ -27,7 +27,7 @@ impl Template for Prose {
                 p {(metadata.date.clone())}
                 p {(metadata.location.clone())}
             }
-            div id="typst-injected" class="prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-xl prose-headings:font-bold" {
+            div id="typst-injected" class="prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-xl" {
                 (content)
             }
             div class="smallcaps text-muted w-full text-center mt-6 mb-8 text-3xl select-none" {
