@@ -160,9 +160,3 @@ jobs:
         with:
           name: luminite
           authToken: "${{ secrets.CACHIX_TOKEN }}"
-        id: publish
-        with:
-          rolling: ${{ github.ref == format('refs/heads/{0}', inputs.default-branch) }}
-          visibility: ${{ inputs.visibility }}
-          include-output-paths: true
-          directory: ${{ inputs.directory }}
