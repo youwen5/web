@@ -10,7 +10,7 @@ This is the software that builds this website. It is a custom system for
 building a static site generator using Typst as the primary way of setting
 content. This page is my todo-board where I plan out and track feature
 implementation. The source code is available on
-#link("https://github.com/youwen5/luminite")[GitHub].
+#link("https://github.com/youwen5/web")[GitHub].
 
 Big picture next steps: get metadata working, and generate some more advanced
 pages that rely on introspecting the system at build time. Then work on
