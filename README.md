@@ -22,6 +22,13 @@ A brief tour:
 - [`./typst`](./typst): support files for Typst.
 - [`./public`](./public): static assets.
 
+Here's what we can do so far:
+
+- Given a Typst file, render it to a webpage. For instance, see [this page](https://web.youwen.dev/luminite), rendered entirely from [Typst source](./routes/+luminite.typ).
+- Query metadata from Typst files using the `#metadata` function and `typst query`.
+- Glob matching routes to templates.
+- Modular components, like reusable navbars and the like.
+
 ## Build instructions
 
 ### Note about the font
