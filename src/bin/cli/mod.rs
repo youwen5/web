@@ -1,11 +1,10 @@
+use crate::templates;
 use hypertext::Raw;
 use luminite::{
     site::Site,
     templating::Template,
     world::{WorkingDirs, World},
 };
-
-use crate::templates;
 
 use clap::{Args, Parser, Subcommand};
 
@@ -35,11 +34,34 @@ pub fn run() {
 
     match &cli.command {
         Commands::Build(args) => {
-            let main_page = templates::MainPage {};
-            let prose = templates::Prose {};
+            let main_page = templates::MainPage;
+            let prose = templates::Prose;
 
-            let the_world = World::new(WorkingDirs::get_dirs().unwrap());
-            let mut site = Site::new(the_world.get_routes(), move |slug, content, metadata| {
+            let the_world = World::new(match WorkingDirs::get_dirs() {
+                Ok(dirs) => dirs,
+                Err(err) => {
+                    tracing::event!(
+                        tracing::Level::ERROR,
+                        "Something went wrong when I was trying to create the working directories (`dist` and `.luminite`). If these directories already exist, you should delete them and try again. I failed with the error {}",
+                        err
+                    );
+                    return;
+                }
+            });
+
+            let routes = match the_world.get_routes() {
+                Ok(routes) => routes,
+                Err(err) => {
+                    tracing::event!(
+                        tracing::Level::ERROR,
+                        "I couldn't parse the routes directory! Are you sure you've set it up correctly? Does it exist? Are you in the right directory? I failed with the error {}.",
+                        err
+                    );
+                    return;
+                }
+            };
+
+            let mut site = Site::new(routes, move |slug, content, metadata| {
                 let raw_content = Raw(content);
                 let rendered = match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content, metadata),
@@ -52,8 +74,22 @@ pub fn run() {
                 };
                 rendered
             });
-            the_world.get_metadata(&mut site).unwrap();
-            the_world.realize_site(site, args.minify).unwrap();
+            if let Err(err) = the_world.get_metadata(&mut site) {
+                tracing::event!(
+                    tracing::Level::ERROR,
+                    "I tried to query your routes for metadata, but something went wrong! Are you sure you've set up the `html-shim` correctly? Otherwise, metadata won't be generated! I failed with the error {}",
+                    err
+                );
+                return;
+            };
+
+            if let Err(err) = the_world.realize_site(site, args.minify) {
+                tracing::event!(
+                    tracing::Level::ERROR,
+                    "I was able to parse your routes and build your site, but something went wrong actually trying to build it! Check your configuration. I failed with the error: {}",
+                    err
+                );
+            };
         }
     }
 }
