@@ -123,11 +123,14 @@ body {
   @apply underline decoration-solid decoration-2 hover:text-love decoration-muted hover:decoration-love underline-offset-4;
 }
 
-.main-content {
+.linkify {
   a {
     @apply link;
   }
 
+}
+
+.main-content {
   .math {
     filter: invert(0);
     display: inline-block;
