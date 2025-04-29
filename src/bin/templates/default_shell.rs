@@ -112,7 +112,7 @@ impl DefaultShell {
                             main class=("main-content".to_owned() + page_width) {
                                 (children)
                                 footer class="border-t mt-8 border-solid border-muted mb-4 flex justify-between items-center gap-4 text-lg text-muted py-1" {
-                                    p class="smallcaps" {"© 2025 Youwen Wu. Generated from commit " span class="font-mono text-sm" style="font-variant: normal;" {(git_version)} " by " a class="hover:text-love" href="https://github.com/youwen5/web" {"luminite"}". Most content cc-by-sa-4.0."}
+                                    p class="smallcaps" {"© 2025 Youwen Wu. Generated from commit " (git_version) " by " a class="hover:text-love" href="https://github.com/youwen5/web" {"luminite"}". Most content cc-by-sa-4.0."}
                                 }
                             }
                         }
