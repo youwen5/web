@@ -164,9 +164,11 @@
             nativeBuildInputs = [
               self.packages.${system}.luminite
               pkgs.typst
+              pkgs.git
             ];
 
             XDG_CACHE_HOME = typstPackagesCache;
+            LUMINITE_GIT_COMMIT = builtins.toString (if (self ? rev) then self.rev else "unstable");
 
             buildPhase = ''
               site build --minify

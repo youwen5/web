@@ -33,8 +33,8 @@ impl Template for Prose {
                 }
                 (content)
             }
-            div class="smallcaps text-muted w-full text-center mt-6 mb-8 text-3xl select-none" {
-                "yw"
+            div class="smallcaps text-muted w-full text-center mt-6 mb-8 text-3xl hover:text-foreground" {
+                a href="/" { "yw" }
             }
         })
     }

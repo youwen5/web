@@ -1,7 +1,4 @@
-use git_version::git_version;
 use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
-
-const GIT_VERSION: &str = git_version!();
 
 use super::components::Head;
 
@@ -18,6 +15,11 @@ pub struct DefaultShell {
 
 impl DefaultShell {
     pub fn render_with_children(self, children: impl Renderable) -> Rendered<String> {
+        let git_version = match std::env::var("LUMINITE_GIT_COMMIT") {
+            Ok(commit) => commit[..6].to_string(),
+            Err(_) => "unstable".to_string(),
+        };
+
         let nav_items = maud! {
             li {a class="hover:bg-overlay transition-colors" href="/projects" {"Projects"}}
             li {a class="hover:bg-overlay transition-colors" href="/now" {"Now"}}
@@ -110,7 +112,7 @@ impl DefaultShell {
                             main class=("main-content".to_owned() + page_width) {
                                 (children)
                                 footer class="border-t mt-8 border-solid border-muted mb-4 flex justify-between items-center gap-4 text-lg text-muted py-1" {
-                                    p class="smallcaps" {"© 2025 Youwen Wu. Generated from commit " span class="font-mono text-sm" style="font-variant: normal;" {(GIT_VERSION)} " by " a href="https://github.com/youwen5/web" {"luminite"}". Most content cc-by-sa-4.0."}
+                                    p class="smallcaps" {"© 2025 Youwen Wu. Generated from commit " span class="font-mono text-sm" style="font-variant: normal;" {(git_version)} " by " a href="https://github.com/youwen5/web" {"luminite"}". Most content cc-by-sa-4.0."}
                                 }
                             }
                         }
