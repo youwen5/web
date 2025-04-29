@@ -108,7 +108,7 @@ impl DefaultShell {
                             }
                             main class=("main-content".to_owned() + page_width) {
                                 (children)
-                                footer class="border-t mt-8 border-solid border-muted mb-4 flex justify-between items-center gap-4 text-lg text-muted py-1" {
+                                footer class="border-t mt-8 border-solid border-muted mb-4 flex justify-between items-center gap-4 text-sm text-muted py-1" {
                                     p class="smallcaps" {"© 2025 Youwen Wu. Generated from "
                                         a
                                             class="hover:text-love" 
