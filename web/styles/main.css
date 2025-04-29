@@ -120,14 +120,13 @@ body {
 }
 
 @utility link {
-  @apply underline decoration-solid decoration-2 hover:text-love decoration-muted hover:decoration-love underline-offset-4;
+  @apply underline decoration-solid decoration-2 hover:text-love decoration-subtle hover:decoration-love underline-offset-4;
 }
 
 .linkify {
   a {
     @apply link;
   }
-
 }
 
 .main-content {
