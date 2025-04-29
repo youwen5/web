@@ -1,4 +1,4 @@
-use hypertext::{html_elements, maud, Renderable, Rendered};
+use hypertext::{Renderable, Rendered, html_elements, maud};
 use luminite::{templating::Template, world::Metadata};
 
 struct TestTemplate {}

@@ -1,4 +1,4 @@
-use hypertext::{html_elements, maud, GlobalAttributes, Rendered};
+use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
 use luminite::{templating::Template, world::Metadata};
 
 use super::{components::Head, default_shell::DefaultShell};
@@ -22,7 +22,7 @@ impl Template for Prose {
             width: super::default_shell::PageWidth::Prose,
         }
         .render_with_children(maud! {
-            h1 class="all-smallcaps text-2xl text-center mt-4" {(metadata.title.clone())}
+            h1 class="all-smallcaps md:text-3xl text-2xl text-center mt-4" {(metadata.title.clone())}
             div class="space-y-1 text-center mt-4 text-subtle text-md" {
                 p {(metadata.date.clone())}
                 p {(metadata.location.clone())}

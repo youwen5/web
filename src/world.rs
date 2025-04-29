@@ -7,10 +7,10 @@ use std::{
     process::Command,
 };
 
-use minify_html_onepass::{in_place_str, Cfg, Error as HtmlError};
+use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
-use tracing::{event, Level};
+use tracing::{Level, event};
 
 use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
 
