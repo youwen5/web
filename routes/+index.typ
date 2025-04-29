@@ -18,7 +18,7 @@ For contact information, see the #link("/impressum")[impressum].
   "blockquote",
   attrs: (class: "italic border-l-4 border-rose w-fit"),
   [
-    #quote[A comathematician is a device for turning theorems into coffee.]
+    #quote[A comathematician is a device for turning cotheorems into ffee.]
     #html.elem(
       "div",
       attrs: (class: "text-end not-italic text-xl"),
