@@ -6,7 +6,7 @@ impl Template for TestTemplate {
     fn render_page_with_content(
         &self,
         content: hypertext::Raw<String>,
-        _metadata: &Metadata,
+        _metadata: Metadata,
     ) -> Rendered<String> {
         maud! {
             div {
@@ -25,7 +25,7 @@ fn it_templates_successfully() {
     assert_eq!(
         template.render_page_with_content(
             injection,
-            &Metadata {
+            Metadata {
                 location: None,
                 special_author: None,
                 date: None,

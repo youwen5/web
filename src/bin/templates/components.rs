@@ -1,13 +1,28 @@
 /// Reusable components that can be placed around the site. Footers, navbars, etc.
 use hypertext::{Renderable, html_elements, maud};
+use luminite::world::Metadata;
 
 /// A site-wide usable head tag.
+#[derive(Clone)]
 pub struct Head {
     pub page_title: Option<String>,
-    pub meta_title: Option<String>,
     pub description: Option<String>,
     pub image: Option<String>,
     pub author: Option<String>,
+}
+
+impl Head {
+    pub fn new(meta: &Metadata) -> Head {
+        Head {
+            page_title: meta.title.clone(),
+            author: meta.special_author.clone(),
+            description: match &meta.meta_description {
+                Some(desc) => Some(desc.clone()),
+                None => meta.subtitle.clone(),
+            },
+            image: None,
+        }
+    }
 }
 
 impl Renderable for Head {
@@ -47,16 +62,8 @@ impl Renderable for Head {
                 // meta name="twitter:card" content="summary_large_image";
                 meta name="twitter:site" content="@youwen5";
                 meta name="twitter:creator" content="@youwen5";
-                @match self.meta_title {
-                    Some(title) => {
-                        meta name="og:title" content=(&title);
-                        meta name="twitter:title" content=(&title);
-                    }
-                    None => {
-                        meta name="og:title" content=(&page_title);
-                        meta name="twitter:title" content=(&page_title);
-                    }
-                }
+                meta name="og:title" content=(&page_title);
+                meta name="twitter:title" content=(&page_title);
                 // meta name="twitter:image" content=(&*image_path);
                 meta name="robots" content="index, follow";
 

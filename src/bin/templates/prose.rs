@@ -9,20 +9,15 @@ impl Template for Prose {
     fn render_page_with_content(
         &self,
         content: hypertext::Raw<String>,
-        metadata: &Metadata,
+        metadata: Metadata,
     ) -> Rendered<String> {
+        let head = Head::new(&metadata);
         DefaultShell {
-            head: Head {
-                page_title: metadata.title.clone(),
-                author: metadata.special_author.clone(),
-                description: None,
-                image: None,
-                meta_title: metadata.title.clone(),
-            },
+            head,
             width: super::default_shell::PageWidth::Prose,
         }
         .render_with_children(maud! {
-            h1 class="all-smallcaps md:text-3xl text-2xl text-center mt-4" {(metadata.title.clone())}
+            @if metadata.title.is_some() { h1 class="all-smallcaps md:text-3xl text-2xl text-center mt-4" {(metadata.title.unwrap())} }
             div class="space-y-1 text-center mt-4" {
                 @if metadata.date.is_some() { p class="text-subtle text-md md:text-lg" {(metadata.date.clone())} }
                 @if metadata.location.is_some() { p class="text-subtle text-md md:text-lg" {(metadata.location.clone())} }

@@ -9,17 +9,11 @@ impl Template for MainPage {
     fn render_page_with_content(
         &self,
         content: hypertext::Raw<String>,
-        metadata: &Metadata,
+        metadata: Metadata,
     ) -> Rendered<String> {
         let title = metadata.title.clone();
         DefaultShell {
-            head: Head {
-                page_title: title.clone(),
-                author: None,
-                description: None,
-                image: None,
-                meta_title: title.clone(),
-            },
+            head: Head::new(&metadata),
             width: super::default_shell::PageWidth::Wide,
         }
         .render_with_children(maud! {

@@ -307,9 +307,15 @@ impl World {
     }
 
     /// Given a `&Site`, perform all the necessary actions (e.g. running the Typst compiler,
-    /// generating metadata, etc.) and output the artifacts in `dist`.
-    fn build_routes(&self, site: &Site, minify: bool) -> Result<(), WorldError> {
-        self.route_builder_helper(&site.routes.tree, "".to_string(), &site.templater, minify)?;
+    /// generating metadata, etc.) and output the artifacts in `dist`. It may consume various parts
+    /// of `&Site`, so `&Site` should be dropped immediately after this is called.
+    fn build_routes(&self, site: &mut Site, minify: bool) -> Result<(), WorldError> {
+        self.route_builder_helper(
+            &mut site.routes.tree,
+            "".to_string(),
+            &site.templater,
+            minify,
+        )?;
         Ok(())
     }
 
@@ -338,53 +344,16 @@ impl World {
         Ok(())
     }
 
-    /// Given a site, extract the metadata from each document.
-    pub fn get_metadata(&self, site: &mut Site) -> std::result::Result<(), WorldError> {
-        self.get_metadata_helper(&mut site.routes.tree)
-    }
-
-    /// Helper to recursively traverse the route tree and query metadata.
-    fn get_metadata_helper(&self, route_tree: &mut RouteTree) -> Result<(), WorldError> {
-        for (filename, node) in route_tree.iter_mut() {
-            match node {
-                RouteNode::Page(typst_doc) => {
-                    let metadata = query_metadata(&typst_doc.source_path, &self.root)?;
-
-                    event!(
-                        Level::DEBUG,
-                        "Queried metadata from {filename}, at path {:?}",
-                        typst_doc.source_path.as_os_str(),
-                    );
-
-                    event!(Level::INFO, "Grabbing metadata from {}", filename);
-
-                    typst_doc.metadata = Some(metadata);
-                }
-                RouteNode::Nested(hash_map) => self.get_metadata_helper(hash_map)?,
-            };
-        }
-        Ok(())
-    }
-
-    /// Compile a `Site` into `dist`
-    pub fn realize_site(&self, mut site: Site, minify: bool) -> Result<(), WorldError> {
-        self.copy_public_dir(&site)?;
-        self.get_metadata(&mut site)?;
-        self.build_routes(&site, minify)?;
-
-        Ok(())
-    }
-
     /// Helper function to recursively traverse a tree of routes for implementing `build_site`.
     /// Renders each document and applies the template rule.
     fn route_builder_helper(
         &self,
-        routes: &RouteTree,
+        routes: &mut RouteTree,
         parent_route: String,
         templater: &Templater,
         minify: bool,
     ) -> Result<(), WorldError> {
-        for node in routes.iter() {
+        for node in routes.iter_mut() {
             match node {
                 (slug, RouteNode::Page(doc)) => {
                     let output_route = match slug.as_str() {
@@ -400,11 +369,9 @@ impl World {
                     event!(Level::INFO, "Compiling {}.", output_route.as_str());
 
                     let contents = self.get_doc_contents(doc)?;
-                    let rendered = templater(
-                        output_route.clone(),
-                        contents,
-                        doc.metadata.as_ref().unwrap(),
-                    );
+                    // let the templater consume the metadata.
+                    let rendered =
+                        templater(output_route.clone(), contents, doc.metadata.take().unwrap());
                     let mut rendered = rendered.as_str().to_string();
                     let rendered = if minify {
                         match in_place_str(&mut rendered, minify_cfg) {
@@ -449,6 +416,43 @@ impl World {
                 }
             }
         }
+        Ok(())
+    }
+
+    /// Given a site, extract the metadata from each document.
+    pub fn get_metadata(&self, site: &mut Site) -> std::result::Result<(), WorldError> {
+        self.get_metadata_helper(&mut site.routes.tree)
+    }
+
+    /// Helper to recursively traverse the route tree and query metadata.
+    fn get_metadata_helper(&self, route_tree: &mut RouteTree) -> Result<(), WorldError> {
+        for (filename, node) in route_tree.iter_mut() {
+            match node {
+                RouteNode::Page(typst_doc) => {
+                    let metadata = query_metadata(&typst_doc.source_path, &self.root)?;
+
+                    event!(
+                        Level::DEBUG,
+                        "Queried metadata from {filename}, at path {:?}",
+                        typst_doc.source_path.as_os_str(),
+                    );
+
+                    event!(Level::INFO, "Grabbing metadata from {}", filename);
+
+                    typst_doc.metadata = Some(metadata);
+                }
+                RouteNode::Nested(hash_map) => self.get_metadata_helper(hash_map)?,
+            };
+        }
+        Ok(())
+    }
+
+    /// Compile a `Site` into `dist`
+    pub fn realize_site(&self, mut site: Site, minify: bool) -> Result<(), WorldError> {
+        self.copy_public_dir(&site)?;
+        self.get_metadata(&mut site)?;
+        self.build_routes(&mut site, minify)?;
+
         Ok(())
     }
 }
