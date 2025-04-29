@@ -161,8 +161,6 @@ fn query_metadata(path: &Path, root: &Path) -> Result<Metadata, WorldError> {
         }
     };
 
-    println!("{}", value);
-
     Ok(serde_json::from_str(&value)?)
 }
 

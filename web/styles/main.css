@@ -120,7 +120,7 @@ body {
 }
 
 @utility link {
-  @apply underline decoration-solid decoration-2 underline-offset-2 hover:text-love decoration-love;
+  @apply underline decoration-solid decoration-2 hover:text-love decoration-muted hover:decoration-love underline-offset-4;
 }
 
 .main-content {
@@ -145,5 +145,13 @@ body {
 
   hr {
     display: none;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
   }
 }

@@ -10,27 +10,8 @@
   title: "Hypermedia and the insanity of the web",
 )
 
-Earlier I was setting up Tailwind CSS for this site, one of the few
-developments out of the hodgepodge of modern web development that doesn't suck.
-
-All is well and good, I commit the code and push it upstream. A bit later, I'm
-curious what the biggest assets are in this project so I boot up Cachix and
-sort by file size. I'm expecting to see `rustc` or maybe some binary
-artifacts at the top. Instead, by far the largest artifact in the cache was
-`node_modules`, at a whopping `200mb`.
-
-_*`200mb`*_? Are you kidding me? I'm not bundling any JavaScript or using
-any libraries. The only thing I'm even using #smallcaps[npm] for is to do some CSS pre-processing.
-
-But this isn't going to be yet another essay about why #smallcaps[npm]
-dependencies are bad and JavaScript sucks. Everyone knows these things to be
-true already. Rather, I'd like to have a brief discussion about the nature and
-purpose of the web.
-
-= you don't need that framework
-
 As of now, this website ships absolutely no JavaScript to you. I am not sure at
-what point I will have to begin shipping non-trivial site--wide JavaScript, but
+what point I will have to begin shipping non-trivial site-wide JavaScript, but
 for now I don't even have a `<script>` tag.
 
 This was a conscious choice on my part. As an experiment, I decided to write
@@ -40,33 +21,17 @@ the entire site is just comprised of raw #smallcaps[html] strings that my
 custom #link("http://localhost:8080/luminite")[static site generator] places
 into the right paths.
 
-And this is completely enough for a site like this. I can see no reason why I
-would need any sort of web framework. Yet a few months ago I couldn't even
-conceive of doing web development without one.
+When I initially came up with this idea I hilariously thought for a brief
+moment that rendering raw #smallcaps[html] was a subversive and revolutionary
+idea. And then I remembered that was how people had been doing web design for
+decades until very recently.#footnote[By the way, I am not interested in the particular merits of any given framework
+  here. We have #link("https://svelte.dev/")[sane] and
+  #link("https://elm-lang.org/")[genuinely powerful] ways to do web app
+  development. I argue that you probably _don't need_ all of that power.]
 
-I make the case that like me, you don't need a #quote[framework] at all. Way back
-in ancient history (2013), React was released to help Facebook keep up with the
-increasingly interactive demands of their user experience. But not everyone is
-building Facebook. If you're building a personal site, or a site for your club,
-or any sort of content-driven app, you almost certainly don't really need the
-fine-grained reactivity of React and friends.
+= On hypermedia
 
-By the way, I am not interested in the particular merits of any given framework
-here. We have #link("https://svelte.dev/")[sane] and
-#link("https://elm-lang.org/")[genuinely powerful] ways to do web app
-development. I argue that you probably _don't need_ all of that power.
-
-= hypermedia is a great idea
-
-Are you actually building a proper web *app*? Like, a photo editor or something? Then
-this probably doesn't apply to you. Otherwise, if you are instead building a
-plain old content-focused web#strong[site], presumably you are there to present
-some information in a compelling fashion. You don't necessarily need all the
-systems a framework gives you to implement reactivity, because you aren't
-writing an app.
-
-Rather, you're on the web because it offers reach and interactivity that traditional
-mediums don't. In other words, you're building a piece of *hypermedia*, or a
+In other words, you're building a piece of *hypermedia*, or a
 non-linear media that branches around itself (because in a web page you can
 navigate around in any way you want).
 
@@ -100,11 +65,7 @@ worse experience.
 
 Essentially, once you cut past the artifice and advertising and user retention
 hacking of the web, it works most effectively when you have a rich document
-that points to other documents, or a hypertext. (A reminder that we are
-speaking about websites that seek to present information, not web *apps*. Fully
-interactive applications, for example, video editors, require more than just
-hypermedia. But for many less or only moderately complex web apps, hypermedia
-works great too!)
+that points to other documents, or a hypertext.
 
 = digression on web design
 

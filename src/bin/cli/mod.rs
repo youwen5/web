@@ -87,6 +87,7 @@ pub fn run() {
                     "/hypermedia-and-the-insanity-of-the-web" => {
                         prose.render_page_with_content(raw_content, metadata)
                     }
+                    "/now" => prose.render_page_with_content(raw_content, metadata),
                     _ => main_page.render_page_with_content(raw_content, metadata),
                 };
                 rendered

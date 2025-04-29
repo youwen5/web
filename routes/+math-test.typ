@@ -25,7 +25,7 @@ $
 $
 such that $tau_f (u_i) = f(u_i)$ for all $i = 1,...,n$.
 
-Let $f : S -> V$ is a map. Let $tau_f$ be a linear map that satisfies $tau_f
+Let $f : S -> V$ be an $FF$-linear map. Let $tau_f$ be a linear map that satisfies $tau_f
 (u_i) = f(u_i)$. Let $x$ be any vector in $U$. Because $S$ is a basis, $exists lambda_1,...,lambda_n$ s.t. $x = lambda_1 u_1 + dots.c + lambda_n u_n$. By linearity, $tau_f (x) = lambda_1 tau_f (u_1) + dots.c + lambda_n tau_f (u_n) = lambda_1 f(u_1) + dots.c + lambda_n f(u_n)$.
 
 Suppose there was another linear map, $tau'_f$, where
