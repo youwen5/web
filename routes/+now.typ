@@ -12,22 +12,25 @@
 )
 
 This is my #link("https://nownownow.com/about")[now page]. It's supposed to be
-an answer to "what have you been up to lately"?
+a public answer to "what have you been up to lately"?
 
 = Coordinates
 
 I'm studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] for the foreseeable future.
 
-= Thinking, doing, and done
+= Done and still doing
 
-- Recently I decided to switch to pure math, from applied math. Not for any particularly strong reason, but the classes in pure math were mostly ones I wanted to take anyways, so why not.
-- In a somewhat dissonant move I also picked up a double major in computer science, mainly to study #smallcaps[programming languages] and #smallcaps[cryptology], among other things.
-- I've also been thinking of picking up a minor in Philosophy, and in particular
-  the philosophy of labor and our relationship with work.
+- Recently I decided to switch to pure math, from applied math. I think the coding and numerical methods in applied math are not particularly interesting, especially compared to the abstraction of pure math.
+- In a somewhat dissonant move I also picked up a double major in computer science, mainly to study #smallcaps[programming languages] and #smallcaps[formal verification], among other things.
 
-= Games
+= Future
+
+- I'm thinking of starting a project called "How #smallcaps[posix] can you get in 31 days?" where I try to write as much of a #smallcaps[posix] compliant operating system as possible, from scratch, with a 1 month time limit. Probably using Rust or Zig. I'm fleshing the idea out right now.
+
+= Fun
 
 - Lately I've been playing/replaying #link("https://discoelysium.com/")[Disco Elysium].
+- In lieu of Monster Hunter Wilds (which is impossible to run without a supercomputer), I've been playing Monster Hunter World and Iceborne instead.
 
 = Prose
 
