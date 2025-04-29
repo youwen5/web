@@ -6,6 +6,7 @@
   title: none,
   subtitle: none,
   meta-description: none,
+  short-description: none,
 ) = {
   show math.equation.where(block: false): it => {
     set text(size: 1.5em)
@@ -36,12 +37,13 @@
   }
 
   let page_metadata = (
-    date,
-    special-author,
-    location,
-    title,
-    subtitle,
-    meta-description,
+    date: date,
+    special-author: special-author,
+    location: location,
+    title: title,
+    subtitle: subtitle,
+    meta-description: meta-description,
+    short-description: short-description,
   )
 
   [

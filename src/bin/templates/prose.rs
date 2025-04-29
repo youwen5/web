@@ -24,6 +24,11 @@ impl Template for Prose {
                 @if metadata.special_author.is_some() { p class="text-lg md:text-xl mt-5" {span class="italic" {"by " } (metadata.special_author.unwrap())} }
             }
             div id="typst-injected" class="prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-xl" {
+                @if metadata.subtitle.is_some() {
+                    p class="text-subtle italic" {
+                        (metadata.subtitle.unwrap())
+                    }
+                }
                 (content)
             }
             div class="smallcaps text-muted w-full text-center mt-6 mb-8 text-3xl select-none" {

@@ -46,6 +46,7 @@ pub struct Metadata {
     pub title: Option<String>,
     pub subtitle: Option<String>,
     pub meta_description: Option<String>,
+    pub short_description: Option<String>,
 }
 
 /// A representation of a Typst source file. In the future, it will contain metadata from files.

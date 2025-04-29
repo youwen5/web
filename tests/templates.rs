@@ -31,7 +31,8 @@ fn it_templates_successfully() {
                 date: None,
                 title: None,
                 subtitle: None,
-                meta_description: None
+                meta_description: None,
+                short_description: None
             }
         ),
         maud! {
