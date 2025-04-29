@@ -30,6 +30,8 @@ fn it_templates_successfully() {
                 special_author: None,
                 date: None,
                 title: None,
+                subtitle: None,
+                meta_description: None
             }
         ),
         maud! {

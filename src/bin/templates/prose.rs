@@ -23,9 +23,10 @@ impl Template for Prose {
         }
         .render_with_children(maud! {
             h1 class="all-smallcaps md:text-3xl text-2xl text-center mt-4" {(metadata.title.clone())}
-            div class="space-y-1 text-center mt-4 text-subtle text-md md:text-lg" {
-                p {(metadata.date.clone())}
-                p {(metadata.location.clone())}
+            div class="space-y-1 text-center mt-4" {
+                @if metadata.date.is_some() { p class="text-subtle text-md md:text-lg" {(metadata.date.clone())} }
+                @if metadata.location.is_some() { p class="text-subtle text-md md:text-lg" {(metadata.location.clone())} }
+                @if metadata.special_author.is_some() { p class="text-lg md:text-xl mt-5" {span class="italic" {"by " } (metadata.special_author.clone())} }
             }
             div id="typst-injected" class="prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-xl" {
                 (content)

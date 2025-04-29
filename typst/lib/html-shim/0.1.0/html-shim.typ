@@ -4,6 +4,8 @@
   special-author: none,
   location: none,
   title: none,
+  subtitle: none,
+  meta-description: none,
 ) = {
   show math.equation.where(block: false): it => {
     set text(size: 1.5em)
@@ -34,10 +36,12 @@
   }
 
   let page_metadata = (
-    date: date,
-    special-author: special-author,
-    location: location,
-    title: title,
+    date,
+    special-author,
+    location,
+    title,
+    subtitle,
+    meta-description,
   )
 
   [

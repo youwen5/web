@@ -38,11 +38,14 @@ pub enum WorldError {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "kebab-case")]
 pub struct Metadata {
     pub special_author: Option<String>,
     pub location: Option<String>,
     pub date: Option<String>,
     pub title: Option<String>,
+    pub subtitle: Option<String>,
+    pub meta_description: Option<String>,
 }
 
 /// A representation of a Typst source file. In the future, it will contain metadata from files.
@@ -154,6 +157,8 @@ fn query_metadata(path: &Path, root: &Path) -> Result<Metadata, WorldError> {
             panic!();
         }
     };
+
+    println!("{}", value);
 
     Ok(serde_json::from_str(&value)?)
 }
