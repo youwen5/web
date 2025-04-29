@@ -18,7 +18,7 @@ For contact information, see the #link("/impressum")[impressum].
   "blockquote",
   attrs: (class: "italic border-l-4 border-rose w-fit"),
   [
-    #quote[Hand me a long enough monad and I will move the world.]
+    #quote[A comathematician is a device for turning theorems into coffee.]
     #html.elem(
       "div",
       attrs: (class: "text-end not-italic text-xl"),
