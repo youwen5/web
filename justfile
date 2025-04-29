@@ -1,4 +1,4 @@
-default: webbundle build
+default: typst-install-deps webbundle build
     cp web/dist/* dist
 
 release: webbundle build-release

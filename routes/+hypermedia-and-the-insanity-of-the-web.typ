@@ -5,7 +5,7 @@
     day: 26,
     year: 2025,
     month: 4,
-  ).display("[day] [month repr:long] [year]"),
+  ),
   location: "Santa Barbara, California",
   title: "Hypermedia and the insanity of the web",
 )

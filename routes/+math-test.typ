@@ -6,7 +6,7 @@
     day: 22,
     year: 2025,
     month: 4,
-  ).display("[day] [month repr:long] [year]"),
+  ),
   title: "A test of Typst math rendering",
 )
 

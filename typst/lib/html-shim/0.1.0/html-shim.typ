@@ -36,8 +36,13 @@
     it
   }
 
+  let date_exists = if date != none {
+    date.display("[year]-[month]-[day]T00:00:00.00-08:00")
+  }
+
   let page_metadata = (
-    date: date,
+    // ISO 3339
+    date: date_exists,
     special-author: special-author,
     location: location,
     title: title,

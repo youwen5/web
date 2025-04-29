@@ -104,7 +104,7 @@ pub fn run() {
                     _ => {
                         tracing::event!(
                             tracing::Level::ERROR,
-                            "I was able to parse your routes and build your site, but something went wrong actually trying to build it! Check your configuration. I failed with the error: {}",
+                            "I was able to parse your routes and begin scaffolding your site, but something went wrong actually trying to build it! Check your configuration. I failed with the error: {}",
                             err
                         );
                     }

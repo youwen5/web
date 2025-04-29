@@ -10,6 +10,7 @@ use std::{
 use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
+use time::OffsetDateTime;
 use tracing::{Level, event};
 
 use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
@@ -42,7 +43,8 @@ pub enum WorldError {
 pub struct Metadata {
     pub special_author: Option<String>,
     pub location: Option<String>,
-    pub date: Option<String>,
+    #[serde(with = "time::serde::rfc3339::option")]
+    pub date: Option<OffsetDateTime>,
     pub title: Option<String>,
     pub subtitle: Option<String>,
     pub meta_description: Option<String>,
@@ -158,6 +160,8 @@ fn query_metadata(path: &Path, root: &Path) -> Result<Metadata, WorldError> {
             panic!();
         }
     };
+
+    println!("{}", value);
 
     Ok(serde_json::from_str(&value)?)
 }
