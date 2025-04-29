@@ -119,13 +119,9 @@ body {
   @apply font-serif text-foreground bg-base;
 }
 
-@utility link {
-  @apply underline decoration-solid decoration-2 hover:text-love decoration-subtle hover:decoration-love underline-offset-4;
-}
-
 .linkify {
   a {
-    @apply link;
+    @apply underline decoration-solid decoration-2 hover:text-love decoration-iris hover:decoration-love underline-offset-4;
   }
 }
 
