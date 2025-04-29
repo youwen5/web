@@ -246,7 +246,7 @@ impl World {
     /// exist).
     fn build_doc(&self, doc: &TypstDoc) -> Result<PathBuf, WorldError> {
         let dirs = &self.working_dirs;
-        let mut html_artifacts_path = dirs.factory.clone();
+        let mut html_artifacts_path = dirs.factory.to_owned();
         html_artifacts_path.push(Path::new("./typst-html"));
 
         if html_artifacts_path.is_dir() || std::fs::exists(&html_artifacts_path)? {
@@ -357,8 +357,8 @@ impl World {
             match node {
                 (slug, RouteNode::Page(doc)) => {
                     let output_route = match slug.as_str() {
-                        "index" => parent_route.clone() + "/",
-                        _ => parent_route.clone() + "/" + slug,
+                        "index" => parent_route.to_owned() + "/",
+                        _ => parent_route.to_owned() + "/" + slug,
                     };
 
                     let minify_cfg = &Cfg {
@@ -370,8 +370,11 @@ impl World {
 
                     let contents = self.get_doc_contents(doc)?;
                     // let the templater consume the metadata.
-                    let rendered =
-                        templater(output_route.clone(), contents, doc.metadata.take().unwrap());
+                    let rendered = templater(
+                        output_route.to_owned(),
+                        contents,
+                        doc.metadata.take().unwrap(),
+                    );
                     let mut rendered = rendered.as_str().to_string();
                     let rendered = if minify {
                         match in_place_str(&mut rendered, minify_cfg) {
@@ -409,7 +412,7 @@ impl World {
                 (slug, RouteNode::Nested(nested_tree)) => {
                     self.route_builder_helper(
                         nested_tree,
-                        parent_route.clone() + "/" + slug,
+                        parent_route.to_owned() + "/" + slug,
                         templater,
                         minify,
                     )?;
@@ -468,7 +471,7 @@ fn reconcile_raw_routes(tree: &RawRouteTree) -> RouteTree {
                 let nested_node = reconcile_raw_routes(dir);
                 if !nested_node.is_empty() {
                     new_tree.insert(
-                        filename.clone(),
+                        filename.to_owned(),
                         RouteNode::Nested(reconcile_raw_routes(dir)),
                     );
                 }

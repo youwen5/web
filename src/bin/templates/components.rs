@@ -3,7 +3,6 @@ use hypertext::{Renderable, html_elements, maud};
 use luminite::world::Metadata;
 
 /// A site-wide usable head tag.
-#[derive(Clone)]
 pub struct Head {
     pub page_title: Option<String>,
     pub description: Option<String>,
@@ -14,11 +13,11 @@ pub struct Head {
 impl Head {
     pub fn new(meta: &Metadata) -> Head {
         Head {
-            page_title: meta.title.clone(),
-            author: meta.special_author.clone(),
+            page_title: meta.title.to_owned(),
+            author: meta.special_author.to_owned(),
             description: match &meta.meta_description {
-                Some(desc) => Some(desc.clone()),
-                None => meta.subtitle.clone(),
+                Some(desc) => Some(desc.to_owned()),
+                None => meta.subtitle.to_owned(),
             },
             image: None,
         }
