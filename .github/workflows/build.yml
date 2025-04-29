@@ -17,4 +17,6 @@ jobs:
         with:
           name: luminite
           authToken: "${{ secrets.CACHIX_TOKEN }}"
-      - run: nix build .#full --accept-flake-config
+      - run: |
+          nix flake check
+          nix build .#full --accept-flake-config
