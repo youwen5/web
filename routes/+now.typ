@@ -11,8 +11,8 @@
   meta-description: "A now page, aka an answer to \"what have you been up to lately?\"",
 )
 
-This is my #link("https://nownownow.com/about")[now page]. It's supposed to be
-a public answer to #quote[what have you been up to lately?]
+This is my #link("https://nownownow.com/about")[now page]. A now page is a
+detailed answer to the question #quote[what have you been up to lately?]
 
 = Whereabouts
 
