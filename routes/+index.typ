@@ -2,13 +2,20 @@
 
 #show: html-shim
 
-Hey there! Welcome to my corner of the World Wide Web. I tinker with math and
-computers at UC Santa Barbara.
+Hey there! Welcome to my corner of the World Wide Web. I study math and
+tinker with computers at #link("https://ucsb.edu")[UC Santa Barbara].
 
 Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("https://www.last.fm/user/couscousdude")[last.fm], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
 
-I play guitar and spend way too much money on guitar pedals. I also hate
-coding.
+I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[nPOV] and
+how we can apply higher structures to solve hard problems. In general, I prefer
+to use #link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
+  software]. I think we should
+#link("https://vlad.website/the-philosophy-of-the-open-source-pledge/")[pay
+  open source developers].
+
+In my spare time, I play guitar and spend way too much money on guitar pedals.
+I also hate coding.
 
 See my #link("/now")[now page] for what I'm up to right now.
 
