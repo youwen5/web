@@ -21,7 +21,7 @@ I'm studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] for the foresee
 = Done and still doing
 
 - Recently I decided to switch to pure math, from applied math. I think the coding and numerical methods in applied math are not that interesting.
-- In a somewhat dissonant move I also picked up a double major in computer science, mainly to study #smallcaps[programming languages] and #smallcaps[formal verification], among other things. I am not particularly interested in software engineering as a career, however. Most software built by commercial companies these days is, as Linus Torvalds would say, #quote[#link("https://www.phoronix.com/news/MTc1MDQ")[utter crap.]] But I am open to writing commercial software if and when it would benefit the public good.
+- In a somewhat dissonant move I also picked up a double major in computer science, mainly to study #smallcaps[programming languages] and #smallcaps[formal verification], among other things. I am not particularly interested in software engineering as a career, however. Most commercial software built by companies these days is, as Linus Torvalds would say, #quote[#link("https://www.phoronix.com/news/MTc1MDQ")[utter crap.]] But I am open to writing commercial software if and when it would benefit the public good.
 
 = Future
 
