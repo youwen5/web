@@ -82,13 +82,9 @@ pub fn run() {
                 let raw_content = Raw(content);
                 let rendered = match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content, metadata),
-                    "/math-test" => prose.render_page_with_content(raw_content, metadata),
-                    "/luminite" => prose.render_page_with_content(raw_content, metadata),
-                    "/hypermedia-and-the-insanity-of-the-web" => {
-                        prose.render_page_with_content(raw_content, metadata)
-                    }
-                    "/now" => prose.render_page_with_content(raw_content, metadata),
-                    _ => main_page.render_page_with_content(raw_content, metadata),
+                    "/colophon" => main_page.render_page_with_content(raw_content, metadata),
+                    "/impressum" => main_page.render_page_with_content(raw_content, metadata),
+                    _ => prose.render_page_with_content(raw_content, metadata),
                 };
                 rendered
             });

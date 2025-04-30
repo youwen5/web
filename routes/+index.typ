@@ -5,7 +5,7 @@
 Hey there! Welcome to my corner of the World Wide Web. I tinker with math and
 computers at UC Santa Barbara.
 
-Here is my #link("https://github.com/youwen5")[GitHub], #link("https://www.last.fm/user/couscousdude")[last.fm], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
+Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("https://www.last.fm/user/couscousdude")[last.fm], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
 
 I play guitar and spend way too much money on guitar pedals. I also hate
 coding.
