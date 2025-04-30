@@ -9,7 +9,7 @@
   short-description: none,
 ) = {
   show math.equation.where(block: false): it => {
-    set text(size: 1.5em)
+    set text(size: 1.3em)
     html.elem(
       "span",
       attrs: (role: "math", class: "math inline-math"),
@@ -18,7 +18,7 @@
   }
 
   show math.equation.where(block: true): it => {
-    set text(size: 1.5em)
+    set text(size: 1.3em)
     html.elem(
       "figure",
       attrs: (role: "math", class: "math block-math inline-block"),
