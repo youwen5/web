@@ -21,5 +21,5 @@ See my #link("/now")[now page] for what I'm up to right now.
 
 For contact information, see the #link("/impressum")[impressum].
 #blockquote(
-  attribution: [--- #link("https://wiki.haskell.org/Quotes")[Haskell Wiki]],
+  attribution: [--- #link("https://amphetamines.com/paul-erdos/")[Co-paul Co-erdős]],
 )[A comathematician is a device for turning cotheorems into ffee.]
