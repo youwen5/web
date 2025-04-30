@@ -14,7 +14,7 @@
 This is my #link("https://nownownow.com/about")[now page]. It's supposed to be
 a public answer to "what have you been up to lately"?
 
-= Coordinates
+= Whereabouts
 
 I'm studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] for the foreseeable future.
 
