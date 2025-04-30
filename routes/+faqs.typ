@@ -2,9 +2,10 @@
 
 #show: html-shim.with(title: "Frequently asked questions")
 
-Some frequently asked and also less frequently asked questions.
+Some frequently asked and also less frequently asked questions. Updated every once in a while.
 
 + _How's_ #smallcaps[ucsb]? \
+  I think this sums it up nicely:
   #blockquote(
     attribution: [---#link("https://discoelysium.fandom.com/wiki/Electrochemistry")[Electrochemistry] from _Disco Elysium_],
   )[

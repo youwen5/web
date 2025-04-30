@@ -32,6 +32,7 @@ impl DefaultShell {
         };
 
         let other = maud! {
+            li {a class="hover:bg-overlay transition-colors" href="/faqs" {"Frequently asked questions"}}
             li {a class="hover:bg-overlay transition-colors" href="/colophon" {"Colophon"}}
         };
 
