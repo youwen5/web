@@ -20,16 +20,6 @@ I also hate coding.
 See my #link("/now")[now page] for what I'm up to right now.
 
 For contact information, see the #link("/impressum")[impressum].
-
-#html.elem(
-  "blockquote",
-  attrs: (class: "italic border-l-4 border-rose w-fit"),
-  [
-    #quote[A comathematician is a device for turning cotheorems into ffee.]
-    #html.elem(
-      "div",
-      attrs: (class: "text-end not-italic text-xl"),
-      [---#link("https://wiki.haskell.org/Quotes")[The Haskell Wiki]],
-    )
-  ],
-)
+#blockquote(
+  attribution: [--- #link("https://wiki.haskell.org/Quotes")[Haskell Wiki]],
+)[A comathematician is a device for turning cotheorems into ffee.]
