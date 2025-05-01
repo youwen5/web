@@ -30,7 +30,7 @@ impl Renderable for Head {
         let image = &self.image;
         let page_title = match self.page_title {
             Some(title) => format!("{} | Youwen Wu", title),
-            None => "Youwen's website".to_string(),
+            None => "Youwen Wu".to_string(),
         };
 
         maud! {
@@ -39,6 +39,9 @@ impl Renderable for Head {
                 meta charset="utf-8";
 
                 title { (&page_title) }
+                meta name="og:title" content=(&page_title);
+                meta name="og:site_name" content="Youwen's website";
+
                 @if let Some(description) = description {
                     meta name="description" content=(description);
                 } @else {
@@ -61,7 +64,6 @@ impl Renderable for Head {
                 // meta name="twitter:card" content="summary_large_image";
                 meta name="twitter:site" content="@youwen5";
                 meta name="twitter:creator" content="@youwen5";
-                meta name="og:title" content=(&page_title);
                 meta name="twitter:title" content=(&page_title);
                 // meta name="twitter:image" content=(&*image_path);
                 meta name="robots" content="index, follow";
