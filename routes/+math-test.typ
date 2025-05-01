@@ -19,6 +19,8 @@
   )
 }
 
+This is a test of rendering Typst math markup to #smallcaps[html] via #smallcaps[svg]. For an even longer document, see #link("/probability-theory")[my notes about probability] adapted to the web.
+
 Let $U$ and $V$ be $FF$-vector spaces. Suppose that $U$ is finite-dimensional of dimension $n >= 1$. Let $S = {u_1,...,u_n}$ be a basis for $U$. Given any map $f : S -> V$ (of sets), show that there is a unique linear map
 $
   tau_f : U -> V
