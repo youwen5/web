@@ -18,9 +18,10 @@ A brief tour:
   mirrors this directory.
 - [`./src`](./src): the Rust library that powers the static site generator.
 - [`./src/bin`](./src): the source code for the actual website, i.e. CLI and other things.
-- [`./src/bin/templates`](./src): HTML templates for the various pages and components, written as Rust macros.
-- [`./typst`](./typst): support files for Typst.
+- [`./src/bin/templates`](./src/bin/templates): HTML templates for the various pages and components, written as Rust macros.
+- [`./typst`](./typst): support files for Typst that smooth over the experimental HTML export.
 - [`./public`](./public): static assets.
+- [`./web`](./web): support `pnpm` project building web assets, mainly for running TailwindCSS and generating the stylesheet. No JavaScript is shipped with the site at this time, but this is where it would go.
 
 Here's what we can do so far:
 
