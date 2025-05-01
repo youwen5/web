@@ -27,4 +27,10 @@ is informed and inspired by his
 #link("https://practicaltypography.com/")[Practical Typography]. Thank you Mr.
 Butterick!
 
-I've owned this domain and had a #link("https://youwen.dev")[website] since 2023. You can clearly see the difference in taste between this site and my old one.
+The color scheme is #link("https://rosepinetheme.com/")[Rosé Pine], in the
+#smallcaps[dawn] variant for light mode and #smallcaps[moon] variant for dark
+mode.
+
+I've owned this domain and had a personal website since 2023. Here is my
+#link("https://old.youwen.dev/")[old website], which I'll keep online until it
+becomes too much work to do so for archival purposes.
