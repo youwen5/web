@@ -67,6 +67,8 @@ impl Renderable for Head {
                 meta name="robots" content="index, follow";
 
                 link rel="stylesheet" href="/bundle.css";
+
+                script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js" {}
             }
         }
         .render_to(output);
