@@ -135,7 +135,7 @@ impl DefaultShell {
                                             class="hover:text-love text-iris"
                                             href=("https://github.com/youwen5/web/commit/".to_owned() + &git_version) 
                                         {(git_version[..8].to_string())}
-                                        " using rustc " {(rustc_verison)} " at " {(current_time)} ". Most content cc-by-sa-4.0. This page uses analytics."
+                                        " using rustc " {(rustc_verison)} " at " {(current_time)} ". Most content cc-by-sa-4.0. This page uses " a href="/privacy" class="hover:text-love text-iris" {"analytics."}
                                     }
                                 }
                             }

@@ -84,6 +84,7 @@ pub fn run() {
                     "/" => main_page.render_page_with_content(raw_content, metadata),
                     "/colophon" => main_page.render_page_with_content(raw_content, metadata),
                     "/impressum" => main_page.render_page_with_content(raw_content, metadata),
+                    "/privacy" => main_page.render_page_with_content(raw_content, metadata),
                     _ => prose.render_page_with_content(raw_content, metadata),
                 };
                 rendered
