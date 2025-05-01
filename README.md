@@ -46,29 +46,40 @@ repository. So we still have perfect reproducibility.)
 
 ### Instructions
 
-You need either
+Currently development is only possible on Linux. This is because the system
+directories Typst uses on macOS are slightly different and I don't care enough
+to fix it right now.
 
-- Rust toolchain, pnpm, Just, (optional, for previewing), and Caddy
-- The Nix package manager.
+Of course if you just want to edit content, you don't need to compile the site
+locally. Just edit the [Typst source files](./routes). Otherwise, read on.
 
-With Nix:
+You need **either**
+
+- Rust toolchain, pnpm, Just, (optional, for previewing), the Typst CLI, and Caddy
+- Just the Nix package manager
+
+I highly recommend you use Nix as `nix develop` can obtain all the tools listed
+above automatically.
+
+#### With Nix:
 
 ```nix
 nix build
 ```
 
-With local tools (for hacking):
+The site files will be made available in `result/dist`.
+
+#### With local tools (for hacking):
 
 ```sh
 just fresh-init # just once
 
-just # compile and build the site
+just # compile and build the site to dist/
 ```
 
 To hack on the code, I highly recommend having the local development tools
 available in addition to Nix. If you have Nix, you can run `nix develop` and
-they will be made available automatically. You can run `just fresh-init` and
-`just` to build a local site in `dist`. Run `just preview` and a live server
+they will be made available automatically. Run `just preview` and a live server
 will be started at `localhost:8080`. Additional commands are available in the
 `justfile`.
 
