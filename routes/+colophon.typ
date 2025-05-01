@@ -32,5 +32,5 @@ The color scheme is #link("https://rosepinetheme.com/")[Rosé Pine], in the
 mode.
 
 I've owned this domain and had a personal website since 2023. Here is my
-#link("https://old.youwen.dev/")[old website], which I'll keep online until it
-becomes too much work to do so for archival purposes.
+#link("https://old.youwen.dev/")[old website], which I'll keep online for
+archival purposes until it becomes too much work to do so.
