@@ -169,6 +169,7 @@
 
             XDG_CACHE_HOME = typstPackagesCache;
             LUMINITE_GIT_COMMIT = builtins.toString (if (self ? rev) then self.rev else "unstable");
+            LUMINITE_LAST_MODIFIED = builtins.toString (self.lastModified);
 
             buildPhase = ''
               site build --minify
