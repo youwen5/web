@@ -85,3 +85,13 @@
     [⁂],
   )
 }
+
+#let webimg = (src, alt, extraClass: none) => {
+  let base-classes = "rounded-md mx-auto shadow-sm dark:shadow-none shadow-gray-900"
+  let classes = if extraClass != none {
+    base-classes + " " + extraClass
+  } else {
+    base-classes
+  }
+  html.elem("img", attrs: (src: src, alt: alt, class: classes))
+}

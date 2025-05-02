@@ -14,6 +14,18 @@
 This is my #link("https://nownownow.com/about")[now page]. A now page is a
 detailed answer to the question #quote[what have you been up to lately?]
 
+#webimg(
+  "https://raw.githubusercontent.com/youwen5/youwen5/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg",
+  "github contrib graph dark",
+  extraClass: "hidden dark:block",
+)
+
+#webimg(
+  "https://raw.githubusercontent.com/youwen5/youwen5/refs/heads/main/profile-3d-contrib/profile-season.svg",
+  "github contrib graph light",
+  extraClass: "dark:hidden",
+)
+
 = Whereabouts
 
 I'm studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] for the foreseeable future.
