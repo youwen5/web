@@ -29,6 +29,10 @@ smoothing around the corners, hot reload, caching.
 - #todo Set up the meta-pages that collect posts automatically.
 - #todo #smallcaps[rss]/Atom feed.
 - #todo Allow some routes to be PDFs instead of webpages. So e.g. we could introduce a file pattern like `$doc.typ` and in the place where it would've been as a webpage, it's a PDF instead.
+- #todo Figure out how image hosting will work
+  - #todo #smallcaps[cdn]? That would introduce complexity, but I don't like the idea of hosting static assets in GitHub using gh pages
+    - #todo Would have to set up deployment pipeline
+    - #todo Alternatively could move hosting off of gh pages and onto a personal server. Would have to write some sort of `axum` backend for this site (thus making it no longer static)
 
 = Done
 
