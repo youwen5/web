@@ -231,16 +231,9 @@
               # Inherit inputs from checks.
               checks = self.checks.${system};
 
-              # Additional dev-shell environment variables can be set directly
-              # MY_CUSTOM_DEVELOPMENT_VAR = "something else";
-
-              # Extra inputs can be added here; cargo and rustc are provided by default.
               packages =
                 [ pnpm ]
                 ++ (with pkgs; [
-                  # pkgs.ripgrep
-                  rust-analyzer
-                  rustfmt
                   clippy
                   typst
                   tailwindcss-language-server
