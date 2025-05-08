@@ -87,8 +87,7 @@
               };
             in
             pkgs.stdenv.mkDerivation (finalAttrs: {
-              pname = "web-assets";
-              version = "unstable";
+              name = "web-assets";
 
               src = ./.;
 
