@@ -111,3 +111,11 @@ browser) of Typst documents in the web, consider
 [typst.ts](https://myriad-dreamin.github.io/typst.ts/).
 
 Most development happens on the `dev` branch.
+
+# License
+
+Most _markup_ content (primarily in Typst files) is CC-BY-SA-4.0. The rest
+(that is, everything not covered by the Creative Commons license), including
+but not limited to logical code units, is GPL3 licensed. This includes any
+Typst _code_ that does not contain useful content (i.e. prose), but rather is
+used for programming purposes.
