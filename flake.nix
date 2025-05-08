@@ -14,7 +14,7 @@
     };
 
     fenix = {
-      url = "github:nix-community/fenix";
+      url = "github:nix-community/fenix/monthly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -223,29 +223,27 @@
 
           formatter = treefmtEval.config.build.wrapper;
 
-          devShells.default =
-            let
-              rustPkgs = fenix.packages.${system};
-            in
-            craneLib.devShell {
-              # Inherit inputs from checks.
-              checks = self.checks.${system};
+          devShells.default = craneLib.devShell {
+            # Inherit inputs from checks.
+            checks = self.checks.${system};
 
-              packages =
-                [ pnpm ]
-                ++ (with pkgs; [
-                  clippy
-                  typst
-                  tailwindcss-language-server
-                  nodejs
-                  just
-                  caddy
-                ])
-                ++ [
-                  rustPkgs.default.toolchain
-                  rustPkgs.rust-analyzer
-                ];
-            };
+            packages =
+              let
+                rustPkgs = fenix.packages.${system};
+              in
+              [ pnpm ]
+              ++ (with pkgs; [
+                clippy
+                typst
+                tailwindcss-language-server
+                nodejs
+                just
+                caddy
+              ])
+              ++ [
+                rustPkgs.complete.toolchain
+              ];
+          };
         }
       );
 
