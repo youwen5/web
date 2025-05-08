@@ -32,30 +32,24 @@ Here's what we can do so far:
 
 ## Build instructions
 
-### Note about the font
-
-This site uses the [Valkyrie](https://mbtype.com/fonts/valkyrie/buy.html)
-typeface designed by Matthew Butterick, which, importantly, is _not_ a free
-font. I paid for this professional font and I am licensed to use it. However, I
-cannot distribute it with the source code.
-
-Therefore, `nix build` will _not_ fetch these font files, and the locally built
-artifacts will not contain them. (To build the actual site, I have a derivation
-that overrides and adds a line to copy the fonts over from a private GitHub
-repository. So we still have perfect reproducibility.)
-
 ### Instructions
 
 Currently development is only possible on Linux. This is because the system
 directories Typst uses on macOS are slightly different and I don't care enough
 to fix it right now.
 
+We use [nightly
+Rust](https://doc.rust-lang.org/book/appendix-07-nightly-rust.html) in order to
+farm clout amongst Rustaceans. A `rust-toolchain.toml` file is provided on a
+best-effort basis but the source of truth for the Rust compiler and tooling
+version is whatever version is pinned by `fenix` in `flake.lock`.
+
 Of course if you just want to edit content, you don't need to compile the site
 locally. Just edit the [Typst source files](./routes). Otherwise, read on.
 
 You need **either**
 
-- Rust toolchain, pnpm, Just, (optional, for previewing), the Typst CLI, and Caddy
+- Nightly Rust toolchain as specified in `rust-toolchain.toml`, pnpm, just, the Typst CLI in your $$PATH$, and optionally Caddy for previewing
 - Just the Nix package manager
 
 I highly recommend you use Nix as `nix develop` can obtain all the tools listed
@@ -85,6 +79,18 @@ will be started at `localhost:8080`. Additional commands are available in the
 
 The site will be built in `dist/`.
 
+### Note about the font
+
+This site uses the [Valkyrie](https://mbtype.com/fonts/valkyrie/buy.html)
+typeface designed by Matthew Butterick, which, importantly, is _not_ a free
+font. I paid for this professional font and I am licensed to use it. However, I
+cannot distribute it with the source code.
+
+Therefore, `nix build` will _not_ fetch these font files, and the locally built
+artifacts will not contain them. (To build the actual site, I have a derivation
+that overrides and adds a line to copy the fonts over from a private GitHub
+repository. So we still have perfect reproducibility.)
+
 ## Luminite
 
 `luminite` is a Rust _library_ for writing static site generators centered around
@@ -112,7 +118,7 @@ browser) of Typst documents in the web, consider
 
 Most development happens on the `dev` branch.
 
-# License
+## License
 
 Most _markup_ content (primarily in Typst files) is CC-BY-SA-4.0. The rest
 (that is, everything not covered by the Creative Commons license), including
