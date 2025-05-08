@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # this is a professional, licensed font. you'll have to remove or replace
     # it to build the site locally
     valkyrie-font = {
@@ -29,6 +34,7 @@
       flake-utils,
       treefmt-nix,
       valkyrie-font,
+      fenix,
       ...
     }:
     flake-utils.lib.eachSystem
@@ -39,11 +45,11 @@
       (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs { inherit system; };
 
           pnpm = pkgs.pnpm_10;
 
-          craneLib = crane.mkLib pkgs;
+          craneLib = (crane.mkLib pkgs).overrideToolchain fenix.packages.${system}.minimal.toolchain;
 
           # Common arguments can be set here to avoid repeating them later
           # Note: changes here will rebuild all dependency crates
@@ -218,37 +224,47 @@
 
           formatter = treefmtEval.config.build.wrapper;
 
-          devShells.default = craneLib.devShell {
-            # Inherit inputs from checks.
-            checks = self.checks.${system};
+          devShells.default =
+            let
+              rustPkgs = fenix.packages.${system};
+            in
+            craneLib.devShell {
+              # Inherit inputs from checks.
+              checks = self.checks.${system};
 
-            # Additional dev-shell environment variables can be set directly
-            # MY_CUSTOM_DEVELOPMENT_VAR = "something else";
+              # Additional dev-shell environment variables can be set directly
+              # MY_CUSTOM_DEVELOPMENT_VAR = "something else";
 
-            # Extra inputs can be added here; cargo and rustc are provided by default.
-            packages =
-              [ pnpm ]
-              ++ (with pkgs; [
-                # pkgs.ripgrep
-                rust-analyzer
-                rustfmt
-                clippy
-                typst
-                tailwindcss-language-server
-                nodejs
-                just
-                caddy
-              ]);
-          };
+              # Extra inputs can be added here; cargo and rustc are provided by default.
+              packages =
+                [ pnpm ]
+                ++ (with pkgs; [
+                  # pkgs.ripgrep
+                  rust-analyzer
+                  rustfmt
+                  clippy
+                  typst
+                  tailwindcss-language-server
+                  nodejs
+                  just
+                  caddy
+                ])
+                ++ [
+                  rustPkgs.default.toolchain
+                  rustPkgs.rust-analyzer
+                ];
+            };
         }
       );
 
   nixConfig = {
     extra-substituters = [
       "https://luminite.cachix.org"
+      "https://nix-community.cachix.org"
     ];
     extra-trusted-public-keys = [
       "luminite.cachix.org-1:+VgO/GJMmqsp4U79+QFle7TtEwT8LrJXPiImA8a3a3o="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 }
