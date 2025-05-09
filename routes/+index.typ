@@ -3,7 +3,7 @@
 #show: html-shim
 
 Hey there! Welcome to my corner of the World Wide Web. I study math and
-tinker with computers at #link("https://ucsb.edu")[UC Santa Barbara].
+hack on computers at #link("https://ucsb.edu")[UC Santa Barbara].
 
 #webimg(
   "/static/img/sunset.jpg",
