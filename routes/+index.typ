@@ -2,7 +2,7 @@
 
 #show: html-shim
 
-#smallcaps[greetings. this is youwen wu]. I study math and hack computers at
+#smallcaps(all: true)[Greetings. This is Youwen Wu]. I study math and hack computers at
 the #link("https://ucsb.edu")[University of California, Santa Barbara].
 
 #webimg(

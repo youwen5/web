@@ -28,9 +28,15 @@
   }
 
   show smallcaps: it => {
+    let smallcapsClass = if it.all {
+      "all-smallcaps"
+    } else {
+      "smallcaps"
+    }
+
     show text: it2 => html.elem(
       "span",
-      attrs: (class: "smallcaps inline-block"),
+      attrs: (class: "inline-block " + smallcapsClass),
       it2,
     )
 
