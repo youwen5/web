@@ -68,7 +68,7 @@ pub struct TypstDoc {
 /// Given a path to an entry point `main.typ` and an output location, use the Typst CLI to compile
 /// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
 /// an error will occur.
-pub fn compile_document(
+fn compile_document(
     input: &path::Path,
     output: &path::Path,
     root: &path::Path,
