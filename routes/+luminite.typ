@@ -58,3 +58,32 @@ smoothing around the corners, hot reload, caching.
   instead of janky browser print.
   - Could use `typst.ts`
 - Comments system, using #smallcaps[htmx]?
+
+= Testing code
+
+Currently code highlighting is implemented using `hljs`. In the future it may be done at compile time with more advanced methods.
+
+```rust
+impl TypstDoc {
+    pub fn new(path_to_html: &Path) -> Result<TypstDoc, WorldError> {
+        let doc = TypstDoc {
+            source_path: path_to_html.to_path_buf(),
+            metadata: None,
+        };
+
+        Ok(doc)
+    }
+}
+```
+
+```
+#let webimg = (src, alt, extraClass: none) => {
+  let base-classes = "rounded-md mx-auto shadow-sm dark:shadow-none shadow-gray-900"
+  let classes = if extraClass != none {
+    base-classes + " " + extraClass
+  } else {
+    base-classes
+  }
+  html.elem("img", attrs: (src: src, alt: alt, class: classes))
+}
+```

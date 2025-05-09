@@ -1,5 +1,5 @@
 /// Reusable components that can be placed around the site. Footers, navbars, etc.
-use hypertext::{Renderable, html_elements, maud};
+use hypertext::{Renderable, html_elements, maud, GlobalAttributes};
 use luminite::world::Metadata;
 
 /// A site-wide usable head tag.
@@ -71,6 +71,25 @@ impl Renderable for Head {
                 link rel="stylesheet" href="/bundle.css";
 
                 script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js" {}
+
+                link 
+                    rel="stylesheet" 
+                    media="screen"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-light.min.css";
+
+                link 
+                    rel="stylesheet" 
+                    media="screen and (prefers-color-scheme: dark)"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css";
+                script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" id="hljs-script" {}
+                script {
+
+                    r#"
+                      document.getElementById('hljs-script').onload = function() {
+                          hljs.highlightAll();
+                      };
+                    "#
+                }
             }
         }
         .render_to(output);

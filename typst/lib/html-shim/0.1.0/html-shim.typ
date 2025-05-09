@@ -36,6 +36,21 @@
     it
   }
 
+  show raw.where(block: true): it => {
+    if it.lang == none {
+      return it
+    }
+
+    html.elem(
+      "pre",
+      html.elem(
+        "code",
+        attrs: (class: "language-" + it.lang),
+        it.text,
+      ),
+    )
+  }
+
   let date_exists = if date != none {
     date.display("[year]-[month]-[day]T00:00:00.00-08:00")
   }
