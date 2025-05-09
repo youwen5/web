@@ -4,7 +4,8 @@
 
 We do not collect your data, except for web vitals and analytics provided by
 #link("https://www.simpleanalytics.com/")[Simple Analytics]. Only minimal and
-anonymous data about your visit is recorded.
+anonymous data about your visit is recorded. In particular, no cookies are left
+on your device, and we are fully compliant with #smallcaps[gdpr].
 
 We do not respect the #link("https://en.wikipedia.org/wiki/Do_Not_Track")[Do
   Not Track] signal, and frankly you shouldn't be using it anyways because it
