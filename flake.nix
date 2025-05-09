@@ -223,26 +223,30 @@
 
           formatter = treefmtEval.config.build.wrapper;
 
-          devShells.default = craneLib.devShell {
-            # Inherit inputs from checks.
-            checks = self.checks.${system};
+          devShells.default =
+            let
+              rustPkgs = fenix.packages.${system};
+              rustToolchain = rustPkgs.complete.toolchain;
+            in
+            craneLib.devShell {
+              # Inherit inputs from checks.
+              checks = self.checks.${system};
 
-            packages =
-              let
-                rustPkgs = fenix.packages.${system};
-              in
-              [ pnpm ]
-              ++ (with pkgs; [
-                typst
-                tailwindcss-language-server
-                nodejs
-                just
-                caddy
-              ])
-              ++ [
-                rustPkgs.complete.toolchain
-              ];
-          };
+              RUST_SRC_PATH = "${rustToolchain}/lib/rustlib/src/rust/library";
+
+              packages =
+                [ pnpm ]
+                ++ (with pkgs; [
+                  typst
+                  tailwindcss-language-server
+                  nodejs
+                  just
+                  caddy
+                ])
+                ++ [
+                  rustToolchain
+                ];
+            };
         }
       );
 
