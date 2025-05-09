@@ -233,7 +233,6 @@
               in
               [ pnpm ]
               ++ (with pkgs; [
-                clippy
                 typst
                 tailwindcss-language-server
                 nodejs
