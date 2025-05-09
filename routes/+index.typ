@@ -2,8 +2,8 @@
 
 #show: html-shim
 
-Hey there! Welcome to my corner of the World Wide Web. I study math and
-hack on computers at #link("https://ucsb.edu")[UC Santa Barbara].
+#smallcaps[greetings. this is youwen wu]. I study math and hack computers at
+the #link("https://ucsb.edu")[University of California, Santa Barbara].
 
 #webimg(
   "/static/img/sunset.jpg",
