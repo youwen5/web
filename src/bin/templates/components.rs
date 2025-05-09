@@ -29,7 +29,7 @@ impl Renderable for Head {
         let description = &self.description;
         let image = &self.image;
         let page_title = match self.page_title {
-            Some(title) => format!("{} | Youwen Wu", title),
+            Some(title) => format!("{title} | Youwen Wu"),
             None => "Youwen Wu".to_string(),
         };
 

@@ -80,14 +80,14 @@ pub fn run() {
 
             let site = Site::new(routes, move |slug, content, metadata| {
                 let raw_content = Raw(content);
-                let rendered = match slug.as_str() {
+                
+                match slug.as_str() {
                     "/" => main_page.render_page_with_content(raw_content, metadata),
                     "/colophon" => main_page.render_page_with_content(raw_content, metadata),
                     "/impressum" => main_page.render_page_with_content(raw_content, metadata),
                     "/privacy" => main_page.render_page_with_content(raw_content, metadata),
                     _ => prose.render_page_with_content(raw_content, metadata),
-                };
-                rendered
+                }
             });
 
             if let Err(err) = the_world.realize_site(site, args.minify) {
