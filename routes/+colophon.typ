@@ -28,8 +28,8 @@ is informed and inspired by his
 Butterick!
 
 The color scheme is #link("https://rosepinetheme.com/")[Rosé Pine], in the
-#smallcaps[dawn] variant for light mode and #smallcaps[moon] variant for dark
-mode.
+#smallcaps[dawn] variant for light mode (with a pure white background because
+I'm not a fan of the cream) and #smallcaps[main] variant for dark mode.
 
 I've owned this domain and had a personal website since 2023. Here is my
 #link("https://old.youwen.dev/")[old website], which I'll keep online for
