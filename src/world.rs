@@ -264,8 +264,8 @@ impl World {
         Ok(output_path)
     }
 
-    /// Given a `TypstDoc`, realize it in the World and obtain its contents, with <DOCTYPE>,
-    /// <html>, <head>, and <body> tags truncated.
+    /// Given a `TypstDoc`, realize it in the World and obtain its contents, with \<DOCTYPE>,
+    /// \<html>, \<head>, and \<body> tags truncated.
     pub fn get_doc_contents(&self, doc: &TypstDoc) -> Result<String, WorldError> {
         let build_path = self
             .build_doc(doc)
