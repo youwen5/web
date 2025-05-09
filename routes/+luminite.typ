@@ -25,7 +25,6 @@ smoothing around the corners, hot reload, caching.
 
 = Triage
 
-- #todo Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect] or #link("https://github.com/tree-sitter/tree-sitter/tree/master/highlight")[tree-sitter-highlight].
 - #todo Set up the meta-pages that collect posts automatically.
 - #todo #smallcaps[rss]/Atom feed.
 - #todo Allow some routes to be PDFs instead of webpages. So e.g. we could introduce a file pattern like `$doc.typ` and in the place where it would've been as a webpage, it's a PDF instead.
@@ -36,6 +35,8 @@ smoothing around the corners, hot reload, caching.
 
 = Done
 
+- #done Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect] or #link("https://github.com/tree-sitter/tree-sitter/tree/master/highlight")[tree-sitter-highlight].
+  - Used `hljs` for now.
 - #done Set up TailwindCSS and a nice Big Beautiful Stylesheet.
 - #done Basic utilities with interacting with the world, e.g. Typst compiler, build intermediate artifacts.
   - #done Typst compiler wrapper
