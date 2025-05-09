@@ -54,7 +54,7 @@ pub fn run() {
             let main_page = templates::MainPage;
             let prose = templates::Prose;
 
-            let the_world = World::new(match WorkingDirs::get_dirs() {
+            let the_world = World::from(match WorkingDirs::get_dirs() {
                 Ok(dirs) => dirs,
                 Err(err) => {
                     tracing::event!(

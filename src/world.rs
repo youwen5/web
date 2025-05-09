@@ -236,7 +236,8 @@ pub struct World {
 }
 
 impl World {
-    pub fn new(working_dirs: WorkingDirs) -> World {
+    /// Create a new World from a set of working_dirs
+    pub fn from(working_dirs: WorkingDirs) -> World {
         World {
             working_dirs,
             root: PathBuf::from("./"),
