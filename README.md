@@ -3,8 +3,8 @@
 This is my personal site. It is built using a custom site generator I
 implemented in Rust called [`luminite`](#Luminite), located in this repository.
 
-You can view the site at [web.youwen.dev](https://web.youwen.dev), deployed to
-GitHub pages using Nix.
+You can view the site at [web.youwen.dev](https://web.youwen.dev), deployed using
+GitHub pages.
 
 Unlike most site generators, it uses the typesetting system Typst as the
 primary markup language rather than Markdown. Typst is a system like LaTeX
@@ -12,7 +12,11 @@ mainly for producing beautiful (PDF) documents, but it can also do HTML output!
 This site generator uses Typst to generate HTML markup which is then inserted
 into HTML templates (written as Rust macros) to produce the final site.
 
-A brief tour:
+This site is deployed reproducibly with Nix. With Nix installed, `nix run
+.#preview` will build the site locally, with the exact same files as the
+version in production, and spin up a preview server at `localhost:8000`.
+
+## Brief tour
 
 - [`./routes`](./routes): the content of the site. The structure of the website
   mirrors this directory.
@@ -29,6 +33,7 @@ Here's what we can do so far:
 - Query metadata from Typst files using the `#metadata` function and `typst query`.
 - Glob matching routes to templates.
 - Modular components, like reusable navbars and the like.
+
 
 ## Build instructions
 
