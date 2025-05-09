@@ -32,7 +32,8 @@ fn it_templates_successfully() {
                 title: None,
                 subtitle: None,
                 meta_description: None,
-                short_description: None
+                short_description: None,
+                enable_comments: false
             }
         ),
         maud! {

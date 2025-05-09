@@ -2,7 +2,10 @@ use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
 use luminite::{templating::Template, world::Metadata};
 use time::format_description;
 
-use super::{components::Head, default_shell::DefaultShell};
+use super::{
+    components::{Discus, Head},
+    default_shell::DefaultShell,
+};
 
 pub struct Prose;
 
@@ -36,6 +39,7 @@ impl Template for Prose {
             div class="smallcaps text-muted w-full text-center mt-6 mb-8 text-3xl" {
                 a href="/" class="hover:text-love" { "yw" }
             }
+            @if metadata.enable_comments {(Discus)}
         })
     }
 }

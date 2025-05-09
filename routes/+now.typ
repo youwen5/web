@@ -9,6 +9,7 @@
   title: "Now",
   location: "Santa Barbara, California",
   meta-description: "A now page, aka an answer to \"what have you been up to lately?\"",
+  enable-comments: true,
 )
 
 This is my #link("https://nownownow.com/about")[now page]. A now page is a

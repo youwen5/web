@@ -1,6 +1,9 @@
 #import "@luminite/html-shim:0.1.0": *
 
-#show: html-shim.with(title: "Frequently asked questions")
+#show: html-shim.with(
+  title: "Frequently asked questions",
+  enable-comments: true,
+)
 
 Some frequently asked and also less frequently asked questions. Updated every once in a while.
 

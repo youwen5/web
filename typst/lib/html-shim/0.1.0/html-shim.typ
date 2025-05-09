@@ -7,6 +7,7 @@
   subtitle: none,
   meta-description: none,
   short-description: none,
+  enable-comments: false,
 ) = {
   show math.equation.where(block: false): it => {
     set text(size: 1.3em)
@@ -64,6 +65,7 @@
     subtitle: subtitle,
     meta-description: meta-description,
     short-description: short-description,
+    enable-comments: enable-comments,
   )
 
   [

@@ -54,6 +54,8 @@ pub struct Metadata {
     pub meta_description: Option<String>,
     /// Short description of content e.g. tagline for display
     pub short_description: Option<String>,
+    #[serde(default)]
+    pub enable_comments: bool,
 }
 
 /// A representation of a Typst source file. In the future, it will contain metadata from files.

@@ -1,5 +1,5 @@
 /// Reusable components that can be placed around the site. Footers, navbars, etc.
-use hypertext::{Renderable, html_elements, maud, GlobalAttributes};
+use hypertext::{GlobalAttributes, Renderable, html_elements, maud};
 use luminite::world::Metadata;
 
 /// A site-wide usable head tag.
@@ -72,12 +72,12 @@ impl Renderable for Head {
 
                 script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js" {}
 
-                link 
+                link
                     rel="stylesheet" 
                     media="screen"
                     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-light.min.css";
 
-                link 
+                link
                     rel="stylesheet" 
                     media="screen and (prefers-color-scheme: dark)"
                     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css";
@@ -91,6 +91,30 @@ impl Renderable for Head {
                     "#
                 }
             }
+        }
+        .render_to(output);
+    }
+}
+
+pub struct Discus;
+impl Renderable for Discus {
+    fn render_to(self, output: &mut String) {
+        maud! {
+            script src="https://giscus.app/client.js"
+                data-repo="youwen5/web"
+                data-repo-id="R_kgDOOc2JBQ"
+                data-category="Announcements"
+                data-category-id="DIC_kwDOOc2JBc4Cp8xj"
+                data-mapping="pathname"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="preferred_color_scheme"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async {}
         }
         .render_to(output);
     }
