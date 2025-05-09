@@ -226,7 +226,16 @@
           devShells.default =
             let
               rustPkgs = fenix.packages.${system};
-              rustToolchain = rustPkgs.complete.toolchain;
+              rustToolchain = rustPkgs.complete.withComponents [
+                "rustc"
+                "cargo"
+                "rustfmt"
+                "rust-docs"
+                "rust-analyzer"
+                "clippy"
+                "rust-src"
+                "rust-std"
+              ];
             in
             craneLib.devShell {
               # Inherit inputs from checks.
