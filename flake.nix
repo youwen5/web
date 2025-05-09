@@ -189,37 +189,50 @@
 
           packages.luminite = luminite-crate;
 
-          apps.default = flake-utils.lib.mkApp {
-            drv = luminite-crate;
-          };
+          apps =
+            let
+              preview-drv =
+                withFonts:
+                let
+                  siteFiles = if withFonts then self.packages.${system}.full else self.packages.${system}.default;
+                  caddyfile = pkgs.writeText "Caddyfile" ''
+                    :8000 {
+                        root * ${siteFiles}/dist
+                        file_server
+                        try_files {path} {path}.html {path}/ =404
+                        header Cache-Control max-age=0
+                    }
+                  '';
 
-          apps.preview = flake-utils.lib.mkApp {
-            drv =
-              let
-                caddyfile = pkgs.writeText "Caddyfile" ''
-                  :8000 {
-                      root * ${self.packages.${system}.full}/dist
-                      file_server
-                      try_files {path} {path}.html {path}/ =404
-                      header Cache-Control max-age=0
-                  }
-                '';
+                  formattedCaddyfile = pkgs.runCommand "Caddyfile" {
+                    nativeBuildInputs = [ pkgs.caddy ];
+                  } ''(caddy fmt ${caddyfile} || :) > "$out"'';
 
-                formattedCaddyfile = pkgs.runCommand "Caddyfile" {
-                  nativeBuildInputs = [ pkgs.caddy ];
-                } ''(caddy fmt ${caddyfile} || :) > "$out"'';
+                  script = pkgs.writeShellApplication {
+                    name = "preview";
 
-                script = pkgs.writeShellApplication {
-                  name = "preview";
+                    runtimeInputs = [ pkgs.caddy ];
 
-                  runtimeInputs = [ pkgs.caddy ];
+                    text = "caddy run --config ${formattedCaddyfile} --adapter caddyfile";
+                  };
 
-                  text = "caddy run --config ${formattedCaddyfile} --adapter caddyfile";
-                };
+                in
+                script;
+            in
+            {
+              default = flake-utils.lib.mkApp {
+                drv = luminite-crate;
+              };
 
-              in
-              script;
-          };
+              preview = flake-utils.lib.mkApp {
+                drv = preview-drv false;
+              };
+
+              # only works if you have access to my private repo containing licensed fonts
+              preview-with-fonts = flake-utils.lib.mkApp {
+                drv = preview-drv true;
+              };
+            };
 
           formatter = treefmtEval.config.build.wrapper;
 
