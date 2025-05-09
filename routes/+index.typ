@@ -8,7 +8,7 @@ tinker with computers at #link("https://ucsb.edu")[UC Santa Barbara].
 #webimg(
   "/static/img/sunset.jpg",
   "ucsb campus point sunset",
-  extraClass: "max-h-[200px] w-full object-cover dark:saturate-75 h-[200px]",
+  extraClass: "max-h-[200px] w-full object-cover h-[200px]",
 )
 
 Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("https://www.last.fm/user/couscousdude")[last.fm], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
