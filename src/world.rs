@@ -41,20 +41,27 @@ pub enum WorldError {
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "kebab-case")]
 pub struct Metadata {
+    /// If the author is not Youwen, then specify another.
     pub special_author: Option<String>,
     pub location: Option<String>,
     #[serde(with = "time::serde::rfc3339::option")]
     pub date: Option<OffsetDateTime>,
     pub title: Option<String>,
+    /// Will be displayed under the title in a subheading
     pub subtitle: Option<String>,
+    /// Description for metadata purposes (search engines, etc), will not be displayed on site
+    /// itself
     pub meta_description: Option<String>,
+    /// Short description of content e.g. tagline for display
     pub short_description: Option<String>,
 }
 
 /// A representation of a Typst source file. In the future, it will contain metadata from files.
 #[derive(Debug)]
 pub struct TypstDoc {
+    /// The original path of the Typst source code
     source_path: PathBuf,
+    /// The metadata associated with document, typically extracted using `World::get_metadata()`
     pub metadata: Option<Metadata>,
 }
 
@@ -124,7 +131,7 @@ pub fn compile_document(
     }
 }
 
-/// Use the Typst CLI to query a document from metadata.
+/// Use the Typst CLI to query a document for its metadata.
 fn query_metadata(path: &Path, root: &Path) -> Result<Metadata, WorldError> {
     let value = Command::new("typst")
         .arg("query")
@@ -202,6 +209,8 @@ impl WorkingDirs {
         })
     }
 
+    /// Whether or not the working directories exist already. Says nothing about whether they're
+    /// actually valid
     pub fn working_dirs_exist() -> Result<bool, WorldError> {
         let dist_path = Path::new("./dist");
         let factory_path = Path::new("./.luminite");
@@ -236,7 +245,7 @@ pub struct World {
 }
 
 impl World {
-    /// Create a new World from a set of working_dirs
+    /// Create a new World from a set of working_dirs, taking ownership
     pub fn from(working_dirs: WorkingDirs) -> World {
         World {
             working_dirs,
