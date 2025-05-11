@@ -53,6 +53,15 @@
   src: url("/fonts/valkyrie_ot_b_bold_italic.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: concourse_index;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/concourse_index_regular.woff2") format("woff2");
+}
+
 :root {
   --base-color: 254 254 254;
   --foreground-color: 87 82 121;
@@ -119,6 +128,7 @@
 @theme {
   --font-serif: "valkyrie_ot_b", serif;
   --font-sans: "Source Sans 3 Variable", sans-serif;
+  --font-index: "concourse_index", sans-serif;
 }
 
 @utility smallcaps {
@@ -163,6 +173,15 @@ body {
 
   ol {
     @apply list-decimal;
+  }
+
+  li {
+    @apply ml-4;
+  }
+
+  li::marker {
+    @apply font-index;
+    font-size: 1.1em;
   }
 
   pre {

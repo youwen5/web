@@ -16,6 +16,7 @@ install-fonts:
     git clone https://github.com/youwen5/valkyrie.git valkyrie
     mkdir -p public/fonts
     cp valkyrie/WOFF2/OT-family/Valkyrie-OT/*.woff2 public/fonts
+    cp valkyrie/concourse-index/WOFF2/concourse_index_regular.woff2 public/fonts
     rm -rf valkyrie
 
 [working-directory: 'web']
