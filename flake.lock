@@ -136,11 +136,11 @@
     "valkyrie-font": {
       "flake": false,
       "locked": {
-        "lastModified": 1745569140,
-        "narHash": "sha256-ruSpAGBHPDW32yurVh3faiYyUXNn86Ssk6ROU+qc1yQ=",
+        "lastModified": 1746987703,
+        "narHash": "sha256-nohUzFfguTGYeZCe5Ky5TXPqZhei5HuoPKsUsPbBN5g=",
         "owner": "youwen5",
         "repo": "valkyrie",
-        "rev": "e009e35c732c4f08336f5a92fa57c63fa18ae75b",
+        "rev": "8a22da3b7743e052776013b48ed829cee4c48650",
         "type": "github"
       },
       "original": {
