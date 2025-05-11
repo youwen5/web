@@ -149,9 +149,9 @@ impl DefaultShell {
                         div class="flex-1 md:mt-2" {
                             div class="md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full" {
                                 div class="w-full flex justify-center" {
-                                    div class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-8 mx-auto" {
+                                    a href="/" class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-8 mx-auto" {
                                         (LOGO)
-                                        a class="italic text-[3em] text-center select-none -translate-y-2 mx-auto" href="/" {"youwen wu"}
+                                        span class="italic text-[3em] text-center select-none -translate-y-2 mx-auto" {"youwen wu"}
                                     }
                                 }
                                 details class="w-full mt-4" {
