@@ -6,6 +6,10 @@
 #let todo = sym.ballot
 #let in-progress = emoji.clock
 
+#blockquote[
+  Write JavaScript like it's 2005.
+]
+
 This is the software that builds this website. It is a custom system for
 building a static site generator using Typst as the primary way of setting
 content. This page is my todo-board where I plan out and track feature

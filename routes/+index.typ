@@ -68,7 +68,7 @@
       }
       entry(href: "/impressum", newtab: false)[
         #icon(name: "send")
-        Send me electronic mail
+        Send me electronic mail (preferred)
       ]
       entry(href: "https://github.com/youwen5")[
         #icon(name: "github")
