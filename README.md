@@ -34,7 +34,6 @@ Here's what we can do so far:
 - Glob matching routes to templates.
 - Modular components, like reusable navbars and the like.
 
-
 ## Build instructions
 
 ### Instructions
