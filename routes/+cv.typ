@@ -142,8 +142,37 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   left: [
     #date \
     #if type == "github" {
+      html.elem(
+        "a",
+        attrs: (
+          class: "mt-3 hover:text-rose hidden md:inline-flex gap-2 mr-2 text-nowrap",
+          href: link,
+          target: "_blank",
+        ),
+      )[
+        #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
+          name: "github",
+        ))
+        View code
+      ]
+    }
+    #if demo-link != "" {
       html.elem("a", attrs: (
-        class: "mt-3 hover:text-rose inline-flex gap-2 mr-2",
+        class: "mt-1 hover:text-rose hidden md:inline-flex gap-2 text-nowrap",
+        href: demo-link,
+        target: "_blank",
+      ))[
+        #html.elem("span", attrs: (class: "my-auto"), lucide-icon(name: "box"))
+        Try demo
+      ]
+    }
+  ],
+  heading: project,
+  [
+    #body
+    #if type == "github" {
+      html.elem("a", attrs: (
+        class: "-mt-2 hover:text-rose md:hidden inline-flex gap-2 mr-2",
         href: link,
         target: "_blank",
       ))[
@@ -155,7 +184,7 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
     }
     #if demo-link != "" {
       html.elem("a", attrs: (
-        class: "mt-1 hover:text-rose inline-flex gap-2",
+        class: "mt-1 hover:text-rose md:hidden inline-flex gap-2",
         href: demo-link,
         target: "_blank",
       ))[
@@ -164,8 +193,6 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
       ]
     }
   ],
-  heading: project,
-  body,
 )
 
 #project-entry(
