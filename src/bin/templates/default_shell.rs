@@ -13,7 +13,8 @@ pub struct DefaultShell {
     pub width: PageWidth,
 }
 
-const LOGO: &str = r##"
+const LOGO: hypertext::Raw<&str> = hypertext::Raw(
+    r##"
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
@@ -57,7 +58,8 @@ const LOGO: &str = r##"
        transform="rotate(45)" />
   </g>
 </svg>
-"##;
+"##,
+);
 
 impl DefaultShell {
     pub fn render_with_children(self, children: impl Renderable) -> Rendered<String> {
@@ -80,8 +82,8 @@ impl DefaultShell {
 
         let nav_items = maud! {
             li {a class="hover:bg-overlay transition-colors" href="/projects" {"Projects"}}
+            li {a class="hover:bg-overlay transition-colors" href="/about" {"About"}}
             li {a class="hover:bg-overlay transition-colors" href="/now" {"Now"}}
-            li {a class="hover:bg-overlay transition-colors" href="/impressum" {"Impressum"}}
         };
 
         let code = maud! {
@@ -94,6 +96,7 @@ impl DefaultShell {
 
         let other = maud! {
             li {a class="hover:bg-overlay transition-colors" href="/faqs" {"Frequently asked questions"}}
+            li {a class="hover:bg-overlay transition-colors" href="/impressum" {"Impressum"}}
             li {a class="hover:bg-overlay transition-colors" href="/colophon" {"Colophon"}}
         };
 
@@ -101,8 +104,6 @@ impl DefaultShell {
             PageWidth::Wide => "",
             PageWidth::Prose => " lg:max-w-2xl",
         };
-
-        let logo_html = hypertext::Raw(LOGO);
 
         maud! {
             !DOCTYPE
@@ -112,7 +113,7 @@ impl DefaultShell {
                     div class="flex gap-8 px-4 lg:px-6" {
                         aside class="hidden md:block w-64 flex-none" {
                             div class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-3" {
-                                (logo_html)
+                                (LOGO)
                                 a class="italic text-[2.5em] select-none -translate-y-2" href="/" {"youwen wu"}
                             }
                             nav class="space-y-6 mt-4" {
@@ -148,7 +149,7 @@ impl DefaultShell {
                             div class="md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full" {
                                 div class="w-full flex justify-center" {
                                     div class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-8 mx-auto" {
-                                        (logo_html)
+                                        (LOGO)
                                         a class="italic text-[3em] text-center select-none -translate-y-2 mx-auto" href="/" {"youwen wu"}
                                     }
                                 }
