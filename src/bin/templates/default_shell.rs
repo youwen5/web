@@ -13,6 +13,52 @@ pub struct DefaultShell {
     pub width: PageWidth,
 }
 
+const LOGO: &str = r##"
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   width="45px"
+   height="45px"
+   class="my-auto"
+   viewBox="0 0 300 300"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <rect
+       style="display:inline;opacity:1;fill:#56949f;fill-opacity:0;stroke:#b4637a;stroke-width:6.26026;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4"
+       width="293.71112"
+       height="293.71283"
+       x="3.1441348"
+       y="3.1437902" />
+  </g>
+  <g
+     id="layer2">
+    <rect
+       style="opacity:1;fill:#b4637a;fill-opacity:1;stroke:#b4637a;stroke-width:2.02726;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3"
+       width="104.72939"
+       height="100.92105"
+       x="120.82121"
+       y="-18.898195"
+       transform="rotate(45)" />
+    <rect
+       style="fill:#56949f;fill-opacity:1;stroke:#56949f;stroke-width:2.02717;stroke-dasharray:none;stroke-opacity:0.0392157"
+       id="rect3-5"
+       width="104.72939"
+       height="100.92105"
+       x="194.88144"
+       y="-90.162048"
+       transform="rotate(45)" />
+  </g>
+</svg>
+"##;
+
 impl DefaultShell {
     pub fn render_with_children(self, children: impl Renderable) -> Rendered<String> {
         let git_version = std::env::var("LUMINITE_GIT_COMMIT").unwrap_or("unstable".to_string());
@@ -56,6 +102,8 @@ impl DefaultShell {
             PageWidth::Prose => " lg:max-w-2xl",
         };
 
+        let logo_html = hypertext::Raw(LOGO);
+
         maud! {
             !DOCTYPE
             html lang="en" {
@@ -63,7 +111,10 @@ impl DefaultShell {
                 body class="antialiased mt-4 lg:mt-20 leading-relaxed mx-auto max-w-[1200px]" {
                     div class="flex gap-8 px-4 lg:px-6" {
                         aside class="hidden md:block w-64 flex-none" {
-                            a class="italic text-[3em] hover:bg-subtle/50 transition-colors select-none" href="/" {"youwen wu"}
+                            div class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-3" {
+                                (logo_html)
+                                a class="italic text-[2.5em] select-none -translate-y-2" href="/" {"youwen wu"}
+                            }
                             nav class="space-y-6 mt-4" {
                                 ul class="space-y-2 text-love text-2xl " {
                                     (nav_items)
@@ -87,15 +138,20 @@ impl DefaultShell {
                                     }
                                 }
                             }
-                            div class="mt-6 flex flex-wrap gap-2 hover:grayscale" {
-                                a href="https://muan.co/posts/javascript" target="_blank" {
-                                    img class="w-20" src="/static/img/anti-js-js-club.png";
+                            div class="mt-6" {
+                                a href="/buttons" class="hover:brightness-75" {
+                                    img class="w-20" src="/static/logo/button.png" alt="my button";
                                 }
                             }
                         }
                         div class="flex-1 md:mt-2" {
-                            div class="md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full"  {
-                                p class="text-center italic text-[3em] hover:text-subtle mt-8 select-none" {a href="/" {"youwen wu"}}
+                            div class="md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full" {
+                                div class="w-full flex justify-center" {
+                                    div class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-8 mx-auto" {
+                                        (logo_html)
+                                        a class="italic text-[3em] text-center select-none -translate-y-2 mx-auto" href="/" {"youwen wu"}
+                                    }
+                                }
                                 details class="w-full mt-4" {
                                     summary class="text-center smallcaps text-xl cursor-pointer" {
                                         "menu"
