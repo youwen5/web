@@ -51,7 +51,7 @@
       #html.elem("span", attrs: (class: "inline-flex gap-3"), body)
       #html.elem("span", attrs: (class: "inline-flex gap-4"))[
         #if date != "" {
-          html.elem("span", attrs: (class: "font-light"))[
+          html.elem("span", attrs: (class: "font-light text-lg my-auto"))[
             #date
           ]
         }
