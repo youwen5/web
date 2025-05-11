@@ -29,8 +29,8 @@
   For contact information, see the #link("/impressum")[impressum].
 
   #blockquote(
-    attribution: [--- #link("https://amphetamines.com/paul-erdos/")[Co-paul Co-erdős]],
-  )[A comathematician is a device for turning cotheorems into ffee.]
+    attribution: [--- #link("https://www.paulgraham.com/top.html")[Paul Graham]],
+  )[It's hard to do a really good job on anything you don't think about in the shower.]
 
   = Places
 
