@@ -30,43 +30,87 @@
     attribution: [--- #link("https://www.paulgraham.com/top.html")[Paul Graham]],
   )[It's hard to do a really good job on anything you don't think about in the shower.]
 
+  = Recently
+
+  #let icon(name: "") = {
+    html.elem(
+      "span",
+      attrs: (class: "my-auto"),
+      lucide-icon(name: name),
+    )
+  }
+
+  #let update(date: "", is-link: true, internal: true, href: "", body) = {
+    html.elem(
+      if is-link { "a" } else { "span" },
+      attrs: (
+        href: href,
+        class: "border-b-love border-b-1 py-1 px-1 text-love hover:bg-love hover:text-base w-full w-full font-sans flex justify-between flex-wrap content-center gap-2 md:gap-4",
+      ),
+    )[
+      #html.elem("span", attrs: (class: "inline-flex gap-3"), body)
+      #html.elem("span", attrs: (class: "inline-flex gap-4"))[
+        #if date != "" {
+          html.elem("span", attrs: (class: "font-light"))[
+            #date
+          ]
+        }
+        #if internal {
+          icon(name: "move-right")
+        } else if is-link {
+          icon(name: "external-link")
+        }
+      ]
+    ]
+  }
+
+  #update(
+    date: "May 10th, 2025",
+    href: "/writing/doing-web-development-in-typst",
+  )[
+    #icon(name: "newspaper")
+    Doing web development in Typst
+  ]
+  #update(href: "/luminite", date: "April 22nd, 2025")[
+    #icon(name: "code")
+    I wrote my own static site generator lol
+  ]
+
   = Contact
 
   #html.elem(
     "div",
     attrs: (class: "font-sans w-full prose-lg"),
     {
-      let icon(name: "") = {
+      let entry(
+        href: "/impressum",
+        is-link: true,
+        newtab: true,
+        internal: false,
+        body,
+      ) = {
         html.elem(
-          "span",
-          attrs: (class: "my-auto"),
-          lucide-icon(name: name),
-        )
-      }
-      let entry(href: "/impressum", is-link: true, newtab: true, body) = {
-        html.elem(
-          "div",
-          html.elem(
-            if is-link { "a" } else { "div" },
-            attrs: (
-              href: href,
-              target: if newtab { "_blank" } else { "" },
-              class: "px-1 py-1 font-light hover:text-base hover:bg-love border-b-1 border-b-love text-love decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
-            ),
-            {
-              html.elem(
-                "span",
-                attrs: (class: "flex gap-2 my-auto"),
-                body,
-              )
-              if is-link {
-                icon(name: "square-arrow-out-up-right")
-              }
-            },
+          if is-link { "a" } else { "span" },
+          attrs: (
+            href: href,
+            target: if newtab { "_blank" } else { "" },
+            class: "px-1 py-1 font-light hover:text-base hover:bg-love border-b-1 border-b-love text-love decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
           ),
+          {
+            html.elem(
+              "span",
+              attrs: (class: "flex gap-2 my-auto"),
+              body,
+            )
+            if internal {
+              icon(name: "move-right")
+            } else if is-link {
+              icon(name: "external-link")
+            }
+          },
         )
       }
-      entry(href: "/impressum", newtab: false)[
+      entry(href: "/impressum", newtab: false, internal: true)[
         #icon(name: "send")
         Send me electronic mail (preferred)
       ]
