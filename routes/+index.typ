@@ -2,8 +2,8 @@
 
 #show: html-shim
 
-#smallcaps(all: true)[Greetings. I#(apostrophe)m Youwen]. I study math and hack computers at
-the #link("https://ucsb.edu")[University of California, Santa Barbara].
+#smallcaps(all: true)[Greetings. I#(apostrophe)m Youwen]. I study math and hack on computers at
+#link("https://ucsb.edu")[UC Santa Barbara].
 
 #webimg(
   "/static/img/sunset.jpg",

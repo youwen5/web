@@ -43,7 +43,7 @@ impl DefaultShell {
         };
 
         let math = maud! {
-            li {a class="hover:bg-overlay transition-colors" href="/math-test" {"Tidbit: A test of Typst math rendering"}}
+            li {a class="hover:bg-overlay transition-colors" href="/math-test" {"A test of Typst math rendering"}}
         };
 
         let other = maud! {
