@@ -155,6 +155,7 @@
                 ''
                   mkdir -p public/fonts
                   cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 public/fonts
+                  cp "${valkyrie-font}/concourse-index/WOFF2/concourse_index_regular.woff2" public/fonts
                 ''
                 + prevAttrs.buildPhase;
             }
