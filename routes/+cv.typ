@@ -79,8 +79,20 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   )
 ]
 
-#let experience-entry(date: "", employer: "", title: "", body) = base-entry(
-  left: date,
+#let experience-entry(
+  date: "",
+  location: "",
+  employer: "",
+  title: "",
+  body,
+) = base-entry(
+  left: [
+    #date
+    #if location != "" {
+      linebreak()
+      html.elem("span", attrs: (class: "text-sm xl:text-lg"), location)
+    }
+  ],
   heading: [
     #title #html.elem("span", attrs: (class: "font-light"))[at] #employer
   ],
@@ -91,7 +103,8 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
 = Experience
 
 #experience-entry(
-  date: [11/24 --- now \ Santa Barbara, CA],
+  date: [11/24 --- now],
+  location: [Santa Barbara, CA],
   employer: [UCSB Robotics Lab],
   title: [Systems programmer],
   [#text(
@@ -105,7 +118,8 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
 )
 
 #experience-entry(
-  date: [11/24 --- now \ Earth],
+  date: [11/24],
+  location: [Earth],
   employer: [NixOS],
   title: [Package maintainer],
   [#text(10pt, [
@@ -116,7 +130,8 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
 )
 
 #experience-entry(
-  date: [09/22 --- 06/24 \ Bay Area, CA],
+  date: [09/22 --- 06/24],
+  location: [Bay Area, CA],
   employer: [FIRST Robotics Team 1280],
   title: [Artificial intelligence lead],
   [#text(10pt, [
