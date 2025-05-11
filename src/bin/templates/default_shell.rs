@@ -84,6 +84,7 @@ impl DefaultShell {
             li {a class="hover:bg-overlay transition-colors" href="/projects" {"Projects"}}
             li {a class="hover:bg-overlay transition-colors" href="/about" {"About"}}
             li {a class="hover:bg-overlay transition-colors" href="/now" {"Now"}}
+            li {a class="hover:bg-overlay transition-colors" href="/cv" {"CV"}}
         };
 
         let code = maud! {
