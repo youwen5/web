@@ -20,7 +20,7 @@ const LOGO: hypertext::Raw<&str> = hypertext::Raw(
 <svg
    width="45px"
    height="45px"
-   class="my-auto"
+   class="my-auto bg-surface"
    viewBox="0 0 300 300"
    version="1.1"
    id="svg1"
@@ -113,9 +113,9 @@ impl DefaultShell {
                 body class="antialiased mt-4 lg:mt-20 leading-relaxed mx-auto max-w-[1200px]" {
                     div class="flex gap-8 px-4 lg:px-6" {
                         aside class="hidden md:block w-64 flex-none" {
-                            div class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-3" {
+                            a href="/" class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-3" {
                                 (LOGO)
-                                a class="italic text-[2.5em] select-none -translate-y-2" href="/" {"youwen wu"}
+                                span class="italic text-[2.5em] select-none -translate-y-2" {"youwen wu"}
                             }
                             nav class="space-y-6 mt-4" {
                                 ul class="space-y-2 text-love text-2xl " {
