@@ -45,7 +45,7 @@ impl Renderable for Head {
                 @if let Some(description) = description {
                     meta name="description" content=(description);
                 } @else {
-                    meta name="description" content="A quiet corner of the internet.";
+                    meta name="description" content="Youwen's personal website. Also a gathering hub for supporters of homotopy coherent mathematics. Together we shall prevail against the set theorists.";
                 }
 
                 @if let Some(description) = description {
