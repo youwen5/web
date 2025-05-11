@@ -131,7 +131,7 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
 
 #experience-entry(
   date: [09/22 --- 06/24],
-  location: [Bay Area, CA],
+  location: [SF Bay Area, CA],
   employer: [FIRST Robotics Team 1280],
   title: [Artificial intelligence lead],
   [#text(10pt, [
