@@ -182,3 +182,11 @@
     ]
   ]
 ]
+
+#html.elem(
+  "div",
+  attrs: (
+    class: "bg-gradient-to-r from-love to-foam w-full rounded-md mt-8 h-24",
+  ),
+  "",
+)
