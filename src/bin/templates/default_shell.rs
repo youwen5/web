@@ -87,6 +87,11 @@ impl DefaultShell {
                                     }
                                 }
                             }
+                            div class="mt-6 flex flex-wrap gap-2 hover:grayscale" {
+                                a href="https://infrequently.org/stickers/" target="__blank" {
+                                    img class="w-20" src="/static/img/anti-js-js-club.png";
+                                }
+                            }
                         }
                         div class="flex-1 md:mt-2" {
                             div class="md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full"  {
