@@ -141,7 +141,7 @@
         ],
       )
       #location-entry(
-        area: [previously in Salt Lake City],
+        area: [previously near Salt Lake City],
         country-or-state: [
           #smallcaps(all: true)[Utah, USA]
         ],
