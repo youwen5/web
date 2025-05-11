@@ -1,4 +1,4 @@
-<a href="https://web.youwen.dev"><img src="https://web.youwen.dev/static/logo/button.png" align="center"></a>
+<p align="center"><a href="https://web.youwen.dev"><img src="https://web.youwen.dev/static/logo/button.png"></a></p>
 
 # web.youwen.dev
 
