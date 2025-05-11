@@ -118,3 +118,5 @@
   }
   html.elem("img", attrs: (src: src, alt: alt, class: classes))
 }
+
+#let apostrophe = sym.quote.r.single

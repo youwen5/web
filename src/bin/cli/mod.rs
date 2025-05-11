@@ -53,6 +53,7 @@ pub fn run() {
         Commands::Build(args) => {
             let main_page = templates::MainPage;
             let prose = templates::Prose;
+            let index = templates::Index;
 
             let the_world = World::from(match WorkingDirs::get_dirs() {
                 Ok(dirs) => dirs,
@@ -80,9 +81,9 @@ pub fn run() {
 
             let site = Site::new(routes, move |slug, content, metadata| {
                 let raw_content = Raw(content);
-                
+
                 match slug.as_str() {
-                    "/" => main_page.render_page_with_content(raw_content, metadata),
+                    "/" => index.render_page_with_content(raw_content, metadata),
                     "/colophon" => main_page.render_page_with_content(raw_content, metadata),
                     "/impressum" => main_page.render_page_with_content(raw_content, metadata),
                     "/privacy" => main_page.render_page_with_content(raw_content, metadata),

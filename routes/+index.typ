@@ -2,7 +2,7 @@
 
 #show: html-shim
 
-#smallcaps(all: true)[Greetings. This is Youwen Wu]. I study math and hack computers at
+#smallcaps(all: true)[Greetings. I#(apostrophe)m Youwen]. I study math and hack computers at
 the #link("https://ucsb.edu")[University of California, Santa Barbara].
 
 #webimg(
@@ -11,22 +11,90 @@ the #link("https://ucsb.edu")[University of California, Santa Barbara].
   extraClass: "max-h-[200px] w-full object-cover h-[200px]",
 )
 
-Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("https://www.last.fm/user/couscousdude")[last.fm], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
+#html.elem("div", attrs: (class: "prose-lg lg:prose-xl"))[
+  Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("https://www.last.fm/user/couscousdude")[last.fm], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
 
-I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV] and
-how we can apply higher structures to solve hard problems. In general, I prefer
-to use #link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
-  software]. I think we should
-#link("https://vlad.website/the-philosophy-of-the-open-source-pledge/")[pay
-  open source developers].
+  I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV] and
+  how we can apply higher structures to solve hard problems. In general, I prefer
+  to use #link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
+    software]. I think we should
+  #link("https://vlad.website/the-philosophy-of-the-open-source-pledge/")[pay
+    open source developers].
 
-In my spare time, I play guitar and spend way too much money on guitar pedals.
-I also hate coding.
+  In my spare time, I play guitar and spend way too much money on guitar pedals.
+  I also hate coding.
 
-See my #link("/now")[now page] for what I'm up to right now.
+  See my #link("/now")[now page] for what I#(apostrophe)m up to right now.
 
-For contact information, see the #link("/impressum")[impressum].
+  For contact information, see the #link("/impressum")[impressum].
 
-#blockquote(
-  attribution: [--- #link("https://amphetamines.com/paul-erdos/")[Co-paul Co-erdős]],
-)[A comathematician is a device for turning cotheorems into ffee.]
+  #blockquote(
+    attribution: [--- #link("https://amphetamines.com/paul-erdos/")[Co-paul Co-erdős]],
+  )[A comathematician is a device for turning cotheorems into ffee.]
+
+  = Places
+
+  #let double-entry(body) = {
+    html.elem("div", attrs: (class: "border-b-love border-b-1 py-1"), body)
+  }
+
+  #let single-entry(body) = {
+    html.elem("div", attrs: (class: "border-b-love border-b-1"), body)
+  }
+
+  #let location-entry(area: "nowhere", country-or-state: "now here") = {
+    html.elem(
+      "div",
+      attrs: (
+        class: "border-b-love border-b-1 inline-flex justify-between w-full gap-2",
+      ),
+    )[
+      #html.elem("span", area)
+      #html.elem("span", country-or-state)
+    ]
+  }
+
+  #html.elem(
+    "div",
+    attrs: (
+      class: "grid grid-cols-1 md:grid-cols-2 gap-6 font-sans font-light text-love",
+    ),
+  )[
+    #html.elem("div", attrs: (class: "space-y-2 prose-lg"))[
+      #double-entry[
+        B.S. Mathematics \
+        University of California, Santa Barbara
+      ]
+      #double-entry[
+        B.S. Computer Science \
+        University of California, Santa Barbara
+      ]
+    ]
+    #html.elem("div", attrs: (class: "space-y-[7.5px] prose-lg"))[
+      #location-entry(
+        area: [in Santa Barbara],
+        country-or-state: [
+          #smallcaps(all: true)[California, USA]
+        ],
+      )
+      #location-entry(
+        area: [near San Francisco],
+        country-or-state: [
+          #smallcaps(all: true)[California, USA]
+        ],
+      )
+      #location-entry(
+        area: [previously in Salt Lake City],
+        country-or-state: [
+          #smallcaps(all: true)[Utah, USA]
+        ],
+      )
+      #location-entry(
+        area: [previously in Shanghai],
+        country-or-state: [
+          #smallcaps(all: true)[China]
+        ],
+      )
+    ]
+  ]
+]

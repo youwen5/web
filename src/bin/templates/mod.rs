@@ -1,7 +1,9 @@
 mod components;
 mod default_shell;
+mod index;
 mod main_page;
 mod prose;
 
+pub use index::Index;
 pub use main_page::MainPage;
 pub use prose::Prose;
