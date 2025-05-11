@@ -84,7 +84,6 @@ pub fn run() {
 
                 match slug.as_str() {
                     "/" => index.render_page_with_content(raw_content, metadata),
-                    "/cv" => main_page.render_page_with_content(raw_content, metadata),
                     "/colophon" => main_page.render_page_with_content(raw_content, metadata),
                     "/impressum" => main_page.render_page_with_content(raw_content, metadata),
                     "/privacy" => main_page.render_page_with_content(raw_content, metadata),

@@ -81,7 +81,6 @@ impl DefaultShell {
         let rustc_verison = compile_time::rustc_version_str!();
 
         let nav_items = maud! {
-            li {a class="hover:bg-surface transition-colors" href="/projects" {"Projects"}}
             li {a class="hover:bg-surface transition-colors" href="/about" {"About"}}
             li {a class="hover:bg-surface transition-colors" href="/now" {"Now"}}
             li {a class="hover:bg-surface transition-colors" href="/cv" {"CV"}}

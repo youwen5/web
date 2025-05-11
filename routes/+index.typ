@@ -12,7 +12,7 @@
 )
 
 #html.elem("div", attrs: (class: "prose-lg lg:prose-xl"))[
-  Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("https://www.last.fm/user/couscousdude")[last.fm], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
+  Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("/cv")[CV/resume], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
 
   I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV] and
   how we can apply higher structures to solve hard problems. In general, I prefer
