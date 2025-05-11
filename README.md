@@ -1,4 +1,4 @@
-# About
+# web.youwen.dev
 
 This is my personal site. It is built using a custom site generator I
 implemented in Rust, located in this repository.
@@ -12,9 +12,16 @@ documents, but it can also do HTML output! This site generator uses Typst to
 generate HTML markup which is then inserted into HTML templates (written as
 Rust macros) to produce the final site.
 
-## Building
+## tech stack
 
-(This site can only be built on Linux because I am lazy.)
+- Rust (at build time only)
+- HTML
+- CSS (tailwind)
+- JavaScript (almost none) 
+
+## building
+
+(only works on Linux because I'm lazy.)
 
 Install [nix](https://nixos.org/), then
 ```sh
@@ -28,13 +35,13 @@ nix run .#preview
 # server will run at localhost:8000
 ```
 
-## Contrib
+## contrib
 
 If for some reason you want to open a PR (to fix a bug, typo, etc.), see
 [CONTRIBUTING.md](./CONTRIBUTING.md) for technical details and documentation. I
 also accept suggestions, comments, criticisms, etc. via email.
 
-## License
+## license
 
 Most _markup_ content (primarily in Typst files) is CC-BY-SA-4.0. The rest
 (that is, everything not covered by the Creative Commons license), including
