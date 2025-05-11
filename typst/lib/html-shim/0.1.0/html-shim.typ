@@ -43,6 +43,10 @@
     it
   }
 
+  show link: it => {
+    html.elem("a", attrs: (class: "text-link", href: it.dest), it.body)
+  }
+
   show raw.where(block: true): it => {
     if it.lang == none {
       return it
@@ -117,6 +121,14 @@
     base-classes
   }
   html.elem("img", attrs: (src: src, alt: alt, class: classes))
+}
+
+#let lucide-icon(name: "", class: "") = {
+  if class != "" {
+    html.elem("i", attrs: (data-lucide: name, class: class))
+  } else {
+    html.elem("i", attrs: (data-lucide: name))
+  }
 }
 
 #let apostrophe = sym.quote.r.single

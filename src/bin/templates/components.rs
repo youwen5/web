@@ -82,11 +82,15 @@ impl Renderable for Head {
                     media="screen and (prefers-color-scheme: dark)"
                     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css";
                 script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" id="hljs-script" {}
+                script async id="lucide-icons" src="https://unpkg.com/lucide@latest" {}
                 script {
 
                     r#"
                       document.getElementById('hljs-script').onload = function() {
                           hljs.highlightAll();
+                      };
+                      document.getElementById('lucide-icons').onload = function() {
+                          lucide.createIcons();
                       };
                     "#
                 }

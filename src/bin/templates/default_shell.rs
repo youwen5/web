@@ -88,7 +88,7 @@ impl DefaultShell {
                                 }
                             }
                             div class="mt-6 flex flex-wrap gap-2 hover:grayscale" {
-                                a href="https://infrequently.org/stickers/" target="__blank" {
+                                a href="https://infrequently.org/stickers/" target="_blank" {
                                     img class="w-20" src="/static/img/anti-js-js-club.png";
                                 }
                             }

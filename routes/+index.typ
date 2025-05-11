@@ -21,38 +21,75 @@
   #link("https://vlad.website/the-philosophy-of-the-open-source-pledge/")[pay
     open source developers].
 
-  In my spare time, I play guitar and spend way too much money on guitar pedals.
-  I also hate coding.
+  In my spare time, I play guitar and spend too much money on guitar pedals. I
+  also hate coding.
 
   See my #link("/now")[now page] for what I#(apostrophe)m up to right now.
-
-  For contact information, see the #link("/impressum")[impressum].
 
   #blockquote(
     attribution: [--- #link("https://www.paulgraham.com/top.html")[Paul Graham]],
   )[It's hard to do a really good job on anything you don't think about in the shower.]
 
+  = Contact
+
+  #html.elem(
+    "div",
+    attrs: (class: "font-sans w-full prose-lg"),
+    {
+      let icon(name: "") = {
+        html.elem(
+          "span",
+          attrs: (class: "my-auto"),
+          lucide-icon(name: name),
+        )
+      }
+      let entry(href: "/impressum", is-link: true, newtab: true, body) = {
+        html.elem(
+          "div",
+          html.elem(
+            if is-link { "a" } else { "div" },
+            attrs: (
+              href: href,
+              target: if newtab { "_blank" } else { "" },
+              class: "px-1 py-1 font-light hover:text-base hover:bg-love border-b-1 border-b-love text-love decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
+            ),
+            {
+              html.elem(
+                "span",
+                attrs: (class: "flex gap-2 my-auto"),
+                body,
+              )
+              if is-link {
+                icon(name: "square-arrow-out-up-right")
+              }
+            },
+          ),
+        )
+      }
+      entry(href: "/impressum", newtab: false)[
+        #icon(name: "send")
+        Send me electronic mail
+      ]
+      entry(href: "https://github.com/youwen5")[
+        #icon(name: "github")
+        See my code on GitHub
+      ]
+      entry(href: "https://www.instagram.com/youwenw5/")[
+        #icon(name: "instagram")
+        Instagram
+      ]
+      entry(href: "https://www.linkedin.com/in/youwen-wu-306221288/")[
+        #icon(name: "linkedin")
+        LinkedIn
+      ]
+      entry(is-link: false)[
+        #icon(name: "brain")
+        Telepathically scribe me over the ethereal plane
+      ]
+    },
+  )
+
   = Places
-
-  #let double-entry(body) = {
-    html.elem("div", attrs: (class: "border-b-love border-b-1 py-1"), body)
-  }
-
-  #let single-entry(body) = {
-    html.elem("div", attrs: (class: "border-b-love border-b-1"), body)
-  }
-
-  #let location-entry(area: "nowhere", country-or-state: "now here") = {
-    html.elem(
-      "div",
-      attrs: (
-        class: "border-b-love border-b-1 inline-flex justify-between w-full gap-2",
-      ),
-    )[
-      #html.elem("span", area)
-      #html.elem("span", country-or-state)
-    ]
-  }
 
   #html.elem(
     "div",
@@ -60,6 +97,26 @@
       class: "grid grid-cols-1 md:grid-cols-2 gap-6 font-sans font-light text-love",
     ),
   )[
+    #let double-entry(body) = {
+      html.elem("div", attrs: (class: "border-b-love border-b-1 py-1"), body)
+    }
+
+    #let single-entry(body) = {
+      html.elem("div", attrs: (class: "border-b-love border-b-1"), body)
+    }
+
+    #let location-entry(area: "nowhere", country-or-state: "now here") = {
+      html.elem(
+        "div",
+        attrs: (
+          class: "border-b-love border-b-1 inline-flex justify-between w-full gap-2",
+        ),
+      )[
+        #html.elem("span", area)
+        #html.elem("span", country-or-state)
+      ]
+    }
+
     #html.elem("div", attrs: (class: "space-y-2 prose-lg"))[
       #double-entry[
         B.S. Mathematics \
