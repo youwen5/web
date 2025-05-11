@@ -81,24 +81,24 @@ impl DefaultShell {
         let rustc_verison = compile_time::rustc_version_str!();
 
         let nav_items = maud! {
-            li {a class="hover:bg-overlay transition-colors" href="/projects" {"Projects"}}
-            li {a class="hover:bg-overlay transition-colors" href="/about" {"About"}}
-            li {a class="hover:bg-overlay transition-colors" href="/now" {"Now"}}
-            li {a class="hover:bg-overlay transition-colors" href="/cv" {"CV"}}
+            li {a class="hover:bg-surface transition-colors" href="/projects" {"Projects"}}
+            li {a class="hover:bg-surface transition-colors" href="/about" {"About"}}
+            li {a class="hover:bg-surface transition-colors" href="/now" {"Now"}}
+            li {a class="hover:bg-surface transition-colors" href="/cv" {"CV"}}
         };
 
         let code = maud! {
-            li {a class="hover:bg-overlay transition-colors" href="/luminite" {"Project: Luminite"}}
+            li {a class="hover:bg-surface transition-colors" href="/luminite" {"Project: Luminite"}}
         };
 
         let math = maud! {
-            li {a class="hover:bg-overlay transition-colors" href="/math-test" {"A test of Typst math rendering"}}
+            li {a class="hover:bg-surface transition-colors" href="/math-test" {"A test of Typst math rendering"}}
         };
 
         let other = maud! {
-            li {a class="hover:bg-overlay transition-colors" href="/faqs" {"Frequently asked questions"}}
-            li {a class="hover:bg-overlay transition-colors" href="/impressum" {"Impressum"}}
-            li {a class="hover:bg-overlay transition-colors" href="/colophon" {"Colophon"}}
+            li {a class="hover:bg-surface transition-colors" href="/faqs" {"Frequently asked questions"}}
+            li {a class="hover:bg-surface transition-colors" href="/impressum" {"Impressum"}}
+            li {a class="hover:bg-surface transition-colors" href="/colophon" {"Colophon"}}
         };
 
         let page_width = match self.width {
