@@ -5,12 +5,6 @@ implemented in Rust, located in this repository.
 
 You can view the site at [web.youwen.dev](https://web.youwen.dev), deployed using
 GitHub pages.
-Unlike most site generators, it uses the typesetting system
-[Typst](https://typst.app) as a markup language rather than something like
-Markdown. Typst is a system like LaTeX mainly for producing beautiful (PDF)
-documents, but it can also do HTML output! This site generator uses Typst to
-generate HTML markup which is then inserted into HTML templates (written as
-Rust macros) to produce the final site.
 
 ## tech stack
 
@@ -18,6 +12,12 @@ Rust macros) to produce the final site.
 - HTML
 - CSS (tailwind)
 - JavaScript (almost none) 
+- [Typst](https://typst.app)
+  - I use the typesetting system Typst as a markup language rather than something
+    like Markdown. Typst is a system like LaTeX mainly for producing beautiful
+    (PDF) documents, but it can also do HTML output! This site generator uses
+    Typst to generate HTML markup which is then inserted into HTML templates
+    (written as Rust macros) to produce the final site.
 
 ## building
 
