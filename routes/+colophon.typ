@@ -3,7 +3,7 @@
 #show: html-shim.with(title: "Colophon")
 
 This site was built with my custom static generator called
-#link("/luminite")[Luminite]. It was written in nightly Rust, and its unique
+#link("/luminite")[Luminite]. It was written in Rust, and its unique
 feature is that it uses #link("https://typst.app/")[Typst] as a scriptable
 markup language instead of something like Markdown. It outputs fully rendered
 organic fair-trade #smallcaps[html] that gets shipped straight from
@@ -20,7 +20,9 @@ implementation is used for efficient rendering.
 
 #dinkus
 
-The typeface used for both body text and headings is
+The sans-serif typeface is
+#link("https://fonts.google.com/specimen/Source+Sans+3")[Source Sans 3]. The
+typeface used for both body text and headings is
 #link("https://practicaltypography.com/valkyrie.html")[Valkyrie], a
 professional font designed by Matthew Butterick. Much of this site's web design
 is informed and inspired by his
