@@ -26,18 +26,14 @@
 
   See my #link("/now")[now page] for what I#(apostrophe)m up to right now.
 
-  #blockquote(
-    attribution: [--- #link("https://www.paulgraham.com/top.html")[Paul Graham]],
-  )[It's hard to do a really good job on anything you don't think about in the shower.]
+  #blockquote(attribution: [--- #link(
+      "https://www.paulgraham.com/top.html",
+    )[Paul Graham]])[It's hard to do a really good job on anything you don't think about in the shower.]
 
   = Recently
 
   #let icon(name: "") = {
-    html.elem(
-      "span",
-      attrs: (class: "my-auto"),
-      lucide-icon(name: name),
-    )
+    html.elem("span", attrs: (class: "my-auto"), lucide-icon(name: name))
   }
 
   #let update(date: "", is-link: true, internal: true, href: "", body) = {
@@ -97,11 +93,7 @@
             class: "px-1 py-1 font-light hover:text-base hover:bg-love border-b-1 border-b-love text-love decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
           ),
           {
-            html.elem(
-              "span",
-              attrs: (class: "flex gap-2 my-auto"),
-              body,
-            )
+            html.elem("span", attrs: (class: "flex gap-2 my-auto"), body)
             if internal {
               icon(name: "move-right")
             } else if is-link {
@@ -172,30 +164,21 @@
       ]
     ]
     #html.elem("div", attrs: (class: "space-y-[7.5px] prose-lg"))[
-      #location-entry(
-        area: [in Santa Barbara],
-        country-or-state: [
-          #smallcaps(all: true)[California, USA]
-        ],
-      )
-      #location-entry(
-        area: [near San Francisco],
-        country-or-state: [
-          #smallcaps(all: true)[California, USA]
-        ],
-      )
+      #location-entry(area: [in Santa Barbara], country-or-state: [
+        #smallcaps(all: true)[California, USA]
+      ])
+      #location-entry(area: [near San Francisco], country-or-state: [
+        #smallcaps(all: true)[California, USA]
+      ])
       #location-entry(
         area: [previously near Salt Lake City],
         country-or-state: [
           #smallcaps(all: true)[Utah, USA]
         ],
       )
-      #location-entry(
-        area: [previously in Shanghai],
-        country-or-state: [
-          #smallcaps(all: true)[China]
-        ],
-      )
+      #location-entry(area: [previously in Shanghai], country-or-state: [
+        #smallcaps(all: true)[China]
+      ])
     ]
   ]
 ]
