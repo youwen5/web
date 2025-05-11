@@ -118,7 +118,7 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
 )
 
 #experience-entry(
-  date: [11/24],
+  date: [11/24 --- now],
   location: [Earth],
   employer: [NixOS],
   title: [Package maintainer],
