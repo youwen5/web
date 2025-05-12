@@ -27,4 +27,4 @@
   }
 }
 
-#render-cv(long: true)
+#render-cv()
