@@ -146,7 +146,7 @@ impl DefaultShell {
                             }
                         }
                         div class="flex-1 md:mt-2" {
-                            div class="md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full" {
+                            header class="md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full" {
                                 div class="w-full flex justify-center" {
                                     a href="/" class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-8 mx-auto" {
                                         (LOGO)
