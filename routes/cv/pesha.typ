@@ -49,7 +49,7 @@
     #let header-info = {
       show text: upper
       set text(font: "Inter")
-      text(size: 1.8em, tracking: 3.2pt, weight: "medium", name)
+      text(size: 1.8em, tracking: 1.4pt, weight: "medium", name)
       v(1.4em, weak: true)
       set text(weight: "regular")
       show text: it => { text(size: 0.86em, tracking: 1.4pt, it) }
@@ -102,10 +102,16 @@
   set list(body-indent: 0.85em)
 
   block(width: 100%, pad(left: 0.25em)[
-    #text(size: 1.4em, place) #h(1fr) #text(size: 1.3em, time)
+    #text(size: 1em, [#if place != none { place } else { title }]) #h(
+      1fr,
+    ) #text(size: 1em, time)
     #v(1em, weak: true)
-    #emph(title)
-    #if location != none [ #h(1fr) #text(size: 0.9em, location) ]
+    #if place != none {
+      emph(text(title))
+    }
+    #if location != none [
+      #h(1fr) #text(size: 1em, location)
+    ]
     #v(1em, weak: true)
     #body
   ])

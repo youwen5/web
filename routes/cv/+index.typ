@@ -18,7 +18,7 @@
         [(925) 791 1845],
         [#link("mailto:youwen@ucsb.edu")],
       ),
-      footer-text: [Wu Résumé --- Page#sym.space],
+      footer-text: [Wu Résumé],
     )
     it
   } else {
@@ -139,6 +139,7 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   location: "",
   employer: "",
   title: "",
+  web-only: false,
   body,
 ) = context {
   if target() == "html" {
@@ -155,8 +156,14 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
       ],
       body,
     )
-  } else {
-    experience(place: [#title at #employer], time: date, body)
+  } else if (not web-only) {
+    experience(
+      title: title,
+      place: employer,
+      time: date,
+      location: location,
+      body,
+    )
   }
 }
 
@@ -183,6 +190,7 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   location: [Earth],
   employer: [NixOS],
   title: [Package maintainer],
+  web-only: true,
   [#text(10pt, [
       - Maintaining packages for NixOS, an purely functional GNU/Linux
         distribution built on the Nix package manager and Nix programming
@@ -213,6 +221,7 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   link: "",
   type: "",
   demo-link: "",
+  web-only: false,
   body,
 ) = context {
   if target() == "html" {
@@ -279,10 +288,8 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
         }
       ],
     )
-  } else {
-    experience(place: project, time: date)[
-      #body
-    ]
+  } else if (not web-only) {
+    experience(title: project, time: date, body)
   }
 }
 
@@ -302,6 +309,7 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   project: [This website],
   link: "https://github.com/youwen5/web",
   type: "github",
+  web-only: true,
 )[
   - Powered by a fully custom handrolled static site generator, written in Rust
   - Accessible, perfect 100s on Google's Lighthouse benchmark
@@ -312,6 +320,7 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   project: [liminalOS],
   link: "https://github.com/youwen5/liminalOS",
   type: "github",
+  web-only: true,
 )[
   - My custom Linux distribution based on NixOS
 ]
@@ -333,28 +342,30 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   link: "https://github.com/youwen5/eexiv",
   type: "github",
   demo-link: "https://eexiv.solipsism.social/",
+  web-only: true,
 )[
   - An arXiv clone for archiving research documents written by Team 1280, a FIRST Robotics team
 ]
 
 = Awards and honors
 
-#let award-entry(title: [], date: [], ..args) = context {
+#let award-entry(title: [], date: [], web-only: false, ..args) = context {
   if target() == "html" {
     if args.pos().len() > 0 {
       base-html-entry(left: date, heading: title, args.pos().at(0))
     } else {
       base-html-entry(left: date, heading: title)
     }
-  } else {
+  } else if (not web-only) {
     experience(place: title, time: date)[]
   }
 }
 
-#award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
-#award-entry(title: [SB Hacks XI, Winner], date: [2025])
+#award-entry(title: [UCSB DataOrbit, Winner], date: [2025], web-only: true)
+#award-entry(title: [SB Hacks XI, Winner], date: [2025], web-only: true)
 #award-entry(
   title: [Dean#(apostrophe)s Honors #(sym.times)2],
   date: [2024 --- 2025],
+  web-only: true,
 )
 #award-entry(title: [National Merit Semifinalist], date: [2024])
