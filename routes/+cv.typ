@@ -281,5 +281,8 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
 
 #award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
 #award-entry(title: [SB Hacks XI, Winner], date: [2025])
-#award-entry(title: [Dean's Honors x2], date: [2024 --- 2025])
+#award-entry(
+  title: [Dean#(apostrophe)s Honors #(sym.times)2],
+  date: [2024 --- 2025],
+)
 #award-entry(title: [National Merit Semifinalist], date: [2024])
