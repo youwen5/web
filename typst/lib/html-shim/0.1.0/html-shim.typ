@@ -9,6 +9,7 @@
   short-description: none,
   enable-comments: false,
   also-compile-pdf: false,
+  pdf-filename: none,
 ) = {
   show math.equation.where(block: false): it => {
     set text(size: 1.3em)
@@ -85,6 +86,7 @@
     short-description: short-description,
     enable-comments: enable-comments,
     also-compile-pdf: also-compile-pdf,
+    pdf-filename: pdf-filename,
   )
 
   [

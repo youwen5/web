@@ -59,8 +59,11 @@ pub struct Metadata {
     pub short_description: Option<String>,
     #[serde(default)]
     pub enable_comments: bool,
+    /// Whether to also compile the document as a PDF alongside
     #[serde(default)]
     pub also_compile_pdf: bool,
+    /// The filename for the PDF. If not specified, then the web path will be used by default
+    pub pdf_filename: Option<String>,
 }
 
 /// A representation of a Typst source file. In the future, it will contain metadata from files.
@@ -480,11 +483,27 @@ impl World {
                     event!(Level::INFO, "Compiling {}.", output_route.as_str());
 
                     let contents = self.get_doc_contents(doc)?;
-                    let should_compile_pdf = doc
-                        .metadata
-                        .as_ref()
-                        .expect("no metadata in document")
-                        .also_compile_pdf;
+                    let metadata = doc.metadata.as_ref().expect("no metadata in document");
+                    let should_compile_pdf = metadata.also_compile_pdf;
+
+                    let target_path = match output_route.as_str() {
+                        "/" => self.working_dirs.dist.join(PathBuf::from(
+                            output_route.trim_start_matches("/").to_owned() + "./index",
+                        )),
+                        _ => self
+                            .working_dirs
+                            .dist
+                            .join(PathBuf::from(output_route.trim_start_matches("/"))),
+                    };
+
+                    let pdf_path = match &metadata.pdf_filename {
+                        Some(filename) => match target_path.parent() {
+                            Some(parent) => parent.join(filename).with_extension("pdf"),
+                            None => target_path.join(filename).with_extension("pdf"),
+                        },
+                        None => target_path.with_extension("pdf"),
+                    };
+
                     // let the templater consume the metadata.
                     let rendered = templater(
                         output_route.to_owned(),
@@ -511,15 +530,6 @@ impl World {
                     } else {
                         &rendered
                     };
-                    let target_path = match output_route.as_str() {
-                        "/" => self.working_dirs.dist.join(PathBuf::from(
-                            output_route.trim_start_matches("/").to_owned() + "./index",
-                        )),
-                        _ => self
-                            .working_dirs
-                            .dist
-                            .join(PathBuf::from(output_route.trim_start_matches("/"))),
-                    };
 
                     let html_path = target_path.with_extension("html");
 
@@ -529,14 +539,11 @@ impl World {
                     if should_compile_pdf {
                         event!(
                             Level::INFO,
-                            "Building a PDF for {:?}",
-                            html_path.as_os_str()
+                            "Building a PDF for {:?}, at {:?}",
+                            html_path.as_os_str(),
+                            pdf_path.as_os_str()
                         );
-                        compile_pdf(
-                            &doc.source_path,
-                            &target_path.with_extension("pdf"),
-                            &self.root,
-                        )?;
+                        compile_pdf(&doc.source_path, &pdf_path, &self.root)?;
                     }
                 }
                 (slug, RouteNode::Nested(nested_tree)) => {
