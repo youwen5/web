@@ -9,6 +9,7 @@ pub type RouteTree = HashMap<String, RouteNode>;
 pub enum RouteNode {
     Page(TypstDoc),
     Nested(RouteTree),
+    Redirect(PathBuf),
 }
 
 #[derive(Debug)]

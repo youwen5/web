@@ -13,7 +13,10 @@ use thiserror::Error;
 use time::OffsetDateTime;
 use tracing::{Level, event};
 
-use crate::site::{RouteNode, RouteTree, Routes, Site, Templater};
+use crate::{
+    site::{RouteNode, RouteTree, Routes, Site, Templater},
+    templating::create_redirect_page,
+};
 
 impl TypstDoc {
     pub fn new(path_to_html: &Path) -> Result<TypstDoc, WorldError> {
@@ -436,6 +439,33 @@ impl World {
     ) -> Result<(), WorldError> {
         for node in routes.iter_mut() {
             match node {
+                (slug, RouteNode::Redirect(path)) => {
+                    let output_route = match slug.as_str() {
+                        "index" => parent_route.to_owned() + "/",
+                        _ => parent_route.to_owned() + "/" + slug,
+                    };
+
+                    let target_path = match output_route.as_str() {
+                        "/" => self.working_dirs.dist.join(PathBuf::from(
+                            output_route.trim_start_matches("/").to_owned() + "./index",
+                        )),
+                        _ => self
+                            .working_dirs
+                            .dist
+                            .join(PathBuf::from(output_route.trim_start_matches("/"))),
+                    };
+
+                    let html_path = target_path.with_extension("html");
+                    let target_path = fs::read_to_string(path)?;
+                    let redirect_template = create_redirect_page(&target_path);
+
+                    event!(
+                        Level::INFO,
+                        "Creating a redirect from {output_route} to {target_path}"
+                    );
+                    create_file_resilient(&html_path)?;
+                    std::fs::write(&html_path, redirect_template.as_str())?;
+                }
                 (slug, RouteNode::Page(doc)) => {
                     let output_route = match slug.as_str() {
                         "index" => parent_route.to_owned() + "/",
@@ -545,6 +575,7 @@ impl World {
                     typst_doc.metadata = Some(metadata);
                 }
                 RouteNode::Nested(hash_map) => self.get_metadata_helper(hash_map)?,
+                _ => {}
             };
         }
         Ok(())
@@ -577,6 +608,10 @@ fn reconcile_raw_routes(tree: &RawRouteTree) -> RouteTree {
                 }
             }
             (filename, RawRouteNode::File(file)) => {
+                if file.extension().is_none() && filename.starts_with("+redirect__") {
+                    let path = filename.trim_start_matches("+redirect__");
+                    new_tree.insert(path.to_string(), RouteNode::Redirect(file.to_path_buf()));
+                }
                 if file.extension().is_some_and(|ext| ext == "typ") && filename.starts_with('+') {
                     new_tree.insert(
                         filename.strip_prefix("+").unwrap().to_string(),
