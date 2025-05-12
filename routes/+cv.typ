@@ -156,123 +156,134 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
       - Won 2022 Monterey Bay Regional Competition
     ])],
 )
-//
-// = Projects
-//
-// #let project-entry(
-//   date: [],
-//   project: [],
-//   link: "",
-//   type: "",
-//   demo-link: "",
-//   body,
-// ) = base-entry(
-//   left: [
-//     #date \
-//     #if type == "github" {
-//       html.elem(
-//         "a",
-//         attrs: (
-//           class: "mt-3 hover:text-rose hidden md:inline-flex gap-2 mr-2 text-nowrap",
-//           href: link,
-//           target: "_blank",
-//         ),
-//       )[
-//         #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
-//           name: "github",
-//         ))
-//         View code
-//       ]
-//     }
-//     #if demo-link != "" {
-//       html.elem("a", attrs: (
-//         class: "mt-1 hover:text-rose hidden md:inline-flex gap-2 text-nowrap",
-//         href: demo-link,
-//         target: "_blank",
-//       ))[
-//         #html.elem("span", attrs: (class: "my-auto"), lucide-icon(name: "box"))
-//         Try demo
-//       ]
-//     }
-//   ],
-//   heading: project,
-//   [
-//     #body
-//     #if type == "github" {
-//       html.elem("a", attrs: (
-//         class: "-mt-2 hover:text-rose md:hidden inline-flex gap-2 mr-2",
-//         href: link,
-//         target: "_blank",
-//       ))[
-//         #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
-//           name: "github",
-//         ))
-//         View code
-//       ]
-//     }
-//     #if demo-link != "" {
-//       html.elem("a", attrs: (
-//         class: "mt-1 hover:text-rose md:hidden inline-flex gap-2",
-//         href: demo-link,
-//         target: "_blank",
-//       ))[
-//         #html.elem("span", attrs: (class: "my-auto"), lucide-icon(name: "box"))
-//         Try demo
-//       ]
-//     }
-//   ],
-// )
-//
-// #project-entry(
-//   date: [2025],
-//   project: [Virion],
-//   link: "https://github.com/youwen5/virion",
-//   type: "github",
-//   demo-link: "https://virion.youwen.dev",
-// )[
-//   - Compartmental epidemic modeler and 3D pandemic visualizer for the H5N1 avian influenza in the United States
-//   - Won award at the #link("https://dataorbit-2025.devpost.com/")[UCSB DataOrbit Hackathon]
-// ]
-//
-// #project-entry(
-//   date: [2025],
-//   project: [This website],
-//   link: "https://github.com/youwen5/web",
-//   type: "github",
-// )[
-//   - Powered by a fully custom handrolled static site generator, written in Rust
-//   - Accessible, perfect 100s on Google's Lighthouse benchmark
-// ]
-//
-// #project-entry(
-//   date: [2024],
-//   project: [liminalOS],
-//   link: "https://github.com/youwen5/liminalOS",
-//   type: "github",
-// )[
-//   - My custom Linux distribution based on NixOS
-// ]
-//
-// #project-entry(
-//   date: [2024],
-//   project: [Jankboard],
-//   link: "https://github.com/youwen5/jankboard",
-//   type: "github",
-// )[
-//   - A bespoke driver control dashboard for Team 1280's 2024 competition robot
-//   - Tauri application, with Svelte frontend and Rust glue code to communicate with robot
-//   - 3D robot visualization using Three.js
-// ]
-//
-// #project-entry(
-//   date: [2024],
-//   project: [eeXiv],
-//   link: "https://github.com/youwen5/eexiv",
-//   type: "github",
-//   demo-link: "https://eexiv.solipsism.social/",
-// )[
-//   - An arXiv clone for archiving research documents written by Team 1280, a FIRST Robotics team
-// ]
+
+= Projects
+
+#let project-entry(
+  date: [],
+  project: [],
+  link: "",
+  type: "",
+  demo-link: "",
+  body,
+) = context {
+  if target() == "html" {
+    base-html-entry(
+      left: [
+        #date \
+        #if type == "github" {
+          html.elem(
+            "a",
+            attrs: (
+              class: "mt-3 hover:text-rose hidden md:inline-flex gap-2 mr-2 text-nowrap",
+              href: link,
+              target: "_blank",
+            ),
+          )[
+            #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
+              name: "github",
+            ))
+            View code
+          ]
+        }
+        #if demo-link != "" {
+          html.elem(
+            "a",
+            attrs: (
+              class: "mt-1 hover:text-rose hidden md:inline-flex gap-2 text-nowrap",
+              href: demo-link,
+              target: "_blank",
+            ),
+          )[
+            #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
+              name: "box",
+            ))
+            Try demo
+          ]
+        }
+      ],
+      heading: project,
+      [
+        #body
+        #if type == "github" {
+          html.elem("a", attrs: (
+            class: "-mt-2 hover:text-rose md:hidden inline-flex gap-2 mr-2",
+            href: link,
+            target: "_blank",
+          ))[
+            #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
+              name: "github",
+            ))
+            View code
+          ]
+        }
+        #if demo-link != "" {
+          html.elem("a", attrs: (
+            class: "mt-1 hover:text-rose md:hidden inline-flex gap-2",
+            href: demo-link,
+            target: "_blank",
+          ))[
+            #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
+              name: "box",
+            ))
+            Try demo
+          ]
+        }
+      ],
+    )
+  } else [#date, #project]
+}
+
+#project-entry(
+  date: [2025],
+  project: [Virion],
+  link: "https://github.com/youwen5/virion",
+  type: "github",
+  demo-link: "https://virion.youwen.dev",
+)[
+  - Compartmental epidemic modeler and 3D pandemic visualizer for the H5N1 avian influenza in the United States
+  - Won award at the #link("https://dataorbit-2025.devpost.com/")[UCSB DataOrbit Hackathon]
+]
+
+#project-entry(
+  date: [2025],
+  project: [This website],
+  link: "https://github.com/youwen5/web",
+  type: "github",
+)[
+  - Powered by a fully custom handrolled static site generator, written in Rust
+  - Accessible, perfect 100s on Google's Lighthouse benchmark
+]
+
+#project-entry(
+  date: [2024],
+  project: [liminalOS],
+  link: "https://github.com/youwen5/liminalOS",
+  type: "github",
+)[
+  - My custom Linux distribution based on NixOS
+]
+
+#project-entry(
+  date: [2024],
+  project: [Jankboard],
+  link: "https://github.com/youwen5/jankboard",
+  type: "github",
+)[
+  - A bespoke driver control dashboard for Team 1280's 2024 competition robot
+  - Tauri application, with Svelte frontend and Rust glue code to communicate with robot
+  - 3D robot visualization using Three.js
+]
+
+#project-entry(
+  date: [2024],
+  project: [eeXiv],
+  link: "https://github.com/youwen5/eexiv",
+  type: "github",
+  demo-link: "https://eexiv.solipsism.social/",
+)[
+  - An arXiv clone for archiving research documents written by Team 1280, a FIRST Robotics team
+]
 //
 // = Awards and honors
 //
