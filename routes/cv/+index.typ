@@ -7,15 +7,22 @@
   meta-description: "Youwen Wu's resume / curriculum vitae.",
 )
 
-#show: pesha.with(
-  name: "Youwen Wu",
-  address: "Curriculum Vitae",
-  contacts: (
-    [(925) 791 1845],
-    [#link("mailto:youwen@ucsb.edu")],
-  ),
-  footer-text: [Wu Résumé --- Page#sym.space],
-)
+#show: it => context {
+  if target() != "html" {
+    show: pesha.with(
+      name: "Youwen Wu",
+      address: "Curriculum Vitae",
+      contacts: (
+        [(925) 791 1845],
+        [#link("mailto:youwen@ucsb.edu")],
+      ),
+      footer-text: [Wu Résumé --- Page#sym.space],
+    )
+    it
+  } else {
+    it
+  }
+}
 
 I#(apostrophe)m passionate about _design_---in all its facets---including systems, web, graphics, typography, and more. I love working on hard problems.
 
