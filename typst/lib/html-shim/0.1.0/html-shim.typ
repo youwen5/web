@@ -52,14 +52,11 @@
       return it
     }
 
-    html.elem(
-      "pre",
-      html.elem(
-        "code",
-        attrs: (class: "language-" + it.lang),
-        it.text,
-      ),
-    )
+    html.elem("pre", html.elem(
+      "code",
+      attrs: (class: "language-" + it.lang),
+      it.text,
+    ))
   }
 
   let date_exists = if date != none {
@@ -85,49 +82,57 @@
   body
 }
 
-#let blockquote = (attribution: none, body) => {
-  html.elem(
-    "blockquote",
-    attrs: (
-      class: "border-l-solid border-l-4 border-l-subtle px-4 w-fit text-[0.85em]",
-    ),
-    {
-      body
-      if attribution != none {
-        html.elem(
-          "div",
-          attrs: (class: "w-fit ml-auto text-subtle"),
-          attribution,
-        )
-      }
-    },
-  )
-}
-
-#let dinkus = {
-  html.elem("hr")
-  html.elem(
-    "div",
-    attrs: (class: "w-full text-center text-xl text-subtle select-none"),
-    [⁂],
-  )
-}
-
-#let webimg = (src, alt, extraClass: none) => {
-  let base-classes = "rounded-md mx-auto shadow-sm dark:shadow-none shadow-gray-900"
-  let classes = if extraClass != none {
-    base-classes + " " + extraClass
-  } else {
-    base-classes
+#let blockquote = (attribution: none, body) => context {
+  if target() == "html" {
+    html.elem(
+      "blockquote",
+      attrs: (
+        class: "border-l-solid border-l-4 border-l-subtle px-4 w-fit text-[0.85em]",
+      ),
+      {
+        body
+        if attribution != none {
+          html.elem(
+            "div",
+            attrs: (class: "w-fit ml-auto text-subtle"),
+            attribution,
+          )
+        }
+      },
+    )
   }
-  html.elem("img", attrs: (src: src, alt: alt, class: classes))
 }
 
-#let lucide-icon(name: "", class: "") = {
-  if class != "" {
-    html.elem("i", attrs: (data-lucide: name, class: class))
-  } else {
-    html.elem("i", attrs: (data-lucide: name))
+#let dinkus = context {
+  if target() == "html" {
+    html.elem("hr")
+    html.elem(
+      "div",
+      attrs: (class: "w-full text-center text-xl text-subtle select-none"),
+      [⁂],
+    )
+  }
+}
+
+#let webimg = (src, alt, extraClass: none) => context {
+  if target() == "html" {
+    let base-classes = "rounded-md mx-auto shadow-sm dark:shadow-none shadow-gray-900"
+    let classes = if extraClass != none {
+      base-classes + " " + extraClass
+    } else {
+      base-classes
+    }
+    html.elem("img", attrs: (src: src, alt: alt, class: classes))
+  }
+}
+
+#let lucide-icon(name: "", class: "") = context {
+  if target() == "html" {
+    if class != "" {
+      html.elem("i", attrs: (data-lucide: name, class: class))
+    } else {
+      html.elem("i", attrs: (data-lucide: name))
+    }
   }
 }
 
