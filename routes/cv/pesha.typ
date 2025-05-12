@@ -3,7 +3,7 @@
   address: "",
   contacts: (),
   profile-picture: none,
-  paper-size: "a4",
+  paper-size: "us-letter",
   footer-text: none,
   page-numbering-format: "1 of 1",
   body,
@@ -17,10 +17,7 @@
   ))
 
   // Configure text properties.
-  set text(size: 10pt, hyphenate: false)
-
-  // Text settings used across the template.
-  let head-text = text.with(font: "Valkyrie B", weight: "medium")
+  set text(size: 10pt, hyphenate: false, font: "Valkyrie OT B")
 
   // Set page properties.
   set page(
@@ -33,7 +30,7 @@
     // Display page number in footer only if there is more than one page.
     footer: context {
       set align(center)
-      show text: it => { head-text(size: 0.85em, tracking: 1.2pt, it) }
+      show text: it => { text(size: 0.85em, tracking: 1.2pt, it) }
       let total = counter(page).final().first()
       if total > 1 {
         let i = counter(page).at(here()).first()
@@ -51,9 +48,11 @@
   block(width: 100%, below: 1.5em)[
     #let header-info = {
       show text: upper
-      head-text(size: 1.8em, tracking: 3.2pt, name)
+      set text(font: "Inter")
+      text(size: 1.8em, tracking: 3.2pt, weight: "medium", name)
       v(1.4em, weak: true)
-      show text: it => { head-text(size: 0.86em, tracking: 1.4pt, it) }
+      set text(weight: "regular")
+      show text: it => { text(size: 0.86em, tracking: 1.4pt, it) }
       address
       if contacts.len() > 0 {
         v(1em, weak: true)
@@ -80,10 +79,8 @@
   // Configure heading properties.
   show heading: it => {
     line(length: 100%, stroke: 0.5pt)
-    pad(top: -0.85em, left: 0.25em, bottom: 0.6em, upper(head-text(
-      weight: "black",
-      size: 0.7em,
-      tracking: 0.6pt,
+    pad(top: -0.85em, left: 0.25em, bottom: 0.6em, text(size: 0.7em, smallcaps(
+      all: true,
       it,
     )))
   }
@@ -113,27 +110,3 @@
     #body
   ])
 }
-
-// Workaround for the lack of an `std` scope.
-#let std-smallcaps = smallcaps
-#let std-upper = upper
-
-// Overwrite the default `smallcaps` and `upper` functions with increased spacing between
-// characters. We do this so that when someone uses these functions they will get spacing
-// which fits in better with the rest of the template.
-// #let smallcaps(body) = context {
-//   if target() == "html" {
-//     body
-//   } else {
-//     std-smallcaps(text(tracking: 0.6pt, body))
-//   }
-// }
-//
-// #let smallcaps(body) = context {
-//   if target() == "html" {
-//     body
-//   } else {
-//     std-smallcaps(text(tracking: 0.6pt, body))
-//   }
-// }
-// #let upper(body) = std-upper(text(tracking: 0.6pt, body))

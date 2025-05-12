@@ -154,6 +154,7 @@
                 name = "fonts";
                 paths = [
                   valkyrie-font.packages.${pkgs.stdenv.hostPlatform.system}.default
+                  pkgs.inter
                 ];
               };
 
