@@ -5,6 +5,7 @@
   title: "Curriculum Vitae",
   date: datetime(day: 11, month: 5, year: 2025),
   meta-description: "Youwen Wu's resume / curriculum vitae.",
+  also-compile-pdf: true,
 )
 
 #show: it => context {

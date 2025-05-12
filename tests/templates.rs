@@ -33,7 +33,8 @@ fn it_templates_successfully() {
                 subtitle: None,
                 meta_description: None,
                 short_description: None,
-                enable_comments: false
+                enable_comments: false,
+                also_compile_pdf: false
             }
         ),
         maud! {

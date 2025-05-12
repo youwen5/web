@@ -56,6 +56,8 @@ pub struct Metadata {
     pub short_description: Option<String>,
     #[serde(default)]
     pub enable_comments: bool,
+    #[serde(default)]
+    pub also_compile_pdf: bool,
 }
 
 /// A representation of a Typst source file. In the future, it will contain metadata from files.
@@ -102,6 +104,72 @@ fn compile_document(
         .arg("compile")
         .args(["--features", "html"])
         .args(["--format", "html"])
+        .args([
+            "--root",
+            root.to_str().ok_or(std::io::Error::new(
+                std::io::ErrorKind::InvalidData,
+                "could not parse build root to valid UTF-8",
+            ))?,
+        ])
+        .arg(resolved_document.to_str().ok_or(std::io::Error::new(
+            std::io::ErrorKind::InvalidData,
+            "could not parse document path to valid UTF-8",
+        ))?)
+        .arg(output.to_str().ok_or(std::io::Error::new(
+            std::io::ErrorKind::InvalidData,
+            "could not parse output path to valid UTF-8",
+        ))?)
+        .spawn()?;
+
+    match typst.wait() {
+        Ok(_) => Ok(()),
+        Err(err) => {
+            event!(
+                Level::ERROR,
+                "Tried to compile {}, but I failed with the error {}. Are you sure that Typst is in $PATH?",
+                input.to_str().unwrap(),
+                err,
+            );
+            Err(WorldError::Io(err))
+        }
+    }
+}
+
+/// Given a path to an entry point `main.typ` and an output location, use the Typst CLI to compile
+/// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
+/// an error will occur.
+fn compile_pdf(
+    input: &path::Path,
+    output: &path::Path,
+    root: &path::Path,
+) -> Result<(), WorldError> {
+    let resolved_document = input.canonicalize()?;
+    if let Some(dir) = output.parent() {
+        if !dir.exists() {
+            return Err(WorldError::Io(std::io::Error::new(
+                std::io::ErrorKind::NotFound,
+                "output dir doesn't exist",
+            )));
+        }
+
+        match dir.try_exists() {
+            Ok(exists) => {
+                if !exists {
+                    event!(Level::ERROR, "Outputs directory was not found!");
+                    return Err(WorldError::Io(io::Error::new(
+                        io::ErrorKind::NotFound,
+                        "target directory does not exist",
+                    )));
+                }
+            }
+            Err(error) => return Err(WorldError::Io(error)),
+        }
+    }
+
+    let mut typst = Command::new("typst")
+        .arg("compile")
+        .args(["--features", "html"])
+        .args(["--format", "pdf"])
         .args([
             "--root",
             root.to_str().ok_or(std::io::Error::new(
@@ -382,11 +450,16 @@ impl World {
                     event!(Level::INFO, "Compiling {}.", output_route.as_str());
 
                     let contents = self.get_doc_contents(doc)?;
+                    let should_compile_pdf = doc
+                        .metadata
+                        .as_ref()
+                        .expect("no metadata in document")
+                        .also_compile_pdf;
                     // let the templater consume the metadata.
                     let rendered = templater(
                         output_route.to_owned(),
                         contents,
-                        doc.metadata.take().unwrap(),
+                        doc.metadata.take().expect("no metadata in document"),
                     );
                     let mut rendered = rendered.as_str().to_string();
                     let rendered = if minify {
@@ -416,11 +489,25 @@ impl World {
                             .working_dirs
                             .dist
                             .join(PathBuf::from(output_route.trim_start_matches("/"))),
-                    }
-                    .with_extension("html");
+                    };
 
-                    create_file_resilient(&target_path)?;
-                    std::fs::write(target_path, rendered)?;
+                    let html_path = target_path.with_extension("html");
+
+                    create_file_resilient(&html_path)?;
+                    std::fs::write(&html_path, rendered)?;
+
+                    if should_compile_pdf {
+                        event!(
+                            Level::INFO,
+                            "Building a PDF for {:?}",
+                            html_path.as_os_str()
+                        );
+                        compile_pdf(
+                            &doc.source_path,
+                            &target_path.with_extension("pdf"),
+                            &self.root,
+                        )?;
+                    }
                 }
                 (slug, RouteNode::Nested(nested_tree)) => {
                     self.route_builder_helper(
