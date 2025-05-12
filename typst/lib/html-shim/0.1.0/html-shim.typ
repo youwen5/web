@@ -27,36 +27,46 @@
     )
   }
 
-  show smallcaps: it => {
-    let smallcapsClass = if it.all {
-      "all-smallcaps"
+  show smallcaps: it => context {
+    if target() == "html" {
+      let smallcapsClass = if it.all {
+        "all-smallcaps"
+      } else {
+        "smallcaps"
+      }
+
+      show text: it2 => html.elem(
+        "span",
+        attrs: (class: "inline-block " + smallcapsClass),
+        it2,
+      )
+
+      it
     } else {
-      "smallcaps"
+      it
     }
-
-    show text: it2 => html.elem(
-      "span",
-      attrs: (class: "inline-block " + smallcapsClass),
-      it2,
-    )
-
-    it
   }
 
-  show link: it => {
-    html.elem("a", attrs: (class: "text-link", href: it.dest), it.body)
+  show link: it => context {
+    if target() == "html" {
+      html.elem("a", attrs: (class: "text-link", href: it.dest), it.body)
+    } else {
+      it
+    }
   }
 
-  show raw.where(block: true): it => {
-    if it.lang == none {
-      return it
-    }
+  show raw.where(block: true): it => context {
+    if target() == "html" {
+      if it.lang == none {
+        return it
+      }
 
-    html.elem("pre", html.elem(
-      "code",
-      attrs: (class: "language-" + it.lang),
-      it.text,
-    ))
+      html.elem("pre", html.elem(
+        "code",
+        attrs: (class: "language-" + it.lang),
+        it.text,
+      ))
+    } else { it }
   }
 
   let date_exists = if date != none {

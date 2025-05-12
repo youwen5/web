@@ -1,4 +1,5 @@
 #import "@luminite/html-shim:0.1.0": *
+#import "./pesha.typ": *
 
 #show: html-shim.with(
   title: "Curriculum Vitae",
@@ -6,13 +7,15 @@
   meta-description: "Youwen Wu's resume / curriculum vitae.",
 )
 
-#let cv-line(..args) = {
-  args.pos().at(0)
-  if (args.pos().len() > 1) {
-    args.pos().at(1)
-  }
-}
-#let double-entry(body) = { }
+#show: pesha.with(
+  name: "Youwen Wu",
+  address: "Curriculum Vitae",
+  contacts: (
+    [(925) 791 1845],
+    [#link("mailto:youwen@ucsb.edu")],
+  ),
+  footer-text: [Wu Résumé --- Page#sym.space],
+)
 
 I#(apostrophe)m passionate about _design_---in all its facets---including systems, web, graphics, typography, and more. I love working on hard problems.
 
@@ -52,7 +55,11 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
       ]
       #html.elem("span", date)
     ]
-  } else [ #institution, #degree, #date ]
+  } else {
+    experience(place: institution, time: date)[
+      - #degree
+    ]
+  }
 }
 
 #education-section[
@@ -109,7 +116,9 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
       ],
       body,
     )
-  } else [ #date, #location, #employer, #title, #body ]
+  } else {
+    experience(place: [#title at #employer], time: date, body)
+  }
 }
 
 
@@ -231,7 +240,11 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
         }
       ],
     )
-  } else [#date, #project]
+  } else {
+    experience(place: project, time: date)[
+      #body
+    ]
+  }
 }
 
 #project-entry(
@@ -294,7 +307,9 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
     } else {
       base-html-entry(left: date, heading: title)
     }
-  } else [ #title, #date ]
+  } else {
+    experience(place: title, time: date)[]
+  }
 }
 
 #award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
