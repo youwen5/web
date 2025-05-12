@@ -68,90 +68,94 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
   )
 ]
 
-// #let base-entry(left: [], heading: [], ..args) = [
-//   #html.elem(
-//     "div",
-//     attrs: (
-//       class: "md:grid grid-cols-4 gap-8 w-full font-sans my-6 md:my-1 font-light",
-//     ),
-//     [
-//       #html.elem("div", attrs: (class: "col-span-1"), left)
-//       #html.elem("div", attrs: (class: "col-span-3"), [
-//         #html.elem("div", attrs: (class: "font-normal"), heading)
-//         #if args.pos().len() > 0 {
-//           html.elem("div", attrs: (class: "-mt-4"))[
-//             #args.pos().at(0)
-//           ]
-//         }
-//       ])
-//     ],
-//   )
-// ]
-//
-// #let experience-entry(
-//   date: "",
-//   location: "",
-//   employer: "",
-//   title: "",
-//   body,
-// ) = base-entry(
-//   left: [
-//     #date
-//     #if location != "" {
-//       linebreak()
-//       html.elem("span", attrs: (class: "text-sm xl:text-lg"), location)
-//     }
-//   ],
-//   heading: [
-//     #title #html.elem("span", attrs: (class: "font-light"))[at] #employer
-//   ],
-//   body,
-// )
-//
-//
-// = Experience
-//
-// #experience-entry(
-//   date: [11/24 --- now],
-//   location: [Santa Barbara, CA],
-//   employer: [UCSB Robotics Lab],
-//   title: [Systems programmer],
-//   [#text(
-//       10pt,
-//       [
-//         - Designed reproducible build systems massively speeding up development iteration
-//         - Creating 3D simulacrums of laboratory experiments that are reproduced in
-//           real life, using C++, React, and Three.js
-//       ],
-//     )],
-// )
-//
-// #experience-entry(
-//   date: [11/24 --- now],
-//   location: [Earth],
-//   employer: [NixOS],
-//   title: [Package maintainer],
-//   [#text(10pt, [
-//       - Maintaining packages for NixOS, an purely functional GNU/Linux
-//         distribution built on the Nix package manager and Nix programming
-//         language
-//     ])],
-// )
-//
-// #experience-entry(
-//   date: [09/22 --- 06/24],
-//   location: [SF Bay Area, CA],
-//   employer: [FIRST Robotics Team 1280],
-//   title: [Artificial intelligence lead],
-//   [#text(10pt, [
-//       - Worked on autonomous decision making and path planning algorithms
-//       - Replaced the venerable *BozoAuto* autonomous subroutine with the
-//         *DeepBozo* autonomous suite
-//       - Designed a novel robot control dashboard
-//         with 3D visualization using Rust, Tauri, and Svelte
-//       - Won 2022 Monterey Bay Regional Competition
-//     ])],
-// )
+#let base-html-entry(left: [], heading: [], ..args) = {
+  html.elem(
+    "div",
+    attrs: (
+      class: "md:grid grid-cols-4 gap-8 w-full font-sans my-6 md:my-1 font-light",
+    ),
+    [
+      #html.elem("div", attrs: (class: "col-span-1"), left)
+      #html.elem("div", attrs: (class: "col-span-3"), [
+        #html.elem("div", attrs: (class: "font-normal"), heading)
+        #if args.pos().len() > 0 {
+          html.elem("div", attrs: (class: "-mt-4"))[
+            #args.pos().at(0)
+          ]
+        }
+      ])
+    ],
+  )
+}
+
+#let experience-entry(
+  date: "",
+  location: "",
+  employer: "",
+  title: "",
+  body,
+) = context {
+  if target() == "html" {
+    base-html-entry(
+      left: [
+        #date
+        #if location != "" {
+          linebreak()
+          html.elem("span", attrs: (class: "text-sm xl:text-lg"), location)
+        }
+      ],
+      heading: [
+        #title #html.elem("span", attrs: (class: "font-light"))[at] #employer
+      ],
+      body,
+    )
+  } else [ #date, #location, #employer, #title, #body ]
+}
+
+
+= Experience
+
+#experience-entry(
+  date: [11/24 --- now],
+  location: [Santa Barbara, CA],
+  employer: [UCSB Robotics Lab],
+  title: [Systems programmer],
+  [#text(
+      10pt,
+      [
+        - Designed reproducible build systems massively speeding up development iteration
+        - Creating 3D simulacrums of laboratory experiments that are reproduced in
+          real life, using C++, React, and Three.js
+      ],
+    )],
+)
+
+#experience-entry(
+  date: [11/24 --- now],
+  location: [Earth],
+  employer: [NixOS],
+  title: [Package maintainer],
+  [#text(10pt, [
+      - Maintaining packages for NixOS, an purely functional GNU/Linux
+        distribution built on the Nix package manager and Nix programming
+        language
+    ])],
+)
+
+#experience-entry(
+  date: [09/22 --- 06/24],
+  location: [SF Bay Area, CA],
+  employer: [FIRST Robotics Team 1280],
+  title: [Artificial intelligence lead],
+  [#text(10pt, [
+      - Worked on autonomous decision making and path planning algorithms
+      - Replaced the venerable *BozoAuto* autonomous subroutine with the
+        *DeepBozo* autonomous suite
+      - Designed a novel robot control dashboard
+        with 3D visualization using Rust, Tauri, and Svelte
+      - Won 2022 Monterey Bay Regional Competition
+    ])],
+)
 //
 // = Projects
 //
