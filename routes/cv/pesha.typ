@@ -34,10 +34,9 @@
       let total = counter(page).final().first()
       if total > 1 {
         let i = counter(page).at(here()).first()
-        upper[#footer-text #counter(page).display(
-            page-numbering-format,
-            both: true,
-          )]
+        upper[#footer-text #h(2pt) #sym.circle.filled.small #h(2pt) #counter(
+            page,
+          ).display(page-numbering-format, both: true)]
       } else {
         upper[#footer-text]
       }
