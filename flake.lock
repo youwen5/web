@@ -134,7 +134,11 @@
       }
     },
     "valkyrie-font": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
         "lastModified": 1746987703,
         "narHash": "sha256-nohUzFfguTGYeZCe5Ky5TXPqZhei5HuoPKsUsPbBN5g=",
