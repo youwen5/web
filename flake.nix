@@ -22,7 +22,7 @@
     # it to build the site locally
     valkyrie-font = {
       url = "github:youwen5/valkyrie";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -149,6 +149,13 @@
           packages.full = self.packages.${system}.default.overrideAttrs (
             finalAttrs: prevAttrs: {
               name = "site";
+
+              TYPST_FONT_PATHS = pkgs.symlinkJoin {
+                name = "fonts";
+                paths = [
+                  valkyrie-font.packages.${pkgs.stdenv.hostPlatform.system}.default
+                ];
+              };
 
               buildPhase =
                 # install licensed fonts from private repo
