@@ -284,29 +284,23 @@ I#(apostrophe)m passionate about _design_---in all its facets---including system
 )[
   - An arXiv clone for archiving research documents written by Team 1280, a FIRST Robotics team
 ]
-//
-// = Awards and honors
-//
-// #let award-entry(title: [], date: [], ..args) = {
-//   if args.pos().len() > 0 {
-//     base-entry(left: date, heading: title, args.pos().at(0))
-//   } else {
-//     base-entry(left: date, heading: title)
-//   }
-// }
-//
-// #let award = (name, description) => {
-//   cv-line([2/2024], [
-//     *#name*
-//
-//     #text(size: 0.85em, description)
-//   ])
-// }
-//
-// #award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
-// #award-entry(title: [SB Hacks XI, Winner], date: [2025])
-// #award-entry(
-//   title: [Dean#(apostrophe)s Honors #(sym.times)2],
-//   date: [2024 --- 2025],
-// )
-// #award-entry(title: [National Merit Semifinalist], date: [2024])
+
+= Awards and honors
+
+#let award-entry(title: [], date: [], ..args) = context {
+  if target() == "html" {
+    if args.pos().len() > 0 {
+      base-html-entry(left: date, heading: title, args.pos().at(0))
+    } else {
+      base-html-entry(left: date, heading: title)
+    }
+  } else [ #title, #date ]
+}
+
+#award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
+#award-entry(title: [SB Hacks XI, Winner], date: [2025])
+#award-entry(
+  title: [Dean#(apostrophe)s Honors #(sym.times)2],
+  date: [2024 --- 2025],
+)
+#award-entry(title: [National Merit Semifinalist], date: [2024])
