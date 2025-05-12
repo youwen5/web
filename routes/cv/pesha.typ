@@ -49,7 +49,7 @@
     #let header-info = {
       show text: upper
       set text(font: "Inter")
-      text(size: 1.8em, tracking: 1.4pt, weight: "medium", name)
+      text(size: 1.8em, tracking: 1.4pt, weight: "bold", name)
       v(1.4em, weak: true)
       set text(weight: "regular")
       show text: it => { text(size: 0.86em, tracking: 1.4pt, it) }
