@@ -72,6 +72,7 @@
     I wrote my own static site generator lol
   ]
 
+  #html.elem("div", attrs: (id: "contact"), [])
   = Contact
 
   #html.elem(

@@ -10,6 +10,7 @@
 
 #show: it => context {
   if target() != "html" {
+    set heading(depth: 3)
     show: pesha.with(
       name: "Youwen Wu",
       address: "Curriculum Vitae",
@@ -26,6 +27,36 @@
 }
 
 I#(apostrophe)m passionate about _design_---in all its facets---including systems, web, graphics, typography, and more. I love working on hard problems.
+
+#context {
+  if target() == "html" {
+    html.elem("div", attrs: (class: "space-x-4"), {
+      html.elem(
+        "a",
+        attrs: (
+          class: "inline-flex gap-2 font-sans hover:text-love",
+          href: "./cv.pdf",
+          target: "_blank",
+        ),
+        {
+          lucide-icon(class: "my-auto", name: "file-text")
+          html.elem("span")[View as PDF]
+        },
+      )
+      html.elem(
+        "a",
+        attrs: (
+          class: "inline-flex gap-2 font-sans hover:text-love",
+          href: "/#contact",
+        ),
+        {
+          lucide-icon(class: "my-auto", name: "mail")
+          html.elem("span")[Contact]
+        },
+      )
+    })
+  }
+}
 
 = Education
 
