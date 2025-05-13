@@ -30,10 +30,17 @@
       "https://www.paulgraham.com/top.html",
     )[Paul Graham]])[It's hard to do a really good job on anything you don't think about in the shower.]
 
+  #show heading.where(level: 1): it => {
+    html.elem("h2", attrs: (class: "!text-foreground"), it.body)
+  }
   = Recently
 
   #let icon(name: "") = {
     html.elem("span", attrs: (class: "my-auto"), lucide-icon(name: name))
+  }
+
+  #show heading.where(level: 1): it => {
+    html.elem("h2", attrs: (class: "text-love"), it.body)
   }
 
   #let update(date: "", is-link: true, internal: true, href: "", body) = {
@@ -41,7 +48,7 @@
       if is-link { "a" } else { "span" },
       attrs: (
         href: href,
-        class: "border-b-love border-b-1 py-1 px-1 text-love hover:bg-love hover:text-base w-full w-full font-sans flex justify-between flex-wrap content-center gap-2 md:gap-4",
+        class: "border-b-foreground border-b-1 py-1 px-1 hover:bg-foreground hover:text-base w-full w-full font-sans flex justify-between flex-wrap content-center gap-2 md:gap-4",
       ),
     )[
       #html.elem("span", attrs: (class: "inline-flex gap-3"), body)
