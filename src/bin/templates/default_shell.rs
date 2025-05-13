@@ -121,20 +121,20 @@ impl DefaultShell {
                                     (nav_items)
                                 }
                                 div class="space-y-2" {
-                                    p class="all-smallcaps text-xl" {"Hacking"}
-                                    ul class="italic space-y-2 text-subtle text-lg" {
+                                    p class="all-smallcaps text-lg" {"Hacking"}
+                                    ul class="space-y-2 text-subtle text-base" {
                                         (code)
                                     }
                                 }
                                 div class="space-y-2" {
-                                    p class="all-smallcaps text-xl" {"Math"}
-                                    ul class="italic space-y-2 text-subtle text-lg" {
+                                    p class="all-smallcaps text-lg" {"Math"}
+                                    ul class="space-y-2 text-subtle text-base" {
                                         (math)
                                     }
                                 }
                                 div class="space-y-2" {
-                                    p class="all-smallcaps text-xl" {"Other"}
-                                    ul class="italic space-y-2 text-subtle text-lg" {
+                                    p class="all-smallcaps text-lg" {"Other"}
+                                    ul class="space-y-2 text-subtle text-base" {
                                         (other)
                                     }
                                 }
