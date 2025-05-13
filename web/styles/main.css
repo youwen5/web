@@ -18,7 +18,7 @@
 }
 
 @font-face {
-  font-family: valkyrie_ot_b;
+  font-family: "Valkyrie B";
   font-style: normal;
   font-weight: normal;
   font-stretch: normal;
@@ -27,7 +27,7 @@
 }
 
 @font-face {
-  font-family: valkyrie_ot_b;
+  font-family: "Valkyrie B";
   font-style: italic;
   font-weight: normal;
   font-stretch: normal;
@@ -36,7 +36,7 @@
 }
 
 @font-face {
-  font-family: valkyrie_ot_b;
+  font-family: "Valkyrie B";
   font-style: normal;
   font-weight: bold;
   font-stretch: normal;
@@ -45,7 +45,7 @@
 }
 
 @font-face {
-  font-family: valkyrie_ot_b;
+  font-family: "Valkyrie B";
   font-style: italic;
   font-weight: bold;
   font-stretch: normal;
@@ -54,7 +54,7 @@
 }
 
 @font-face {
-  font-family: concourse_index;
+  font-family: "Concourse Index";
   font-style: normal;
   font-weight: normal;
   font-stretch: normal;
@@ -111,9 +111,9 @@
 }
 
 @theme {
-  --font-serif: "valkyrie_ot_b", serif;
+  --font-serif: "Valkyrie B", serif;
   --font-sans: "Source Sans 3 Variable", sans-serif;
-  --font-index: "concourse_index", sans-serif;
+  --font-index: "Concourse Index", sans-serif;
 }
 
 @utility smallcaps {
