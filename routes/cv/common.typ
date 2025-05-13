@@ -38,7 +38,7 @@
       html.elem(
         "div",
         attrs: (
-          class: "px-2 py-1 text-sm rounded-md border-1 border-neutral-300 dark:border-neutral-600 text-muted font-sans flex flex-wrap gap-x-6 w-fit mt-4",
+          class: "px-2 py-1 text-sm rounded-md border-1 border-zinc-300 dark:border-zinc-700 text-muted font-sans flex flex-wrap gap-x-6 w-fit mt-4",
         ),
         {
           html.elem(
