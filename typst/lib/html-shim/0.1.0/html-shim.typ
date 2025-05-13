@@ -151,3 +151,14 @@
 }
 
 #let apostrophe = sym.quote.r.single
+
+#let btw(body) = html.elem(
+  "div",
+  attrs: (
+    class: "py-2 px-4 text-[0.8em] rounded-md inset-shadow-xs bg-slate-50 dark:bg-overlay leading-[1.5em]",
+  ),
+  {
+    html.elem("div", smallcaps(all: true)[By the way])
+    html.elem("p", attrs: (class: "!mb-0 mt-2"), body)
+  },
+)
