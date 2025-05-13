@@ -147,25 +147,25 @@ impl DefaultShell {
                                     summary class="text-center smallcaps text-xl cursor-pointer" {
                                         "menu"
                                     }
-                                    nav class="space-y-8 text-2xl mt-3" {
+                                    nav class="space-y-6 text-2xl mt-3" {
                                         ul class="space-y-3 text-2xl text-love" {
                                             (nav_items)
                                         }
                                         div class="space-y-4" {
                                             div class="space-y-2" {
-                                                p class="all-smallcaps text-lg" {"Hacking"}
+                                                span class="all-smallcaps text-lg" {"Hacking"}
                                                 ul class="space-y-2 text-subtle text-lg" {
                                                     (code)
                                                 }
                                             }
                                             div class="space-y-2" {
-                                                p class="all-smallcaps text-lg" {"Math"}
+                                                span class="all-smallcaps text-lg" {"Math"}
                                                 ul class="space-y-2 text-subtle text-lg" {
                                                     (math)
                                                 }
                                             }
                                             div class="space-y-1" {
-                                                p class="all-smallcaps text-lg" {"Other"}
+                                                span class="all-smallcaps text-lg" {"Other"}
                                                 ul class="space-y-2 text-subtle text-lg" {
                                                     (other)
                                                 }
