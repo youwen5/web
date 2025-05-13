@@ -159,6 +159,6 @@
   ),
   {
     html.elem("div", smallcaps(all: true)[By the way])
-    html.elem("p", attrs: (class: "!mb-0 mt-2"), body)
+    html.elem("div", attrs: (class: "!mb-0 mt-2"), body)
   },
 )
