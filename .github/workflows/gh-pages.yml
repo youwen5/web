@@ -27,7 +27,7 @@ jobs:
           name: luminite
           authToken: "${{ secrets.CACHIX_TOKEN }}"
       - run: |
-          nix flake check
+          nix flake check --accept-flake-config
           nix build .#full --accept-flake-config
       - name: Setup Pages
         uses: actions/configure-pages@v5
