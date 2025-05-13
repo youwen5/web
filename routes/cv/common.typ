@@ -6,37 +6,33 @@
 
   #context {
     if target() == "html" {
-      html.elem(
-        "div",
-        attrs: (class: "space-x-6"),
-        {
-          html.elem(
-            "a",
-            attrs: (
-              class: "inline-flex gap-2 font-sans hover:text-pine dark:hover:text-foam",
-              href: if long { "/cv/youwen-wu-cv-full.pdf" } else {
-                "/cv/youwen-wu-cv-short.pdf"
-              },
-              target: "_blank",
-            ),
-            {
-              lucide-icon(class: "my-auto", name: "file-text")
-              html.elem("span")[View as PDF]
+      html.elem("div", attrs: (class: "space-x-6"), {
+        html.elem(
+          "a",
+          attrs: (
+            class: "inline-flex gap-2 font-sans hover:text-rose",
+            href: if long { "/cv/youwen-wu-cv-full.pdf" } else {
+              "/cv/youwen-wu-cv-short.pdf"
             },
-          )
-          html.elem(
-            "a",
-            attrs: (
-              class: "inline-flex gap-2 font-sans hover:text-pine dark:hover:text-foam",
-              href: "/#contact",
-            ),
-            {
-              lucide-icon(class: "my-auto", name: "mail")
-              html.elem("span")[Contact]
-            },
-          )
-        },
-      )
+            target: "_blank",
+          ),
+          {
+            lucide-icon(class: "my-auto", name: "file-text")
+            html.elem("span")[View as PDF]
+          },
+        )
+        html.elem(
+          "a",
+          attrs: (
+            class: "inline-flex gap-2 font-sans hover:text-rose",
+            href: "/#contact",
+          ),
+          {
+            lucide-icon(class: "my-auto", name: "mail")
+            html.elem("span")[Contact]
+          },
+        )
+      })
       let selected-class = "before:content-['●'] before:text-[0.55em] before:text-foam before:pr-2 my-auto inline-flex before:my-auto"
       let unselected-class = "before:content-['○'] before:text-[0.55em] before:pr-2 inline-flex my-auto before:my-auto hover:before:content-['●']"
       html.elem(
@@ -130,10 +126,16 @@
       ),
       [
         #html.elem("div", attrs: (class: "col-span-1"), left)
-        #html.elem("div", attrs: (class: "col-span-3"), [
-          #html.elem("div", attrs: (class: "font-normal"), heading)
+        #html.elem("div", attrs: (class: "col-span-3 mt-[3px]"), [
+          #html.elem(
+            "div",
+            attrs: (class: "font-normal text-lg md:text-xl"),
+            heading,
+          )
           #if args.pos().len() > 0 {
-            html.elem("div", attrs: (class: "-mt-4"))[
+            html.elem("div", attrs: (
+              class: "-mt-4 font-serif font-normal text-base md:text-lg",
+            ))[
               #args.pos().at(0)
             ]
           }
@@ -156,7 +158,7 @@
           #date
           #if location != "" {
             linebreak()
-            html.elem("span", attrs: (class: "text-sm xl:text-lg"), location)
+            html.elem("span", attrs: (class: "text-base xl:text-lg"), location)
           }
         ],
         heading: [
@@ -241,7 +243,7 @@
             html.elem(
               "a",
               attrs: (
-                class: "mt-3 hover:text-rose hidden md:inline-flex gap-2 mr-2 text-nowrap",
+                class: "mt-2 hover:text-rose hidden md:inline-flex gap-2 mr-2 text-nowrap text-lg",
                 href: link,
                 target: "_blank",
               ),
@@ -258,7 +260,7 @@
             html.elem(
               "a",
               attrs: (
-                class: "mt-1 hover:text-rose hidden md:inline-flex gap-2 text-nowrap",
+                class: "mt-1 hover:text-rose hidden md:inline-flex gap-2 text-nowrap text-lg",
                 href: demo-link,
                 target: "_blank",
               ),
