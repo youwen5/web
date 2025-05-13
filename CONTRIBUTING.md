@@ -55,7 +55,6 @@ artifacts will not contain them. (To build the actual site, I have a derivation
 that overrides and adds a line to copy the fonts over from a private GitHub
 repository. So we still have perfect reproducibility.)
 
-
 ## Local build instructions
 
 ### Instructions
@@ -113,6 +112,7 @@ you have Nix, you can run `nix develop` and they will be made available
 automatically (this is highly recommended).
 
 This will spin up a development server (not hot reloading, though) at `localhost:8000`:
+
 ```sh
 just preview
 ```

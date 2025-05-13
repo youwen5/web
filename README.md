@@ -13,7 +13,7 @@ GitHub pages.
 - Rust (at build time only)
 - HTML
 - CSS (tailwind)
-- JavaScript (almost none) 
+- JavaScript (almost none)
 - [Typst](https://typst.app)
   - I use the typesetting system Typst as a markup language rather than something
     like Markdown. Typst is a system like LaTeX mainly for producing beautiful
@@ -26,12 +26,14 @@ GitHub pages.
 (only works on Linux because I'm lazy.)
 
 Install [nix](https://nixos.org/), then
+
 ```sh
 nix build
 # site files will be built in `./result/dist`
 ```
 
 To run a local preview server (not hot reloading),
+
 ```sh
 nix run .#preview
 # server will run at localhost:8000
