@@ -61,6 +61,13 @@
   }
 
   #update(
+    date: "May 12th, 2025",
+    href: "/writing/parallelizing-this-website-for-free",
+  )[
+    #icon(name: "newspaper")
+    Parallelizing this website for free
+  ]
+  #update(
     date: "May 10th, 2025",
     href: "/writing/doing-web-development-in-typst",
   )[
