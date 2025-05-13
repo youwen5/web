@@ -44,7 +44,10 @@ const LAZY_HLJS_CSS: hypertext::Raw<&str> = Raw(r#"
 impl Renderable for Head {
     fn render_to(self, output: &mut String) {
         let description = &self.description;
-        let image = &self.image;
+        let image = match &self.image {
+            Some(image) => image,
+            None => "/static/logo/button.png",
+        };
         let page_title = match self.page_title {
             Some(title) => format!("{title} | Youwen Wu"),
             None => "Youwen Wu".to_string(),
@@ -57,7 +60,7 @@ impl Renderable for Head {
 
                 title { (&page_title) }
                 meta name="og:title" content=(&page_title);
-                meta name="og:site_name" content="Youwen's website";
+                meta name="og:site_name" content="Youwen's Website";
 
                 @if let Some(description) = description {
                     meta name="description" content=(description);
@@ -76,13 +79,13 @@ impl Renderable for Head {
                 }
                 // meta name="og:url" content=(url);
                 meta name="og:type" content="website";
-                @if let Some(image) = image { meta name="og:image" content=(image); }
+                meta name="og:image" content=(image);
 
                 // meta name="twitter:card" content="summary_large_image";
                 meta name="twitter:site" content="@youwen5";
                 meta name="twitter:creator" content="@youwen5";
                 meta name="twitter:title" content=(&page_title);
-                // meta name="twitter:image" content=(&*image_path);
+                meta name="twitter:image" content=(image);
                 meta name="robots" content="index, follow";
 
                 link rel="stylesheet" href="/bundle.css";
