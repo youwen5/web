@@ -63,7 +63,7 @@
 }
 
 :root {
-  --base-color: 254 254 254;
+  --bg-color: 254 254 254;
   --foreground-color: 87 82 121;
   --surface-color: 255 250 243;
   --overlay-color: 242 233 225;
@@ -79,7 +79,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --base-color: 25 23 36;
+    --bg-color: 25 23 36;
     --foreground-color: 224 222 244;
     --surface-color: 31 29 46;
     --overlay-color: 38 35 58;
@@ -111,7 +111,7 @@
 
 /* ─── theme-aware color definitions ─────────────────────────────────── */
 @theme inline {
-  --color-base: rgb(var(--base-color));
+  --color-bg: rgb(var(--bg-color));
   --color-foreground: rgb(var(--foreground-color));
   --color-surface: rgb(var(--surface-color));
   --color-overlay: rgb(var(--overlay-color));
@@ -140,7 +140,7 @@
 }
 
 body {
-  @apply font-serif text-foreground bg-base;
+  @apply font-serif text-foreground bg-bg;
 }
 
 .text-link {

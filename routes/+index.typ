@@ -50,7 +50,7 @@
       if is-link { "a" } else { "span" },
       attrs: (
         href: href,
-        class: "border-b-foreground border-b-1 py-1 px-1 hover:bg-foreground hover:text-base w-full w-full font-sans flex justify-between flex-wrap content-center gap-2 md:gap-4",
+        class: "border-b-foreground border-b-1 py-1 px-1 hover:bg-foreground hover:text-bg w-full w-full font-sans flex justify-between flex-wrap content-center gap-2 md:gap-4",
       ),
     )[
       #html.elem("span", attrs: (class: "inline-flex gap-3"), body)
@@ -96,7 +96,7 @@
     attrs: (class: "font-sans w-full prose-lg"),
     {
       let entry(
-        href: "/impressum",
+        href: "",
         is-link: true,
         newtab: true,
         internal: false,
@@ -107,7 +107,7 @@
           attrs: (
             href: href,
             target: if newtab { "_blank" } else { "" },
-            class: "px-1 py-1 font-light hover:text-base hover:bg-love border-b-1 border-b-love text-love decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
+            class: "p-1 font-light hover:text-bg hover:bg-love border-b-1 border-b-love text-love decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
           ),
           {
             html.elem("span", attrs: (class: "flex gap-2 my-auto"), body)

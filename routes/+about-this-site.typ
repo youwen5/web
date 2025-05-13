@@ -23,7 +23,7 @@
         attrs: (
           href: href,
           target: if newtab { "_blank" } else { "" },
-          class: "px-1 py-1 font-light hover:text-base hover:bg-love border-b-1 border-b-love text-love decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
+          class: "px-1 py-1 font-light hover:text-bg hover:bg-love border-b-1 border-b-love text-love decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
         ),
         {
           html.elem("span", attrs: (class: "flex gap-2 my-auto"), body)
