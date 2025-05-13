@@ -24,6 +24,11 @@
       url = "github:youwen5/valkyrie";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    advisory-db = {
+      url = "github:rustsec/advisory-db";
+      flake = false;
+    };
   };
 
   outputs =
@@ -35,6 +40,7 @@
       treefmt-nix,
       valkyrie-font,
       fenix,
+      advisory-db,
       ...
     }:
     flake-utils.lib.eachSystem
@@ -49,7 +55,14 @@
 
           pnpm = pkgs.pnpm_10;
 
-          craneLib = (crane.mkLib pkgs).overrideToolchain fenix.packages.${system}.minimal.toolchain;
+          craneLib = (crane.mkLib pkgs).overrideToolchain (
+            fenix.packages.${system}.complete.withComponents [
+              "rustc"
+              "cargo"
+              "clippy"
+              "rust-std"
+            ]
+          );
 
           # Common arguments can be set here to avoid repeating them later
           # Note: changes here will rebuild all dependency crates
@@ -67,10 +80,12 @@
               ];
           };
 
+          cargoArtifacts = craneLib.buildDepsOnly commonArgs;
+
           luminite-crate = craneLib.buildPackage (
             commonArgs
             // {
-              cargoArtifacts = craneLib.buildDepsOnly commonArgs;
+              inherit cargoArtifacts;
 
               # Additional environment variables or build phases/hooks can be set
               # here *without* rebuilding all dependency crates
@@ -142,7 +157,28 @@
         {
           checks = {
             inherit luminite-crate;
+
             formatting = treefmtEval.config.build.check self;
+
+            luminite-clippy = craneLib.cargoClippy (
+              commonArgs
+              // {
+                inherit cargoArtifacts;
+                cargoClippyExtraArgs = "--all-targets -- --deny warnings";
+              }
+            );
+
+            luminite-doc = craneLib.cargoDoc (
+              commonArgs
+              // {
+                inherit cargoArtifacts;
+              }
+            );
+
+            luminite-deny = craneLib.cargoDeny {
+              inherit (commonArgs) src;
+              inherit advisory-db;
+            };
           };
 
           # the actual site, with the fonts bundled within
