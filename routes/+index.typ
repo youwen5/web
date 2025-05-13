@@ -172,11 +172,11 @@
 
     #html.elem("div", attrs: (class: "space-y-2 prose-lg"))[
       #double-entry[
-        B.S. Mathematics \
+        B.S. Mathematics (2028) \
         University of California, Santa Barbara
       ]
       #double-entry[
-        B.S. Computer Science \
+        B.S. Computer Science (2028) \
         University of California, Santa Barbara
       ]
     ]
