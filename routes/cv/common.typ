@@ -47,7 +47,7 @@
               href: "/cv",
               class: if long { selected-class } else { unselected-class },
             ),
-            [Long],
+            [Full],
           )
           html.elem(
             "a",
