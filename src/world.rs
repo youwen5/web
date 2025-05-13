@@ -8,10 +8,11 @@ use std::{
 };
 
 use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
+use rayon::iter::{IntoParallelRefIterator, IntoParallelRefMutIterator, ParallelIterator};
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 use time::OffsetDateTime;
-use tracing::{Level, event};
+use tracing::{Level, event}; // Need ParallelIterator trait
 
 use crate::{
     site::{RouteNode, RouteTree, Routes, Site, Templater},
@@ -564,10 +565,11 @@ impl World {
         self.get_metadata_helper(&mut site.routes.tree)
     }
 
-    /// Helper to recursively traverse the route tree and query metadata.
+    /// Helper to recursively traverse the route tree and query metadata in parallel.
     fn get_metadata_helper(&self, route_tree: &mut RouteTree) -> Result<(), WorldError> {
-        for (filename, node) in route_tree.iter_mut() {
-            match node {
+        route_tree
+            .par_iter_mut()
+            .try_for_each(|(filename, node)| match node {
                 RouteNode::Page(typst_doc) => {
                     let metadata = query_metadata(&typst_doc.source_path, &self.root)?;
 
@@ -576,19 +578,17 @@ impl World {
                         "Queried metadata from {filename}, at path {:?}",
                         typst_doc.source_path.as_os_str(),
                     );
-
                     event!(Level::INFO, "Grabbing metadata from {}", filename);
 
                     typst_doc.metadata = Some(metadata);
+
+                    Ok(())
                 }
-                RouteNode::Nested(hash_map) => self.get_metadata_helper(hash_map)?,
-                _ => {}
-            };
-        }
-        Ok(())
+                RouteNode::Nested(hash_map) => self.get_metadata_helper(hash_map),
+                RouteNode::Redirect(_) => Ok(()),
+            })
     }
 
-    /// Compile a `Site` into `dist`
     pub fn realize_site(&self, mut site: Site, minify: bool) -> Result<(), WorldError> {
         self.copy_public_dir(&site)?;
         self.get_metadata(&mut site)?;
@@ -601,35 +601,38 @@ impl World {
 /// Takes the raw tree structure of the routes directory and walks through it, throwing away
 /// anything that isn't a route, and turning page nodes into valid `TypstDoc` objects.
 fn reconcile_raw_routes(tree: &RawRouteTree) -> RouteTree {
-    let mut new_tree: RouteTree = RouteTree::new();
-
-    for node in tree.iter() {
-        match node {
-            (filename, RawRouteNode::Dir(dir)) => {
+    let new_tree: RouteTree = tree
+        .par_iter()
+        .filter_map(|(filename, node_value)| match node_value {
+            RawRouteNode::Dir(dir) => {
                 let nested_node = reconcile_raw_routes(dir);
                 if !nested_node.is_empty() {
-                    new_tree.insert(
-                        filename.to_owned(),
-                        RouteNode::Nested(reconcile_raw_routes(dir)),
-                    );
+                    Some((filename.to_owned(), RouteNode::Nested(nested_node)))
+                } else {
+                    None
                 }
             }
-            (filename, RawRouteNode::File(file)) => {
+            RawRouteNode::File(file) => {
                 if file.extension().is_none() && filename.starts_with("+redirect__") {
                     let path = filename.trim_start_matches("+redirect__");
-                    new_tree.insert(path.to_string(), RouteNode::Redirect(file.to_path_buf()));
-                }
-                if file.extension().is_some_and(|ext| ext == "typ") && filename.starts_with('+') {
-                    new_tree.insert(
-                        filename.strip_prefix("+").unwrap().to_string(),
-                        RouteNode::Page(
-                            TypstDoc::new(file).expect("Error failed parsing routes tree."),
-                        ),
-                    );
+                    Some((path.to_string(), RouteNode::Redirect(file.to_path_buf())))
+                } else if file.extension().is_some_and(|ext| ext == "typ")
+                    && filename.starts_with('+')
+                {
+                    filename.strip_prefix('+').map(|stripped| {
+                        (
+                            stripped.to_string(),
+                            RouteNode::Page(
+                                TypstDoc::new(file).expect("Error failed parsing routes tree."),
+                            ),
+                        )
+                    })
+                } else {
+                    None
                 }
             }
-        }
-    }
+        })
+        .collect(); // Collect the stream of Some((K, V)) into a new HashMap
 
     new_tree
 }

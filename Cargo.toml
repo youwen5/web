@@ -22,6 +22,7 @@ time = { version = "0.3", features = [
   "macros",
 ] }
 compile-time = "0.2"
+rayon = "1.10"
 
 [[bin]]
 name = "site"

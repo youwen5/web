@@ -638,6 +638,7 @@ dependencies = [
  "dircpy",
  "hypertext",
  "minify-html-onepass",
+ "rayon",
  "serde",
  "serde_json",
  "thiserror",
