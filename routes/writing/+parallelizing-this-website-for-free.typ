@@ -52,12 +52,12 @@ After changing to `.par_iter()` and a few very minimal modifications to my
 logic (I needed to change `for` loops to `.map()` and `.collect()`, and use the
 functional patterns expected by `rayon`), my code was compiling again.
 
+= But was it faster?
+
 Did it work? It's Rust, so of course it worked first try! Testing it out, I
 immediately noticed a massive speedup.
 
-= But was it faster?
-
-Yes! For some technical context, I#(apostrophe)m using the `typst query` command to get
+For some technical context, I#(apostrophe)m using the `typst query` command to get
 data out of my documents. To do so, Typst actually has to evaluate the code,
 which takes a while. Doing this sequentially didn't scale well, and likely
 would've become painfully slow as my pages increased. After introducing `rayon`
