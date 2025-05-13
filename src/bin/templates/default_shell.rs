@@ -147,11 +147,11 @@ impl DefaultShell {
                                     summary class="text-center smallcaps text-xl cursor-pointer" {
                                         "menu"
                                     }
-                                    nav class="space-y-6 text-2xl mt-3" {
+                                    nav class="space-y-5 text-2xl mt-3" {
                                         ul class="space-y-3 text-2xl text-love" {
                                             (nav_items)
                                         }
-                                        div class="space-y-4" {
+                                        div class="space-y-6" {
                                             div class="space-y-2" {
                                                 span class="all-smallcaps text-lg" {"Hacking"}
                                                 ul class="space-y-2 text-subtle text-lg" {
