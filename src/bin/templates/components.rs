@@ -135,7 +135,7 @@ impl Renderable for Giscus {
                 data-reactions-enabled="1"
                 data-emit-metadata="0"
                 data-input-position="top"
-                data-theme="preferred_color_scheme"
+                data-theme="https://web.youwen.dev/styles/giscus.css"
                 data-lang="en"
                 data-loading="lazy"
                 crossorigin="anonymous"

@@ -1,0 +1,149 @@
+/*!
+ * Modified from GitHub's Dark Dimmed theme, licensed under the MIT License
+ * Copyright (c) 2018 GitHub Inc.
+ * https://github.com/primer/primitives/blob/main/LICENSE
+ *
+ * Adapted to Rosé Pine Dawn theme.
+ */
+
+main {
+  /* Syntax Highlighting */
+  --color-prettylights-syntax-comment: #9893a5; /* Muted */
+  --color-prettylights-syntax-constant: #286983; /* Pine */
+  --color-prettylights-syntax-entity: #907aa9; /* Iris */
+  --color-prettylights-syntax-storage-modifier-import: #907aa9; /* Iris */
+  --color-prettylights-syntax-entity-tag: #56949f; /* Foam */
+  --color-prettylights-syntax-keyword: #b4637a; /* Love */
+  --color-prettylights-syntax-string: #ea9d34; /* Gold */
+  --color-prettylights-syntax-variable: #d7827e; /* Rose */
+  --color-prettylights-syntax-brackethighlighter-unmatched: #b4637a; /* Love */
+  --color-prettylights-syntax-invalid-illegal-text: #b4637a; /* Love */
+  --color-prettylights-syntax-invalid-illegal-bg: rgb(215 130 126 / 20%); /* Rose with alpha */
+  --color-prettylights-syntax-carriage-return-text: #575279; /* Text */
+  --color-prettylights-syntax-carriage-return-bg: #f4ede8; /* Highlight Low */
+  --color-prettylights-syntax-string-regexp: #56949f; /* Foam */
+  --color-prettylights-syntax-markup-list: #797593; /* Subtle */
+  --color-prettylights-syntax-markup-heading: #286983; /* Pine */
+  --color-prettylights-syntax-markup-italic: #575279; /* Text (style with font-style: italic) */
+  --color-prettylights-syntax-markup-bold: #575279; /* Text (style with font-weight: bold) */
+  --color-prettylights-syntax-markup-deleted-text: #b4637a; /* Love */
+  --color-prettylights-syntax-markup-deleted-bg: rgb(215 130 126 / 15%); /* Rose with low alpha */
+  --color-prettylights-syntax-markup-inserted-text: #56949f; /* Foam */
+  --color-prettylights-syntax-markup-inserted-bg: rgb(86 148 159 / 15%); /* Foam with low alpha */
+  --color-prettylights-syntax-markup-changed-text: #ea9d34; /* Gold */
+  --color-prettylights-syntax-markup-changed-bg: rgb(234 157 52 / 15%); /* Gold with low alpha */
+  --color-prettylights-syntax-markup-ignored-text: #9893a5; /* Muted */
+  --color-prettylights-syntax-markup-ignored-bg: #dfdad9; /* Highlight Med */
+  --color-prettylights-syntax-meta-diff-range: #907aa9; /* Iris */
+  --color-prettylights-syntax-brackethighlighter-angle: #797593; /* Subtle */
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #797593; /* Subtle */
+  --color-prettylights-syntax-constant-other-reference-link: #286983; /* Pine */
+
+  /* UI Elements */
+  --color-btn-text: #575279; /* Text */
+  --color-btn-bg: #f2e9e1; /* Overlay */
+  --color-btn-border: #dfdad9; /* Highlight Med */
+  --color-btn-shadow: 0 0 transparent;
+  --color-btn-inset-shadow: 0 0 transparent;
+  --color-btn-hover-bg: #dfdad9; /* Highlight Med */
+  --color-btn-hover-border: #cecacd; /* Highlight High */
+  --color-btn-active-bg: #cecacd; /* Highlight High */
+  --color-btn-active-border: #9893a5; /* Muted */
+  --color-btn-selected-bg: #dfdad9; /* Highlight Med */
+
+  --color-btn-primary-text: #fffaf3; /* Surface */
+  --color-btn-primary-bg: #b4637a; /* Love */
+  --color-btn-primary-border: #b4637a; /* Love (or #d7827e for a subtle difference) */
+  --color-btn-primary-shadow: 0 0 transparent;
+  --color-btn-primary-inset-shadow: 0 0 transparent;
+  --color-btn-primary-hover-bg: #d7827e; /* Rose */
+  --color-btn-primary-hover-border: #d7827e; /* Rose */
+  --color-btn-primary-selected-bg: #b4637a; /* Love */
+  --color-btn-primary-selected-shadow: 0 0 transparent;
+  --color-btn-primary-disabled-text: rgb(87 82 121 / 50%); /* Text with alpha */
+  --color-btn-primary-disabled-bg: rgb(180 99 122 / 60%); /* Love with alpha */
+  --color-btn-primary-disabled-border: rgb(180 99 122 / 30%); /* Love with alpha */
+
+  --color-action-list-item-default-hover-bg: #f4ede8; /* Highlight Low */
+  --color-segmented-control-bg: #f4ede8; /* Highlight Low */
+  --color-segmented-control-button-bg: #fffaf3; /* Surface */
+  --color-segmented-control-button-selected-border: #9893a5; /* Muted */
+
+  /* General Foreground/Background */
+  --color-fg-default: #575279; /* Text */
+  --color-fg-muted: #797593; /* Subtle */
+  --color-fg-subtle: #9893a5; /* Muted */
+  --color-canvas-default: #faf4ed; /* Base */
+  --color-canvas-overlay: #f2e9e1; /* Overlay */
+  --color-canvas-inset: #f4ede8; /* Highlight Low */
+  --color-canvas-subtle: #dfdad9; /* Highlight Med */
+  --color-border-default: #dfdad9; /* Highlight Med */
+  --color-border-muted: #cecacd; /* Highlight High */
+  --color-neutral-muted: rgb(152 147 165 / 40%); /* Muted with alpha */
+
+  /* Accent Colors */
+  --color-accent-fg: #286983; /* Pine */
+  --color-accent-emphasis: #286983; /* Pine */
+  --color-accent-muted: rgb(86 148 159 / 40%); /* Foam with alpha */
+  --color-accent-subtle: rgb(86 148 159 / 20%); /* Foam with lower alpha */
+
+  /* Semantic Colors */
+  --color-success-fg: #56949f; /* Foam */
+  --color-attention-fg: #ea9d34; /* Gold */
+  --color-attention-muted: rgb(234 157 52 / 40%); /* Gold with alpha */
+  --color-attention-subtle: rgb(234 157 52 / 15%); /* Gold with alpha */
+  --color-danger-fg: #b4637a; /* Love */
+  --color-danger-muted: rgb(180 99 122 / 40%); /* Love with alpha */
+  --color-danger-subtle: rgb(215 130 126 / 20%); /* Rose with alpha */
+
+  --color-primer-shadow-inset: 0 0 transparent;
+
+  /* Scale Colors */
+  --color-scale-gray-7: #9893a5; /* Muted */
+  --color-scale-blue-8: #286983; /* Pine */
+
+  /*! Extensions from @primer/css/alerts/flash.scss */
+  --color-social-reaction-bg-hover: var(--color-scale-gray-7); /* Muted */
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8); /* Pine */
+}
+
+main .pagination-loader-container {
+  /* Consider a light theme version or CSS filter for light themes */
+  background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line.svg"); /* Assuming a light version exists or is neutral */
+}
+
+/*! Custom CSS */
+
+.gsc-reactions-count {
+  display: none;
+}
+
+.gsc-timeline {
+  flex-direction: column-reverse;
+}
+
+.gsc-header {
+  padding-bottom: 1rem;
+}
+
+.gsc-comments > .gsc-header {
+  order: 1;
+}
+
+.gsc-comments > .gsc-comment-box {
+  order: 2;
+  margin-bottom: 1rem;
+}
+
+.gsc-comments > .gsc-timeline {
+  order: 3;
+}
+
+.gsc-homepage-bg {
+  background-color: #faf4ed; /* Base */
+}
+
+main .gsc-loading-image {
+  /* Use a light version of the loading image */
+  background-image: url("https://github.githubassets.com/images/mona-loading.gif");
+}
