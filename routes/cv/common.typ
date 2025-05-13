@@ -11,7 +11,7 @@
           "a",
           attrs: (
             class: "inline-flex gap-2 font-sans hover:text-love",
-            href: if long { "./cv.pdf" } else { "./abridged.pdf" },
+            href: if long { "./cv-full.pdf" } else { "./cv-short.pdf" },
             target: "_blank",
           ),
           {
@@ -31,6 +31,32 @@
           },
         )
       })
+      let selected-class = "before:content-['●'] before:text-[0.55em] before:text-foam before:pr-2 inline-flex before:my-auto"
+      let unselected-class = "before:content-['○'] before:text-[0.55em] before:pr-2 inline-flex before:my-auto hover:before:content-['●']"
+      html.elem(
+        "div",
+        attrs: (
+          class: "px-2 py-1 text-sm rounded-md border-1 border-muted text-muted font-sans flex flex-wrap gap-x-6 w-fit mt-4",
+        ),
+        {
+          html.elem(
+            "a",
+            attrs: (
+              href: "/cv",
+              class: if long { selected-class } else { unselected-class },
+            ),
+            [Long],
+          )
+          html.elem(
+            "a",
+            attrs: (
+              href: "/cv/short",
+              class: if not long { selected-class } else { unselected-class },
+            ),
+            [Short],
+          )
+        },
+      )
     }
   }
 
