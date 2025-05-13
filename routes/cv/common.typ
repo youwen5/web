@@ -33,8 +33,8 @@
           },
         )
       })
-      let selected-class = "before:content-['●'] before:text-[0.55em] before:text-foam before:pr-2 inline-flex before:my-auto"
-      let unselected-class = "before:content-['○'] before:text-[0.55em] before:pr-2 inline-flex before:my-auto hover:before:content-['●']"
+      let selected-class = "before:content-['●'] before:text-[0.55em] before:text-foam before:pr-2 my-auto inline-flex before:my-auto"
+      let unselected-class = "before:content-['○'] before:text-[0.55em] before:pr-2 inline-flex my-auto before:my-auto hover:before:content-['●']"
       html.elem(
         "div",
         attrs: (
