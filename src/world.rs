@@ -320,6 +320,7 @@ impl WorkingDirs {
 pub struct World {
     working_dirs: WorkingDirs,
     root: PathBuf,
+    generator: Generator,
 }
 
 impl World {
@@ -328,6 +329,7 @@ impl World {
         World {
             working_dirs,
             root: PathBuf::from("./"),
+            generator: Generator::new(),
         }
     }
 
@@ -342,11 +344,10 @@ impl World {
             std::fs::create_dir(&html_artifacts_path)?;
         }
 
-        let generator = Generator::new();
         let output_path = html_artifacts_path.join(PathBuf::from(format!(
             "./{}-{}.html",
             doc.source_path.file_stem().unwrap().to_str().unwrap(),
-            generator.hex128_as_string().unwrap()
+            self.generator.hex128_as_string().unwrap()
         )));
         compile_document(&doc.source_path, &output_path, &self.root)?;
 
@@ -640,7 +641,7 @@ fn reconcile_raw_routes(tree: &RawRouteTree) -> RouteTree {
                 }
             }
         })
-        .collect(); // Collect the stream of Some((K, V)) into a new HashMap
+        .collect();
 
     new_tree
 }
