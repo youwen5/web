@@ -1,5 +1,5 @@
 /// Reusable components that can be placed around the site. Footers, navbars, etc.
-use hypertext::{GlobalAttributes, Renderable, html_elements, maud};
+use hypertext::{GlobalAttributes, Raw, Renderable, html_elements, maud};
 use luminite::world::Metadata;
 
 /// A site-wide usable head tag.
@@ -23,6 +23,23 @@ impl Head {
         }
     }
 }
+
+const LAZY_HLJS_CSS: hypertext::Raw<&str> = Raw(r#"
+<link
+    rel="preload"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+    as="style"
+    media="screen"
+    onload="this.onload=null;this.rel='stylesheet'"
+>
+<link
+    rel="preload"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    as="style"
+    media="screen and (prefers-color-scheme: dark)"
+    onload="this.onload=null;this.rel='stylesheet'"
+>
+"#);
 
 impl Renderable for Head {
     fn render_to(self, output: &mut String) {
@@ -70,24 +87,27 @@ impl Renderable for Head {
 
                 link rel="stylesheet" href="/bundle.css";
 
-                link
-                    rel="stylesheet" 
-                    media="screen"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css";
+                (LAZY_HLJS_CSS)
 
-                link
-                    rel="stylesheet" 
-                    media="screen and (prefers-color-scheme: dark)"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css";
+                noscript {
+                    link
+                        rel="stylesheet"
+                        media="screen"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css";
+                    link
+                        rel="stylesheet"
+                        media="screen and (prefers-color-scheme: dark)"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css";
+                }
 
                 script async src="/index.js" {}
                 script async src="/icons.js" {}
                 script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" id="hljs-script" {}
                 script {
                     r#"
-                      document.getElementById('hljs-script').onload = function() {
-                          hljs.highlightAll();
-                      };
+                    document.getElementById('hljs-script').onload = function() {
+                        hljs.highlightAll();
+                    };
                     "#
                 }
                 script data-collect-dnt="true" defer src="https://scripts.simpleanalyticscdn.com/latest.js" {}
