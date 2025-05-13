@@ -18,9 +18,9 @@ const LOGO: hypertext::Raw<&str> = hypertext::Raw(
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
-   width="45px"
-   height="45px"
-   class="my-auto bg-surface"
+   width="50px"
+   height="50px"
+   class="my-auto"
    viewBox="0 0 300 300"
    version="1.1"
    id="svg1"
@@ -29,30 +29,20 @@ const LOGO: hypertext::Raw<&str> = hypertext::Raw(
   <defs
      id="defs1" />
   <g
-     id="layer1">
-    <rect
-       style="display:inline;opacity:1;fill:#56949f;fill-opacity:0;stroke:#b4637a;stroke-width:6.26026;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4"
-       width="293.71112"
-       height="293.71283"
-       x="3.1441348"
-       y="3.1437902" />
-  </g>
-  <g
      id="layer2">
     <rect
        style="opacity:1;fill:#b4637a;fill-opacity:1;stroke:#b4637a;stroke-width:2.02726;stroke-dasharray:none;stroke-opacity:1"
        id="rect3"
-       width="104.72939"
-       height="100.92105"
+       width="114.72939"
+       height="110.92105"
        x="120.82121"
        y="-18.898195"
        transform="rotate(45)" />
     <rect
        style="fill:#56949f;fill-opacity:1;stroke:#56949f;stroke-width:2.02717;stroke-dasharray:none;stroke-opacity:0.0392157"
        id="rect3-5"
-       width="104.72939"
-       height="100.92105"
+       width="114.72939"
+       height="110.92105"
        x="194.88144"
        y="-90.162048"
        transform="rotate(45)" />
@@ -114,7 +104,7 @@ impl DefaultShell {
                         aside class="hidden md:block w-64 flex-none" {
                             a href="/" class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-3" {
                                 (LOGO)
-                                span class="italic text-[2.5em] select-none -translate-y-2" {"youwen wu"}
+                                span class="italic text-[2.5em] select-none -translate-y-[6px]" {"youwen wu"}
                             }
                             nav class="space-y-6 mt-4" {
                                 ul class="space-y-2 text-love text-2xl " {
