@@ -97,7 +97,7 @@ impl DefaultShell {
         let other = maud! {
             li {a class="hover:bg-surface transition-colors" href="/faqs" {"Frequently asked questions"}}
             li {a class="hover:bg-surface transition-colors" href="/impressum" {"Impressum"}}
-            li {a class="hover:bg-surface transition-colors" href="/colophon" {"Colophon"}}
+            li {a class="hover:bg-surface transition-colors" href="/about-this-site" {"About this site"}}
         };
 
         let page_width = match self.width {
