@@ -6,33 +6,37 @@
 
   #context {
     if target() == "html" {
-      html.elem("div", attrs: (class: "space-x-6"), {
-        html.elem(
-          "a",
-          attrs: (
-            class: "inline-flex gap-2 font-sans hover:text-love",
-            href: if long { "/cv/youwen-wu-cv-full.pdf" } else {
-              "/cv/youwen-wu-cv-short.pdf"
+      html.elem(
+        "div",
+        attrs: (class: "space-x-6"),
+        {
+          html.elem(
+            "a",
+            attrs: (
+              class: "inline-flex gap-2 font-sans hover:text-pine dark:hover:text-foam",
+              href: if long { "/cv/youwen-wu-cv-full.pdf" } else {
+                "/cv/youwen-wu-cv-short.pdf"
+              },
+              target: "_blank",
+            ),
+            {
+              lucide-icon(class: "my-auto", name: "file-text")
+              html.elem("span")[View as PDF]
             },
-            target: "_blank",
-          ),
-          {
-            lucide-icon(class: "my-auto", name: "file-text")
-            html.elem("span")[View as PDF]
-          },
-        )
-        html.elem(
-          "a",
-          attrs: (
-            class: "inline-flex gap-2 font-sans hover:text-love",
-            href: "/#contact",
-          ),
-          {
-            lucide-icon(class: "my-auto", name: "mail")
-            html.elem("span")[Contact]
-          },
-        )
-      })
+          )
+          html.elem(
+            "a",
+            attrs: (
+              class: "inline-flex gap-2 font-sans hover:text-pine dark:hover:text-foam",
+              href: "/#contact",
+            ),
+            {
+              lucide-icon(class: "my-auto", name: "mail")
+              html.elem("span")[Contact]
+            },
+          )
+        },
+      )
       let selected-class = "before:content-['●'] before:text-[0.55em] before:text-foam before:pr-2 my-auto inline-flex before:my-auto"
       let unselected-class = "before:content-['○'] before:text-[0.55em] before:pr-2 inline-flex my-auto before:my-auto hover:before:content-['●']"
       html.elem(
