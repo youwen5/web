@@ -161,22 +161,22 @@ impl DefaultShell {
                                         ul class="space-y-3 text-2xl text-love" {
                                             (nav_items)
                                         }
-                                        div class="space-y-3" {
+                                        div class="space-y-4" {
                                             div class="space-y-2" {
-                                                p class="all-smallcaps text-xl" {"Hacking"}
-                                                ul class="italic space-y-2 text-subtle text-lg" {
+                                                p class="all-smallcaps text-lg" {"Hacking"}
+                                                ul class="space-y-2 text-subtle text-lg" {
                                                     (code)
                                                 }
                                             }
                                             div class="space-y-2" {
-                                                p class="all-smallcaps text-xl" {"Math"}
-                                                ul class="italic space-y-2 text-subtle text-lg" {
+                                                p class="all-smallcaps text-lg" {"Math"}
+                                                ul class="space-y-2 text-subtle text-lg" {
                                                     (math)
                                                 }
                                             }
                                             div class="space-y-1" {
-                                                p class="all-smallcaps text-xl" {"Other"}
-                                                ul class="italic space-y-2 text-subtle text-lg" {
+                                                p class="all-smallcaps text-lg" {"Other"}
+                                                ul class="space-y-2 text-subtle text-lg" {
                                                     (other)
                                                 }
                                             }
