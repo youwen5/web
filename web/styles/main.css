@@ -94,21 +94,6 @@
   }
 }
 
-/* :root[class~="dark"] { */
-/*   --base-color:            35  33  54; */
-/*   --foreground-color:      224 222 244; */
-/*   --surface-color:         42  39  63; */
-/*   --overlay-color:         57  53  82; */
-/*   --muted-color:           110 106 134; */
-/*   --subtle-color:          144 140 170; */
-/*   --love-color:            235 111 146; */
-/*   --rose-color:            234 154 151; */
-/*   --pine-color:            62  143 176; */
-/*   --foam-color:            156 207 216; */
-/*   --iris-color:            196 167 231; */
-/*   --gold-color:            246 193 119; */
-/* } */
-
 /* ─── theme-aware color definitions ─────────────────────────────────── */
 @theme inline {
   --color-bg: rgb(var(--bg-color));
@@ -142,10 +127,6 @@
 body {
   @apply font-serif text-foreground bg-bg;
 }
-
-/* .text-link { */
-/*   @apply underline decoration-solid decoration-2 hover:text-love decoration-iris hover:decoration-love underline-offset-4; */
-/* } */
 
 .text-link {
   @apply text-pine dark:text-foam hover:bg-pine dark:hover:bg-foam hover:text-bg mr-1.5;
