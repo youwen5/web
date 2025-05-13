@@ -143,8 +143,21 @@ body {
   @apply font-serif text-foreground bg-bg;
 }
 
+/* .text-link { */
+/*   @apply underline decoration-solid decoration-2 hover:text-love decoration-iris hover:decoration-love underline-offset-4; */
+/* } */
+
 .text-link {
-  @apply underline decoration-solid decoration-2 hover:text-love decoration-iris hover:decoration-love underline-offset-4;
+  @apply text-pine dark:text-foam hover:underline hover:decoration-solid hover:decoration-2 hover:decoration-foam mr-1;
+}
+
+.text-link::after {
+  @apply font-sans;
+  content: '┓' / ', external';
+  position: absolute;
+  margin-top: 0.5em;
+  line-height: 1em;
+  font-size: 0.5em;
 }
 
 .main-content {
