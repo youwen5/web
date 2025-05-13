@@ -155,10 +155,12 @@
 #let btw(body) = html.elem(
   "div",
   attrs: (
-    class: "py-2 px-4 text-[0.8em] rounded-md inset-shadow-xs bg-slate-50 dark:bg-overlay leading-[1.5em]",
+    class: "py-2 px-4 text-[0.8em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em]",
   ),
   {
     html.elem("div", smallcaps(all: true)[By the way])
-    html.elem("div", attrs: (class: "!mb-0 mt-2"), body)
+    html.elem("div", attrs: (class: "!mb-0 mt-2 prose-p:mb-0 prose-p:mt-3"), {
+      body
+    })
   },
 )
