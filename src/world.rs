@@ -547,6 +547,7 @@ impl World {
                             html_path.as_os_str(),
                             pdf_path.as_os_str()
                         );
+                        create_file_resilient(&pdf_path)?;
                         compile_pdf(&doc.source_path, &pdf_path, &self.root)?;
                     }
                 }
