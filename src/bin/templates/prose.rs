@@ -3,7 +3,7 @@ use luminite::{templating::Template, world::Metadata};
 use time::format_description;
 
 use super::{
-    components::{Discus, Head},
+    components::{Giscus, Head},
     default_shell::DefaultShell,
 };
 
@@ -39,7 +39,7 @@ impl Template for Prose {
             div class="smallcaps text-muted w-full text-center mt-6 mb-8 text-3xl" {
                 a href="/" class="hover:text-love" { "yw" }
             }
-            @if metadata.enable_comments {(Discus)}
+            @if metadata.enable_comments {(Giscus)}
         })
     }
 }

@@ -121,8 +121,8 @@ impl Renderable for Head {
     }
 }
 
-pub struct Discus;
-impl Renderable for Discus {
+pub struct Giscus;
+impl Renderable for Giscus {
     fn render_to(self, output: &mut String) {
         maud! {
             script src="https://giscus.app/client.js"
