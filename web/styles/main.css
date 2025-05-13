@@ -185,9 +185,9 @@ body {
   }
 
   pre {
-    @apply px-0 py-1 overflow-x-auto w-0 min-w-full;
+    @apply px-0 py-1 overflow-x-auto w-0 min-w-full rounded-md;
     code {
-      @apply rounded-md inset-shadow-sm dark:shadow-none;
+      @apply rounded-md border-1 border-slate-200 dark:border-zinc-700;
     }
   }
 }

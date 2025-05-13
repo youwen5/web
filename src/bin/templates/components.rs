@@ -75,12 +75,12 @@ impl Renderable for Head {
                 link
                     rel="stylesheet" 
                     media="screen"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-light.min.css";
+                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css";
 
                 link
                     rel="stylesheet" 
                     media="screen and (prefers-color-scheme: dark)"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css";
+                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css";
                 script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" id="hljs-script" {}
                 script async id="lucide-icons" src="https://unpkg.com/lucide@latest" {}
                 script {
