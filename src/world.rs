@@ -66,6 +66,8 @@ pub struct Metadata {
     pub also_compile_pdf: bool,
     /// The filename for the PDF. If not specified, then the web path will be used by default
     pub pdf_filename: Option<String>,
+    /// Image thumbnail for the page
+    pub thumbnail: Option<String>,
 }
 
 /// A representation of a Typst source file. In the future, it will contain metadata from files.

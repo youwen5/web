@@ -6,7 +6,7 @@ use luminite::world::Metadata;
 pub struct Head {
     pub page_title: Option<String>,
     pub description: Option<String>,
-    pub image: Option<String>,
+    pub thumbnail: Option<String>,
     pub author: Option<String>,
 }
 
@@ -19,7 +19,7 @@ impl Head {
                 Some(desc) => Some(desc.to_owned()),
                 None => meta.subtitle.to_owned(),
             },
-            image: None,
+            thumbnail: meta.thumbnail.to_owned(),
         }
     }
 }
@@ -44,7 +44,7 @@ const LAZY_HLJS_CSS: hypertext::Raw<&str> = Raw(r#"
 impl Renderable for Head {
     fn render_to(self, output: &mut String) {
         let description = &self.description;
-        let image = match &self.image {
+        let image = match &self.thumbnail {
             Some(image) => image,
             None => "/static/logo/button.png",
         };

@@ -35,7 +35,8 @@ fn it_templates_successfully() {
                 short_description: None,
                 enable_comments: false,
                 also_compile_pdf: false,
-                pdf_filename: None
+                pdf_filename: None,
+                thumbnail: None
             }
         ),
         maud! {
