@@ -6,7 +6,7 @@
 
   #context {
     if target() == "html" {
-      html.elem("div", attrs: (class: "space-x-4"), {
+      html.elem("div", attrs: (class: "space-x-6"), {
         html.elem(
           "a",
           attrs: (
