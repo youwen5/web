@@ -83,7 +83,7 @@
               pnpmDeps = pnpm.fetchDeps {
                 pname = "site-pnpm-deps";
                 src = ./web;
-                hash = "sha256-J5BmBDzLD/g2uIlKeFfEnwEarnT+dx/v4SYA3RARsJo=";
+                hash = "sha256-3w4KeHN3HHCr8j4QF7NduKE60wGvleM8brGXHF1MpZU=";
               };
             in
             pkgs.stdenv.mkDerivation (finalAttrs: {
