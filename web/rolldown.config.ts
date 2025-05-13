@@ -5,7 +5,7 @@ import path from "path";
 import { minify } from "rollup-plugin-swc3";
 
 export default {
-  input: "index.ts",
+  input: ["index.ts", "icons.ts"],
   output: {
     dir: "dist",
   },

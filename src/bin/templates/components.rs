@@ -81,9 +81,9 @@ impl Renderable for Head {
                     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css";
 
                 script async src="/index.js" {}
+                script async src="/icons.js" {}
                 script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" id="hljs-script" {}
                 script {
-
                     r#"
                       document.getElementById('hljs-script').onload = function() {
                           hljs.highlightAll();
