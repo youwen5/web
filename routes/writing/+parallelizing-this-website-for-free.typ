@@ -1,7 +1,7 @@
 #import "@luminite/html-shim:0.1.0": *
 
 #show: html-shim.with(
-  date: datetime(day: 29, year: 2025, month: 4),
+  date: datetime(day: 12, year: 2025, month: 5),
   title: "Parallelizing this website for free",
   location: "Santa Barbara, California",
   meta-description: "I implemented parallel builds for my static site generator in 30 minutes and 30 lines of code",
