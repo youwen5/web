@@ -7,7 +7,7 @@
   date: datetime(day: 11, month: 5, year: 2025),
   meta-description: "Youwen's resume / CV.",
   also-compile-pdf: true,
-  pdf-filename: "cv-short",
+  pdf-filename: "youwen-wu-cv-short",
 )
 
 #show: it => context {

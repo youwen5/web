@@ -11,7 +11,9 @@
           "a",
           attrs: (
             class: "inline-flex gap-2 font-sans hover:text-love",
-            href: if long { "./cv-full.pdf" } else { "./cv-short.pdf" },
+            href: if long { "/cv/youwen-wu-cv-full.pdf" } else {
+              "/cv/youwen-wu-cv-short.pdf"
+            },
             target: "_blank",
           ),
           {
