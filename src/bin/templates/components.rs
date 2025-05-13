@@ -43,7 +43,12 @@ const LAZY_HLJS_CSS: hypertext::Raw<&str> = Raw(r#"
 
 impl Renderable for Head {
     fn render_to(self, output: &mut String) {
-        let description = &self.description;
+        let description = match &self.description {
+            Some(desc) => desc,
+            None => {
+                "Youwen's personal website. Also a gathering hub for supporters of homotopy coherent mathematics. Together we shall prevail against the set theorists."
+            }
+        };
         let image = match &self.thumbnail {
             Some(image) => image,
             None => "/static/logo/button.png",
@@ -62,16 +67,10 @@ impl Renderable for Head {
                 meta name="og:title" content=(&page_title);
                 meta name="og:site_name" content="Youwen's Website";
 
-                @if let Some(description) = description {
-                    meta name="description" content=(description);
-                } @else {
-                    meta name="description" content="Youwen's personal website. Also a gathering hub for supporters of homotopy coherent mathematics. Together we shall prevail against the set theorists.";
-                }
+                meta name="description" content=(description);
 
-                @if let Some(description) = description {
-                    meta name="og:description" content=(description);
-                    meta name="twitter:description" content=(description);
-                }
+                meta name="og:description" content=(description);
+                meta name="twitter:description" content=(description);
 
                 @match self.author {
                     Some(author) =>  meta name="author" content=(author);
