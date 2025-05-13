@@ -4,7 +4,7 @@
   date: datetime(day: 12, year: 2025, month: 5),
   title: "Parallelizing this website for free",
   location: "Santa Barbara, California",
-  meta-description: "I implemented parallel builds for my static site generator in 30 minutes and 30 lines of code",
+  meta-description: "I implemented parallel builds for my static site generator in 10 minutes and 10 lines of code",
   enable-comments: true,
 )
 
@@ -12,7 +12,7 @@ There are around 20-30 pages on this website now and builds have been getting
 somewhat slow (in the realm of ~4 seconds total). Since I haven't implemented
 any sort of hot reload, I need to rebuild the whole site to view any changes,
 and it's actually a bit cumbersome to do development now. Using `rayon`, a data
-parallelism library, I multithreaded the entire build step and achieved
+parallelism library, I multithreaded the entire pre-build step and achieved
 #(sym.times)2 speedup for free.
 
 
@@ -36,8 +36,8 @@ In the code, the tree is represented by a `HashMap`, and the recursive step is
 implemented by calling `.iter()` on the map and invoking recursively on any
 subtree. This immediately presented an obvious place to find a lot of
 performance gains: we should be able to walk down each subtree in parallel.
-Querying metadata from or building a document has nothing to do with any other
-document, so it should be perfectly safe to parallelize this.
+Querying metadata from a document has nothing to do with any other document, so
+it should be perfectly safe to parallelize this.
 
 = Parallelism for free
 
@@ -55,41 +55,14 @@ the functional patterns expected by `rayon`), my code was compiling again.
 Did it work? It's Rust, so of course it worked first try! Testing it out, I
 immediately noticed a massive speedup.
 
-= Race conditions
-
-Of course, because the build step involves actually interacting with the file
-system, I was extra wary of data races. I noticed that a few pages of my site
-weren't getting built properly after the parallelization. Luckily I immediately
-knew of the exact cause: when each page is built, internally I'm having Typst
-render an intermediate #smallcaps[html] document that I then read and inject
-into a template. However, the directory where these artifacts are stored is
-purged every single time a document is built, which was simple and worked in
-the sequential implementation. Clearly it was breaking things in the parallel
-version.
-
-A subtle error, but an easy fix. First, I introduced `fastuuid` to attach a
-#smallcaps[uuid] to the filename of each artifact. Because the directory
-structure is flat, if you have e.g. routes `/index.html` and `/cv/index.html`),
-they'll end up with the same filename and possibly overwrite each other, a
-dangerous race condition. Then I just made it so the #smallcaps[html] artifacts
-directory isn't purged until the very end, where I introduced a `.cleanup()`
-step. And we were done! There were no more race conditions and the site built
-just like before, just in parallel.
-
 = But was it faster?
 
 Yes! The increased overhead introduced by `rayon` and threadpooling was
-negligible. By far the best improvement was querying metadata from a document.
-For some technical context, I'm using the `typst query` command to get data out
-of my documents. To do so, Typst actually has to evaluate the code, which takes
-a while. Doing this sequentially didn't scale well, and likely would've become
-painfully slow as my pages increased. After introducing `rayon` it went from
-1-2 seconds to near instant.
-
-This was by far the most noticeable improvement.
-
-I believe the build step was also sped up, but it seemed less immediately
-noticeable than the metadata step.
+negligible. For some technical context, I'm using the `typst query` command to
+get data out of my documents. To do so, Typst actually has to evaluate the
+code, which takes a while. Doing this sequentially didn't scale well, and
+likely would've become painfully slow as my pages increased. After introducing
+`rayon` it went from 1-2 seconds to near instant.
 
 = Benchmarks
 
@@ -121,3 +94,27 @@ Here's collected output from invoking `time site build --minify`:
 
 Not a huge speedup nominally, but noticeable. I suspect it will be
 exponentially more pronounced and impactful as the site grows in size.
+
+= Next steps
+
+I believe it should be possible to build the pages in parallel too. In
+particular, the biggest speed bottleneck now is calling the Typst compiler
+itself to build the documents. With a slight architectural refactor, it should
+be possible to build every intermediate artifact in parallel first (that is,
+compile every page to Typst's raw #smallcaps[html]), and then sequentially read
+each artifact and embed it into the site template. In theory it should be
+possible to parallelize the second step, but I'm afraid of hard to debug IO
+issues. Anyhow 90% of the speedup should come from parallelizing the Typst
+build step.
+
+I actually already made some progress on this already. Originally the behavior
+during the build phase was to build a #smallcaps[html] file in an auxiliary
+directory, read it, then purge it. Therefore every single page built required
+the directory to be purged. Because the directory structure is flat, if you
+have e.g. routes `/index.html` and `/cv/index.html`), they'll end up with the
+same filename and possibly overwrite each other, a dangerous race condition.
+This obviously wouldn't work in parallel, so I introduced `fastuuid` to attach
+a #smallcaps[uuid] to the filename of each artifact.
+
+All that's left to do is make it so all of these artifacts are built first,
+then read separately. Then it would be trivial to parallelize with `rayon`.
