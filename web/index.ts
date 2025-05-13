@@ -1,17 +1,49 @@
 import "./styles/main.css";
 
-import { createIcons, icons } from "lucide";
+// import { createIcons, icons } from "lucide";
 
 // Caution, this will import all the icons and bundle them.
-createIcons({ icons });
+// createIcons({ icons });
 
-// // Recommended way, to include only the icons you need.
-// import { createIcons, Menu, ArrowRight, Globe } from "lucide";
-//
-// createIcons({
-//   icons: {
-//     Menu,
-//     ArrowRight,
-//     Globe,
-//   },
-// });
+import {
+  createIcons,
+  SquareCode,
+  FileText,
+  Globe,
+  Scale,
+  LockKeyhole,
+  Accessibility,
+  MoveRight,
+  ExternalLink,
+  Github,
+  Send,
+  Linkedin,
+  Brain,
+  Instagram,
+  Box,
+  Newspaper,
+  Code,
+  Mail,
+} from "lucide";
+
+createIcons({
+  icons: {
+    SquareCode,
+    FileText,
+    Globe,
+    Scale,
+    LockKeyhole,
+    Accessibility,
+    MoveRight,
+    ExternalLink,
+    Github,
+    Send,
+    Linkedin,
+    Brain,
+    Instagram,
+    Box,
+    Newspaper,
+    Code,
+    Mail,
+  },
+});
