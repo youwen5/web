@@ -49,7 +49,7 @@ main {
 
   /* UI Elements */
   --color-btn-text: #575279; /* Text */
-  --color-btn-bg: #f2e9e1; /* Overlay */
+  --color-btn-bg: #f2f2f2; /* Overlay */
   --color-btn-border: #dfdad9; /* Highlight Med */
   --color-btn-shadow: 0 0 transparent;
   --color-btn-inset-shadow: 0 0 transparent;
@@ -59,7 +59,7 @@ main {
   --color-btn-active-border: #9893a5; /* Muted */
   --color-btn-selected-bg: #dfdad9; /* Highlight Med */
 
-  --color-btn-primary-text: #fffaf3; /* Surface */
+  --color-btn-primary-text: #f2f2f2; /* Surface */
   --color-btn-primary-bg: #b4637a; /* Love */
   --color-btn-primary-border: #b4637a; /* Love (or #d7827e for a subtle difference) */
   --color-btn-primary-shadow: 0 0 transparent;
@@ -76,15 +76,15 @@ main {
 
   --color-action-list-item-default-hover-bg: #f4ede8; /* Highlight Low */
   --color-segmented-control-bg: #f4ede8; /* Highlight Low */
-  --color-segmented-control-button-bg: #fffaf3; /* Surface */
+  --color-segmented-control-button-bg: #f2f2f2; /* Surface */
   --color-segmented-control-button-selected-border: #9893a5; /* Muted */
 
   /* General Foreground/Background */
   --color-fg-default: #575279; /* Text */
   --color-fg-muted: #797593; /* Subtle */
   --color-fg-subtle: #9893a5; /* Muted */
-  --color-canvas-default: #faf4ed; /* Base */
-  --color-canvas-overlay: #f2e9e1; /* Overlay */
+  --color-canvas-default: #fefefe; /* Base */
+  --color-canvas-overlay: #f2f2f2; /* Overlay */
   --color-canvas-inset: #f4ede8; /* Highlight Low */
   --color-canvas-subtle: #dfdad9; /* Highlight Med */
   --color-border-default: #dfdad9; /* Highlight Med */
@@ -152,7 +152,7 @@ main .pagination-loader-container {
 }
 
 .gsc-homepage-bg {
-  background-color: #faf4ed; /* Base */
+  background-color: #fefefe; /* Base */
 }
 
 main .gsc-loading-image {

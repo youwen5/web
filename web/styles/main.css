@@ -65,8 +65,8 @@
 :root {
   --bg-color: 254 254 254;
   --foreground-color: 87 82 121;
-  --surface-color: 255 250 243;
-  --overlay-color: 242 233 225;
+  --surface-color: 245 245 245;
+  --overlay-color: 242 242 242;
   --muted-color: 152 147 165;
   --subtle-color: 121 117 147;
   --love-color: 180 99 122;
