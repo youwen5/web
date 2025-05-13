@@ -148,7 +148,7 @@ body {
 /* } */
 
 .text-link {
-  @apply text-pine dark:text-foam hover:underline hover:decoration-solid hover:decoration-2 hover:decoration-foam mr-1.5;
+  @apply text-pine dark:text-foam hover:bg-pine dark:hover:bg-foam hover:text-bg mr-1.5;
 }
 
 .text-link::after {
