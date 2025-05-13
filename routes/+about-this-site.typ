@@ -3,7 +3,7 @@
 #show: html-shim.with(title: "About this site")
 
 #let icon(name: "") = {
-  html.elem("span", attrs: (class: "my-auto"), lucide-icon(name: name))
+  html.elem("span", attrs: (class: "my-auto w-[24px]"), lucide-icon(name: name))
 }
 
 

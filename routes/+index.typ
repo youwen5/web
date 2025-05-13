@@ -36,7 +36,9 @@
   = Recently
 
   #let icon(name: "") = {
-    html.elem("span", attrs: (class: "my-auto"), lucide-icon(name: name))
+    html.elem("span", attrs: (class: "my-auto w-[24px]"), lucide-icon(
+      name: name,
+    ))
   }
 
   #show heading.where(level: 1): it => {
