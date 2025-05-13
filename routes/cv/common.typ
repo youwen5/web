@@ -287,7 +287,7 @@
           #body
           #html.elem(
             "div",
-            attrs: (class: "-mt-1 mb-4"),
+            attrs: (class: "-mt-2 mb-4"),
             {
               if type == "github" {
                 html.elem(
