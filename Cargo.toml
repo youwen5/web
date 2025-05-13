@@ -25,7 +25,6 @@ time = { version = "0.3", features = [
 ] }
 compile-time = "0.2"
 rayon = "1.10"
-fastuuid = "0.3"
 
 [[bin]]
 name = "site"

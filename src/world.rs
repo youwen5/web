@@ -2,12 +2,12 @@
 use std::{
     collections::HashMap,
     fs::{self, File},
+    hash::{Hash, Hasher},
     io::{self, Read},
     path::{self, Path, PathBuf},
     process::Command,
 };
 
-use fastuuid::Generator;
 use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
 use rayon::iter::{IntoParallelRefIterator, IntoParallelRefMutIterator, ParallelIterator};
 use serde::{Deserialize, Serialize};
@@ -25,6 +25,7 @@ impl TypstDoc {
         let doc = TypstDoc {
             source_path: path_to_html.to_path_buf(),
             metadata: None,
+            artifact_path: None,
         };
 
         Ok(doc)
@@ -77,6 +78,8 @@ pub struct TypstDoc {
     source_path: PathBuf,
     /// The metadata associated with document, typically extracted using `World::get_metadata()`
     pub metadata: Option<Metadata>,
+    /// The path to the built HTML artifact associated with the document
+    artifact_path: Option<PathBuf>,
 }
 
 /// Given a path to an entry point `main.typ` and an output location, use the Typst CLI to compile
@@ -322,7 +325,6 @@ impl WorkingDirs {
 pub struct World {
     working_dirs: WorkingDirs,
     root: PathBuf,
-    generator: Generator,
 }
 
 impl World {
@@ -331,13 +333,12 @@ impl World {
         World {
             working_dirs,
             root: PathBuf::from("./"),
-            generator: Generator::new(),
         }
     }
 
     /// Given a `TypstDoc`, build it in the World and return a path to it (which is guaranteed to
     /// exist).
-    fn build_doc(&self, doc: &TypstDoc) -> Result<PathBuf, WorldError> {
+    fn build_doc(&self, doc: &mut TypstDoc) -> Result<(), WorldError> {
         let dirs = &self.working_dirs;
         let mut html_artifacts_path = dirs.factory.to_owned();
         html_artifacts_path.push(Path::new("./typst-html"));
@@ -346,25 +347,35 @@ impl World {
             std::fs::create_dir(&html_artifacts_path)?;
         }
 
+        let mut s = std::hash::DefaultHasher::new();
+        doc.source_path.as_os_str().hash(&mut s);
+
         let output_path = html_artifacts_path.join(PathBuf::from(format!(
             "./{}-{}.html",
             doc.source_path.file_stem().unwrap().to_str().unwrap(),
-            self.generator.hex128_as_string().unwrap()
+            s.finish()
         )));
         compile_document(&doc.source_path, &output_path, &self.root)?;
 
-        Ok(output_path)
+        doc.artifact_path = Some(output_path);
+
+        Ok(())
     }
 
     /// Given a `TypstDoc`, realize it in the World and obtain its contents, with \<DOCTYPE>,
     /// \<html>, \<head>, and \<body> tags truncated.
-    pub fn get_doc_contents(&self, doc: &TypstDoc) -> Result<String, WorldError> {
-        let build_path = self
-            .build_doc(doc)
+    pub fn get_doc_contents(&self, doc: &mut TypstDoc) -> Result<String, WorldError> {
+        self.build_doc(doc)
             .expect("Something went wrong building a document.");
 
-        let mut file = std::fs::File::open(build_path)
-            .expect("Something has gone wrong opening the contents of a compiled document.");
+        let mut file = std::fs::File::open(
+            doc.artifact_path
+                .take()
+                .expect("there should be a document here")
+                .as_os_str(),
+        )
+        .expect("Something has gone wrong opening the contents of a compiled document.");
+
         let mut contents = String::new();
         file.read_to_string(&mut contents).unwrap();
         let truncated_source = truncate_lines(&contents, 7, 2);
