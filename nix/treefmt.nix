@@ -1,4 +1,4 @@
-{
+rustToolchain: {
   # Used to find the project root
   projectRootFile = "flake.nix";
 
@@ -6,6 +6,7 @@
     nixfmt.enable = true;
     taplo.enable = true;
     rustfmt.enable = true;
+    rustfmt.package = rustToolchain;
     yamlfmt.enable = true;
     prettier.enable = true;
   };

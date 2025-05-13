@@ -55,14 +55,15 @@
 
           pnpm = pkgs.pnpm_10;
 
-          craneLib = (crane.mkLib pkgs).overrideToolchain (
-            fenix.packages.${system}.complete.withComponents [
-              "rustc"
-              "cargo"
-              "clippy"
-              "rust-std"
-            ]
-          );
+          rustToolchain = fenix.packages.${system}.complete.withComponents [
+            "rustc"
+            "cargo"
+            "clippy"
+            "rust-std"
+            "rustfmt"
+          ];
+
+          craneLib = (crane.mkLib pkgs).overrideToolchain rustToolchain;
 
           # Common arguments can be set here to avoid repeating them later
           # Note: changes here will rebuild all dependency crates
@@ -126,7 +127,7 @@
               '';
             });
 
-          treefmtEval = treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix;
+          treefmtEval = treefmt-nix.lib.evalModule pkgs ((import ./nix/treefmt.nix) rustToolchain);
 
           typst-packages = pkgs.fetchFromGitHub {
             owner = "typst";
