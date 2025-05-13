@@ -7,12 +7,13 @@ use std::{
     process::Command,
 };
 
+use fastuuid::Generator;
 use minify_html_onepass::{Cfg, Error as HtmlError, in_place_str};
 use rayon::iter::{IntoParallelRefIterator, IntoParallelRefMutIterator, ParallelIterator};
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 use time::OffsetDateTime;
-use tracing::{Level, event}; // Need ParallelIterator trait
+use tracing::{Level, event};
 
 use crate::{
     site::{RouteNode, RouteTree, Routes, Site, Templater},
@@ -337,14 +338,15 @@ impl World {
         let mut html_artifacts_path = dirs.factory.to_owned();
         html_artifacts_path.push(Path::new("./typst-html"));
 
-        if html_artifacts_path.is_dir() || std::fs::exists(&html_artifacts_path)? {
-            std::fs::remove_dir_all(&html_artifacts_path)?;
+        if !html_artifacts_path.is_dir() || !std::fs::exists(&html_artifacts_path)? {
+            std::fs::create_dir(&html_artifacts_path)?;
         }
 
-        std::fs::create_dir(&html_artifacts_path)?;
+        let generator = Generator::new();
         let output_path = html_artifacts_path.join(PathBuf::from(format!(
-            "./{}.html",
-            doc.source_path.file_stem().unwrap().to_str().unwrap()
+            "./{}-{}.html",
+            doc.source_path.file_stem().unwrap().to_str().unwrap(),
+            generator.hex128_as_string().unwrap()
         )));
         compile_document(&doc.source_path, &output_path, &self.root)?;
 
@@ -589,10 +591,16 @@ impl World {
             })
     }
 
+    fn cleanup(&self) -> Result<(), WorldError> {
+        std::fs::remove_dir_all(self.working_dirs.factory.join("typst-html"))?;
+        Ok(())
+    }
+
     pub fn realize_site(&self, mut site: Site, minify: bool) -> Result<(), WorldError> {
         self.copy_public_dir(&site)?;
         self.get_metadata(&mut site)?;
         self.build_routes(&mut site, minify)?;
+        self.cleanup()?;
 
         Ok(())
     }
