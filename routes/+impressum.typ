@@ -14,4 +14,4 @@
 #smallcaps[or:] `youwenw (at) gmail.com` \
 `8F5E 6C1A F909 76CA 7102 917A 8656 58ED 1FE6 1EC3`
 
-_Keys available in #link("https://keys.openpgp.org/")[OpenPGP] and #link("https://pgp.mit.edu/")[MIT] keyservers._
+Keys available in #link("https://keys.openpgp.org/")[OpenPGP] and #link("https://pgp.mit.edu/")[MIT] keyservers.
