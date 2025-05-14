@@ -3,7 +3,7 @@
 #show: html-shim.with(title: "Photos", meta-description: "Photo gallery")
 
 #let photo(src, caption, date, show-in-selected) = {
-  let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group"
+  let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group/child"
   let final-class = if not show-in-selected {
     base-class + " group-[.show-selected]:hidden"
   } else { base-class }
@@ -24,7 +24,7 @@
       html.elem("div", attrs: (class: "text-base w-full px-1"), [
         #html.elem(
           "span",
-          attrs: (class: "text-sm text-subtle group-hover:text-bg"),
+          attrs: (class: "text-sm text-subtle group-hover/child:text-bg"),
           date.display("[day padding:zero] [month repr:short], [year]"),
         ) \
         #caption
