@@ -20,6 +20,7 @@
         src: src,
         class: "w-full aspect-square lg:aspect-3/4 object-cover",
         alt: caption,
+        loading: "lazy",
       ))
       html.elem("div", attrs: (class: "text-base w-full px-1"), [
         #html.elem(

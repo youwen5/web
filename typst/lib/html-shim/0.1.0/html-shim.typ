@@ -38,7 +38,12 @@
     } else {
       base-classes
     }
-    html.elem("img", attrs: (src: src, alt: alt, class: classes))
+    html.elem("img", attrs: (
+      src: src,
+      alt: alt,
+      class: classes,
+      loading: "lazy",
+    ))
   }
 }
 
