@@ -412,7 +412,7 @@ impl World {
 
         self.build_artifacts(&mut site.routes.tree, &html_artifacts_path)?;
 
-        self.route_builder_helper(
+        self.build_templates(
             &mut site.routes.tree,
             "".to_string(),
             &site.templater,
@@ -446,8 +446,8 @@ impl World {
         Ok(())
     }
 
-    /// Build all of the artifacts for a `RouteTree`, populating each `TypstDoc` with the
-    /// `artifact_path`
+    /// Build all the artifacts for a `RouteTree`, populating each `TypstDoc` with the
+    /// `artifact_path`.
     fn build_artifacts(
         &self,
         route_tree: &mut RouteTree,
@@ -476,7 +476,7 @@ impl World {
 
     /// Helper function to recursively traverse a tree of routes for implementing `build_site`.
     /// Renders each document and applies the template rule.
-    fn route_builder_helper(
+    fn build_templates(
         &self,
         routes: &mut RouteTree,
         parent_route: String,
@@ -595,7 +595,7 @@ impl World {
                     }
                 }
                 (slug, RouteNode::Nested(nested_tree)) => {
-                    self.route_builder_helper(
+                    self.build_templates(
                         nested_tree,
                         parent_route.to_owned() + "/" + slug,
                         templater,
