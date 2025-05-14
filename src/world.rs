@@ -228,7 +228,6 @@ fn query_metadata(path: &Path, root: &Path) -> Result<Metadata, WorldError> {
         ])
         .arg(path.to_str().expect("Failed to cast document to a string."))
         .arg("<metadata>")
-        .stderr(std::process::Stdio::null())
         .output()?
         .stdout;
 
