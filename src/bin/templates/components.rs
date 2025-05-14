@@ -24,17 +24,17 @@ impl Head {
     }
 }
 
-const LAZY_HLJS_CSS: hypertext::Raw<&str> = Raw(r#"
+const LAZY_PRISM_CSS: hypertext::Raw<&str> = Raw(r#"
 <link
     rel="preload"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+    href="/styles/prism-catppuccin.css"
     as="style"
     media="screen"
     onload="this.onload=null;this.rel='stylesheet'"
 >
 <link
     rel="preload"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    href="/styles/prism-rose-pine.css"
     as="style"
     media="screen and (prefers-color-scheme: dark)"
     onload="this.onload=null;this.rel='stylesheet'"
@@ -89,29 +89,23 @@ impl Renderable for Head {
 
                 link rel="stylesheet" href="/bundle.css";
 
-                (LAZY_HLJS_CSS)
+                (LAZY_PRISM_CSS)
 
                 noscript {
                     link
                         rel="stylesheet"
                         media="screen"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css";
+                        href="/styles/prism-catppuccin.css";
                     link
                         rel="stylesheet"
                         media="screen and (prefers-color-scheme: dark)"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css";
+                        href="/styles/prism-rose-pine.css";
                 }
 
                 script async src="/index.js" {}
                 script async src="/icons.js" {}
-                script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" id="hljs-script" {}
-                script {
-                    r#"
-                    document.getElementById('hljs-script').onload = function() {
-                        hljs.highlightAll();
-                    };
-                    "#
-                }
+                script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" id="prism-script" {}
+                script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" id="prism-autoloader" {}
                 script data-collect-dnt="true" defer src="https://scripts.simpleanalyticscdn.com/latest.js" {}
 
             }

@@ -1,1 +1,2 @@
 routes/**/*.typ linguist-documentation
+public/styles/*.css linguist-generated

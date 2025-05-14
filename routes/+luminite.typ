@@ -40,7 +40,7 @@ smoothing around the corners, hot reload, caching.
 = Done
 
 - #done Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect] or #link("https://github.com/tree-sitter/tree-sitter/tree/master/highlight")[tree-sitter-highlight].
-  - Used `hljs` for now.
+  - Used `prism.js` for now.
 - #done Set up TailwindCSS and a nice Big Beautiful Stylesheet.
 - #done Basic utilities with interacting with the world, e.g. Typst compiler, build intermediate artifacts.
   - #done Typst compiler wrapper
@@ -66,7 +66,7 @@ smoothing around the corners, hot reload, caching.
 
 = Testing code
 
-Currently code highlighting is implemented using `hljs`. In the future it may be done at compile time with more advanced methods.
+Currently code highlighting is implemented using `prism.js`. In the future it may be done at compile time with more advanced methods.
 
 ```rust
 impl TypstDoc {
