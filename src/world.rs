@@ -678,9 +678,9 @@ fn reconcile_raw_routes(tree: &RawRouteTree) -> RouteTree {
                     filename.strip_prefix('+').map(|stripped| {
                         (
                             stripped.to_string(),
-                            RouteNode::Page(
+                            RouteNode::Page(Box::new(
                                 TypstDoc::new(file).expect("Error failed parsing routes tree."),
-                            ),
+                            )),
                         )
                     })
                 } else {

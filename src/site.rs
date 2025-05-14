@@ -7,7 +7,7 @@ use crate::world::{Metadata, TypstDoc};
 pub type RouteTree = HashMap<String, RouteNode>;
 #[derive(Debug)]
 pub enum RouteNode {
-    Page(TypstDoc),
+    Page(Box<TypstDoc>),
     Nested(RouteTree),
     Redirect(PathBuf),
 }
