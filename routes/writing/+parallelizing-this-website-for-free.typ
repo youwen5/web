@@ -118,7 +118,9 @@ immediately noticed a massive speedup.
 
 = Benchmarks
 
-Here's benchmark data from #link("https://github.com/sharkdp/hyperfine")[hyperfine] on the actual site.
+Here's benchmark data using
+#link("https://github.com/sharkdp/hyperfine")[hyperfine] on the actual site
+(executed on Apple Silicon, M1 Pro, running NixOS w/ Linux 6.13.5-asahi):
 
 1. Before (average total time elapsed, ~3.6 seconds)
   ```sh
@@ -134,7 +136,7 @@ Here's benchmark data from #link("https://github.com/sharkdp/hyperfine")[hyperfi
     Range (min … max):   743.6 ms … 889.3 ms    10 runs
   ```
 
-For a more impactful trial, I've generated 500 synthetic pages (long-form blog
+For a more pronounced trial, I've generated 500 synthetic pages (long-form blog
 posts) and then benchmarked it again.
 
 1. Before (average total time elapsed, ~65 seconds)
