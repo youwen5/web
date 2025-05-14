@@ -1,10 +1,10 @@
 #import "@luminite/html-shim:0.1.0": *
 
 #show: html-shim.with(
-  date: datetime(day: 12, year: 2025, month: 5),
+  date: datetime(day: 13, year: 2025, month: 5),
   title: "Parallelizing this website for free",
   location: "Santa Barbara, California",
-  meta-description: "I implemented parallel builds for my static site generator in 10 minutes and 10 lines of code",
+  meta-description: "I implemented parallel builds for my static site generator in 10 minutes and 1 line of code",
   enable-comments: true,
 )
 
@@ -12,7 +12,7 @@ There are around 20-30 pages on this website now and builds have been getting
 somewhat slow (in the realm of ~4 seconds total). Since I haven't implemented
 any sort of hot reload, I need to rebuild the whole site to view any changes,
 and it's actually a bit cumbersome to do development now. Using `rayon`, a data
-parallelism library, I multithreaded the entire query and build step and achieved
+parallelism library, I parallelized the entire query and build step and achieved
 #(sym.times)2 speedup for basically zero effort.
 
 
@@ -62,6 +62,28 @@ The second step after we have all the built artifacts is to read all the built
 files, embed it in the templates and create the final files. This part is
 already really fast and requires creating nested directories, so we don't need
 to parallelize this for now.
+
+Finally, although `rayon` handles data races very well thanks to Rustacean
+#quote[fearless concurrency], I still needed to be mindful of real-world IO
+race conditions. In particular, I realized that if I had two Typst files with
+the same filename but representing different routes, the file would get
+overwritten and things would get real wacky. (concrete example: both `/+index.typ`
+and `/cv/+index.typ` would get compiled to `+index.html`, so one of them would
+end up overwriting the other).
+
+This was easily fixed by hashing the canonical path of the Typst source file
+and appending it to the filename, giving us this instead.
+
+```
++index-10358123698156044784.html
++index-5389558411361854159.html
+```
+
+= So it#(apostrophe)s that easy?
+
+Well, I had to refactor the iterator so it used the functional `.map()` and
+`.collect()` patterns `rayon` expects. But yeah, after it was working
+synchronously, I just swapped one line of code.
 
 Here's the original code of the synchronous function that does the tree
 traversal and builds the artifacts:
