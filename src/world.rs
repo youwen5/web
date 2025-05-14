@@ -338,15 +338,7 @@ impl World {
 
     /// Given a `TypstDoc`, build it in the World and return a path to it (which is guaranteed to
     /// exist).
-    fn build_doc(&self, doc: &mut TypstDoc) -> Result<(), WorldError> {
-        let dirs = &self.working_dirs;
-        let mut html_artifacts_path = dirs.factory.to_owned();
-        html_artifacts_path.push(Path::new("./typst-html"));
-
-        if !html_artifacts_path.is_dir() || !std::fs::exists(&html_artifacts_path)? {
-            std::fs::create_dir(&html_artifacts_path)?;
-        }
-
+    fn build_doc(&self, doc: &mut TypstDoc, html_artifacts_path: &Path) -> Result<(), WorldError> {
         let mut s = std::hash::DefaultHasher::new();
         doc.source_path.as_os_str().hash(&mut s);
 
@@ -365,9 +357,6 @@ impl World {
     /// Given a `TypstDoc`, realize it in the World and obtain its contents, with \<DOCTYPE>,
     /// \<html>, \<head>, and \<body> tags truncated.
     pub fn get_doc_contents(&self, doc: &mut TypstDoc) -> Result<String, WorldError> {
-        self.build_doc(doc)
-            .expect("Something went wrong building a document.");
-
         let mut file = std::fs::File::open(
             doc.artifact_path
                 .take()
@@ -414,6 +403,16 @@ impl World {
     /// generating metadata, etc.) and output the artifacts in `dist`. It may consume various parts
     /// of `&Site`, so `&Site` should be dropped immediately after this is called.
     fn build_routes(&self, site: &mut Site, minify: bool) -> Result<(), WorldError> {
+        let dirs = &self.working_dirs;
+        let mut html_artifacts_path = dirs.factory.to_owned();
+        html_artifacts_path.push(Path::new("./typst-html"));
+
+        if !html_artifacts_path.is_dir() || !std::fs::exists(&html_artifacts_path)? {
+            std::fs::create_dir(&html_artifacts_path)?;
+        }
+
+        self.build_artifacts(&mut site.routes.tree, &html_artifacts_path)?;
+
         self.route_builder_helper(
             &mut site.routes.tree,
             "".to_string(),
@@ -446,6 +445,34 @@ impl World {
         .run()?;
 
         Ok(())
+    }
+
+    /// Build all of the artifacts for a `RouteTree`, populating each `TypstDoc` with the
+    /// `artifact_path`
+    fn build_artifacts(
+        &self,
+        route_tree: &mut RouteTree,
+        html_artifacts_path: &Path,
+    ) -> Result<(), WorldError> {
+        route_tree
+            .par_iter_mut()
+            .try_for_each(|(filename, node)| match node {
+                RouteNode::Page(typst_doc) => {
+                    event!(Level::INFO, "Building artifact for {}", filename);
+
+                    self.build_doc(typst_doc, html_artifacts_path)?;
+
+                    event!(
+                        Level::DEBUG,
+                        "Built an HTML artifact from {filename}, at path {:?}",
+                        typst_doc.source_path.as_os_str(),
+                    );
+
+                    Ok(())
+                }
+                RouteNode::Nested(hash_map) => self.build_artifacts(hash_map, html_artifacts_path),
+                RouteNode::Redirect(_) => Ok(()),
+            })
     }
 
     /// Helper function to recursively traverse a tree of routes for implementing `build_site`.
@@ -497,7 +524,11 @@ impl World {
                         minify_css: true,
                     };
 
-                    event!(Level::INFO, "Compiling {}.", output_route.as_str());
+                    event!(
+                        Level::INFO,
+                        "Creating webpage at {}.",
+                        output_route.as_str()
+                    );
 
                     let contents = self.get_doc_contents(doc)?;
                     let metadata = doc.metadata.as_ref().expect("no metadata in document");
@@ -607,15 +638,18 @@ impl World {
     }
 
     fn cleanup(&self) -> Result<(), WorldError> {
-        std::fs::remove_dir_all(self.working_dirs.factory.join("typst-html"))?;
+        let html_dir = self.working_dirs.factory.join("typst-html");
+        if html_dir.try_exists()? {
+            std::fs::remove_dir_all(self.working_dirs.factory.join("typst-html"))?;
+        }
         Ok(())
     }
 
     pub fn realize_site(&self, mut site: Site, minify: bool) -> Result<(), WorldError> {
+        self.cleanup()?;
         self.copy_public_dir(&site)?;
         self.get_metadata(&mut site)?;
         self.build_routes(&mut site, minify)?;
-        self.cleanup()?;
 
         Ok(())
     }
