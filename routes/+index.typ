@@ -41,10 +41,6 @@
     ))
   }
 
-  #show heading.where(level: 1): it => {
-    html.elem("h2", attrs: (class: "text-love"), it.body)
-  }
-
   #let update(date: "", is-link: true, internal: true, href: "", body) = {
     html.elem(
       if is-link { "a" } else { "span" },
@@ -87,6 +83,78 @@
     #icon(name: "code")
     I wrote my own static site generator lol
   ]
+
+  = Photos
+
+  #let photo-urls = (
+    (
+      "https://cdn.youwen.dev/IMG_5525.jpeg",
+      "Moon over the Pacific, Santa Barbara",
+      datetime(day: 5, month: 11, year: 2025),
+    ),
+    (
+      "https://cdn.youwen.dev/sunset-over-berkeley.webp",
+      "Sunset over UC Berkeley",
+      datetime(day: 2, month: 1, year: 2025),
+    ),
+    (
+      "https://cdn.youwen.dev/dji_fly_20240805_060926_418_1722863474220_photo_optimized.jpeg",
+      "Mission Peak, Newark, California",
+      datetime(day: 5, month: 8, year: 2024),
+    ),
+  )
+
+  #let photo(src, caption, date) = {
+    let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group w-48 min-w-48"
+
+    html.elem(
+      "a",
+      attrs: (
+        href: src,
+        target: "_blank",
+        class: base-class,
+      ),
+      {
+        html.elem("img", attrs: (
+          src: src,
+          class: "w-full aspect-square lg:aspect-3/4 object-cover !my-1",
+          alt: caption,
+        ))
+        html.elem("div", attrs: (class: "text-base w-full px-1"), [
+          #html.elem(
+            "span",
+            attrs: (class: "text-sm text-subtle group-hover:text-bg"),
+            date.display("[day padding:zero] [month repr:short], [year]"),
+          ) \
+          #caption
+        ])
+      },
+    )
+  }
+
+
+  #html.elem(
+    "div",
+    attrs: (
+      class: "overflow-x-auto w-0 min-w-full gap-4 inline-flex flex-nowrap",
+    ),
+    {
+      for elem in (
+        photo-urls.map(it => photo(..it))
+      ) {
+        elem
+      }
+    },
+  )
+
+  #update(href: "/photos")[
+    #icon(name: "camera")
+    All photos
+  ]
+
+  #show heading.where(level: 1): it => {
+    html.elem("h2", attrs: (class: "text-love"), it.body)
+  }
 
   #html.elem("div", attrs: (id: "contact"), [])
   = Contact

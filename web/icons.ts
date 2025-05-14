@@ -2,6 +2,7 @@ import {
   createIcons,
   SquareCode,
   FileText,
+  Camera,
   Globe,
   Scale,
   LockKeyhole,
@@ -24,6 +25,7 @@ createIcons({
   icons: {
     SquareCode,
     FileText,
+    Camera,
     Globe,
     Scale,
     LockKeyhole,

@@ -3,7 +3,7 @@
 #show: html-shim.with(title: "Photos", meta-description: "Photo gallery")
 
 #let photo(src, caption, date, show-in-selected) = {
-  let base-class = "p-1 hover:bg-foam hover:text-bg space-y-1 group"
+  let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group"
   let final-class = if not show-in-selected {
     base-class + " group-[.show-selected]:hidden"
   } else { base-class }
@@ -58,19 +58,18 @@
   },
 )
 
-
 #let photo-urls = (
-  (
-    "https://cdn.youwen.dev/sunset-over-berkeley.webp",
-    "Sunset over UC Berkeley",
-    datetime(day: 2, month: 1, year: 2025),
-    true,
-  ),
   (
     "https://cdn.youwen.dev/IMG_5525.jpeg",
     "Moon over the Pacific, Santa Barbara",
     datetime(day: 5, month: 11, year: 2025),
     false,
+  ),
+  (
+    "https://cdn.youwen.dev/sunset-over-berkeley.webp",
+    "Sunset over UC Berkeley",
+    datetime(day: 2, month: 1, year: 2025),
+    true,
   ),
   (
     "https://cdn.youwen.dev/dji_fly_20240805_060926_418_1722863474220_photo_optimized.jpeg",
@@ -79,6 +78,7 @@
     true,
   ),
 )
+
 
 #html.elem(
   "div",
