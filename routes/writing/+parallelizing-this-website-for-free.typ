@@ -58,12 +58,10 @@ build every document in an intermediate directory. This is by far the slowest
 step, because we invoke the Typst compiler on every single file, so this is
 what we are going to parallelize.
 
-#btw[
-  The second step after we have all the built artifacts is to read all the
-  built files, embed it in the templates and create the final files. This part
-  is really fast and requires creating nested directories, so we don't need to
-  parallelize this for now.
-]
+The second step after we have all the built artifacts is to read all the built
+files, embed it in the templates and create the final files. This part is
+already really fast and requires creating nested directories, so we don't need
+to parallelize this for now.
 
 Here's the original code of the synchronous function that does the tree
 traversal and builds the artifacts:
@@ -106,7 +104,12 @@ route_tree
     .par_iter_mut()
 ```
 
-We do something very similar to parallelize the aforementioned query step.
+And we're done! In theory, our tree traversal is now going to run in parallel
+thanks to `rayon`.
+
+#btw[
+  We do something very similar to parallelize the query step as well.
+]
 
 = But was it faster?
 
@@ -115,22 +118,44 @@ immediately noticed a massive speedup.
 
 = Benchmarks
 
-Here's collected output from invoking `time site build --minify`:
+Here's benchmark data from #link("https://github.com/sharkdp/hyperfine")[hyperfine] on the actual site.
 
 1. Before (average total time elapsed, ~3.6 seconds)
   ```sh
   Benchmark 1: site build --minify
-    Time (mean ± σ):     800.9 ms ±  48.8 ms    [User: 3134.6 ms, System: 575.6 ms]
-    Range (min … max):   743.6 ms … 889.3 ms    10 runs
+    Time (mean ± σ):      3.628 s ±  0.079 s
+    Range (min … max):    3.544 s …  3.773 s    10 runs
   ```
 
-2. After (average total time elapsed, ~0.78 seconds)
+2. After (average total time elapsed, ~0.8 seconds)
   ```sh
   Benchmark 1: site build --minify
-    Time (mean ± σ):     800.9 ms ±  48.8 ms    [User: 3134.6 ms, System: 575.6 ms]
+    Time (mean ± σ):     800.9 ms ±  48.8 ms
     Range (min … max):   743.6 ms … 889.3 ms    10 runs
   ```
 
+For a more impactful trial, I've generated 500 synthetic pages (long-form blog
+posts) and then benchmarked it again.
+
+1. Before (average total time elapsed, ~65 seconds)
+  ```sh
+  Benchmark 1: site build --minify
+    Time (mean ± σ):      65.32 s ±  1.320 s
+    Range (min … max):    45.24 s …  71.393 s    10 runs
+  ```
+
+2. After (average total time elapsed, ~10 seconds)
+  ```sh
+  Benchmark 1: site build --minify
+    Time (mean ± σ):     10.235 s ±  0.051 s
+    Range (min … max):   10.156 s … 10.316 s    10 runs
+  ```
+
+Much bigger difference with more files.
+
+= Conclusion
+
 Building sequentially didn't scale well, and likely would've become painfully
-slow as my pages increased. I suspect the speed gains from parallelization will
-be exponentially more pronounced and impactful as the site grows in size.
+slow as my pages increased. As I suspected, the speed gains from
+parallelization become exponentially more pronounced and impactful as the site
+grows in size.
