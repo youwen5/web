@@ -335,8 +335,8 @@ impl World {
         }
     }
 
-    /// Given a `TypstDoc`, build it in the World and return a path to it (which is guaranteed to
-    /// exist).
+    /// Given a `TypstDoc`, build it in the World and populate its `artifact_path` with the built
+    /// document.
     fn build_doc(&self, doc: &mut TypstDoc, html_artifacts_path: &Path) -> Result<(), WorldError> {
         let mut s = std::hash::DefaultHasher::new();
         doc.source_path.as_os_str().hash(&mut s);
