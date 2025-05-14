@@ -52,6 +52,7 @@ pub fn run() {
     match &cli.command {
         Commands::Build(args) => {
             let main_page = templates::MainPage;
+            let photos = templates::Photos;
             let prose = templates::Prose;
             let index = templates::Index;
 
@@ -87,6 +88,7 @@ pub fn run() {
                     "/colophon" => main_page.render_page_with_content(raw_content, metadata),
                     "/impressum" => main_page.render_page_with_content(raw_content, metadata),
                     "/privacy" => main_page.render_page_with_content(raw_content, metadata),
+                    "/photos" => photos.render_page_with_content(raw_content, metadata),
                     _ => prose.render_page_with_content(raw_content, metadata),
                 }
             });
