@@ -1,11 +1,7 @@
 #import "@luminite/html-shim:0.1.0": *
 
 #show: html-shim.with(
-  date: datetime(
-    day: 10,
-    year: 2025,
-    month: 5,
-  ),
+  date: datetime(day: 10, year: 2025, month: 5),
   location: "Santa Barbara, California",
   title: "Doing web development in Typst",
   enable-comments: true,
@@ -30,27 +26,21 @@ syntax for setting metadata on a web page is really similar to setting up a
 typical Typst document template. For example, here's the metadata for this
 page:
 
-#html.elem(
-  "div",
-  attrs: (class: "rounded-md bg-overlay px-4 shadow-md dark:shadow-none"),
-)[
-  ```
-  #show: html-shim.with(
-    date: datetime(
-      day: 10,
-      year: 2025,
-      month: 5,
-    ),
-    location: "Santa Barbara, California",
-    title: "Doing web development in Typst",
-    enable-comments: true,
-  )
-  ```]
+```typst
+#show: html-shim.with(
+  date: datetime(
+    day: 10,
+    year: 2025,
+    month: 5,
+  ),
+  location: "Santa Barbara, California",
+  title: "Doing web development in Typst",
+  enable-comments: true,
+)
+```
 
 Typst #smallcaps[html] export is experimental, so I wrote this
-#link(
-  "https://github.com/youwen5/web/blob/main/typst/lib/html-shim/0.1.0/html-shim.typ",
-)[#smallcaps[html]
+#link("https://github.com/youwen5/web/blob/main/typst/lib/html-shim/0.1.0/html-shim.typ")[#smallcaps[html]
   shim] that makes stuff work right on the web (like smallcaps, for example), renders math
 properly, and implements the aforementioned metadata system.
 
@@ -65,12 +55,9 @@ $
 But doing more complicated stuff is possible too. For example, those widgets on
 the #link("/")[main page] were written in pure Typst.
 
-#html.elem(
-  "div",
-  attrs: (
-    class: "grid grid-cols-1 md:grid-cols-2 gap-6 font-sans font-light text-love",
-  ),
-)[
+#html.elem("div", attrs: (
+  class: "grid grid-cols-1 md:grid-cols-2 gap-6 font-sans font-light text-love",
+))[
   #let double-entry(body) = {
     html.elem("div", attrs: (class: "border-b-love border-b-1 py-1"), body)
   }
@@ -102,30 +89,18 @@ the #link("/")[main page] were written in pure Typst.
     ]
   ]
   #html.elem("div", attrs: (class: "space-y-[7.5px] prose-lg"))[
-    #location-entry(
-      area: [in Santa Barbara],
-      country-or-state: [
-        #smallcaps(all: true)[California, USA]
-      ],
-    )
-    #location-entry(
-      area: [near San Francisco],
-      country-or-state: [
-        #smallcaps(all: true)[California, USA]
-      ],
-    )
-    #location-entry(
-      area: [previously near Salt Lake City],
-      country-or-state: [
-        #smallcaps(all: true)[Utah, USA]
-      ],
-    )
-    #location-entry(
-      area: [previously in Shanghai],
-      country-or-state: [
-        #smallcaps(all: true)[China]
-      ],
-    )
+    #location-entry(area: [in Santa Barbara], country-or-state: [
+      #smallcaps(all: true)[California, USA]
+    ])
+    #location-entry(area: [near San Francisco], country-or-state: [
+      #smallcaps(all: true)[California, USA]
+    ])
+    #location-entry(area: [previously near Salt Lake City], country-or-state: [
+      #smallcaps(all: true)[Utah, USA]
+    ])
+    #location-entry(area: [previously in Shanghai], country-or-state: [
+      #smallcaps(all: true)[China]
+    ])
   ]
 ]
 
@@ -133,60 +108,52 @@ It turns out that having access to a full programming language is really nice.
 To produce the above, I defined a `location-entry` function like this:
 
 
-#html.elem(
-  "div",
-  attrs: (class: "rounded-md bg-overlay px-4 shadow-md dark:shadow-none"),
-)[
-  ```
-  #let location-entry(area: "nowhere", country-or-state: "now here") = {
-    html.elem(
-      "div",
-      attrs: (
-        class: "border-b-love border-b-1 inline-flex justify-between w-full gap-2",
-      ),
-    )[
-      #html.elem("span", area)
-      #html.elem("span", country-or-state)
-    ]
-  }
-  ```]
+```typst
+#let location-entry(area: "nowhere", country-or-state: "now here") = {
+  html.elem(
+    "div",
+    attrs: (
+      class: "border-b-love border-b-1 inline-flex justify-between w-full gap-2",
+    ),
+  )[
+    #html.elem("span", area)
+    #html.elem("span", country-or-state)
+  ]
+}
+```
 
 Then I can create a `div`, and then call my function repeatedly to populate it.
 Kind of like a React component, without the pain and complexity. Notice that the
 #smallcaps[css] can all be done inline using Tailwind (which was surprisingly
 easy to set up).
-#html.elem(
-  "div",
-  attrs: (class: "rounded-md bg-overlay px-4 shadow-md dark:shadow-none"),
-)[
-  ```
-  #html.elem("div", attrs: (class: "space-y-[7.5px] prose-lg"))[
-    #location-entry(
-      area: [in Santa Barbara],
-      country-or-state: [
-        #smallcaps(all: true)[California, USA]
-      ],
-    )
-    #location-entry(
-      area: [near San Francisco],
-      country-or-state: [
-        #smallcaps(all: true)[California, USA]
-      ],
-    )
-    #location-entry(
-      area: [previously near Salt Lake City],
-      country-or-state: [
-        #smallcaps(all: true)[Utah, USA]
-      ],
-    )
-    #location-entry(
-      area: [previously in Shanghai],
-      country-or-state: [
-        #smallcaps(all: true)[China]
-      ],
-    )
-  ]
-  ```]
+```typst
+#html.elem("div", attrs: (class: "space-y-[7.5px] prose-lg"))[
+  #location-entry(
+    area: [in Santa Barbara],
+    country-or-state: [
+      #smallcaps(all: true)[California, USA]
+    ],
+  )
+  #location-entry(
+    area: [near San Francisco],
+    country-or-state: [
+      #smallcaps(all: true)[California, USA]
+    ],
+  )
+  #location-entry(
+    area: [previously near Salt Lake City],
+    country-or-state: [
+      #smallcaps(all: true)[Utah, USA]
+    ],
+  )
+  #location-entry(
+    area: [previously in Shanghai],
+    country-or-state: [
+      #smallcaps(all: true)[China]
+    ],
+  )
+]
+```
 
 
 Obviously you can't create any interactive components like a fully fledged web
