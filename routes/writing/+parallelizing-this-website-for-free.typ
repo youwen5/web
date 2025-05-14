@@ -12,8 +12,8 @@ There are around 20-30 pages on this website now and builds have been getting
 somewhat slow (in the realm of ~4 seconds total). Since I haven't implemented
 any sort of hot reload, I need to rebuild the whole site to view any changes,
 and it's actually a bit cumbersome to do development now. Using `rayon`, a data
-parallelism library, I parallelized the entire query and build step and achieved
-#(sym.times)2 speedup for basically zero effort.
+parallelism library, I parallelized the entire query and build step and achieved a
+#(sym.times)6 speedup for basically zero effort.
 
 
 #btw[
@@ -183,3 +183,6 @@ Building sequentially didn't scale well, and likely would've become painfully
 slow as my pages increased. As I suspected, the speed gains from
 parallelization become exponentially more pronounced and impactful as the site
 grows in size.
+
+And once again, Rustacean technology was more powerful than I
+could#(apostrophe)ve imagined in my wildest dreams.
