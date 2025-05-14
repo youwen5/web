@@ -124,6 +124,10 @@
   font-variant: all-small-caps;
 }
 
+@utility prose-list-snazzy {
+  @apply prose-ul:list-none prose-ol:list-none prose-ul:[&>li]:before:content-['•'] prose-ol:[&>li]:before:content-[attr(value)] prose-li:before:font-index prose-li:before:text-xl prose-li:ml-2 prose-li:before:absolute prose-li:before:-ml-[2.6rem] prose-li:before:mt-[0.15rem];
+}
+
 body {
   @apply font-serif text-foreground bg-bg;
 }

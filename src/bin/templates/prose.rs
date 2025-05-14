@@ -28,7 +28,7 @@ impl Template for Prose {
                 @if metadata.location.is_some() { p class="text-subtle text-md md:text-lg" {(metadata.location.unwrap())} }
                 @if metadata.special_author.is_some() { p class="text-lg md:text-xl mt-5" {span class="italic" {"by " } (metadata.special_author.unwrap())} }
             }
-            div id="typst-injected" class="prose-lg xl:prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-lg prose-headings:text-love lg:prose-headings:text-xl prose-ul:list-none prose-ol:list-none prose-ul:[&>li]:before:content-['•'] prose-ol:[&>li]:before:content-[attr(value)] prose-li:before:font-index prose-li:before:text-xl prose-li:ml-2 prose-li:before:absolute prose-li:before:-ml-[2.6rem] prose-li:before:mt-[0.15rem]" {
+            div id="typst-injected" class="prose-lg xl:prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-lg prose-headings:text-love lg:prose-headings:text-xl prose-list-snazzy" {
                 @if metadata.subtitle.is_some() {
                     p class="text-subtle italic" {
                         (metadata.subtitle.unwrap())
