@@ -7,7 +7,7 @@
 
 Some frequently asked and also less frequently asked questions. Updated every once in a while.
 
-+ _How#(apostrophe)s_ #smallcaps[ucsb]? \
+1. _How#(apostrophe)s_ #smallcaps[ucsb]? \
   I think this quote sums it up nicely. I replaced all occurrences of the word #quote[electrochemistry] with #quote(smallcaps[ucsb.])
   #blockquote(attribution: [--- #link("https://discoelysium.fandom.com/wiki/Electrochemistry")[Electrochemistry] from _Disco Elysium_])[
     Go to party planet. Love and be loved by drugs.
@@ -19,5 +19,5 @@ Some frequently asked and also less frequently asked questions. Updated every on
     At high levels, #smallcaps[ucsb] makes you a man of unrestrained pleasure – an unrepentant Lothario who leers at people with a bottle of speed and a plastic bendy straw in either hand. Without a working knowledge of drugs and sex, the city will be difficult to understand.
   ]
 
-+ _What programming language should I learn first?_ \
+2. _What programming language should I learn first?_ \
   Doesn't matter. Pick a language, write some code. If you want to end up in corporate, try JavaScript or Python. If you want to be an elite hacker, try Rust or a Lisp dialect. If you don't even like programming and happen to be a mathematician, try Haskell.
