@@ -179,10 +179,19 @@ Much bigger difference with more files.
 
 = Conclusion
 
-Building sequentially didn't scale well, and likely would've become painfully
-slow as my pages increased. As I suspected, the speed gains from
-parallelization become exponentially more pronounced and impactful as the site
-grows in size.
+There is one concern that I have with my implementation. Because the tree
+traversal is recursive, it makes a new call to `rayon` on every single nested
+subdirectory. I'm not exactly sure how `rayon` handles this under the hood but
+my suspicion is that it will spin up a new thread pool for every single
+recursive invocation of `par_iter()`, which could potentially be very slow.
+Right now the site only contains 3-4 nested subdirectories so I'm not affected
+yet.
 
-And once again, Rustacean technology was more powerful than I
-could#(apostrophe)ve imagined in my wildest dreams.
+The best way to fix this is to probably to transform the tree into a flat
+vector of pointers to each node, and then call `.par_iter()` once to operate on
+every page in parallel from one thread pool.
+
+That's a problem for later. I'm quite pleased with how easily `rayon` was able
+to let me write multithreaded code without ever thinking about synchronization,
+locks, mutexes, and other junk. Once again, Rustacean technology was more
+powerful than I could#(apostrophe)ve imagined in my wildest dreams.
