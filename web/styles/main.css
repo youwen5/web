@@ -161,23 +161,6 @@ body {
     display: none;
   }
 
-  ul {
-    @apply list-disc;
-  }
-
-  ol {
-    @apply list-decimal;
-  }
-
-  li {
-    @apply ml-4;
-  }
-
-  li::marker {
-    @apply font-index;
-    font-size: 1.1em;
-  }
-
   pre {
     @apply px-4 py-2 overflow-x-auto w-0 min-w-full rounded-md border-1 border-slate-200 dark:border-zinc-700;
   }
