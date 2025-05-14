@@ -195,6 +195,10 @@
         #icon(name: "github")
         See my code on GitHub
       ]
+      entry(href: "https://youwen5.bsky.social")[
+        #icon(name: "origami")
+        Bluesky
+      ]
       entry(href: "https://www.instagram.com/youwenw5/")[
         #icon(name: "instagram")
         Instagram

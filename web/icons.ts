@@ -19,6 +19,7 @@ import {
   Code,
   Mail,
   RulerDimensionLine,
+  Origami,
 } from "lucide";
 
 createIcons({
@@ -42,5 +43,6 @@ createIcons({
     Code,
     Mail,
     RulerDimensionLine,
+    Origami,
   },
 });
