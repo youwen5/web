@@ -10,10 +10,10 @@ GitHub pages.
 
 ## tech stack
 
-- Rust (at build time only)
-- HTML
-- CSS (tailwind)
-- JavaScript (almost none)
+### build time
+
+- Rust
+- Nix
 - [Typst](https://typst.app)
   - I use the typesetting system Typst as a markup language rather than something
     like Markdown. Typst is a system like LaTeX mainly for producing beautiful
@@ -21,7 +21,13 @@ GitHub pages.
     Typst to generate HTML markup which is then inserted into HTML templates
     (written as Rust macros) to produce the final site.
 
-## building
+### run time
+
+- HTML
+- CSS (tailwind)
+- JavaScript (almost none)
+
+## hacking
 
 (only works on Linux because I'm lazy.)
 
@@ -37,6 +43,21 @@ To run a local preview server (not hot reloading),
 ```sh
 nix run .#preview
 # server will run at localhost:8000
+```
+
+To get a development environment,
+
+```sh
+nix develop
+```
+
+Or you can `direnv allow`, if you have it. A pre-commit hook will also be
+installed automatically.
+
+Before submitting a PR run all Rust tests, formatting checks, lints, etc, using
+
+```sh
+nix flake check
 ```
 
 ## contrib
