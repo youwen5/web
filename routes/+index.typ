@@ -46,20 +46,22 @@
       if is-link { "a" } else { "span" },
       attrs: (
         href: href,
-        class: "border-b-foreground border-b-1 py-1 px-1 hover:bg-foreground hover:text-bg w-full w-full font-sans flex justify-between flex-wrap content-center gap-2 md:gap-4",
+        class: "border-b-foreground border-b-1 py-1 px-1 hover:bg-foreground hover:text-bg w-full w-full font-serif flex justify-between flex-wrap content-center gap-2 md:gap-4",
       ),
     )[
       #html.elem("span", attrs: (class: "inline-flex gap-3"), body)
       #html.elem("span", attrs: (class: "inline-flex gap-4"))[
         #if date != "" {
           html.elem("span", attrs: (class: "font-light text-lg my-auto"))[
-            #date
+            #smallcaps(all: true, date)
           ]
         }
-        #if internal {
-          icon(name: "move-right")
-        } else if is-link {
-          icon(name: "external-link")
+        #if date == "" {
+          if internal {
+            icon(name: "move-right")
+          } else if is-link {
+            icon(name: "external-link")
+          }
         }
       ]
     ]
@@ -148,10 +150,20 @@
     },
   )
 
-  #update(href: "/photos")[
-    #icon(name: "camera")
-    All photos
-  ]
+  #html.elem(
+    "a",
+    attrs: (
+      href: "/photos",
+      class: "p-1 font-serif hover:text-bg hover:bg-foreground border-b-1 border-b-foreground text-foreground decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
+    ),
+    {
+      html.elem("span", attrs: (class: "flex gap-2 my-auto"))[
+        #icon(name: "camera")
+        Full gallery
+      ]
+      icon(name: "move-right")
+    },
+  )
 
   #show heading.where(level: 1): it => {
     html.elem("h2", attrs: (class: "text-love"), it.body)
