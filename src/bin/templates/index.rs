@@ -19,7 +19,7 @@ impl Template for Index {
             div id="typst-injected" class="prose-xl lg:prose-2xl mt-2 prose-headings:all-smallcaps prose-h1:text-3xl lg:prose-h1:text-[2.5rem] prose-h1:font-normal prose-headings:text-xl prose-headings:text-love" {
                 @if metadata.title.is_some() {
                      h1 class="text-center md:text-start" {
-                         (metadata.title.unwrap())
+                         (metadata.title.as_ref().unwrap())
                      }
                 }
                 (content)

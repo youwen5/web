@@ -106,7 +106,7 @@ const INLINE_FONTS: Raw<&str> = Raw(r##"
     "##);
 
 impl Renderable for Head {
-    fn render_to(self, output: &mut String) {
+    fn render_to(&self, output: &mut String) {
         let description = match &self.description {
             Some(desc) => desc,
             None => {
@@ -117,7 +117,7 @@ impl Renderable for Head {
             Some(image) => image,
             None => "/static/logo/button.png",
         };
-        let page_title = match self.page_title {
+        let page_title = match &self.page_title {
             Some(title) => format!("{title} | Youwen Wu"),
             None => "Youwen Wu".to_string(),
         };
@@ -136,7 +136,7 @@ impl Renderable for Head {
                 meta name="og:description" content=(description);
                 meta name="twitter:description" content=(description);
 
-                @match self.author {
+                @match &self.author {
                     Some(author) =>  meta name="author" content=(author);
                     None =>  meta name="author" content="Youwen Wu";
                 }
@@ -185,7 +185,7 @@ impl Renderable for Head {
 
 pub struct Giscus;
 impl Renderable for Giscus {
-    fn render_to(self, output: &mut String) {
+    fn render_to(&self, output: &mut String) {
         maud! {
             script src="https://giscus.app/client.js"
                 data-repo="youwen5/web"

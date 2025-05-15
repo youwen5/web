@@ -16,7 +16,7 @@ impl Template for Photos {
             width: super::default_shell::PageWidth::Wide,
         }
         .render_with_children(maud! {
-            @if metadata.title.is_some() { h1 class="all-smallcaps md:text-3xl text-2xl text-center mt-4" {(metadata.title.unwrap())} }
+            @if metadata.title.is_some() { h1 class="all-smallcaps md:text-3xl text-2xl text-center mt-4" {(metadata.title.as_ref().unwrap())} }
             div id="typst-injected" {
                 (content)
             }
