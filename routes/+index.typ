@@ -46,7 +46,7 @@
       if is-link { "a" } else { "span" },
       attrs: (
         href: href,
-        class: "border-b-foreground border-b-1 py-1 px-1 hover:bg-foreground hover:text-bg w-full w-full font-serif flex justify-between flex-wrap content-center gap-2 md:gap-4",
+        class: "border-b-foreground border-b-1 py-1 px-1 hover:bg-foreground hover:text-bg w-full w-full font-serif flex justify-between flex-wrap-reverse content-center gap-x-2 gap-y-1 md:gap-4",
       ),
     )[
       #html.elem("span", attrs: (class: "inline-flex gap-3"), body)
