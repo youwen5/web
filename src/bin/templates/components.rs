@@ -161,7 +161,6 @@ impl Renderable for Head {
                 script async src="/index.js" {}
                 script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" id="prism-script" {}
                 script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" id="prism-autoloader" {}
-                script data-collect-dnt="true" defer src="https://scripts.simpleanalyticscdn.com/latest.js" {}
 
                 noscript {
                     link
