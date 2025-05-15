@@ -29,6 +29,11 @@
       url = "github:rustsec/advisory-db";
       flake = false;
     };
+
+    pre-commit-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -41,6 +46,7 @@
       valkyrie-font,
       fenix,
       advisory-db,
+      pre-commit-hooks,
       ...
     }:
     flake-utils.lib.eachSystem
@@ -156,10 +162,10 @@
           };
         in
         {
+          formatter = treefmtEval.config.build.wrapper;
+
           checks = {
             inherit luminite-crate;
-
-            formatting = treefmtEval.config.build.check self;
 
             luminite-clippy = craneLib.cargoClippy (
               commonArgs
@@ -179,6 +185,14 @@
             luminite-deny = craneLib.cargoDeny {
               inherit (commonArgs) src;
               inherit advisory-db;
+            };
+
+            pre-commit-check = pre-commit-hooks.lib.${system}.run {
+              src = ./.;
+              hooks = {
+                treefmt.enable = true;
+                treefmt.package = treefmtEval.config.build.wrapper;
+              };
             };
           };
 
@@ -279,8 +293,6 @@
                 drv = preview-drv true;
               };
             };
-
-          formatter = treefmtEval.config.build.wrapper;
 
           devShells.default =
             let
