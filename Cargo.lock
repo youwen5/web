@@ -102,9 +102,9 @@ dependencies = [
 
 [[package]]
 name = "bitflags"
-version = "2.9.0"
+version = "2.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5c8214115b7bf84099f1309324e63141d4c5d7cc26862f97a0a857dbefe165bd"
+checksum = "1b8e56985ec62d17e9c1001dc89c88ecd7dc08e47eba5ec7c29c7b5eeecde967"
 
 [[package]]
 name = "bitvec"
@@ -499,9 +499,9 @@ dependencies = [
 
 [[package]]
 name = "hypertext"
-version = "0.6.5"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c232821301f9469fa1b677716b371b42ca7ef842bd5aeba0106cb42c54014998"
+checksum = "d54d6251738c4342d546cb4723662786d62c475a8f0695406352004d4fe0a8a4"
 dependencies = [
  "html-escape",
  "hypertext-macros",
@@ -511,9 +511,9 @@ dependencies = [
 
 [[package]]
 name = "hypertext-macros"
-version = "0.6.5"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3e3cc05f9d3af4a74f1eca604a6bda6521a14f2051dbcf3a0f9eed4dd697277e"
+checksum = "e973b41aeb56beb9316dbb08f6d4ce70ad6d1425c47021d19a021c84b5a9ee80"
 dependencies = [
  "html-escape",
  "proc-macro2",
