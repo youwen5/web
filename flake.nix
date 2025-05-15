@@ -199,6 +199,8 @@
                 clippy.packageOverrides.cargo = rustToolchain;
                 clippy.packageOverrides.clippy = rustToolchain;
                 clippy.settings.allFeatures = true;
+
+                check-merge-conflicts.enable = true;
               };
             };
           };
