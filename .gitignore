@@ -4,4 +4,5 @@ result*
 /dist
 .luminite
 public/fonts/*.woff2
-!public/fonts/source-sans-latin-wght-normal.woff2
+!public/fonts/source-sans-3-latin-300-normal.woff2
+!public/fonts/source-sans-3-latin-400-normal.woff2
