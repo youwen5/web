@@ -190,8 +190,15 @@
             pre-commit-check = pre-commit-hooks.lib.${system}.run {
               src = ./.;
               hooks = {
+                # formatters
                 treefmt.enable = true;
                 treefmt.package = treefmtEval.config.build.wrapper;
+
+                # linting
+                clippy.enable = true;
+                clippy.packageOverrides.cargo = rustToolchain;
+                clippy.packageOverrides.clippy = rustToolchain;
+                clippy.settings.allFeatures = true;
               };
             };
           };
