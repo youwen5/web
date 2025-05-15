@@ -1,11 +1,7 @@
 #import "@luminite/html-shim:0.1.0": *
 
 #show: html-shim.with(
-  date: datetime(
-    day: 26,
-    year: 2025,
-    month: 4,
-  ),
+  date: datetime(day: 26, year: 2025, month: 4),
   location: "Santa Barbara, California",
   title: "Hypermedia and the insanity of the web",
 )
@@ -38,9 +34,7 @@ navigate around in any way you want).
 The quintessential language for writing hypermedia--based systems is the
 venerable #smallcaps[html], the HyperText Markup Language.
 
-#blockquote(
-  attribution: [---Carson Gross, in #link("https://hypermedia.systems/hypermedia-a-reintroduction/", "Hypermedia Systems")],
-)[
+#blockquote(attribution: [---Carson Gross, in #link("https://hypermedia.systems/hypermedia-a-reintroduction/", "Hypermedia Systems")])[
   In a sad turn of events, today, the world’s most popular hypermedia, #smallcaps[html], is
   often viewed resentfully: it is an awkward, legacy markup language that must be
   grudgingly used to build user interfaces in what are increasingly entirely

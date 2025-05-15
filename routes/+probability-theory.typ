@@ -1,11 +1,7 @@
 #import "@luminite/html-shim:0.1.0": *
 
 #show: html-shim.with(
-  date: datetime(
-    day: 16,
-    year: 2025,
-    month: 2,
-  ),
+  date: datetime(day: 16, year: 2025, month: 2),
   title: "Probability distributions",
   meta-description: "Notes I've been collecting on random variables, their
 distributions, expected values, and moment generating functions.",
@@ -491,9 +487,9 @@ Immediately we see that the geometric distribution is just the negative binomial
 
   So,
   $
-    P(X = 5) &= vec(5-1, 3-1)(0.43)^3 (1 - 0.43)^(5-3) \
-    &= vec(4, 2) (0.43)^3 (0.57)^2 \
-    &approx 0.155
+    P(X = 5) & = vec(5-1, 3-1)(0.43)^3 (1 - 0.43)^(5-3) \
+             & = vec(4, 2) (0.43)^3 (0.57)^2            \
+             & approx 0.155                             \
   $
 ]
 
@@ -624,8 +620,8 @@ $>$, since $P(X <= k) = P(X < k)$ if $P(X = k) = 0$.
 
   $
     f(x) = cases(
-      c x^2 &"for" 0 < x < 2,
-      0 &"otherwise"
+      c x^2 & "for" 0 < x < 2,
+      0 & "otherwise"
     )
   $
 
@@ -665,9 +661,9 @@ $>$, since $P(X <= k) = P(X < k)$ if $P(X = k) = 0$.
 
   $
     F(x) = cases(
-      0 &"for" x <= 0,
-      x^3 / 8 &"for" 0 < x < 2,
-      1 &"for" x >= 2
+      0 & "for" x <= 0,
+      x^3 / 8 & "for" 0 < x < 2,
+      1 & "for" x >= 2
     )
   $
 
@@ -690,8 +686,8 @@ The most simple and the best of the named distributions!
 
   $
     f(x) = cases(
-      1 / (b-a) &"for" x in [a,b],
-      0 &"for" x in.not [a,b]
+      1 / (b-a) & "for" x in [a,b],
+      0 & "for" x in.not [a,b]
     )
   $
 
@@ -707,9 +703,9 @@ it is 1.
 
   $
     F_x (x) = cases(
-      0 &"for" x < a,
-      (x-a) / (b-a) &"for" x in [a,b],
-      1 &"for" x > b
+      0 & "for" x < a,
+      (x-a) / (b-a) & "for" x in [a,b],
+      1 & "for" x > b
     )
   $
 ]
@@ -732,9 +728,9 @@ it is 1.
   So,
 
   $
-    P(|Y| >= 1) &= P(Y in [-2,-1] union [1,5]) \
-    &= P(-2 <= Y <= -1) + P(1 <= Y <= 5) \
-    &= 5 / 7
+    P(|Y| >= 1) & = P(Y in [-2,-1] union [1,5])       \
+                & = P(-2 <= Y <= -1) + P(1 <= Y <= 5) \
+                & = 5 / 7                             \
   $
 ]
 
@@ -751,8 +747,8 @@ sense. For example, the first custom to enter the barber shop.
 
   $
     f(x) = cases(
-      lambda e^(-lambda x) &"for" x >= 0,
-      0 &"for" x < 0
+      lambda e^(-lambda x) & "for" x >= 0,
+      0 & "for" x < 0
     )
   $
 
@@ -762,8 +758,8 @@ sense. For example, the first custom to enter the barber shop.
 
   $
     F(t) + cases(
-      0 &"if" t <0,
-      1 - e^(-lambda t) &"if" t>= 0
+      0 & "if" t <0,
+      1 - e^(-lambda t) & "if" t>= 0
     )
   $
 ]
@@ -777,18 +773,18 @@ sense. For example, the first custom to enter the barber shop.
   Let $X$ be the length of the phone call, so that $X ~ "Exp"(1 / 10)$. Then we can find the desired probability by:
 
   $
-    P(X > 8) &= 1 - P(X <= 8) \
-    &= 1 - F_x (8) \
-    &= 1 - (1 - e^(-(1 / 10) dot 8)) \
-    &= e^(-8 / 10) approx 0.4493
+    P(X > 8) & = 1 - P(X <= 8)                 \
+             & = 1 - F_x (8)                   \
+             & = 1 - (1 - e^(-(1 / 10) dot 8)) \
+             & = e^(-8 / 10) approx 0.4493     \
   $
 
   Now to find $P(8 < X < 22)$, we can take the difference in CDFs:
 
   $
-    &P(X > 8) - P(X >= 22) \
-    &= e^(-8 / 10) - e^(-22 / 10) \
-    &approx 0.3385
+    & P(X > 8) - P(X >= 22)        \
+    & = e^(-8 / 10) - e^(-22 / 10) \
+    & approx 0.3385                \
   $
 ]
 
@@ -820,8 +816,8 @@ probability I'm gonna wait more than 3 minutes.
 
   $
     f(x) = cases(
-      (lambda^r x^(r-2)) / (Gamma(r)) e^(-lambda x) &"for" x >= 0,
-      0 &"for" x < 0
+      (lambda^r x^(r-2)) / (Gamma(r)) e^(-lambda x) & "for" x >= 0,
+      0 & "for" x < 0
     )
   $
 
@@ -898,10 +894,10 @@ is also a normally distributed random variable with parameters $(mu, sigma^2)$.
 The CDF of $X$ in terms of $Phi(dot)$ can be expressed as
 
 $
-  F_X (x) &= P(X <= x) \
-  &= P(sigma Z + mu <= x) \
-  &= P(Z <= (x - mu) / sigma) \
-  &= Phi((x-mu) / sigma)
+  F_X (x) & = P(X <= x)                \
+          & = P(sigma Z + mu <= x)     \
+          & = P(Z <= (x - mu) / sigma) \
+          & = Phi((x-mu) / sigma)      \
 $
 
 Also,
@@ -995,8 +991,8 @@ success $p$. Recall that the p.m.f. is $p q^(k-1)$, where prob. of failure is de
 Then
 
 $
-  E[X] &= sum_(k=1)^infinity k p q^(k-1) \
-  &= p dot sum_(k=1)^infinity k dot q^(k-1)
+  E[X] & = sum_(k=1)^infinity k p q^(k-1)         \
+       & = p dot sum_(k=1)^infinity k dot q^(k-1) \
 $
 
 Now recall from calculus that you can differentiate a power series term by term inside its radius of convergence. So for $|t| < 1$,

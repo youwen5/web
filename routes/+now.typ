@@ -1,11 +1,7 @@
 #import "@luminite/html-shim:0.1.0": *
 
 #show: html-shim.with(
-  date: datetime(
-    day: 29,
-    year: 2025,
-    month: 4,
-  ),
+  date: datetime(day: 29, year: 2025, month: 4),
   title: "Now",
   location: "Santa Barbara, California",
   meta-description: "A now page, aka an answer to \"what have you been up to lately?\"",

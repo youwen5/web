@@ -2,21 +2,15 @@
 #import "@preview/cetz:0.3.4"
 
 #show: html-shim.with(
-  date: datetime(
-    day: 22,
-    year: 2025,
-    month: 4,
-  ),
+  date: datetime(day: 22, year: 2025, month: 4),
   title: "A test of Typst math rendering",
 )
 
 #show <render-svg>: it => {
   set text(size: 1.5em)
-  html.elem(
-    "figure",
-    attrs: (role: "math", class: "block-math"),
-    html.frame(it),
-  )
+  html.elem("figure", attrs: (role: "math", class: "block-math"), html.frame(
+    it,
+  ))
 }
 
 This is a test of rendering Typst math markup to #smallcaps[html] via #smallcaps[svg]. For an even longer document, see #link("/probability-theory")[my notes about probability] adapted to the web.
@@ -37,87 +31,75 @@ $tau'_f (u_i) = f(u_i)$ for all $i = 1,...,n$. Because $S$ is a basis, the repre
 
 This is not an image. It is generated at compile time by CeTZ code (best results in light mode). Although text is not fully rendered properly, this is just a proof-of-concept.
 
-#figure(
-  cetz.canvas({
-    import cetz.draw: *
+#figure(cetz.canvas({
+  import cetz.draw: *
 
-    set-style(content: (frame: "rect", stroke: none, fill: white, padding: .1))
+  set-style(content: (frame: "rect", stroke: none, fill: white, padding: .1))
 
-    grid((0, 0), (8, 6), help-lines: true)
-    line(
-      (1, -0.5),
-      (5, -0.5),
-      mark: (start: "o", end: (symbol: "o", fill: black)),
-      name: "A",
-    )
-    content("A.mid", [$A$])
-    line(
-      (-0.5, 1),
-      (-0.5, 4),
-      mark: (start: (symbol: "o", fill: black), end: "o"),
-      name: "B",
-    )
-    content("B.mid", [$B$])
+  grid((0, 0), (8, 6), help-lines: true)
+  line(
+    (1, -0.5),
+    (5, -0.5),
+    mark: (start: "o", end: (symbol: "o", fill: black)),
+    name: "A",
+  )
+  content("A.mid", [$A$])
+  line(
+    (-0.5, 1),
+    (-0.5, 4),
+    mark: (start: (symbol: "o", fill: black), end: "o"),
+    name: "B",
+  )
+  content("B.mid", [$B$])
 
-    line(
-      (4, -1),
-      (7, -1),
-      mark: (start: (symbol: "o", fill: black), end: "o"),
-      name: "C",
-    )
-    content("C.mid", [$C$])
-    line(
-      (-1, 2),
-      (-1, 5),
-      mark: (start: "o", end: "o"),
-      name: "D",
-    )
-    content("D.mid", [$D$])
+  line(
+    (4, -1),
+    (7, -1),
+    mark: (start: (symbol: "o", fill: black), end: "o"),
+    name: "C",
+  )
+  content("C.mid", [$C$])
+  line((-1, 2), (-1, 5), mark: (start: "o", end: "o"), name: "D")
+  content("D.mid", [$D$])
 
-    set-style(content: (frame: "rect", stroke: none, fill: none, padding: .1))
+  set-style(content: (frame: "rect", stroke: none, fill: none, padding: .1))
 
-    line(
-      (4, -1.5),
-      (5, -1.5),
-      mark: (
-        start: (symbol: "o", fill: black),
-        end: (symbol: "o", fill: black),
-      ),
-      name: "AnC",
-    )
-    content(
-      ("AnC.start", 50%, "AnC.end"),
-      angle: "AnC.end",
-      padding: .2,
-      anchor: "north",
-      [$A inter C$],
-    )
+  line(
+    (4, -1.5),
+    (5, -1.5),
+    mark: (
+      start: (symbol: "o", fill: black),
+      end: (symbol: "o", fill: black),
+    ),
+    name: "AnC",
+  )
+  content(
+    ("AnC.start", 50%, "AnC.end"),
+    angle: "AnC.end",
+    padding: .2,
+    anchor: "north",
+    [$A inter C$],
+  )
 
-    line(
-      (-1.5, 2),
-      (-1.5, 4),
-      mark: (start: "o", end: "o"),
-      name: "BnD",
-    )
-    content(
-      ("BnD.start", 50%, "BnD.end"),
-      angle: "BnD.end",
-      padding: .1,
-      anchor: "south",
-      [$B inter D$],
-    )
+  line((-1.5, 2), (-1.5, 4), mark: (start: "o", end: "o"), name: "BnD")
+  content(
+    ("BnD.start", 50%, "BnD.end"),
+    angle: "BnD.end",
+    padding: .1,
+    anchor: "south",
+    [$B inter D$],
+  )
 
-    rect((1, 1), (5, 4), fill: red, name: "AxB")
-    content("AxB", [$A times B$])
-    rect((4, 2), (7, 5), fill: blue, name: "CxD")
-    content("CxD", [$C times D$])
-    rect((4, 2), (5, 4), fill: purple, name: "overlap")
-    line((2, 6), (4.5, 3), stroke: (dash: "dashed"), name: "label")
-    content(
-      "label.start",
-      padding: .1,
-      anchor: "south",
-      [$(A inter C) times (B inter D) = (A times B) inter (C times D)$],
-    )
-  }),
-)<render-svg>
+  rect((1, 1), (5, 4), fill: red, name: "AxB")
+  content("AxB", [$A times B$])
+  rect((4, 2), (7, 5), fill: blue, name: "CxD")
+  content("CxD", [$C times D$])
+  rect((4, 2), (5, 4), fill: purple, name: "overlap")
+  line((2, 6), (4.5, 3), stroke: (dash: "dashed"), name: "label")
+  content(
+    "label.start",
+    padding: .1,
+    anchor: "south",
+    [$(A inter C) times (B inter D) = (A times B) inter (C times D)$],
+  )
+}))<render-svg>
