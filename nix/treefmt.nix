@@ -9,6 +9,7 @@ rustToolchain: {
     rustfmt.package = rustToolchain;
     yamlfmt.enable = true;
     prettier.enable = true;
+    typstyle.enable = true;
   };
 
   settings.global.excludes = [
