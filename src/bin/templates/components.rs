@@ -24,7 +24,7 @@ impl Head {
     }
 }
 
-const LAZY_PRISM_CSS: hypertext::Raw<&str> = Raw(r#"
+const LAZY_PRISM_CSS: Raw<&str> = Raw(r#"
 <link
     rel="preload"
     href="/styles/prism-catppuccin.css"
@@ -40,6 +40,66 @@ const LAZY_PRISM_CSS: hypertext::Raw<&str> = Raw(r#"
     onload="this.onload=null;this.rel='stylesheet'"
 >
 "#);
+
+const INLINE_FONTS: Raw<&str> = Raw(r##"
+@font-face {
+  font-family: "Source Sans 3 Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url(/fonts/source-sans-latin-wght-normal.woff2)
+    format("woff2-variations");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Valkyrie B";
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("/fonts/valkyrie_ot_b_regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Valkyrie B";
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("/fonts/valkyrie_ot_b_italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Valkyrie B";
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("/fonts/valkyrie_ot_b_bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Valkyrie B";
+  font-style: italic;
+  font-weight: bold;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("/fonts/valkyrie_ot_b_bold_italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Concourse Index";
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("/fonts/concourse_index_regular.woff2") format("woff2");
+}
+    "##);
 
 impl Renderable for Head {
     fn render_to(self, output: &mut String) {
@@ -87,9 +147,21 @@ impl Renderable for Head {
                 meta name="twitter:image" content=(image);
                 meta name="robots" content="index, follow";
 
-                link rel="stylesheet" href="/bundle.css";
+                // prefetch essential fonts
+                link rel="preload" as="font" href="/fonts/valkyrie_ot_b_regular.woff2" crossorigin;
+                link rel="preload" as="font" href="/fonts/valkyrie_ot_b_italic.woff2" crossorigin;
 
+                // inline the rest of fonts for performance
+                style { (INLINE_FONTS) }
+
+                link rel="stylesheet" href="/bundle.css";
                 (LAZY_PRISM_CSS)
+
+                script async src="/icons.js" {}
+                script async src="/index.js" {}
+                script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" id="prism-script" {}
+                script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" id="prism-autoloader" {}
+                script data-collect-dnt="true" defer src="https://scripts.simpleanalyticscdn.com/latest.js" {}
 
                 noscript {
                     link
@@ -101,12 +173,6 @@ impl Renderable for Head {
                         media="screen and (prefers-color-scheme: dark)"
                         href="/styles/prism-rose-pine.css";
                 }
-
-                script async src="/index.js" {}
-                script async src="/icons.js" {}
-                script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" id="prism-script" {}
-                script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" id="prism-autoloader" {}
-                script data-collect-dnt="true" defer src="https://scripts.simpleanalyticscdn.com/latest.js" {}
 
             }
         }
