@@ -176,7 +176,7 @@ impl Renderable for Head {
                         media="screen and (prefers-color-scheme: dark)"
                         href="/styles/prism-rose-pine.css";
                 }
-
+                script defer src="/cdn-cgi/zaraz/i.js" {}
             }
         }
         .render_to(output);
