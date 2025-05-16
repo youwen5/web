@@ -17,8 +17,8 @@ restaurants. I could tell you about the subtle genius of _Disco Elysium_ or
 Rust#(apostrophe)s algebraic type system. We could play _Risk of Rain 2_ or _Monster Hunter_.
 
 Or we could hike out by Campus Point, look out past the crumbling bluffs,
-and admire the deep indigo waters of the Pacific. We could stare until the sun
-sets in a suffusion of gold and orange and blue and the rays tear the
+and admire the deep inky waters of the Pacific. We could stare until the sun
+sets in a suffusion of gold and orange and indigo and the rays tear the
 glistening waves asunder.
 
 And for a moment, we might forget the ennui of the world and feel weightless against its torrents.
