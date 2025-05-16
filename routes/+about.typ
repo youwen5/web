@@ -2,9 +2,12 @@
 
 #show: html-shim.with(title: "About")
 
-How many words does it take to get to know someone? To start---I could tell
-you my name is Youwen---romanized directly from the Chinese: 佑文. I#(apostrophe)m from the San Francisco Bay Area but I currently study and
-live in Santa Barbara, California.
+#let chinese-name = html.elem("span", attrs: (lang: "zh-Hans"), [佑文])
+
+How many words does it take to get to know someone? To start---I could tell you
+my name is Youwen---romanized directly from the Chinese: #chinese-name.
+I#(apostrophe)m from the San Francisco Bay Area but I currently study and live
+in Santa Barbara, California.
 
 I could tell you that I study math, and computers, but I care at least as much about politics and philosophy and the human condition.
 
