@@ -110,4 +110,8 @@ body {
   pre {
     @apply px-4 py-2 overflow-x-auto w-0 min-w-full rounded-md border-1 border-slate-200 dark:border-zinc-700;
   }
+
+  code:not(pre *) {
+    @apply bg-overlay px-0.5 rounded-xs text-rose;
+  }
 }
