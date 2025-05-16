@@ -46,14 +46,12 @@ So do I really want to write, or just engineer a blog?
 
 #dinkus
 
-I ask---is it really so wrong to create a whole prose-based website generator
-but not actually write in it? On one hand---what is the point of a blog
-generator if you aren#(apostrophe)t going to blog? On the other hand---who
-cares? Is it a waste of time to meticulously craft the most eye-pleasing
-website and proceed to populate it with a #quote(smallcaps[hello world]) post?
-By that metric, so is playing a video game, or learning an academic programming
-language, or writing a toy OS kernel, or a smörgåsbord of other delightful
-computer pastimes.
+On one hand---what is the point of a blog generator if you aren#(apostrophe)t
+going to blog? On the other hand---who cares? Is it a waste of time to
+meticulously craft the most eye-pleasing website and proceed to populate it
+with a #quote(smallcaps[hello world]) post? By that metric, so is playing a
+video game, or learning an academic programming language, or writing a toy OS
+kernel, or a smörgåsbord of other delightful computer pastimes.
 
 So here#(apostrophe)s to all the blog engineers out there. Don#(apostrophe)t be
 ashamed of your #smallcaps[hello world] and #smallcaps[first post] and
