@@ -6,33 +6,37 @@
 
   #context {
     if target() == "html" {
-      html.elem("div", attrs: (class: "space-x-6"), {
-        html.elem(
-          "a",
-          attrs: (
-            class: "inline-flex gap-2 font-sans hover:text-rose",
-            href: if long { "/cv/youwen-wu-cv-full.pdf" } else {
-              "/cv/youwen-wu-cv-short.pdf"
+      html.elem(
+        "div",
+        attrs: (class: "space-x-6"),
+        {
+          html.elem(
+            "a",
+            attrs: (
+              class: "inline-flex gap-2 font-sans hover:text-pine hover:dark:text-foam",
+              href: if long { "/cv/youwen-wu-cv-full.pdf" } else {
+                "/cv/youwen-wu-cv-short.pdf"
+              },
+              target: "_blank",
+            ),
+            {
+              lucide-icon(class: "my-auto", name: "file-text")
+              html.elem("span")[View as PDF]
             },
-            target: "_blank",
-          ),
-          {
-            lucide-icon(class: "my-auto", name: "file-text")
-            html.elem("span")[View as PDF]
-          },
-        )
-        html.elem(
-          "a",
-          attrs: (
-            class: "inline-flex gap-2 font-sans hover:text-rose",
-            href: "/#contact",
-          ),
-          {
-            lucide-icon(class: "my-auto", name: "mail")
-            html.elem("span")[Contact]
-          },
-        )
-      })
+          )
+          html.elem(
+            "a",
+            attrs: (
+              class: "inline-flex gap-2 font-sans hover:text-pine hover:dark:text-foam",
+              href: "/#contact",
+            ),
+            {
+              lucide-icon(class: "my-auto", name: "mail")
+              html.elem("span")[Contact]
+            },
+          )
+        },
+      )
       let selected-class = "before:content-['●'] before:text-[0.55em] before:text-foam before:pr-2 my-auto inline-flex before:my-auto"
       let unselected-class = "before:content-['○'] before:text-[0.55em] before:pr-2 inline-flex my-auto before:my-auto hover:before:content-['●']"
       html.elem(
@@ -251,7 +255,7 @@
             html.elem(
               "a",
               attrs: (
-                class: "mt-2 hover:text-rose hidden md:inline-flex gap-2 mr-2 text-nowrap text-lg",
+                class: "mt-2 hover:text-pine hover:dark:text-foam hidden md:inline-flex gap-2 mr-2 text-nowrap text-lg",
                 href: link,
                 target: "_blank",
               ),
@@ -268,7 +272,7 @@
             html.elem(
               "a",
               attrs: (
-                class: "mt-1 hover:text-rose hidden md:inline-flex gap-2 text-nowrap text-lg",
+                class: "mt-1 hover:text-pine hover:dark:text-foam hidden md:inline-flex gap-2 text-nowrap text-lg",
                 href: demo-link,
                 target: "_blank",
               ),
@@ -293,7 +297,7 @@
                 html.elem(
                   "a",
                   attrs: (
-                    class: "hover:text-rose md:hidden inline-flex gap-2 mr-4 font-sans",
+                    class: "hover:text-pine hover:dark:text-foam md:hidden inline-flex gap-2 mr-4 font-sans",
                     href: link,
                     target: "_blank",
                   ),
@@ -308,7 +312,7 @@
                 html.elem(
                   "a",
                   attrs: (
-                    class: "hover:text-rose md:hidden inline-flex gap-2 font-sans",
+                    class: "hover:text-pine hover:dark:text-foam md:hidden inline-flex gap-2 font-sans",
                     href: demo-link,
                     target: "_blank",
                   ),
