@@ -17,14 +17,15 @@
   I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV] and
   how we can apply higher structures to solve hard problems. In general, I prefer
   to use #link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
-    software]. I think we should
-  #link("https://vlad.website/the-philosophy-of-the-open-source-pledge/")[pay
-    open source developers].
+    software]. I contribute to #link("https://nixos.org")[NixOS] and other
+  #smallcaps[foss] projects.
 
   In my spare time, I play guitar and spend too much money on guitar pedals. I
   also hate coding.
 
-  See my #link("/now")[now page] for what I#(apostrophe)m up to right now.
+  See my #link("/about")[about page] for more about myself, or my
+  #link("/now")[now page] for what I#(apostrophe)m up to right now. Or explore
+  the other pages on this website.
 
   #blockquote(attribution: [--- #link(
       "https://www.paulgraham.com/top.html",
