@@ -9,7 +9,7 @@
 )
 
 #smallcaps(all: true)[In principle, yes.] I#(apostrophe)d love to write more,
-as an abstract concept. I love the _idea_ of putting thoughts to written word.
+as an abstract concept. I like the _idea_ of putting thoughts to written word.
 _I want to write_.
 
 So I built a #link(
