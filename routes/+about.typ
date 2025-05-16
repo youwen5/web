@@ -2,11 +2,36 @@
 
 #show: html-shim.with(title: "About")
 
+How many words does it take to get to know someone? To start---I could tell
+you my name is Youwen---romanized directly from the Chinese: 佑文. I#(apostrophe)m from the San Francisco Bay Area but I currently study and
+live in Santa Barbara, California.
+
+I could tell you that I study math, and computers, but I care at least as much about politics and philosophy and the human condition.
+
+If it helps, we might saunter through the streets of IV or window shop in
+downtown SB, and complain about dining hall food or the exorbitant prices in
+restaurants. I could tell you about the subtle genius of _Disco Elysium_ or
+Rust#(apostrophe)s algebraic type system. We could play _Risk of Rain 2_ or _Monster Hunter_.
+
+Or we could hike out by Campus Point, look out past the crumbling bluffs,
+and admire the deep inky waters of the Pacific. We could stare until the sun
+sets in a suffusion of gold and orange and blue and the rays tear the
+glistening waves asunder.
+
+And for a moment, we might forget the ennui of the world and feel weightless against its torrents.
+
+And maybe we#(apostrophe)d finally get to know each other.
+
+But until then---I hope my words suffice.
+
+#dinkus
+
 = History
 
-I study at UC Santa Barbara and spend most of my productive time doing math or
-programming. I#(apostrophe)m originally from Shanghai, China. I lived in the
-state of Utah for a few years as a kid, before moving to the San Francisco Bay Area.
+I#(apostrophe)m originally from Shanghai, China. I lived in the state of Utah
+for a few years as a kid, before moving to the San Francisco Bay Area. I study
+at UC Santa Barbara and spend most of my productive time doing math or
+programming.
 
 = Computing
 
