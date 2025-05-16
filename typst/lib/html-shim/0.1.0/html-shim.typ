@@ -72,6 +72,26 @@
   },
 )
 
+#let std-link = link
+
+#let link(newtab: false, ..args) = context {
+  let dest = args.pos().at(0)
+  let body = if args.pos().len() > 1 { args.pos().at(1) }
+  if target() == "html" and body != none {
+    if newtab {
+      html.elem(
+        "a",
+        attrs: (class: "text-link", href: dest, target: "_blank"),
+        body,
+      )
+    } else {
+      html.elem("a", attrs: (class: "text-link", href: dest), body)
+    }
+  } else {
+    std-link(dest, body)
+  }
+}
+
 #let html-shim(
   body,
   date: none,
@@ -119,14 +139,6 @@
       )
 
       it
-    } else {
-      it
-    }
-  }
-
-  show link: it => context {
-    if target() == "html" {
-      html.elem("a", attrs: (class: "text-link", href: it.dest), it.body)
     } else {
       it
     }
