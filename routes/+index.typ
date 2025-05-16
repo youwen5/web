@@ -67,23 +67,23 @@
     ]
   }
 
+  #update(date: "May 16th, 2025", href: "/writing/do-you-want-to-write")[
+    #icon(name: "newspaper")
+    Do you want to write?
+  ]
   #update(
     date: "May 12th, 2025",
     href: "/writing/parallelizing-this-website-for-free",
   )[
-    #icon(name: "newspaper")
+    #icon(name: "code")
     Parallelizing this website for free
   ]
   #update(
     date: "May 10th, 2025",
     href: "/writing/doing-web-development-in-typst",
   )[
-    #icon(name: "newspaper")
-    Doing web development in Typst
-  ]
-  #update(href: "/luminite", date: "April 22nd, 2025")[
     #icon(name: "code")
-    I wrote my own static site generator lol
+    Doing web development in Typst
   ]
 
   = Photos
