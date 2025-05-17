@@ -46,12 +46,9 @@
   // Display title and contact info.
   block(width: 100%, below: 1.5em)[
     #let header-info = {
-      show text: upper
-      set text(font: "Inter")
-      text(size: 1.8em, tracking: 1.4pt, weight: "bold", name)
+      smallcaps(all: true, text(size: 1.8em, name))
       v(1.4em, weak: true)
-      set text(weight: "regular")
-      show text: it => { text(size: 0.86em, tracking: 1.4pt, it) }
+      show text: it => { text(size: 1em, it) }
       address
       if contacts.len() > 0 {
         v(1em, weak: true)
