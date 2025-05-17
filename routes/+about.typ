@@ -4,7 +4,7 @@
 
 #let chinese-name = html.elem("span", attrs: (lang: "zh-Hans"), [佑文])
 
-How many words does it take to get to know someone? To start---I could tell you
+How many words does it take to get to know a person? To start---I could tell you
 my name is Youwen---romanized directly from the Chinese: #chinese-name.
 I#(apostrophe)m from the San Francisco Bay Area but I currently study and live
 in Santa Barbara, California.
@@ -13,21 +13,23 @@ I could tell you that I study math, and computers, but I also care at least as
 much about music and philosophy and the human condition.
 
 If it helps, we might saunter through the streets of IV or window shop in
-downtown SB, and complain about dining hall food or the exorbitant prices in
-restaurants. I could tell you about the subtle genius of _Disco Elysium_ or
-Rust#(apostrophe)s algebraic type system. We could play _Risk of Rain 2_ or
-_Monster Hunter_.
+downtown SB, and bemoan dining hall food or exorbitant prices in restaurants. I
+could tell you about the subtle genius of _Disco Elysium_ or Rust#(apostrophe)s
+algebraic type system. We could play _Risk of Rain 2_ or _Monster Hunter_, and
+binge _Frieren_. Is that enough?
 
 Or we could take an evening trek over by Campus Point, look out past the
 crumbling bluffs, and admire the deep inky waters of the Pacific. We could
 stare until the sun falls into a suffusion of gold and orange and indigo
 and the rays tear the glistening waves asunder.
 
-And then we would talk, about that out-of-tune carillon on the weekends, about
+And then we would talk, about that out-of-tune carillon every Sunday, about
 niche indie online science fiction, about suffering and capitalism, about art
-and music and hope and death, and about a million other things.
+and music and hope and death, and you could tell me about a million other
+things.
 
-And for a moment, I might forget the ennui of the world and feel weightless atop its torrents.
+And for a moment, we might forget the ennui of the world and feel weightless
+atop its torrents.
 
 And maybe we#(apostrophe)d finally get to know each other.
 
