@@ -71,7 +71,15 @@ pub struct Metadata {
     pub thumbnail: Option<String>,
 }
 
-/// A representation of a Typst source file. In the future, it will contain metadata from files.
+/// A data representation of a Typst source file. The way our build step works is in two parts:
+/// first, we will crawl the filesystem and obtain a representation of our site as a `RouteTree`
+/// containing `TypstDoc` objects, without `metadata` or `artifact_path` populated. Then, we
+/// traverse the tree and query every single document for metadata, populating the field. At this
+/// point we have all the information about the website, and we can do any intermediate
+/// transformations. Next, we build each `TypstDoc` into an actual HTML artifact in a temporary
+/// working directory (`.luminite/typst-html`), populating the `artifact_path`. Finally, we can
+/// actually build the website, reading the built HTML in `artifact_path` and injecting it into
+/// templates, etc.
 #[derive(Debug)]
 pub struct TypstDoc {
     /// The original path of the Typst source code
@@ -83,8 +91,8 @@ pub struct TypstDoc {
 }
 
 /// Given a path to an entry point `main.typ` and an output location, use the Typst CLI to compile
-/// an HTML artifact. Requires `typst` to be in `$PATH`. The directory of the output must exist or
-/// an error will occur.
+/// an PDF to the output path. Requires `typst` to be in `$PATH`. The parent directory of the
+/// output must exist or an error will occur.
 fn compile_document(
     input: &path::Path,
     output: &path::Path,
