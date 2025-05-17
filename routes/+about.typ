@@ -24,7 +24,7 @@ stare until the sun falls into a suffusion of gold and orange and indigo
 and the rays tear the glistening waves asunder.
 
 And then we would talk, about that out-of-tune carillon every Sunday, about
-niche indie online science fiction, about suffering and capitalism, about art
+niche indie online science fiction, about the climate and capitalism, about art
 and music and hope and death, and you could tell me about a million other
 things.
 
