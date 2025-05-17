@@ -106,23 +106,23 @@ impl DefaultShell {
                                 (LOGO)
                                 span class="italic text-[2.5em] select-none -translate-y-[6px]" {"youwen wu"}
                             }
-                            nav class="space-y-6 mt-4" {
+                            nav class="space-y-4 mt-4" {
                                 ul class="space-y-2 text-love text-2xl " {
                                     (nav_items)
                                 }
-                                div class="space-y-2" {
+                                div class="space-y-1" {
                                     p class="all-smallcaps text-lg" {"Hacking"}
                                     ul class="space-y-2 text-subtle text-base" {
                                         (code)
                                     }
                                 }
-                                div class="space-y-2" {
+                                div class="space-y-1" {
                                     p class="all-smallcaps text-lg" {"Math"}
                                     ul class="space-y-2 text-subtle text-base" {
                                         (math)
                                     }
                                 }
-                                div class="space-y-2" {
+                                div class="space-y-1" {
                                     p class="all-smallcaps text-lg" {"Other"}
                                     ul class="space-y-2 text-subtle text-base" {
                                         (other)
