@@ -12,11 +12,11 @@ in Santa Barbara, California.
 I could tell you that I study math, and computers, but I also care at least as
 much about music and philosophy and the human condition.
 
-If it helps, we might saunter through the streets of IV or window shop in
-downtown SB, and bemoan dining hall food or exorbitant prices in restaurants. I
-could tell you about the subtle genius of _Disco Elysium_ or Rust#(apostrophe)s
-algebraic type system. We could play _Risk of Rain 2_ or _Monster Hunter_, and
-binge _Frieren_. Is that enough?
+If it helps, we might saunter through the streets of Isla Vista or window shop
+in downtown Santa Barbara, and bemoan the dining hall food and exorbitant prices
+in restaurants. I could tell you about the subtle genius of _Disco Elysium_ or
+Rust#(apostrophe)s algebraic type system. We could play _Risk of Rain 2_ or
+_Monster Hunter_, and binge _Frieren_. Is that enough?
 
 Or we could take an evening trek over by Campus Point, look out past the
 crumbling bluffs, and admire the deep inky waters of the Pacific. We could
