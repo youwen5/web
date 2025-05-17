@@ -33,7 +33,7 @@ atop its torrents.
 
 And maybe we#(apostrophe)d finally get to know each other.
 
-But until then---I hope the words here suffice.
+But until then---I hope my words here suffice.
 
 #dinkus
 
