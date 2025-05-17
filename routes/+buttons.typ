@@ -2,7 +2,7 @@
 
 #show: html-shim.with(title: "Buttons")
 
-Here's my button, if you'd like to add it to your site. Hot-linking is fine.
+Here#(apostrophe)s my button, if you#(apostrophe)d like to add it to your site. Hot-linking is fine.
 
 #html.elem("a", attrs: (
   href: "/",
