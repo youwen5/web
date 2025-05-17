@@ -9,7 +9,8 @@ my name is Youwen---romanized directly from the Chinese: #chinese-name.
 I#(apostrophe)m from the San Francisco Bay Area but I currently study and live
 in Santa Barbara, California.
 
-I could tell you that I study math, and computers, but I care at least as much about politics and philosophy and the human condition.
+I could tell you that I study math, and computers, but I#(apostrophe)m also at
+least as interested in politics and philosophy and the human condition.
 
 If it helps, we might saunter through the streets of IV or window shop in
 downtown SB, and complain about dining hall food or the exorbitant prices in
