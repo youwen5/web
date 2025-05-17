@@ -352,7 +352,7 @@
         type: "github",
       )[
         - Powered by a fully custom handrolled static site generator, written in Rust
-        - Accessible, perfect 100s on Google's Lighthouse benchmark
+        - Accessible, perfect 100s on Google#(apostrophe)s Lighthouse benchmark
       ]
     ]
 
@@ -373,7 +373,7 @@
       link: "https://github.com/youwen5/jankboard",
       type: "github",
     )[
-      - A bespoke driver control dashboard for Team 1280's 2024 competition robot
+      - A bespoke driver control dashboard for Team 1280#(apostrophe)s 2024 competition robot
       - Tauri application, with Svelte frontend and Rust glue code to communicate with robot
       - 3D robot visualization using Three.js
     ]
