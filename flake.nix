@@ -322,6 +322,7 @@
                   nodejs
                   just
                   caddy
+                  cargo-valgrind
                 ])
                 ++ [
                   rustToolchain
