@@ -88,10 +88,10 @@ body {
 }
 
 .subhead:first-child:first-letter {
-  @apply text-[3.3em] mt-[0.19em] mr-[0.15em];
+  @apply text-[3.2em] mt-[0.19em] mr-[0.15em];
   font-variant: normal;
   float: left;
-  line-height: 0.6em;
+  line-height: 0.625em;
 }
 
 .main-content {
