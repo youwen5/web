@@ -87,6 +87,15 @@ body {
   font-size: 0.5em;
 }
 
+.subhead:first-child:first-letter {
+  font-variant: normal;
+  float: left;
+  font-size: 4rem;
+  line-height: 5rem;
+  padding-top: 0.8rem;
+  padding-right: 0.5rem;
+}
+
 .main-content {
   .math {
     filter: invert(0);

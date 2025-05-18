@@ -4,10 +4,12 @@
 
 #let chinese-name = html.elem("span", attrs: (lang: "zh-Hans"), [佑文])
 
-How many words does it take to get to know a person? To start---I could tell you
-my name is Youwen---romanized directly from the Chinese: #chinese-name.
-I#(apostrophe)m from the San Francisco Bay Area but I currently study and live
-in Santa Barbara, California.
+#dropcap[
+  H#smallcaps[ow many words] does it take to get to know a person? To start---I could tell you
+  my name is Youwen---romanized directly from the Chinese: #chinese-name.
+  I#(apostrophe)m from the San Francisco Bay Area but I currently study and live
+  in Santa Barbara, California.
+]
 
 I could tell you that I study math, and computers, but I also care at least as
 much about music and philosophy and the human condition.

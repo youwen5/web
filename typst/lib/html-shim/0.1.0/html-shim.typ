@@ -57,6 +57,14 @@
   }
 }
 
+#let dropcap(body) = context {
+  if target() == "html" {
+    html.elem("p", attrs: (class: "subhead"), body)
+  } else {
+    body
+  }
+}
+
 #let apostrophe = sym.quote.r.single
 
 #let btw(body) = html.elem(
