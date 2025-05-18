@@ -16,16 +16,47 @@ Here#(apostrophe)s my button, if you#(apostrophe)d like to add it to your site. 
 
 #dinkus
 
-#html.elem("div", attrs: (class: "flex flex-wrap gap-4"), html.elem(
-  "a",
-  attrs: (
-    target: "_blank",
-    href: "https://muan.co/posts/javascript",
-  ),
-)[
-  #html.elem("img", attrs: (
-    src: "/static/img/anti-js-js-club.png",
-    alt: "anti-js-js-club",
-    class: "w-20",
+#let button(src, alt, href: none, class: none) = {
+  let img = html.elem("img", attrs: (
+    src: src,
+    alt: alt,
+    class: if class != none { class } else { "w-[88px] h-[31px]" },
+    height: "31px",
+    width: "88px",
   ))
-])
+  if href != none {
+    html.elem(
+      "a",
+      attrs: (
+        target: "_blank",
+        href: href,
+        class: "w-fit h-min",
+      ),
+      img,
+    )
+  } else {
+    img
+  }
+}
+
+#html.elem("div", attrs: (class: "flex flex-wrap not-prose mt-8"), {
+  button(
+    "/static/img/anti-js-js-club.png",
+    "anti-js-js-club",
+    href: "https://muan.co/posts/javascript",
+  )
+  button("/static/img/htmldream.gif", "html")
+  button("/static/img/css.gif", "css")
+  button("/static/img/neovim.png", "neovim", href: "https://neovim.io")
+  button("/static/img/transnow2.gif", "trans rights now")
+  button("/static/img/nixos.png", "nixos", href: "https://nixos.org")
+  button("/static/img/galaxy.gif", "galaxy")
+  button(
+    "/static/img/gpl3.gif",
+    "gpl3",
+    href: "https://www.gnu.org/licenses/gpl-3.0.en.html",
+  )
+  button("/static/img/nclinux.gif", "nclinux")
+  button("/static/img/nodrugs.gif", "nodrugs")
+  button("/static/img/valid-bad.gif", "valid-bad")
+})
