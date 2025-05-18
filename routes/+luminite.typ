@@ -10,15 +10,15 @@
   Write JavaScript like it's 2005.
 ]
 
-This is the software that builds this website. It is a custom system for
-building a static site generator using Typst as the primary way of setting
-content. This page is my todo-board where I plan out and track feature
-implementation. The source code is available on
-#link("https://github.com/youwen5/web")[GitHub].
+This is the software that generates this website. It is a custom system for
+building a static site generator built around Typst. This page is my
+project-board where I plan out and track feature implementation. The source
+code is available on #link("https://github.com/youwen5/web")[GitHub].
 
-Big picture next steps: get metadata working, and generate some more advanced
-pages that rely on introspecting the system at build time. Then work on
-smoothing around the corners, hot reload, caching.
+General next steps: now that we can pass data from each document to the site
+generator, we need to figure out how to pass data from the site generator back
+into the document, so that we can generate things like RSS feeds, navigation
+pages, sitemaps, etc.
 
 = Started
 
@@ -30,15 +30,28 @@ smoothing around the corners, hot reload, caching.
 = Triage
 
 - #todo Set up the meta-pages that collect posts automatically.
+  - #todo Figure out how to pass data from the static site generator back into the website.
 - #todo #smallcaps[rss]/Atom feed.
-- #todo Allow some routes to be PDFs instead of webpages. So e.g. we could introduce a file pattern like `$doc.typ` and in the place where it would've been as a webpage, it's a PDF instead.
 - #todo Figure out how image hosting will work
   - #todo #smallcaps[cdn]? That would introduce complexity, but I don't like the idea of hosting static assets in GitHub using gh pages
     - #todo Would have to set up deployment pipeline
     - #todo Alternatively could move hosting off of gh pages and onto a personal server. Would have to write some sort of `axum` backend for this site (thus making it no longer static)
+    I think I have an idea for this. We obviously don't want to store big files
+    in the source tree of this site---instead, I could store files using a
+    version control system for large files like Syncthing. We'd push all our
+    blobs to an S3-compatible bucket, like Cloudflare R2. Then, it remains to
+    implement a tiny utility that can crawl the blob storage and generate a
+    machine-readable manifest, tagging some sort of unique ID to each blob. In
+    this website, then, we could read this manifest (for reproducibility, it
+    would be published via a Git repository and tracked as a Nix flake input).
+    When referencing images and files in text, instead of linking directly, we
+    just write the ID and it would be replaced with the real link from
+    `cdn.youwen.dev` at compile time.
 
 = Done
 
+- #done Parallelized all expensive operations, shrinking run times by an order of magnitude.
+- #done Allow some routes to be PDFs instead of webpages. So e.g. we could introduce a file pattern like `$doc.typ` and in the place where it would've been as a webpage, it's a PDF instead.
 - #done Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect] or #link("https://github.com/tree-sitter/tree-sitter/tree/master/highlight")[tree-sitter-highlight].
   - Used `prism.js` for now.
 - #done Set up TailwindCSS and a nice Big Beautiful Stylesheet.
@@ -62,7 +75,9 @@ smoothing around the corners, hot reload, caching.
   can provide each page with a beautifully typeset PDF to print/save offline
   instead of janky browser print.
   - Could use `typst.ts`
+  - Implemented partial version of this for the CV
 - Comments system, using #smallcaps[htmx]?
+  - Currently using Giscus.
 
 = Testing code
 
