@@ -2,7 +2,7 @@
 
 #show: html-shim
 
-#html.elem("div", attrs: (class: "prose-xl lg:prose-2xl"))[
+#html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
   #smallcaps(all: true)[Greetings. I#(apostrophe)m Youwen]. I study math and hack on computers at
   #link("https://ucsb.edu")[UC Santa Barbara].
 ]
