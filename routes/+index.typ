@@ -262,7 +262,7 @@ the other pages on this website.
       University of California, Santa Barbara
     ]
   ]
-  #html.elem("div", attrs: (class: "space-y-[7.5px] prose-lg"))[
+  #html.elem("div", attrs: (class: "space-y-[7.33px] prose-lg"))[
     #location-entry(area: [in Santa Barbara], country-or-state: [
       #smallcaps(all: true)[California, USA]
     ])
