@@ -21,7 +21,7 @@ impl Template for MainPage {
                      (metadata.title.as_ref().unwrap())
                  }
             }
-            div id="typst-injected" class="prose-lg lg:prose-xl mt-4 prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground" {
+            div id="typst-injected" class="prose-lg lg:prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground" {
                 (content)
             }
         })
