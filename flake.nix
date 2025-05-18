@@ -89,7 +89,7 @@
 
           cargoArtifacts = craneLib.buildDepsOnly commonArgs;
 
-          luminite-crate = craneLib.buildPackage (
+          epilogue-crate = craneLib.buildPackage (
             commonArgs
             // {
               inherit cargoArtifacts;
@@ -153,9 +153,9 @@
             src = typstPackagesSrc;
             dontBuild = true;
             installPhase = ''
-              mkdir -p "$out/typst/packages/luminite"
+              mkdir -p "$out/typst/packages/epilogue"
               cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
-              cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages/luminite" ${
+              cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages/epilogue" ${
                 self.packages.${system}.default.src
               }/typst/lib/html-shim
             '';
@@ -165,9 +165,9 @@
           formatter = treefmtEval.config.build.wrapper;
 
           checks = {
-            inherit luminite-crate;
+            inherit epilogue-crate;
 
-            luminite-clippy = craneLib.cargoClippy (
+            epilogue-clippy = craneLib.cargoClippy (
               commonArgs
               // {
                 inherit cargoArtifacts;
@@ -175,14 +175,14 @@
               }
             );
 
-            luminite-doc = craneLib.cargoDoc (
+            epilogue-doc = craneLib.cargoDoc (
               commonArgs
               // {
                 inherit cargoArtifacts;
               }
             );
 
-            luminite-deny = craneLib.cargoDeny {
+            epilogue-deny = craneLib.cargoDeny {
               inherit (commonArgs) src;
               inherit advisory-db;
             };
@@ -227,14 +227,14 @@
             src = ./.;
 
             nativeBuildInputs = [
-              self.packages.${system}.luminite
+              self.packages.${system}.epilogue
               pkgs.typst
               pkgs.git
             ];
 
             XDG_CACHE_HOME = typstPackagesCache;
-            LUMINITE_GIT_COMMIT = builtins.toString (if (self ? rev) then self.rev else "unstable");
-            LUMINITE_LAST_MODIFIED = builtins.toString (self.lastModified);
+            EPILOGUE_GIT_COMMIT = builtins.toString (if (self ? rev) then self.rev else "unstable");
+            EPILOGUE_LAST_MODIFIED = builtins.toString (self.lastModified);
 
             buildPhase = ''
               site build --minify
@@ -247,7 +247,7 @@
             '';
           };
 
-          packages.luminite = luminite-crate;
+          packages.epilogue = epilogue-crate;
 
           apps =
             let
@@ -281,7 +281,7 @@
             in
             {
               default = flake-utils.lib.mkApp {
-                drv = luminite-crate;
+                drv = epilogue-crate;
               };
 
               preview = flake-utils.lib.mkApp {

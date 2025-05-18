@@ -1,4 +1,4 @@
-#import "@luminite/html-shim:0.1.0": *
+#import "@epilogue/html-shim:0.1.0": *
 
 #show: html-shim.with(
   date: datetime(day: 26, year: 2025, month: 4),
@@ -14,7 +14,7 @@ This was a conscious choice on my part. As an experiment, I decided to write
 this entire website by rendering Typst (a document markup language) to
 #smallcaps[html] and embedding it in #smallcaps[html] templates. At the end,
 the entire site is just comprised of raw #smallcaps[html] strings that my
-custom #link("http://localhost:8080/luminite")[static site generator] places
+custom #link("http://localhost:8080/epilogue")[static site generator] places
 into the right paths.
 
 When I initially came up with this idea I hilariously thought for a brief

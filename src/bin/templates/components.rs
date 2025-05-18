@@ -1,6 +1,6 @@
+use epilogue::world::Metadata;
 /// Reusable components that can be placed around the site. Footers, navbars, etc.
 use hypertext::{GlobalAttributes, Raw, Renderable, html_elements, maud};
-use luminite::world::Metadata;
 
 /// A site-wide usable head tag.
 pub struct Head {

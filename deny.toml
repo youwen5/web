@@ -102,7 +102,7 @@ exceptions = [
   # Each entry is the crate and version constraint, and its specific allow
   # list
   #{ allow = ["Zlib"], crate = "adler32" },
-  { allow = ["GPL-3.0"], crate = "luminite" },
+  { allow = ["GPL-3.0"], crate = "epilogue" },
 ]
 
 # Some crates don't have (easily) machine readable licensing information,

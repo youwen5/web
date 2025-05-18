@@ -1,4 +1,4 @@
-#import "@luminite/html-shim:0.1.0": *
+#import "@epilogue/html-shim:0.1.0": *
 
 #show: html-shim.with(
   date: datetime(day: 13, year: 2025, month: 5),

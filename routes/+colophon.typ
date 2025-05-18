@@ -1,9 +1,9 @@
-#import "@luminite/html-shim:0.1.0": *
+#import "@epilogue/html-shim:0.1.0": *
 
 #show: html-shim.with(title: "Colophon")
 
 This site was built with my custom static generator called
-#link("/luminite")[Luminite]. It was written in Rust, and its unique
+#link("/epilogue")[Epilogue]. It was written in Rust, and its unique
 feature is that it uses #link("https://typst.app/")[Typst] as a scriptable
 markup language instead of something like Markdown. It outputs fully rendered
 organic fair-trade #smallcaps[html] that gets shipped straight from

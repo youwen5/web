@@ -18,6 +18,6 @@ rustToolchain: {
     "dist/"
     "pnpm-lock.yaml"
     "web/pnpm-lock.yaml"
-    ".luminite/"
+    ".epilogue/"
   ];
 }

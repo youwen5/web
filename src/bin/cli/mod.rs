@@ -1,10 +1,10 @@
 use crate::templates;
-use hypertext::Raw;
-use luminite::{
+use epilogue::{
     site::Site,
     templating::Template,
     world::{WorkingDirs, World},
 };
+use hypertext::Raw;
 
 use clap::{ArgAction, Args, Parser, Subcommand};
 
@@ -61,7 +61,7 @@ pub fn run() {
                 Err(err) => {
                     tracing::event!(
                         tracing::Level::ERROR,
-                        "Something went wrong when I was trying to create the working directories (`dist` and `.luminite`). If these directories already exist, you should delete them and try again. I failed with the error {}",
+                        "Something went wrong when I was trying to create the working directories (`dist` and `.epilogue`). If these directories already exist, you should delete them and try again. I failed with the error {}",
                         err
                     );
                     return;
@@ -95,7 +95,7 @@ pub fn run() {
 
             if let Err(err) = the_world.realize_site(site, args.minify) {
                 match err {
-                    luminite::world::WorldError::TypstQuery => {
+                    epilogue::world::WorldError::TypstQuery => {
                         tracing::event!(
                             tracing::Level::ERROR,
                             "I tried to query your routes for metadata, but something went wrong! Are you sure you've set up the `html-shim` correctly? Otherwise, metadata won't be generated! I failed with the error {}",

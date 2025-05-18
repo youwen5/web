@@ -53,9 +53,9 @@ const LOGO: hypertext::Raw<&str> = hypertext::Raw(
 
 impl DefaultShell {
     pub fn render_with_children(self, children: impl Renderable) -> Rendered<String> {
-        let git_version = std::env::var("LUMINITE_GIT_COMMIT").unwrap_or("unstable".to_string());
+        let git_version = std::env::var("EPILOGUE_GIT_COMMIT").unwrap_or("unstable".to_string());
         let current_time = {
-            let time_str = std::env::var("LUMINITE_LAST_MODIFIED")
+            let time_str = std::env::var("EPILOGUE_LAST_MODIFIED")
                 .unwrap_or("sometime".to_string())
                 .parse::<i64>()
                 .unwrap_or(0);
@@ -77,7 +77,7 @@ impl DefaultShell {
         };
 
         let code = maud! {
-            li {a class="hover:bg-surface transition-colors" href="/luminite" {"How this site was made"}}
+            li {a class="hover:bg-surface transition-colors" href="/software/epilogue" {"How this site was made"}}
         };
 
         let math = maud! {
@@ -179,7 +179,7 @@ impl DefaultShell {
                                         a
                                             class="text-link"
                                             href="https://github.com/youwen5/web" 
-                                            {"luminite"}
+                                            {"epilogue"}
                                         " from "
                                         a
                                             class="text-link"

@@ -1,4 +1,4 @@
-#import "@luminite/html-shim:0.1.0": *
+#import "@epilogue/html-shim:0.1.0": *
 
 #show: html-shim.with(
   date: datetime(day: 10, year: 2025, month: 5),
@@ -17,7 +17,7 @@ generator systems too.
 = How
 
 There are other pages on this site explaining this, but essentially I wrote a
-tiny #link("/luminite")[static site generator] using Rust that calls the Typst
+tiny #link("/epilogue")[static site generator] using Rust that calls the Typst
 #smallcaps[cli] to produce #smallcaps[html], and then I embed it into a
 template (that contains navigation widgets, footer, `<head>`, etc). Each page is a Typst
 source file. The Typst source code for each page can emit metadata, similar to

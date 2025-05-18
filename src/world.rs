@@ -77,7 +77,7 @@ pub struct Metadata {
 /// traverse the tree and query every single document for metadata, populating the field. At this
 /// point we have all the information about the website, and we can do any intermediate
 /// transformations. Next, we build each `TypstDoc` into an actual HTML artifact in a temporary
-/// working directory (`.luminite/typst-html`), populating the `artifact_path`. Finally, we can
+/// working directory (`.epilogue/typst-html`), populating the `artifact_path`. Finally, we can
 /// actually build the website, reading the built HTML in `artifact_path` and injecting it into
 /// templates, etc.
 #[derive(Debug)]
@@ -278,13 +278,13 @@ pub struct WorkingDirs {
     factory: PathBuf,
 }
 
-/// Utilities for `.luminite` and `dist`
+/// Utilities for `.epilogue` and `dist`
 impl WorkingDirs {
-    /// Set up the working directories, `dist` for built artifacts and `.luminite` for intermediate
+    /// Set up the working directories, `dist` for built artifacts and `.epilogue` for intermediate
     /// artifacts, as well as intermediate directories.
     fn setup_working_dirs() -> Result<WorkingDirs, WorldError> {
         let dist_path = Path::new("./dist");
-        let factory_path = Path::new("./.luminite");
+        let factory_path = Path::new("./.epilogue");
         if std::fs::exists(dist_path)? {
             std::fs::remove_dir_all(dist_path)?;
         }
@@ -292,7 +292,7 @@ impl WorkingDirs {
             std::fs::remove_dir_all(factory_path)?;
         }
         std::fs::create_dir_all("./dist")?;
-        std::fs::create_dir_all("./.luminite")?;
+        std::fs::create_dir_all("./.epilogue")?;
         Ok(WorkingDirs {
             dist: dist_path.to_path_buf(),
             factory: factory_path.to_path_buf(),
@@ -303,7 +303,7 @@ impl WorkingDirs {
     /// actually valid
     pub fn working_dirs_exist() -> Result<bool, WorldError> {
         let dist_path = Path::new("./dist");
-        let factory_path = Path::new("./.luminite");
+        let factory_path = Path::new("./.epilogue");
 
         Ok(std::fs::exists(dist_path)?
             && std::fs::exists(factory_path)?
@@ -318,7 +318,7 @@ impl WorkingDirs {
         }
 
         let dist_path = Path::new("./dist");
-        let factory_path = Path::new("./.luminite");
+        let factory_path = Path::new("./.epilogue");
 
         Ok(WorkingDirs {
             dist: dist_path.to_path_buf(),

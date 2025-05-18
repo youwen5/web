@@ -1,4 +1,4 @@
-#import "@luminite/html-shim:0.1.0": html-shim
+#import "@epilogue/html-shim:0.1.0": html-shim
 
 #show: html-shim.with(
   title: "Transcript",

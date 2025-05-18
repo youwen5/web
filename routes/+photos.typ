@@ -1,4 +1,4 @@
-#import "@luminite/html-shim:0.1.0": *
+#import "@epilogue/html-shim:0.1.0": *
 
 #show: html-shim.with(title: "Photos", meta-description: "Photo gallery")
 
@@ -119,4 +119,3 @@ all.addEventListener('click', () => {
 });
 ",
 )
-

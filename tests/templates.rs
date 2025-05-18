@@ -1,5 +1,5 @@
+use epilogue::{templating::Template, world::Metadata};
 use hypertext::{Renderable, Rendered, html_elements, maud};
-use luminite::{templating::Template, world::Metadata};
 
 struct TestTemplate {}
 impl Template for TestTemplate {

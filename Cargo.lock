@@ -417,6 +417,24 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "48c757948c5ede0e46177b7add2e67155f70e33c07fea8284df6576da70b3719"
 
 [[package]]
+name = "epilogue"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "compile-time",
+ "dircpy",
+ "hypertext",
+ "minify-html-onepass",
+ "rayon",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "time",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "equivalent"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -640,24 +658,6 @@ name = "log"
 version = "0.4.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "13dc2df351e3202783a1fe0d44375f7295ffb4049267b0f3018346dc122a1d94"
-
-[[package]]
-name = "luminite"
-version = "0.1.0"
-dependencies = [
- "clap",
- "compile-time",
- "dircpy",
- "hypertext",
- "minify-html-onepass",
- "rayon",
- "serde",
- "serde_json",
- "thiserror",
- "time",
- "tracing",
- "tracing-subscriber",
-]
 
 [[package]]
 name = "matches"

@@ -1,6 +1,6 @@
-#import "@luminite/html-shim:0.1.0": *
+#import "@epilogue/html-shim:0.1.0": *
 
-#show: html-shim.with(title: "Luminite")
+#show: html-shim.with(title: "Epilogue")
 
 #let done = emoji.checkmark.box
 #let todo = sym.ballot
@@ -64,7 +64,7 @@ pages, sitemaps, etc.
 - #done Ingest a rendered HTML artifact and then process it to remove `<head>` and `<doctype>` tags amongst other extraneous tags.
 - #done "nested" templating for implementing Navbar.
 - #done Figure out how to do metadata...should be able to extract it from Typst source files?
-  - #done Metadata is now possible, but slow. I'm thinking of doing a cache system where we keep a `.json` or `.toml` file that caches extracted metadata in `.luminite` for fast development (and a switch in the code to skip inspecting metadata and trust the cache).
+  - #done Metadata is now possible, but slow. I'm thinking of doing a cache system where we keep a `.json` or `.toml` file that caches extracted metadata in `.epilogue` for fast development (and a switch in the code to skip inspecting metadata and trust the cache).
     - Eventually once we have file-watching hot reload this file will work better. But it's faster than multi-second build steps.
     - Maybe also look into extracting multiple pieces of metadata at once. If not possible in Typst CLI, then will have to wait until CLI is replaced by embedding the `typst` create directly.
     - NOTE: I've marked this task done but the above has not been implemented. Rather I've just figured out how to make it much faster by parsing JSON out of a single query. However hot reload is still in question.
@@ -107,3 +107,4 @@ impl TypstDoc {
   html.elem("img", attrs: (src: src, alt: alt, class: classes))
 }
 ```
+

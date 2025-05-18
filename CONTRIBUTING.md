@@ -22,12 +22,12 @@ site. Just go dig around in [routes](./routes) until you find the file with
 the content (the directory structure mirrors the website structure), then edit
 it, and send a PR. Otherwise, read on.
 
-## Luminite
+## Epilogue
 
 You may have seen scattered references around my site about a thing called
-`luminite`.
+`epilogue`.
 
-`luminite` is a Rust _library_ for writing static site generators centered around
+`epilogue` is a Rust _library_ for writing static site generators centered around
 Typst. It is not a batteries-included unified program controlled by
 configuration files like e.g. Hexo, Jekyll, etc. It is somewhere in between
 Hakyll and a more traditional site generator. It provides abstractions for
