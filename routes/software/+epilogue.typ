@@ -161,6 +161,15 @@ pages, sitemaps, etc.
 
 = Triage
 
+- #todo Implement the #quote[prefixes] system. Basically, rather than
+  classifying pages based on their directory (e.g. `/blog` contains all blog
+  posts), I#(apostrophe)d like to prefix the source file to tell Epilogue
+  what kind of page it is. Right now, the prefix `+` is already used for all
+  routes to indicate that they are a route, so it should be as simple as
+  extracting the prefix and matching it against a lookup and storing it along
+  with the metadata.
+
+  This is a blocker on the implementation of the below.
 - #todo Set up the meta-pages that collect posts automatically.
   - #todo Figure out how to pass data from the static site generator back into the website.
 - #todo #smallcaps[rss]/Atom feed.
