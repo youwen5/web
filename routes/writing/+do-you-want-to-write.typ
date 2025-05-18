@@ -8,9 +8,11 @@
   enable-comments: true,
 )
 
-#smallcaps(all: true)[In principle, yes.] I#(apostrophe)d love to write more,
-as an abstract concept. I like the _idea_ of putting thoughts to written word.
-_I want to write_.
+#dropcap[
+  I#smallcaps(all: true)[n principle, yes.] I#(apostrophe)d love to write more,
+  as an abstract concept. I like the _idea_ of putting thoughts to written word.
+  _I want to write_.
+]
 
 So I built a #link(
   "https://old.youwen.dev/devlog/2024/first-post",
