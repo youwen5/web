@@ -77,7 +77,7 @@ impl DefaultShell {
         };
 
         let code = maud! {
-            li {a class="hover:bg-surface transition-colors" href="/luminite" {"Project: Luminite"}}
+            li {a class="hover:bg-surface transition-colors" href="/luminite" {"How this site was made"}}
         };
 
         let math = maud! {
