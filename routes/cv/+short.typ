@@ -21,8 +21,9 @@
         [#link("mailto:youwen@ucsb.edu", smallcaps(
             all: true,
           )[youwen\@youwen.dev])],
+        [#link("https://web.youwen.dev")[web.youwen.dev]],
       ),
-      footer-text: [Wu Résumé],
+      footer-text: [Curriculum Vitae],
     )
     it
   } else {

@@ -30,15 +30,15 @@
     // Display page number in footer only if there is more than one page.
     footer: context {
       set align(center)
-      show text: it => { text(size: 0.85em, tracking: 1.2pt, it) }
+      show text: it => { text(size: 0.85em, it) }
       let total = counter(page).final().first()
       if total > 1 {
         let i = counter(page).at(here()).first()
-        upper[#footer-text #h(2pt) #sym.circle.filled.small #h(2pt) #counter(
-            page,
-          ).display(page-numbering-format, both: true)]
+        smallcaps(all: true)[#footer-text #h(2pt) #sym.circle.filled.small #h(
+            2pt,
+          ) #counter(page).display(page-numbering-format, both: true)]
       } else {
-        upper[#footer-text]
+        smallcaps(all: true)[#footer-text]
       }
     },
   )
