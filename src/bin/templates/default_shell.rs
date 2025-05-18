@@ -92,7 +92,7 @@ impl DefaultShell {
 
         let page_width = match self.width {
             PageWidth::Wide => "",
-            PageWidth::Prose => " lg:max-w-2xl",
+            PageWidth::Prose => " lg:max-w-[41rem]",
         };
 
         maud! {

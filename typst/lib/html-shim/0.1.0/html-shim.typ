@@ -3,7 +3,7 @@
     html.elem(
       "blockquote",
       attrs: (
-        class: "border-l-solid border-l-4 border-l-subtle px-4 w-fit text-[0.85em]",
+        class: "border-l-solid border-l-4 border-l-subtle px-4 w-fit text-[0.9em]",
       ),
       {
         body

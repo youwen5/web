@@ -91,7 +91,7 @@ body {
   @apply text-[3.5em] mt-[0.2em] mr-[0.15em];
   font-variant: normal;
   float: left;
-  line-height: 0.6em;
+  line-height: 0.625em;
 }
 
 .main-content {
