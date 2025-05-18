@@ -88,7 +88,7 @@ body {
 }
 
 .subhead:first-child:first-letter {
-  @apply text-[3.5em] xl:pt-[14px] lg:pr-[10px] lg:pt-[13px] pt-[10px] pr-[8px];
+  @apply text-[3.5em] pt-[0.2em] pr-[0.15em];
   font-variant: normal;
   float: left;
 }
