@@ -1,19 +1,151 @@
 #import "@epilogue/html-shim:0.1.0": *
 
-#show: html-shim.with(title: "Epilogue")
+#show: html-shim.with(
+  title: "How this website was made",
+  subtitle: "Introducing Epilogue, my static site generator based on Typst.",
+)
 
 #let done = emoji.checkmark.box
 #let todo = sym.ballot
 #let in-progress = emoji.clock
 
-#blockquote[
-  Write JavaScript like it's 2005.
+Back when I was shopping around for a framework to write this website in, I
+realized there was a serious gap in the ecosystem. The entire web development
+culture of churning out framework after framework and package after package is
+#link("https://en.wikipedia.org/wiki/Npm_left-pad_incident")[well documented]
+at this point. There are also myriad great static site generators that have
+been established for years. So it feels strange to declare that, actually, we
+don#(apostrophe)t have _enough_ choice already.
+
+But I think it#(apostrophe)s true. Let#(apostrophe)s briefly analyze two
+primary ways content driven sites are deployed to the web, in so-called
+#quote[modern web development]. One: choose a web framework, and write in that.
+Two: use a static site generator, create some #smallcaps[html] templates, and
+write in Markdown or a similarly minimalistic markup language. (Three: a
+combination of both, like #link("https://astro.build/")[Astro].)
+
+There#(apostrophe)s a time and place for web frameworks. I#(apostrophe)m
+partial to Astro and Svelte. But for a personal website? Hell no.
+I#(apostrophe)m not going to depend on 1000 #smallcaps[npm] packages and ship
+users ten thousand lines of JavaScript for three interactive widgets and an
+image carousel.
+
+I think Markdown is fine, but we can seriously do better. Markdown is for when
+you#(apostrophe)re writing in a GitHub `README` and want some basic formatting.
+It#(apostrophe)s rather austere for a markup language that generates content on
+a website you control. What if you want to define a custom reusable component?
+What if you want to programmatically do anything?
+
+Of course there are systems to give you more power
+#footnote[#link("https://mdxjs.com/")[MDX]], but at the end of the day
+you#(apostrophe)re either hacking a programming system into a markup language
+or a markup language into a programming system. The gold standard would be an
+actual markup language that treats programming as a first class citizen, or,
+equivalently, a programming language where markup is a first class citizen.
+
+#let TeXRaw = {
+  set text(font: "New Computer Modern")
+  let t = "T"
+  let e = text(baseline: 0.22em, "E")
+  let x = "X"
+  box(t + h(-0.14em) + e + h(-0.14em) + x)
+}
+
+#let TeX = {
+  $TeXRaw$
+}
+
+#let LaTeX = {
+  set text(font: "New Computer Modern")
+  let l = "L"
+  let a = text(baseline: -0.35em, size: 0.66em, "A")
+  $#box(l + h(-0.32em) + a + h(-0.13em) + TeXRaw)$
+}
+
+This is where Typst comes in. In Typst, markup and code are fused into one.
+Typst is like #LaTeX, in that it#(apostrophe)s programmatic and scriptable.
+Typst is like Markdown, in that basic markup (paragraphs, lists, tables,
+headings, etc.) is easy to use with dedicated syntax. But it has a much better
+scripting language than #TeX while being just as easy as Markdown. And, despite
+its primary purpose being to output beautifully typeset #smallcaps[pdf]
+documents like #TeX, it has #smallcaps[html] export that is surprisingly easy
+to use. So instead of relying on third-party conversion utilities like
+#link("https://pandoc.org/")[Pandoc], you can access the full power of the
+Typst language and not worry about things getting lost in translation during conversion.
+
+Enough evangelizing. How does this website actually work? This website is
+generated in Typst, but it was missing some pieces. Typst doesn#(apostrophe)t
+understand intrinsically how to render a collection of #smallcaps[html] pages
+into a website, so I hacked some additional infrastructure together. I wrote a
+tiny (1.3k lines of safe Rust code) static site generator called Epilogue that can
+parse a directory of Typst documents---representing routes---and then build it
+into a website. It works pretty well (you#(apostrophe)re reading text generated
+by Typst right now).
+
+Is it actually usable? Surprisingly, yes. I#(apostrophe)ve implemented a system
+for obtaining metadata from Typst documents, so we can populate the website
+`<head>` for SEO. Almost every element on this site (with the exception of the
+navigation elements) is written somewhere in a Typst source file. I implemented
+a thread pooled parallel compilation infrastructure so I can build hundreds of
+pages in a few seconds. I can basically do everything expected of a simple
+markdown static site generator right now.
+
+Remember those snazzy #LaTeX and #TeX symbols earlier? They#(apostrophe)re
+rendered directly as embedded #smallcaps[svg]s, from this source code (stolen
+shamelessly from
+#link("https://github.com/typst/typst/discussions/1732", newtab: true)[swaits on the Typst GitHub]):
+
+```typst
+#let TeXRaw = {
+  set text(font: "New Computer Modern")
+  let t = "T"
+  let e = text(baseline: 0.22em, "E")
+  let x = "X"
+  box(t + h(-0.14em) + e + h(-0.14em) + x)
+}
+
+#let TeX = {
+  $TeXRaw$
+}
+
+#let LaTeX = {
+  set text(font: "New Computer Modern")
+  let l = "L"
+  let a = text(baseline: -0.35em, size: 0.66em, "A")
+  $#box(l + h(-0.32em) + a + h(-0.13em) + TeXRaw)$
+}
+```
+
+Try doing that with Markdown or React!
+
+There are a few essential features I still need to add though. We can get
+information out of a document, but we still need to pass information back
+in---for example, we might pass in a list of recent blog posts for rendering a
+feed. I also want stuff like Atom/RSS feeds. But overall, it#(apostrophe)s
+everything I want out of a static site generator---namely, the actual
+experience of writing markup is amazing thanks to Typst. I can define
+functions, create libraries for shared utilities and components, pull in
+packages, introspect on my webpage, and none of it feels janky like a markdown
+based solution would.
+
+For an example of something that is only possible with Typst, see my
+#link("/cv")[CV], which is available as both the webpage and a #smallcaps[pdf],
+in both full and short variations, all generated from a single Typst source
+file.
+
+#blockquote(attribution: [Matthew Butterick, at the #link("https://www.youtube.com/watch?v=IMz09jYOgoc", newtab: true)[fourth RacketCon]])[
+  This whole idea of having like a document compiler that can take a source
+  file [and] take it to multiple platforms, publishing targets is really more
+  important than ever. I can tell you from many years spent among the short
+  people of the web development community that they don't really have anything
+  for this.
 ]
 
-This is the software that generates this website. It is a custom system for
-building a static site generator built around Typst. This page is my
-project-board where I plan out and track feature implementation. The source
-code is available on #link("https://github.com/youwen5/web")[GitHub].
+= Project board
+
+The rest of this page is my project-board where I plan out and track feature
+implementation. By the way, the website and static site generator source code
+is available on #link("https://github.com/youwen5/web")[GitHub].
 
 General next steps: now that we can pass data from each document to the site
 generator, we need to figure out how to pass data from the site generator back
