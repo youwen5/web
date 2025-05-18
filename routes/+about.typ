@@ -20,7 +20,7 @@ in restaurants. I could tell you about the subtle genius of _Disco Elysium_ or
 Rust#(apostrophe)s algebraic type system. We could play _Risk of Rain 2_ or
 _Monster Hunter_, and binge _Frieren_. Is that enough?
 
-Or we could take an evening trek over by Campus Point, look out past the
+Or we could take a late afternoon trek over by Campus Point, look out past the
 crumbling bluffs, and admire the deep inky waters of the Pacific. We could
 stare until the sun falls into a suffusion of gold and orange and indigo
 and the rays tear the glistening waves asunder.
