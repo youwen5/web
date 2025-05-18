@@ -3,6 +3,7 @@
 @source "../../routes";
 @source "../../typst";
 @plugin "@tailwindcss/typography";
+@config "./tailwind.config.js";
 
 :root {
   --bg-color: 254 254 254;
@@ -88,7 +89,7 @@ body {
 }
 
 .subhead:first-child:first-letter {
-  @apply text-[3.2em] mt-[0.19em] mr-[0.15em];
+  @apply text-[3.2em] mt-[0.19em] mr-[0.17em];
   font-variant: normal;
   float: left;
   line-height: 0.625em;
