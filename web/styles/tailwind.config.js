@@ -15,7 +15,7 @@ module.exports = {
           css: [
             {
               lineHeight: 1.6,
-              fontSize: rem(17.5),
+              fontSize: rem(17.75),
               h1: {
                 fontSize: em(1, 1),
                 marginBottom: em(6, 20),
