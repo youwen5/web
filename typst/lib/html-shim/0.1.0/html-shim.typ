@@ -31,7 +31,14 @@
 }
 
 #let tombstone = {
-  html.elem("div", attrs: (class: "text-end w-full text-xl"), [◼])
+  html.elem(
+    "div",
+    attrs: (class: "inline-flex justify-end w-full text-xl dark:invert -mt-4"),
+    {
+      set text(2.5em)
+      html.frame(sym.square.filled)
+    },
+  )
 }
 
 #let webimg = (src, alt, extraClass: none) => context {
