@@ -102,7 +102,7 @@ body {
   }
 
   .block-math {
-    @apply flex justify-center min-w-full overflow-x-auto my-0;
+    @apply flex justify-center min-w-full w-0 overflow-x-auto my-0;
   }
 
   @media (prefers-color-scheme: dark) {
