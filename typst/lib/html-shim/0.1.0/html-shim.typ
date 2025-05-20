@@ -30,6 +30,10 @@
   }
 }
 
+#let tombstone = {
+  html.elem("div", attrs: (class: "text-end w-full text-xl"), [◼])
+}
+
 #let webimg = (src, alt, extraClass: none) => context {
   if target() == "html" {
     let base-classes = "rounded-md mx-auto shadow-sm dark:shadow-none shadow-gray-900"
@@ -113,24 +117,53 @@
   also-compile-pdf: false,
   pdf-filename: none,
   thumbnail: none,
+  math-escape-mode: false,
 ) = {
+  show <rendermath>: it => {
+    show math.equation.where(block: true): it => {
+      html.elem(
+        "figure",
+        attrs: (role: "math", class: "math block-math inline-block"),
+        html.frame(it),
+      )
+    }
+    show math.equation.where(block: false): it => {
+      html.elem(
+        "span",
+        attrs: (role: "math", class: "math inline-math"),
+        html.frame(it),
+      )
+    }
+    it
+  }
+
   show math.equation.where(block: false): it => {
     set text(size: 1.2em)
-    html.elem(
-      "span",
-      attrs: (role: "math", class: "math inline-math"),
-      html.frame(it),
-    )
+    if not math-escape-mode {
+      html.elem(
+        "span",
+        attrs: (role: "math", class: "math inline-math"),
+        html.frame(it),
+      )
+    } else { it }
   }
+
 
   show math.equation.where(block: true): it => {
     set text(size: 1.2em)
-    html.elem(
-      "figure",
-      attrs: (role: "math", class: "math block-math inline-block"),
-      html.frame(it),
-    )
+    if not math-escape-mode {
+      html.elem(
+        "figure",
+        attrs: (role: "math", class: "math block-math inline-block"),
+        html.frame(it),
+      )
+    } else { it }
   }
+
+  show figure: it => {
+    html.elem("figure", attrs: (class: "math block-math"), html.frame(it))
+  }
+
 
   show smallcaps: it => context {
     if target() == "html" {

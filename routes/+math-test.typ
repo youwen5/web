@@ -4,28 +4,24 @@
 #show: html-shim.with(
   date: datetime(day: 22, year: 2025, month: 4),
   title: "A test of Typst math rendering",
+  math-escape-mode: true,
 )
 
-#show <render-svg>: it => {
-  set text(size: 1.5em)
-  html.elem("figure", attrs: (role: "math", class: "block-math"), html.frame(
-    it,
-  ))
-}
+#[
+  This is a test of rendering Typst math markup to #smallcaps[html] via #smallcaps[svg]. For an even longer document, see #link("/probability-theory")[my notes about probability] adapted to the web.
 
-This is a test of rendering Typst math markup to #smallcaps[html] via #smallcaps[svg]. For an even longer document, see #link("/probability-theory")[my notes about probability] adapted to the web.
+  Let $U$ and $V$ be $FF$-vector spaces. Suppose that $U$ is finite-dimensional of dimension $n >= 1$. Let $S = {u_1,...,u_n}$ be a basis for $U$. Given any map $f : S -> V$ (of sets), show that there is a unique linear map
+  $
+    tau_f : U -> V
+  $
+  such that $tau_f (u_i) = f(u_i)$ for all $i = 1,...,n$.
 
-Let $U$ and $V$ be $FF$-vector spaces. Suppose that $U$ is finite-dimensional of dimension $n >= 1$. Let $S = {u_1,...,u_n}$ be a basis for $U$. Given any map $f : S -> V$ (of sets), show that there is a unique linear map
-$
-  tau_f : U -> V
-$
-such that $tau_f (u_i) = f(u_i)$ for all $i = 1,...,n$.
+  Let $f : S -> V$ be an $FF$-linear map. Let $tau_f$ be a linear map that satisfies $tau_f
+  (u_i) = f(u_i)$. Let $x$ be any vector in $U$. Because $S$ is a basis, $exists lambda_1,...,lambda_n$ s.t. $x = lambda_1 u_1 + dots.c + lambda_n u_n$. By linearity, $tau_f (x) = lambda_1 tau_f (u_1) + dots.c + lambda_n tau_f (u_n) = lambda_1 f(u_1) + dots.c + lambda_n f(u_n)$.
 
-Let $f : S -> V$ be an $FF$-linear map. Let $tau_f$ be a linear map that satisfies $tau_f
-(u_i) = f(u_i)$. Let $x$ be any vector in $U$. Because $S$ is a basis, $exists lambda_1,...,lambda_n$ s.t. $x = lambda_1 u_1 + dots.c + lambda_n u_n$. By linearity, $tau_f (x) = lambda_1 tau_f (u_1) + dots.c + lambda_n tau_f (u_n) = lambda_1 f(u_1) + dots.c + lambda_n f(u_n)$.
-
-Suppose there was another linear map, $tau'_f$, where
-$tau'_f (u_i) = f(u_i)$ for all $i = 1,...,n$. Because $S$ is a basis, the representation $x = lambda_1 u_1 + dots.c + lambda_n u_n$ is unique, so $tau'_f (x) = lambda_1 tau'_f (u_1) + dots.c + lambda_n tau'_f (u_n) = lambda_1 f(u_1) + dots.c + lambda_n f(u_n)$. So $forall x in U$, $tau_f (x) = tau'_f (x)$ and $tau_f = tau'_f$.
+  Suppose there was another linear map, $tau'_f$, where
+  $tau'_f (u_i) = f(u_i)$ for all $i = 1,...,n$. Because $S$ is a basis, the representation $x = lambda_1 u_1 + dots.c + lambda_n u_n$ is unique, so $tau'_f (x) = lambda_1 tau'_f (u_1) + dots.c + lambda_n tau'_f (u_n) = lambda_1 f(u_1) + dots.c + lambda_n f(u_n)$. So $forall x in U$, $tau_f (x) = tau'_f (x)$ and $tau_f = tau'_f$.
+]<rendermath>
 
 == And we can even render graphics
 
@@ -102,4 +98,4 @@ This is not an image. It is generated at compile time by CeTZ code (best results
     anchor: "south",
     [$(A inter C) times (B inter D) = (A times B) inter (C times D)$],
   )
-}))<render-svg>
+}))
