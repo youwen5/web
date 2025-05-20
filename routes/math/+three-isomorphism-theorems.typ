@@ -37,7 +37,7 @@
 
   = First isomorphism theorem
 
-  Recall that we know linear maps are not in generalbijective (i.e. not
+  Recall that we know linear maps are not in general bijective (i.e. not
   isomorphisms). For any linear map $tau$, the first theorem establishes an
   isomorphism between its image and its codomain modulo its kernel.
 
