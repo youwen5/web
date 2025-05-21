@@ -20,7 +20,7 @@ import {
   Mail,
   RulerDimensionLine,
   Origami,
-} from "lucide";
+} from 'lucide';
 
 createIcons({
   icons: {

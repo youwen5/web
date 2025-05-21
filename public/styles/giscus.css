@@ -57,59 +57,45 @@ main {
   --color-prettylights-syntax-comment: var(--rp-muted); /* Muted */
   --color-prettylights-syntax-constant: var(--rp-pine); /* Pine */
   --color-prettylights-syntax-entity: var(--rp-iris); /* Iris */
-  --color-prettylights-syntax-storage-modifier-import: var(
-    --rp-iris
-  ); /* Iris */
+  --color-prettylights-syntax-storage-modifier-import: var(--rp-iris); /* Iris */
   --color-prettylights-syntax-entity-tag: var(--rp-foam); /* Foam */
   --color-prettylights-syntax-keyword: var(--rp-love); /* Love */
   --color-prettylights-syntax-string: var(--rp-gold); /* Gold */
   --color-prettylights-syntax-variable: var(--rp-rose); /* Rose */
-  --color-prettylights-syntax-brackethighlighter-unmatched: var(
-    --rp-love
-  ); /* Love */
+  --color-prettylights-syntax-brackethighlighter-unmatched: var(--rp-love); /* Love */
   --color-prettylights-syntax-invalid-illegal-text: var(--rp-love); /* Love */
   --color-prettylights-syntax-invalid-illegal-bg: rgb(
-    var(--rose-color-val) / 20%
+    var(--rose-color-val) /
+    20%
   ); /* Rose with alpha */
   --color-prettylights-syntax-carriage-return-text: var(--rp-text); /* Text */
-  --color-prettylights-syntax-carriage-return-bg: var(
-    --rp-highlight-low
-  ); /* Highlight Low */
+  --color-prettylights-syntax-carriage-return-bg: var(--rp-highlight-low); /* Highlight Low */
   --color-prettylights-syntax-string-regexp: var(--rp-foam); /* Foam */
   --color-prettylights-syntax-markup-list: var(--rp-subtle); /* Subtle */
   --color-prettylights-syntax-markup-heading: var(--rp-pine); /* Pine */
-  --color-prettylights-syntax-markup-italic: var(
-    --rp-text
-  ); /* Text (style with font-style: italic) */
-  --color-prettylights-syntax-markup-bold: var(
-    --rp-text
-  ); /* Text (style with font-weight: bold) */
+  --color-prettylights-syntax-markup-italic: var(--rp-text); /* Text (style with font-style: italic) */
+  --color-prettylights-syntax-markup-bold: var(--rp-text); /* Text (style with font-weight: bold) */
   --color-prettylights-syntax-markup-deleted-text: var(--rp-love); /* Love */
   --color-prettylights-syntax-markup-deleted-bg: rgb(
-    var(--rose-color-val) / 15%
+    var(--rose-color-val) /
+    15%
   ); /* Rose with low alpha */
   --color-prettylights-syntax-markup-inserted-text: var(--rp-foam); /* Foam */
   --color-prettylights-syntax-markup-inserted-bg: rgb(
-    var(--foam-color-val) / 15%
+    var(--foam-color-val) /
+    15%
   ); /* Foam with low alpha */
   --color-prettylights-syntax-markup-changed-text: var(--rp-gold); /* Gold */
   --color-prettylights-syntax-markup-changed-bg: rgb(
-    var(--gold-color-val) / 15%
+    var(--gold-color-val) /
+    15%
   ); /* Gold with low alpha */
   --color-prettylights-syntax-markup-ignored-text: var(--rp-muted); /* Muted */
-  --color-prettylights-syntax-markup-ignored-bg: var(
-    --rp-highlight-med
-  ); /* Highlight Med */
+  --color-prettylights-syntax-markup-ignored-bg: var(--rp-highlight-med); /* Highlight Med */
   --color-prettylights-syntax-meta-diff-range: var(--rp-iris); /* Iris */
-  --color-prettylights-syntax-brackethighlighter-angle: var(
-    --rp-subtle
-  ); /* Subtle */
-  --color-prettylights-syntax-sublimelinter-gutter-mark: var(
-    --rp-subtle
-  ); /* Subtle */
-  --color-prettylights-syntax-constant-other-reference-link: var(
-    --rp-pine
-  ); /* Pine */
+  --color-prettylights-syntax-brackethighlighter-angle: var(--rp-subtle); /* Subtle */
+  --color-prettylights-syntax-sublimelinter-gutter-mark: var(--rp-subtle); /* Subtle */
+  --color-prettylights-syntax-constant-other-reference-link: var(--rp-pine); /* Pine */
 
   /* UI Elements */
   --color-btn-text: var(--rp-text); /* Text */
@@ -123,9 +109,7 @@ main {
   --color-btn-active-border: var(--rp-muted); /* Muted */
   --color-btn-selected-bg: var(--rp-highlight-med); /* Highlight Med */
 
-  --color-btn-primary-text: var(
-    --rp-surface
-  ); /* Surface (User's Surface is light, so it makes sense for text on a dark button) */
+  --color-btn-primary-text: var(--rp-surface); /* Surface (User's Surface is light, so it makes sense for text on a dark button) */
   --color-btn-primary-bg: var(--rp-love); /* Love */
   --color-btn-primary-border: var(--rp-love); /* Love */
   --color-btn-primary-shadow: 0 0 transparent;
@@ -134,19 +118,11 @@ main {
   --color-btn-primary-hover-border: var(--rp-rose); /* Rose */
   --color-btn-primary-selected-bg: var(--rp-love); /* Love */
   --color-btn-primary-selected-shadow: 0 0 transparent;
-  --color-btn-primary-disabled-text: rgb(
-    var(--foreground-color-val) / 50%
-  ); /* Text with alpha */
-  --color-btn-primary-disabled-bg: rgb(
-    var(--love-color-val) / 60%
-  ); /* Love with alpha */
-  --color-btn-primary-disabled-border: rgb(
-    var(--love-color-val) / 30%
-  ); /* Love with alpha */
+  --color-btn-primary-disabled-text: rgb(var(--foreground-color-val) / 50%); /* Text with alpha */
+  --color-btn-primary-disabled-bg: rgb(var(--love-color-val) / 60%); /* Love with alpha */
+  --color-btn-primary-disabled-border: rgb(var(--love-color-val) / 30%); /* Love with alpha */
 
-  --color-action-list-item-default-hover-bg: var(
-    --rp-highlight-low
-  ); /* Highlight Low */
+  --color-action-list-item-default-hover-bg: var(--rp-highlight-low); /* Highlight Low */
   --color-segmented-control-bg: var(--rp-highlight-low); /* Highlight Low */
   --color-segmented-control-button-bg: var(--rp-surface); /* Surface */
   --color-segmented-control-button-selected-border: var(--rp-muted); /* Muted */
@@ -161,27 +137,19 @@ main {
   --color-canvas-subtle: var(--rp-highlight-med); /* Highlight Med */
   --color-border-default: var(--rp-highlight-med); /* Highlight Med */
   --color-border-muted: var(--rp-highlight-high); /* Highlight High */
-  --color-neutral-muted: rgb(
-    var(--muted-color-val) / 40%
-  ); /* Muted with alpha */
+  --color-neutral-muted: rgb(var(--muted-color-val) / 40%); /* Muted with alpha */
 
   /* Accent Colors */
   --color-accent-fg: var(--rp-pine); /* Pine */
   --color-accent-emphasis: var(--rp-pine); /* Pine */
   --color-accent-muted: rgb(var(--foam-color-val) / 40%); /* Foam with alpha */
-  --color-accent-subtle: rgb(
-    var(--foam-color-val) / 20%
-  ); /* Foam with lower alpha */
+  --color-accent-subtle: rgb(var(--foam-color-val) / 20%); /* Foam with lower alpha */
 
   /* Semantic Colors */
   --color-success-fg: var(--rp-foam); /* Foam */
   --color-attention-fg: var(--rp-gold); /* Gold */
-  --color-attention-muted: rgb(
-    var(--gold-color-val) / 40%
-  ); /* Gold with alpha */
-  --color-attention-subtle: rgb(
-    var(--gold-color-val) / 15%
-  ); /* Gold with alpha */
+  --color-attention-muted: rgb(var(--gold-color-val) / 40%); /* Gold with alpha */
+  --color-attention-subtle: rgb(var(--gold-color-val) / 15%); /* Gold with alpha */
   --color-danger-fg: var(--rp-love); /* Love */
   --color-danger-muted: rgb(var(--love-color-val) / 40%); /* Love with alpha */
   --color-danger-subtle: rgb(var(--rose-color-val) / 20%); /* Rose with alpha */
@@ -196,9 +164,7 @@ main {
 
   /*! Extensions from @primer/css/alerts/flash.scss */
   --color-social-reaction-bg-hover: var(--color-scale-gray-7); /* Muted */
-  --color-social-reaction-bg-reacted-hover: var(
-    --color-scale-blue-8
-  ); /* Pine */
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8); /* Pine */
 }
 
 main .pagination-loader-container {
