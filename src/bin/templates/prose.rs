@@ -1,3 +1,4 @@
+/// A template specifically for prose, that formats things fancily, with some nice front matter.
 use epilogue::{templating::Template, world::Metadata};
 use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
 use time::format_description;

@@ -1,7 +1,9 @@
+/// The default page shell that provides navigation bars, metadata, etc.
 use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
 
 use super::components::Head;
 
+/// Wide margins for prose or thin margins for a wide content area.
 pub enum PageWidth {
     Wide,
     Prose,
