@@ -1,19 +1,19 @@
-import postcss from "rollup-plugin-postcss";
-import tailwindcss from "@tailwindcss/postcss";
-import cssnano from "cssnano";
-import path from "path";
-import { minify } from "rollup-plugin-swc3";
+import postcss from 'rollup-plugin-postcss';
+import tailwindcss from '@tailwindcss/postcss';
+import cssnano from 'cssnano';
+import path from 'path';
+import { minify } from 'rollup-plugin-swc3';
 
 export default {
-  input: ["index.ts", "icons.ts"],
+  input: ['index.ts', 'icons.ts'],
   output: {
-    dir: "dist",
+    dir: 'dist',
   },
   plugins: [
     minify({ module: true, mangle: {}, compress: {} }),
     postcss({
       plugins: [tailwindcss, cssnano],
-      extract: path.resolve("dist/bundle.css"),
+      extract: path.resolve('dist/bundle.css'),
     }),
   ],
 };
