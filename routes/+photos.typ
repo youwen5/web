@@ -37,7 +37,7 @@
 #html.elem(
   "div",
   attrs: (
-    class: "px-3 py-1 text-base rounded-md border-1 border-zinc-300 dark:border-zinc-700 text-subtle font-sans flex flex-wrap gap-x-6 w-fit mt-5 mx-auto mt-12 w-fit",
+    class: "px-3 py-1 text-base rounded-md border-1 border-zinc-300 dark:border-zinc-700 text-subtle font-sans flex flex-wrap gap-x-6 w-fit mt-5 mx-auto mt-12 w-fit not-prose",
   ),
   {
     html.elem(
@@ -84,7 +84,7 @@
 #html.elem(
   "div",
   attrs: (
-    class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 group show-selected",
+    class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 group show-selected not-prose",
     id: "photos-parent",
   ),
   for elem in (

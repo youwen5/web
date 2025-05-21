@@ -52,7 +52,6 @@ pub fn run() {
     match &cli.command {
         Commands::Build(args) => {
             let wide_page = templates::WidePage;
-            let photos = templates::Photos;
             let prose = templates::Prose;
             let index = templates::Index;
 
@@ -88,7 +87,7 @@ pub fn run() {
                     "/colophon" => wide_page.render_page_with_content(raw_content, metadata),
                     "/impressum" => wide_page.render_page_with_content(raw_content, metadata),
                     "/privacy" => wide_page.render_page_with_content(raw_content, metadata),
-                    "/photos" => photos.render_page_with_content(raw_content, metadata),
+                    "/photos" => wide_page.render_page_with_content(raw_content, metadata),
                     _ => prose.render_page_with_content(raw_content, metadata),
                 }
             });
