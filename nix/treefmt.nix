@@ -8,7 +8,7 @@ rustToolchain: {
     rustfmt.enable = true;
     rustfmt.package = rustToolchain;
     yamlfmt.enable = true;
-    prettier.enable = true;
+    biome.enable = true;
     typstyle.enable = true;
   };
 
