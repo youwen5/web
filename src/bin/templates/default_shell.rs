@@ -83,7 +83,7 @@ impl DefaultShell {
         };
 
         let math = maud! {
-            li {a class="hover:bg-surface transition-colors" href="/math-test" {"A test of Typst math rendering"}}
+            li {a class="hover:bg-surface transition-colors" href="/math/three-isomorphism-theorems" {"Three isomorphism theorems"}}
         };
 
         let other = maud! {
