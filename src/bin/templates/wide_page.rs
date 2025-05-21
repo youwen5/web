@@ -3,9 +3,9 @@ use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
 
 use super::{components::Head, default_shell::DefaultShell};
 
-pub struct MainPage;
+pub struct WidePage;
 
-impl Template for MainPage {
+impl Template for WidePage {
     fn render_page_with_content(
         &self,
         content: hypertext::Raw<String>,

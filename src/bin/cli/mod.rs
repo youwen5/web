@@ -51,7 +51,7 @@ pub fn run() {
 
     match &cli.command {
         Commands::Build(args) => {
-            let main_page = templates::MainPage;
+            let wide_page = templates::WidePage;
             let photos = templates::Photos;
             let prose = templates::Prose;
             let index = templates::Index;
@@ -85,9 +85,9 @@ pub fn run() {
 
                 match slug.as_str() {
                     "/" => index.render_page_with_content(raw_content, metadata),
-                    "/colophon" => main_page.render_page_with_content(raw_content, metadata),
-                    "/impressum" => main_page.render_page_with_content(raw_content, metadata),
-                    "/privacy" => main_page.render_page_with_content(raw_content, metadata),
+                    "/colophon" => wide_page.render_page_with_content(raw_content, metadata),
+                    "/impressum" => wide_page.render_page_with_content(raw_content, metadata),
+                    "/privacy" => wide_page.render_page_with_content(raw_content, metadata),
                     "/photos" => photos.render_page_with_content(raw_content, metadata),
                     _ => prose.render_page_with_content(raw_content, metadata),
                 }
