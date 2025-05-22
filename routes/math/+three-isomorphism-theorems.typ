@@ -116,9 +116,10 @@
     $,
   ))
 
-  #btw[
-    editor#(apostrophe)s note: I have a proof of the universal property, but it is too large to fit in the margins.
-  ]
+  #[
+    #btw[
+      editor#(apostrophe)s note: I have a proof of the universal property, but it is too large to fit in the margins.
+    ]
 
     This establishes the existence of the map $overline(tau)$ we desire, now we
     need to show it#(apostrophe)s both surjective and injective.
