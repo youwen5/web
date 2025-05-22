@@ -109,6 +109,10 @@ body {
     display: inline-block;
   }
 
+  table {
+    @apply block min-w-full w-0 overflow-x-auto text-[0.8em];
+  }
+
   .block-math {
     @apply flex justify-center min-w-full w-0 overflow-x-auto my-0;
   }
