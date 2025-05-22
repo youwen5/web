@@ -84,10 +84,9 @@ pub fn run() {
 
                 match slug.as_str() {
                     "/" => index.render_page_with_content(raw_content, metadata),
-                    "/colophon" => wide_page.render_page_with_content(raw_content, metadata),
-                    "/impressum" => wide_page.render_page_with_content(raw_content, metadata),
-                    "/privacy" => wide_page.render_page_with_content(raw_content, metadata),
-                    "/photos" => wide_page.render_page_with_content(raw_content, metadata),
+                    "/colophon" | "/impressum" | "/privacy" | "/photos" => {
+                        wide_page.render_page_with_content(raw_content, metadata)
+                    }
                     _ => prose.render_page_with_content(raw_content, metadata),
                 }
             });
