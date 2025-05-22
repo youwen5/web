@@ -9,11 +9,35 @@
 #let todo = sym.ballot
 #let in-progress = emoji.clock
 
-Back when I was shopping around for a framework to write this website in, I
-realized there was a serious gap in the ecosystem. The entire web development
-culture of churning out framework after framework and package after package is
+Here#(apostrophe)s the elevator pitch: I want a static site generator
+that#(apostrophe)s hackable and lets me write in a markup language
+human-readable and writable like markdown but with the full power of a
+programming language.
+
+The system should be _fast_, _correct_, _maintainable_, and preferably not pull
+in 1000 transitive dependencies. As a hard requirement, it should be able to
+handle advanced typesetting of mathematical formulae. And it should all work
+without any client side JavaScript, in the spirit of the Web (back when it was
+still a capital W).
+
+#blockquote[
+  _Write JavaScript like it#(apostrophe)s 2005._
+]
+
+I couldn#(apostrophe)t find anything that perfectly matched all of the
+qualities above. Usually, it was a trade-off between slick but austere (usually
+only supporting markdown with some plugins) or feature-rich but slow and
+clunky. So I ended up rolling my own, called it Epilogue, and it now powers
+this site.
+
+= A longer pitch
+
+Back when I was shopping around for a framework to write this website in, which
+met the criterion enumerated above, I realized there was a gap in the
+ecosystem. Now, the entire web development culture of churning out framework
+after framework and package after package is
 #link("https://en.wikipedia.org/wiki/Npm_left-pad_incident")[well documented]
-at this point. There are also myriad great static site generators that have
+at this point. There are also a great many static site generators that have
 been established for years. So it feels strange to declare that, actually, we
 don#(apostrophe)t have _enough_ choice already.
 
@@ -37,11 +61,12 @@ a website you control. What if you want to define a custom reusable component?
 What if you want to programmatically do anything?
 
 Of course there are systems to give you more power
-#footnote[#link("https://mdxjs.com/")[MDX]], but at the end of the day
-you#(apostrophe)re either hacking a programming system into a markup language
-or a markup language into a programming system. The gold standard would be an
-actual markup language that treats programming as a first class citizen, or,
-equivalently, a programming language where markup is a first class citizen.
+#footnote[#link("https://mdxjs.com/")[MDX]], but at the end of the day I think
+the principal issue is that you#(apostrophe)re either hacking a programming
+system into a markup language or a markup language into a programming system.
+The gold standard would be an actual markup language that treats programming as
+a first class citizen, or, equivalently, a programming language where markup is
+a first class citizen.
 
 #let TeXRaw = {
   set text(font: "New Computer Modern")

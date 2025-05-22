@@ -1,4 +1,5 @@
 #import "@epilogue/html-shim:0.1.0": *
+#import "@preview/cmarker:0.1.5"
 
 #show: html-shim.with(
   date: datetime(day: 13, year: 2025, month: 5),
@@ -164,36 +165,43 @@ Here#(apostrophe)s benchmark data using
 #link("https://github.com/sharkdp/hyperfine")[hyperfine] on the actual site
 (executed on Apple Silicon, M1 Pro, running NixOS w/ Linux 6.13.5-asahi):
 
-1. Before (average total time elapsed, ~3.6 seconds)
-  ```sh
-  Benchmark 1: site build --minify
-    Time (mean ± σ):      3.628 s ±  0.079 s
-    Range (min … max):    3.544 s …  3.773 s    10 runs
-  ```
+1. Before (average total time elapsed, ~4.6 seconds)
+  #cmarker.render(
+    ```
+    | Command | Mean [s] | Min [s] | Max [s] |
+    |:---|---:|---:|---:|
+    | `site build --minify` | 4.583 ± 0.102 | 4.454 | 4.738 |
+    ```,
+  )
 
-2. After (average total time elapsed, ~0.8 seconds)
-  ```sh
-  Benchmark 1: site build --minify
-    Time (mean ± σ):     800.9 ms ±  48.8 ms
-    Range (min … max):   743.6 ms … 889.3 ms    10 runs
-  ```
+2. After (average total time elapsed, ~0.9 seconds)
+  #cmarker.render(
+    ```
+    | Command | Mean [ms] | Min [ms] | Max [ms] |
+    |:---|---:|---:|---:|
+    | `site build --minify` | 908.6 ± 26.0 | 874.9 | 943.2 |
+    ```,
+  )
 
 For a more pronounced trial, I#(apostrophe)ve generated 500 synthetic pages (long-form blog
 posts) and then benchmarked it again.
+1. Before, building 500 synthetic pages (average total time elapsed, ~65 seconds)
+  #cmarker.render(
+    ```
+    | Command | Mean [ms] | Min [s] | Max [s] |
+    |:---|---:|---:|---:|
+    | `site build --minify` | 65.32 ±  1.320 | 45.24 | 71.393 |
+    ```,
+  )
 
-1. Before (average total time elapsed, ~65 seconds)
-  ```sh
-  Benchmark 1: site build --minify
-    Time (mean ± σ):      65.32 s ±  1.320 s
-    Range (min … max):    45.24 s …  71.393 s    10 runs
-  ```
-
-2. After (average total time elapsed, ~10 seconds)
-  ```sh
-  Benchmark 1: site build --minify
-    Time (mean ± σ):     10.235 s ±  0.051 s
-    Range (min … max):   10.156 s … 10.316 s    10 runs
-  ```
+2. After, building 500 synthetic pages (average total time elapsed, ~10 seconds)
+  #cmarker.render(
+    ```
+    | Command | Mean [s] | Min [s] | Max [s] |
+    |:---|---:|---:|---:|
+    | `site build --minify` | 10.235 ± 0.051 | 10.156 | 10.316 |
+    ```,
+  )
 
 = Conclusion
 

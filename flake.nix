@@ -138,8 +138,8 @@
           typst-packages = pkgs.fetchFromGitHub {
             owner = "typst";
             repo = "packages";
-            rev = "e851e6d6638e47ec73aeee04d6a808cf8f72df38";
-            hash = "sha256-dvl/vmHT6CzowBvNC8rr+TDtll5cKw9fYp1eFqev0XU=";
+            rev = "88dc9ad8dc03daa4f80e669a8d1e0642453a8d73";
+            hash = "sha256-DjNURUhVjlgIf73AYngi3tx0fke+Owzx2ctt7V8PuOM=";
             sparseCheckout =
               let
                 typstPkgs = builtins.map (x: "packages/preview/" + x);
@@ -148,6 +148,7 @@
                 "cetz/0.3.4"
                 "fletcher/0.5.7"
                 "oxifmt/0.2.1"
+                "cmarker/0.1.5"
               ];
           };
 
