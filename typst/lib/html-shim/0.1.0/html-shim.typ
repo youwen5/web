@@ -171,7 +171,6 @@
     html.elem("figure", attrs: (class: "math block-math"), html.frame(it))
   }
 
-
   show smallcaps: it => context {
     if target() == "html" {
       let smallcapsClass = if it.all {

@@ -29,7 +29,7 @@ impl Template for Prose {
                 @if metadata.location.is_some() { p class="text-subtle text-md md:text-lg" {(metadata.location.as_ref().unwrap())} }
                 @if metadata.special_author.is_some() { p class="text-lg md:text-xl mt-5" {span class="italic" {"by " } (metadata.special_author.as_ref().unwrap())} }
             }
-            div id="typst-injected" class="prose-lg lg:prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground prose-list-snazzy" {
+            div id="typst-injected" class="prose-lg lg:prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground prose-list-snazzy prose-table-snazzy" {
                 @if metadata.subtitle.is_some() {
                     p class="text-subtle italic" {
                         (metadata.subtitle.as_ref().unwrap())
