@@ -187,14 +187,20 @@ impl DefaultShell {
                                             class="text-link"
                                             href=("https://github.com/youwen5/web/commit/".to_owned() + &git_version) 
                                         {(git_version[..8].to_string())}
-                                        " using rustc " {(rustc_verison)} " at " {(current_time)} ". Most content cc-by-sa-4.0. This page uses " a href="/privacy" class="text-link" {"analytics."}
+                                        " using rustc " {(rustc_verison)} " at " {(current_time)} ". Most content CC-BY-SA-4.0. This page uses " a href="/privacy" class="text-link" {"analytics."}
                                     }
                                     div class="mt-4 flex flex-wrap not-prose" {
-                                        img width="88px" height="31px" loading="lazy" alt="" src="/static/img/anti-js-js-club.png";
+                                        a href="https://web.youwen.dev/static/img/anti-js-js-club.png" {
+                                            img width="88px" height="31px" loading="lazy" alt="" src="/static/img/anti-js-js-club.png";
+                                        }
                                         img width="88px" height="31px" loading="lazy" alt="" src="/static/img/htmldream.gif";
                                         img width="88px" height="31px" loading="lazy" alt="" src="/static/img/css.gif";
-                                        img width="88px" height="31px" loading="lazy" alt="" src="/static/img/neovim.png";
-                                        img width="88px" height="31px" loading="lazy" alt="" src="/static/img/nixos.png";
+                                        a href="https://neovim.io/" {
+                                            img width="88px" height="31px" loading="lazy" alt="" src="/static/img/neovim.png";
+                                        }
+                                        a href="https://nixos.org/" {
+                                            img width="88px" height="31px" loading="lazy" alt="" src="/static/img/nixos.png";
+                                        }
                                         img width="88px" height="31px" loading="lazy" alt="" src="/static/img/transnow2.gif";
                                     }
                                 }
