@@ -211,9 +211,9 @@
         date: [11/24 --- now],
         location: [Earth],
         employer: [NixOS],
-        title: [Package maintainer],
+        title: [Open source maintainer],
         [#text(10pt, [
-            - Maintaining packages for NixOS, a purely functional GNU/Linux
+            - Maintaining nixpkgs & NixOS, a purely functional GNU/Linux
               distribution built on the Nix package manager and Nix programming
               language
           ])],
