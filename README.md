@@ -54,6 +54,9 @@ nix develop
 Or you can `direnv allow`, if you have it. A pre-commit hook will also be
 installed automatically.
 
+If you decide to bring your own Rust toolchain, note that **nightly Rust is
+required** due to use of unstabilized features.
+
 Before submitting a PR run all Rust tests, formatting checks, lints, etc, using
 
 ```sh

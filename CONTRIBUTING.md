@@ -65,7 +65,9 @@ to fix it right now.
 
 We use [nightly
 Rust](https://doc.rust-lang.org/book/appendix-07-nightly-rust.html) in order to
-farm clout amongst Rustaceans. A `rust-toolchain.toml` file is provided on a
+farm clout amongst Rustaceans. (The nightly Rust compiler is required for [the nightly Exit Status error](https://doc.rust-lang.org/std/process/struct.ExitStatus.html)).
+
+A `rust-toolchain.toml` file is provided on a
 best-effort basis but the source of truth for the Rust compiler and tooling
 version is whatever version is pinned by `fenix` in `flake.lock`.
 
