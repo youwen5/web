@@ -117,12 +117,12 @@
   ))
 
   #[
+    This establishes the existence of the map $overline(tau)$ we desire, now we
+    need to show it#(apostrophe)s both surjective and injective.
+
     #btw[
       editor#(apostrophe)s note: I have a proof of the universal property, but it is too large to fit in the margins.
     ]
-
-    This establishes the existence of the map $overline(tau)$ we desire, now we
-    need to show it#(apostrophe)s both surjective and injective.
 
     We can easily see $overline(tau)$ is surjective, let $x in im tau$, then
     $exists y in V$ with $tau(y) = x = overline(tau)(overline(x))$.
