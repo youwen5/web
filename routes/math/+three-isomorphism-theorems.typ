@@ -38,8 +38,8 @@
   = First isomorphism theorem
 
   Recall that we know linear maps are not in general bijective (i.e. not
-  isomorphisms). For any linear map $tau$, the first theorem establishes an
-  isomorphism between its image and its codomain modulo its kernel.
+  isomorphisms). However, for any linear map $tau$, the first theorem gives us
+  an isomorphism between its domain _modulo its kernel_ and its image.
 
   Quick notation refresher: let $V$ be a vector space over a field $FF$ and $U$
   be a subspace of $V$. For $x,y in V$, let $x ~ y$ be a binary relation that
