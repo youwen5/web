@@ -35,6 +35,19 @@
   #link("https://en.wikipedia.org/wiki/Isomorphism_theorems")[isomorphism
     theorems] in abstract algebra.
 
+  Let $V$, $W$ be vector spaces over a field $FF$. Then we have the following
+  isomorphisms ($tilde.equiv$).
+
+  #table(
+    columns: 2,
+    table.header([Theorem], [Statement]),
+    [1st],
+    [Given any linear map $tau : V -> W$, $V slash ker tau tilde.equiv im tau$],
+
+    [2nd], $U slash (U inter W) tilde.equiv (U + W) slash W$,
+    [3rd], $(V slash U) slash (W slash U) tilde.equiv V slash W$,
+  )
+
   = First isomorphism theorem
 
   Recall that we know linear maps are not in general bijective (i.e. not
@@ -149,7 +162,7 @@
     Now that we#(apostrophe)ve established the existence of such a linear map
     $tau$, the idea is to first show that $tau$ is surjective (that is, its
     image is its codomain $(U+W) slash W$). Then we show that $ker tau = U
-    inter W$, and apply the #smallcaps[first isomorphism theorem] to obtain our desired
+    inter W$, and apply the first isomorphism theorem to obtain our desired
     isomorphism.
 
     Suppose $s in (U+W) slash W$. Then $s = [x + y]_W$, for some $x in U$ and
@@ -163,7 +176,7 @@
                    & <==> x - 0 in W           \
                    & <==> x in U inter W       \
     $
-    Therefore $ker tau = U inter W$. Since we showed $tau$ is surjective, $im tau = (U+W) slash W$. Then, by the #smallcaps[first isomorphism theorem], there is an isomorphism
+    Therefore $ker tau = U inter W$. Since we showed $tau$ is surjective, $im tau = (U+W) slash W$. Then, by the first isomorphism theorem, there is an isomorphism
     $
         U slash (ker tau) & tilde.equiv im tau        \
       U slash (U inter W) & tilde.equiv (U+W) slash W \
@@ -216,7 +229,7 @@
     $
     But actually that last set is precisely $W slash U$.
 
-    With all the pieces in place, we now apply the #smallcaps[first isomorphism theorem], and we are done
+    With all the pieces in place, we now apply the first isomorphism theorem, and we are done
     $
         (V slash U) slash (ker tau) & tilde.equiv im tau    \
       (V slash U) slash (W slash U) & tilde.equiv V slash W \
