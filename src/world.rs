@@ -93,6 +93,7 @@ pub struct TypstDoc {
 /// Given a path to an entry point `main.typ` and an output location, use the Typst CLI to compile
 /// an PDF to the output path. Requires `typst` to be in `$PATH`. The parent directory of the
 /// output must exist or an error will occur.
+/// TODO: better handle errors, throw when typst exits with error code.
 fn compile_document(
     input: &path::Path,
     output: &path::Path,
@@ -224,7 +225,7 @@ fn compile_pdf(
 
 /// Use the Typst CLI to query a document for its metadata.
 fn query_metadata(path: &Path, root: &Path) -> Result<Metadata, WorldError> {
-    let value = Command::new("typst")
+    let output = Command::new("typst")
         .arg("query")
         .args(["--features", "html"])
         .args(["--field", "value"])
@@ -236,10 +237,21 @@ fn query_metadata(path: &Path, root: &Path) -> Result<Metadata, WorldError> {
         ])
         .arg(path.to_str().expect("Failed to cast document to a string."))
         .arg("<metadata>")
-        .output()?
-        .stdout;
+        .output()?;
 
-    let value = match String::from_utf8(value) {
+    let value = if output.status.success() {
+        String::from_utf8(output.stdout)
+    } else {
+        event!(
+            Level::ERROR,
+            "Query fail: {:?}",
+            String::from_utf8(output.stderr)
+                .unwrap_or("failed to convert stderr bytes to string".into())
+        );
+        return Err(WorldError::TypstQuery);
+    };
+
+    let value = match value {
         Ok(str) => {
             if str.is_empty() || str == "null" {
                 return Err(WorldError::TypstQuery);
