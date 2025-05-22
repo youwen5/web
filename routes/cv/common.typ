@@ -213,7 +213,7 @@
         employer: [NixOS],
         title: [Package maintainer],
         [#text(10pt, [
-            - Maintaining packages for NixOS, an purely functional GNU/Linux
+            - Maintaining packages for NixOS, a purely functional GNU/Linux
               distribution built on the Nix package manager and Nix programming
               language
           ])],
