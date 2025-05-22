@@ -148,7 +148,7 @@
     following linear map exists.
     $
       tau : U & -> (U + W) slash W \
-              & x |-> [x]_W        \
+            x & |-> [x]_W          \
     $
     To see that it exists and is linear, simply note it is the composition
     $
