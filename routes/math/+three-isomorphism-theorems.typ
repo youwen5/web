@@ -201,7 +201,7 @@
 
   #proof[
     Again we#(apostrophe)re going to try to define a linear map that lets us
-    apply the #smallcaps[first isomorphism theorem]. No tricks this time, so
+    apply the first isomorphism theorem. No tricks this time, so
     we#(apostrophe)ll attempt to directly construct a linear map $tau$ and show
     it is well defined.
 
