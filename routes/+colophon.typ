@@ -8,7 +8,7 @@ feature is that it uses #link("https://typst.app/")[Typst] as a scriptable
 markup language instead of something like Markdown. It outputs fully rendered
 organic fair-trade #smallcaps[html] that gets shipped straight from
 farm-to-user. No JavaScript virtual #smallcaps[dom] or frameworks here (the
-only JavaScript I ship is `highlight.js` and #link("/privacy")[analytics]).
+only JavaScript I ship is `prism.js` and #link("/privacy")[analytics]).
 
 Styling is done with #link("https://tailwindcss.com/")[Tailwind],
 an insane way to do #smallcaps[css], saved only by the fact that it is better
