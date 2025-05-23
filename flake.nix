@@ -309,13 +309,16 @@
 
               packages =
                 [ pnpm ]
-                ++ (with pkgs; [
-                  tailwindcss-language-server
-                  nodejs
-                  just
-                  caddy
-                  cargo-valgrind
-                ])
+                ++ (
+                  with pkgs;
+                  [
+                    tailwindcss-language-server
+                    nodejs
+                    just
+                    caddy
+                  ]
+                  ++ (lib.optionals stdenv.hostPlatform.isLinux [ cargo-valgrind ])
+                )
                 ++ [
                   rustToolchain
                   typst
