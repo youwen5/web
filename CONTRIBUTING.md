@@ -59,9 +59,7 @@ repository. So we still have perfect reproducibility.)
 
 ### Instructions
 
-Currently development is only possible on Linux. This is because the system
-directories Typst uses on macOS are slightly different and I don't care enough
-to fix it right now.
+Currently development is only tested on Linux. In theory it should work on macOS.
 
 We use [nightly
 Rust](https://doc.rust-lang.org/book/appendix-07-nightly-rust.html) in order to
