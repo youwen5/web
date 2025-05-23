@@ -134,6 +134,17 @@
             });
 
           treefmtEval = treefmt-nix.lib.evalModule pkgs ((import ./nix/treefmt.nix) rustToolchain);
+
+          typst = (
+            pkgs.typst.withPackages (
+              p: with p; [
+                fletcher_0_5_7
+                cetz_0_3_4
+                cmarker_0_1_5
+                self.packages.${system}.html-shim
+              ]
+            )
+          );
         in
         {
           formatter = treefmtEval.config.build.wrapper;
@@ -202,16 +213,8 @@
 
             nativeBuildInputs = [
               self.packages.${system}.epilogue
-              (pkgs.typst.withPackages (
-                p: with p; [
-                  fletcher_0_5_7
-                  cetz_0_3_4
-                  cmarker_0_1_5
-                  self.packages.${system}.html-shim
-                ]
-              ))
+              typst
               pkgs.git
-              pkgs.rsync
             ];
 
             EPILOGUE_GIT_COMMIT = builtins.toString (if (self ? rev) then self.rev else "unstable");
@@ -305,7 +308,6 @@
               packages =
                 [ pnpm ]
                 ++ (with pkgs; [
-                  typst
                   tailwindcss-language-server
                   nodejs
                   just
@@ -314,6 +316,7 @@
                 ])
                 ++ [
                   rustToolchain
+                  typst
                 ];
             };
         }

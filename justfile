@@ -1,4 +1,4 @@
-default: typst-install-deps webbundle build
+default: webbundle build
     cp web/dist/* dist
 
 release: webbundle build-release
@@ -32,6 +32,3 @@ build:
 
 build-release:
     cargo run --release -- build --minify
-
-typst-install-deps:
-    rsync --recursive ./typst/lib/html-shim ~/.cache/typst/packages/preview
