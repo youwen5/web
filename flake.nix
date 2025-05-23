@@ -134,38 +134,6 @@
             });
 
           treefmtEval = treefmt-nix.lib.evalModule pkgs ((import ./nix/treefmt.nix) rustToolchain);
-
-          typst-packages = pkgs.fetchFromGitHub {
-            owner = "typst";
-            repo = "packages";
-            rev = "88dc9ad8dc03daa4f80e669a8d1e0642453a8d73";
-            hash = "sha256-DjNURUhVjlgIf73AYngi3tx0fke+Owzx2ctt7V8PuOM=";
-            sparseCheckout =
-              let
-                typstPkgs = builtins.map (x: "packages/preview/" + x);
-              in
-              typstPkgs [
-                "cetz/0.3.4"
-                "fletcher/0.5.7"
-                "oxifmt/0.2.1"
-                "cmarker/0.1.5"
-              ];
-          };
-
-          typstPackagesSrc = "${typst-packages}/packages";
-
-          typstPackagesCache = pkgs.stdenv.mkDerivation {
-            name = "typst-packages-cache";
-            src = typstPackagesSrc;
-            dontBuild = true;
-            installPhase = ''
-              mkdir -p "$out/typst/packages/epilogue"
-              cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
-              cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages/epilogue" ${
-                self.packages.${system}.default.src
-              }/typst/lib/html-shim
-            '';
-          };
         in
         {
           formatter = treefmtEval.config.build.wrapper;
@@ -234,11 +202,17 @@
 
             nativeBuildInputs = [
               self.packages.${system}.epilogue
-              pkgs.typst
+              (pkgs.typst.withPackages (
+                p: with p; [
+                  fletcher_0_5_7
+                  cetz_0_3_4
+                  cmarker_0_1_5
+                  self.packages.${system}.html-shim
+                ]
+              ))
               pkgs.git
             ];
 
-            XDG_CACHE_HOME = typstPackagesCache;
             EPILOGUE_GIT_COMMIT = builtins.toString (if (self ? rev) then self.rev else "unstable");
             EPILOGUE_LAST_MODIFIED = builtins.toString (self.lastModified);
 
@@ -254,6 +228,13 @@
           };
 
           packages.epilogue = epilogue-crate;
+
+          packages.html-shim = pkgs.buildTypstPackage {
+            pname = "html-shim";
+            version = "0.1.0";
+
+            src = ./typst/lib/html-shim/0.1.0;
+          };
 
           apps =
             let
