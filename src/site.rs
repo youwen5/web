@@ -40,7 +40,7 @@ impl Site {
     where
         F: Fn(String, String, Metadata) -> Rendered<String> + 'static,
     {
-        Site {
+        Self {
             routes,
             templater: Box::new(templater_fn),
             public_dir: PathBuf::from("./public"),
