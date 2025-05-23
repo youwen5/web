@@ -1,4 +1,4 @@
-#import "@epilogue/html-shim:0.1.0": *
+#import "@preview/html-shim:0.1.0": *
 #import "@preview/cmarker:0.1.5"
 
 #show: html-shim.with(

@@ -1,4 +1,4 @@
-#import "@epilogue/html-shim:0.1.0": *
+#import "@preview/html-shim:0.1.0": *
 
 #show: html-shim.with(
   date: datetime(day: 19, year: 2025, month: 5),

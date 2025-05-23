@@ -1,4 +1,4 @@
-#import "@epilogue/html-shim:0.1.0": *
+#import "@preview/html-shim:0.1.0": *
 #import "@preview/fletcher:0.5.7" as fletcher: diagram, edge, node
 
 #show: html-shim.with(
@@ -238,4 +238,3 @@
     $
   ]
 ]<rendermath>
-

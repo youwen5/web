@@ -1,4 +1,4 @@
-#import "@epilogue/html-shim:0.1.0": *
+#import "@preview/html-shim:0.1.0": *
 #import "@preview/cetz:0.3.4"
 
 #show: html-shim.with(

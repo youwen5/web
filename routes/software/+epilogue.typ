@@ -1,4 +1,4 @@
-#import "@epilogue/html-shim:0.1.0": *
+#import "@preview/html-shim:0.1.0": *
 
 #show: html-shim.with(
   title: "How this website was made",
@@ -273,4 +273,3 @@ impl TypstDoc {
   html.elem("img", attrs: (src: src, alt: alt, class: classes))
 }
 ```
-
