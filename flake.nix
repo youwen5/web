@@ -211,6 +211,7 @@
                 ]
               ))
               pkgs.git
+              pkgs.rsync
             ];
 
             EPILOGUE_GIT_COMMIT = builtins.toString (if (self ? rev) then self.rev else "unstable");
