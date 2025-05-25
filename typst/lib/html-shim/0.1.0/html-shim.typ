@@ -41,20 +41,38 @@
   )
 }
 
-#let webimg = (src, alt, extraClass: none) => context {
+#let webimg = (
+  src,
+  alt,
+  caption: none,
+  extraImgClass: none,
+  extraFigureClass: none,
+) => context {
   if target() == "html" {
-    let base-classes = "rounded-md mx-auto shadow-sm dark:shadow-none shadow-gray-900"
-    let classes = if extraClass != none {
-      base-classes + " " + extraClass
+    let base-img-classes = "rounded-md mx-auto shadow-sm dark:shadow-none shadow-gray-900"
+    let img-classes = if extraImgClass != none {
+      base-img-classes + " " + extraImgClass
     } else {
-      base-classes
+      base-img-classes
     }
-    html.elem("img", attrs: (
+    let img = html.elem("img", attrs: (
       src: src,
       alt: alt,
-      class: classes,
+      class: img-classes,
       loading: "lazy",
     ))
+    if caption == none {
+      img
+    } else {
+      html.elem("figure", attrs: (class: extraFigureClass), {
+        img
+        html.elem(
+          "figcaption",
+          attrs: (class: "text-[0.88em] text-center"),
+          caption,
+        )
+      })
+    }
   }
 }
 

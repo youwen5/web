@@ -10,7 +10,7 @@
 #webimg(
   "/static/img/sunset.jpg",
   "ucsb campus point sunset",
-  extraClass: "max-h-[200px] w-full object-cover h-[200px]",
+  extraImgClass: "max-h-[200px] w-full object-cover h-[200px]",
 )
 
 Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("/cv")[CV/resume], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
