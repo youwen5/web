@@ -1,7 +1,7 @@
 #import "@preview/html-shim:0.1.0": *
 
 #show: html-shim.with(
-  date: datetime(day: 29, year: 2025, month: 4),
+  date: datetime(day: 25, year: 2025, month: 5),
   title: "Now",
   location: "Santa Barbara, California",
   meta-description: "A now page, aka an answer to \"what have you been up to lately?\"",
@@ -14,13 +14,19 @@ detailed answer to the question #quote[what have you been up to lately?]
 #webimg(
   "https://raw.githubusercontent.com/youwen5/youwen5/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg",
   "github contrib graph dark",
-  extraClass: "hidden dark:block",
+  caption: [
+    More charts like the above #link("/charts")[here]
+  ],
+  extraFigureClass: "hidden dark:block",
 )
 
 #webimg(
   "https://raw.githubusercontent.com/youwen5/youwen5/refs/heads/main/profile-3d-contrib/profile-season.svg",
   "github contrib graph light",
-  extraClass: "dark:hidden",
+  caption: [
+    More charts like the above #link("/charts")[here]
+  ],
+  extraFigureClass: "dark:hidden",
 )
 
 = Whereabouts
