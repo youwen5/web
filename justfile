@@ -1,4 +1,4 @@
-default: webbundle build
+default: sync-typst-package webbundle build
     cp web/dist/* dist
 
 release: webbundle build-release
@@ -32,3 +32,6 @@ build:
 
 build-release:
     cargo run --release -- build --minify
+
+sync-typst-package:
+    rsync -r ./typst/lib/html-shim ~/.cache/typst/packages/preview

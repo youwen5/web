@@ -315,6 +315,7 @@
                     tailwindcss-language-server
                     nodejs
                     just
+                    rsync
                     caddy
                   ]
                   ++ (lib.optionals stdenv.hostPlatform.isLinux [ cargo-valgrind ])
