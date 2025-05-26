@@ -3,10 +3,11 @@
 # web.youwen.dev
 
 This is my personal site. It is built using a custom site generator I
-implemented in Rust, located in this repository.
+implemented in Rust, located in this repository. It generates all of its pages
+using [Typst](https://typst.app).
 
 You can view the site at [web.youwen.dev](https://web.youwen.dev), deployed using
-GitHub pages.
+GitHub pages and cached through Cloudflare's CDN.
 
 ## tech stack
 
