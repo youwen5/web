@@ -17,7 +17,7 @@ rustToolchain: {
     ".envrc"
     "dist/"
     "pnpm-lock.yaml"
-    "web/pnpm-lock.yaml"
+    "web-components/pnpm-lock.yaml"
     ".epilogue/"
   ];
 }

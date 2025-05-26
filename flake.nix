@@ -106,7 +106,7 @@
             let
               pnpmDeps = pnpm.fetchDeps {
                 pname = "site-pnpm-deps";
-                src = ./web;
+                src = ./web-components;
                 hash = "sha256-3w4KeHN3HHCr8j4QF7NduKE60wGvleM8brGXHF1MpZU=";
               };
             in
@@ -115,7 +115,7 @@
 
               src = ./.;
 
-              pnpmRoot = "./web";
+              pnpmRoot = "./web-components";
 
               nativeBuildInputs = [
                 pkgs.nodejs
@@ -125,7 +125,7 @@
               inherit pnpmDeps;
 
               buildPhase = ''
-                cd web
+                cd web-components
                 ln -s ${pnpmDeps} node_modules
                 pnpm build
               '';

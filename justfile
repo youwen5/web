@@ -1,5 +1,5 @@
 default: sync-typst-package webbundle build
-    cp web/dist/* dist
+    cp web-components/dist/* dist
 
 release: webbundle build-release
 
@@ -19,11 +19,11 @@ install-fonts:
     cp valkyrie/concourse-index/WOFF2/concourse_index_regular.woff2 public/fonts
     rm -rf valkyrie
 
-[working-directory: 'web']
+[working-directory: 'web-components']
 install-web-deps:
     pnpm install
 
-[working-directory: 'web']
+[working-directory: 'web-components']
 webbundle:
     pnpm build
 

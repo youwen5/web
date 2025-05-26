@@ -13,7 +13,10 @@ place to be! I keep this document updated on a best-effort basis.
 - [`./src/bin/templates`](./src/bin/templates): HTML templates for the various pages and components, written as Rust macros.
 - [`./typst`](./typst): support files for Typst that smooth over the experimental HTML export.
 - [`./public`](./public): static assets.
-- [`./web`](./web): support `pnpm` project building web assets, mainly for running TailwindCSS and generating the stylesheet. No JavaScript is shipped with the site at this time, but this is where it would go.
+- [`./web-components`](./web-components): support `pnpm` project building web
+  assets, mainly for running Tailwind CSS and generating the stylesheet. No
+  JavaScript is shipped with the site at this time, but this is where it would
+  go.
 
 ## By the way
 
@@ -107,7 +110,7 @@ just fresh-init # just once, installs pnpm dependencies and sets up the environm
 just # compile and build the site to dist/
 ```
 
-You need the tools mentioned previously (`pnpm`, `just`, `typst`, etc), but if
+You need the tools mentioned previously (`pnpm`, `just`, `typst`, etc.), but if
 you have Nix, you can run `nix develop` and they will be made available
 automatically (this is highly recommended).
 

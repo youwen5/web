@@ -35,6 +35,6 @@ source libraries and programs. In particular,
 
 And, all of the #link("https://github.com/youwen5/web/blob/main/Cargo.lock")[
   other crates],
-#link("https://github.com/youwen5/web/blob/main/web/pnpm-lock.yaml")[#smallcaps[npm]
+#link("https://github.com/youwen5/web/blob/main/web-components/pnpm-lock.yaml")[#smallcaps[npm]
   packages], Typst packages, and
 #link("https://github.com/youwen5/web/blob/main/flake.lock")[Nix flakes].
