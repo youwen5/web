@@ -1,0 +1,130 @@
+#import "@preview/html-shim:0.1.0": *
+
+#show: html-shim.with(
+  date: datetime(day: 25, year: 2025, month: 5),
+  title: "How I do my computing",
+  meta-description: "How Youwen does his computing.",
+)
+
+These are all the tools I use for hacking and computing on a daily basis, as of
+the date above.
+
+*Software:*
+
+#table(
+  columns: 2,
+  [OS], [NixOS (unstable, #quote[Xantusia])],
+  [Editor], [Neovim],
+  [Browser], [Zen],
+  [Kernel(s)], [linux-zen, linux-asahi],
+  [Desktop], [Hyprland (Wayland)],
+  [Layout], [Scroller],
+  [Terminal], [kitty],
+  [Login shell], [Nushell (fish completer)],
+)
+
+*Hardware:*
+
+#table(
+  columns: 2,
+  table.header([Hostname], [Specs]),
+  [`adrastea`], [Blade 14, Ryzen 9 5900HX, RTX 3070 Max-Q, 16GB DDR4],
+  [`demeter`], [Custom desktop, i7-13700KF, RTX 4080 FE, 32GB DDR5],
+  [`callisto`], [Macbook Pro, Apple Silicon (M1 Pro), 16GB unified memory],
+  [`gallium`], [2014 Mac Mini, used as a homelab and server],
+)
+
+= Operating system
+
+On all of my machines (including Apple), I currently run
+#link("https://nixos.org/")[NixOS unstable] (NixOS 25.11 #quote[Xantusia]), the
+bleeding-edge rolling-release branch of NixOS.
+
+On Apple Silicon, I rely on the Asahi Linux project which provides the
+reverse-engineered graphics stack and hardware abstractions required to run
+Linux.
+
+#btw[
+  NixOS is a highly idiosyncratic Linux distribution (#quote[distro]) that behaves entirely
+  differently from nearly all other distros. Your entire system is specified
+  through expressions written in the Nix programming language---you must write
+  code that specifies exactly how your system is deployed. For example, if I
+  want to update the colorscheme of my system---it is not possible to open any
+  sort of settings menu and click a button to do so---rather, I must enter my
+  configuration and figure out the requisite Nix code to write in order to set
+  the color.
+
+  You may say #quote[this sounds completely insane.] You would be correct.
+  However, somehow, _it works_. Just one consequential advantage of the
+  aforementioned tedium is my entire system#(apostrophe)s colorscheme is now generated at
+  build-time, by running a genetic algorithm on my wallpaper that literally
+  _simulates darwinian natural selection_ to evolve the optimal colorscheme to
+  pair with it. Because all programs are also configured in this manner, the
+  colorscheme can set not only typical system themable programs, but also
+  inject colorschemes into any program managed by NixOS (for me, that would be
+  all of them), such as Discord, Spotify, and more.
+]
+
+Additionally, I keep a darwin (macOS) and Windows 11 installation around for
+when I need them. Windows is used for crappy video games with invasive
+anticheats that don#(apostrophe)t run on Linux (and I wouldn#(apostrophe)t
+install them there anyways)---not limited to Valorant, Destiny 2, LoL, etc. I
+rarely play these games anymore so likewise my Windows installation sees uptime
+every couple months at most. Linux can run nearly every other Windows game
+through #link("https://www.protondb.com/")[Proton]. macOS is seldom used but
+usually handles multimedia better---e.g. if I need to plug into a projector to
+play a movie or presentation.
+
+= Editor
+
+I use #link("https://neovim.io/")[Neovim]. Before that---VS Code---but I was
+growing increasingly wary of the AI
+#link("https://en.wikipedia.org/wiki/Enshittification")[enshittification] being
+integrated into the editor, as well as a general growing distaste for electron.
+
+I created my #link("https://github.com/youwen5/viminal2")[configuration from
+  scratch.] I use quite a few plugins, but I try to stick to plugins that
+strictly extend the capabilities of existing features rather than add entirely
+new ones.
+
+= Browser
+
+I use #link("https://zen-browser.app/")[Zen], a fork of Firefox. It#(apostrophe)s kind of
+janky but it#(apostrophe)s the only browser with all the features I want---namely, not
+Chromium based and supports sidebar tabs. I maintain the semi-popular
+#link("https://github.com/youwen5/zen-browser-flake")[Nix package] for it.
+
+= Kernel
+
+I use `linux-zen` in general because regular `linux` has some weird
+interactions with my laptops when returning from suspend. I keep
+`PREEMPT_DYNAMIC` enabled for realtime capabilities.
+
+On my Apple Silicon devices I of course use the `linux-asahi` kernel from the
+#link("https://asahilinux.org/")[Asahi Linux] project. But I still use NixOS,
+not the Asahi Fedora Remix. If you#(apostrophe)re curious, it is a surprisingly smooth
+experience.
+
+= Desktop environment
+
+I use #link("http://hyprland.org")[Hyprland]. It has all the features I expect
+out of a window manager. I use a plugin that enables a scrolling layout like
+PaperWM. However, the codebase is pretty messy and I frequently experience
+minor regressions and the community is somewhat suspect.
+
+
+Therefore, I#(apostrophe)m looking to jump ship to the dedicated scrolling compositor
+#link("https://github.com/YaLTeR/niri")[Niri] once a few features are added.
+
+= Terminal
+
+#link("https://sw.kovidgoyal.net/kitty/")[kitty] is good and Kovid is a cool
+guy. The terminal does everything I want and more, it#(apostrophe)s fast, and I#(apostrophe)ve never
+experienced any bug. No complaints.
+
+= Login shell
+
+I used to use `fish`, but now I#(apostrophe)m on #link("https://www.nushell.sh/")[nushell],
+an experimental shell that takes the concept of #smallcaps(all: true)[UNIX] pipes and makes them pass
+typed structured data that is much easier to manipulate.
+

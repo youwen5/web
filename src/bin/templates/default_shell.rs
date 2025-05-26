@@ -80,6 +80,7 @@ impl DefaultShell {
 
         let code = maud! {
             li {a class="hover:bg-surface transition-colors" href="/software/epilogue" {"How this site was made"}}
+            li {a class="hover:bg-surface transition-colors" href="/computing" {"Favorite software"}}
         };
 
         let math = maud! {
