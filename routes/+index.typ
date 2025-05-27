@@ -30,7 +30,7 @@ the other pages on this website.
 
 #blockquote(attribution: [--- #link(
     "https://www.paulgraham.com/top.html",
-  )[Paul Graham]])[It's hard to do a really good job on anything you don't think about in the shower.]
+  )[Paul Graham]])[It’s hard to do a really good job on anything you don’t think about in the shower.]
 
 #show heading.where(level: 1): it => {
   html.elem("h2", attrs: (class: "!text-foreground"), it.body)

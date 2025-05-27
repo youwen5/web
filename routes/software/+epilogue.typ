@@ -162,7 +162,7 @@ file.
   This whole idea of having like a document compiler that can take a source
   file [and] take it to multiple platforms, publishing targets is really more
   important than ever. I can tell you from many years spent among the short
-  people of the web development community that they don't really have anything
+  people of the web development community that they don’t really have anything
   for this.
 ]
 
@@ -199,12 +199,12 @@ pages, sitemaps, etc.
   - #todo Figure out how to pass data from the static site generator back into the website.
 - #todo #smallcaps[rss]/Atom feed.
 - #todo Figure out how image hosting will work
-  - #todo #smallcaps[cdn]? That would introduce complexity, but I don't like the idea of hosting static assets in GitHub using gh pages
+  - #todo #smallcaps[cdn]? That would introduce complexity, but I don’t like the idea of hosting static assets in GitHub using gh pages
     - #todo Would have to set up deployment pipeline
     - #todo Alternatively could move hosting off of gh pages and onto a personal server. Would have to write some sort of `axum` backend for this site (thus making it no longer static)
-    I think I have an idea for this. We obviously don't want to store big files
+    I think I have an idea for this. We obviously don’t want to store big files
     in the source tree of this site---instead, I could store files using a
-    version control system for large files like Syncthing. We'd push all our
+    version control system for large files like Syncthing. We’d push all our
     blobs to an S3-compatible bucket, like Cloudflare R2. Then, it remains to
     implement a tiny utility that can crawl the blob storage and generate a
     machine-readable manifest, tagging some sort of unique ID to each blob. In
@@ -217,7 +217,7 @@ pages, sitemaps, etc.
 = Done
 
 - #done Parallelized all expensive operations, shrinking run times by an order of magnitude.
-- #done Allow some routes to be PDFs instead of webpages. So e.g. we could introduce a file pattern like `$doc.typ` and in the place where it would've been as a webpage, it's a PDF instead.
+- #done Allow some routes to be PDFs instead of webpages. So e.g. we could introduce a file pattern like `$doc.typ` and in the place where it would’ve been as a webpage, it’s a PDF instead.
 - #done Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect] or #link("https://github.com/tree-sitter/tree-sitter/tree/master/highlight")[tree-sitter-highlight].
   - Used `prism.js` for now.
 - #done Set up TailwindCSS and a nice Big Beautiful Stylesheet.
@@ -230,10 +230,10 @@ pages, sitemaps, etc.
 - #done Ingest a rendered HTML artifact and then process it to remove `<head>` and `<doctype>` tags amongst other extraneous tags.
 - #done "nested" templating for implementing Navbar.
 - #done Figure out how to do metadata...should be able to extract it from Typst source files?
-  - #done Metadata is now possible, but slow. I'm thinking of doing a cache system where we keep a `.json` or `.toml` file that caches extracted metadata in `.epilogue` for fast development (and a switch in the code to skip inspecting metadata and trust the cache).
-    - Eventually once we have file-watching hot reload this file will work better. But it's faster than multi-second build steps.
+  - #done Metadata is now possible, but slow. I’m thinking of doing a cache system where we keep a `.json` or `.toml` file that caches extracted metadata in `.epilogue` for fast development (and a switch in the code to skip inspecting metadata and trust the cache).
+    - Eventually once we have file-watching hot reload this file will work better. But it’s faster than multi-second build steps.
     - Maybe also look into extracting multiple pieces of metadata at once. If not possible in Typst CLI, then will have to wait until CLI is replaced by embedding the `typst` create directly.
-    - NOTE: I've marked this task done but the above has not been implemented. Rather I've just figured out how to make it much faster by parsing JSON out of a single query. However hot reload is still in question.
+    - NOTE: I’ve marked this task done but the above has not been implemented. Rather I’ve just figured out how to make it much faster by parsing JSON out of a single query. However hot reload is still in question.
 
 = Wishlist
 

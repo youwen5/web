@@ -10,5 +10,5 @@ cookies or #smallcaps[pii] are left on your device, and we are fully compliant
 with the European Union’s #smallcaps[gdpr].
 
 We do not respect the #link("https://en.wikipedia.org/wiki/Do_Not_Track")[Do
-  Not Track] signal, and frankly you shouldn't be using it anyways because it
+  Not Track] signal, and frankly you shouldn’t be using it anyways because it
 makes you easier to fingerprint (which presumably is counter-productive).

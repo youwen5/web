@@ -20,4 +20,4 @@ Some frequently asked and also less frequently asked questions. Updated every on
   ]
 
 2. _What programming language should I learn first?_ \
-  Doesn't matter. Pick a language, write some code. If you want to end up in corporate, try JavaScript or Python. If you want to be an elite hacker, try Rust or a Lisp dialect. If you don't even like programming and happen to be a mathematician, try Haskell.
+  Doesn’t matter. Pick a language, write some code. If you want to end up in corporate, try JavaScript or Python. If you want to be an elite hacker, try Rust or a Lisp dialect. If you don’t even like programming and happen to be a mathematician, try Haskell.
