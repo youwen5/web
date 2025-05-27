@@ -76,7 +76,7 @@
 }
 
 @utility prose-table-snazzy {
-  @apply prose-table:table-auto prose-td:my-1 prose-td:mx-2 prose-td:border-t-muted prose-td:border-t-1 prose-thead:no-smallcaps prose-th:font-sans;
+  @apply prose-table:table-auto prose-td:my-1 prose-td:mx-2 prose-td:border-t-muted prose-td:border-t-1 prose-thead:no-smallcaps prose-th:text-start prose-th:font-sans;
 }
 
 body {
