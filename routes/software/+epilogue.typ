@@ -9,8 +9,8 @@
 #let todo = sym.ballot
 #let in-progress = emoji.clock
 
-Here#(apostrophe)s the elevator pitch: I want a static site generator
-that#(apostrophe)s hackable and lets me write in a markup language
+Here’s the elevator pitch: I want a static site generator
+that’s hackable and lets me write in a markup language
 human-readable and writable like markdown but with the full power of a
 programming language.
 
@@ -21,10 +21,10 @@ without any client side JavaScript, in the spirit of the Web (back when it was
 still a capital W).
 
 #blockquote[
-  _Write JavaScript like it#(apostrophe)s 2005._
+  _Write JavaScript like it’s 2005._
 ]
 
-I couldn#(apostrophe)t find anything that perfectly matched all of the
+I couldn’t find anything that perfectly matched all of the
 qualities above. Usually, it was a trade-off between slick but austere (usually
 only supporting markdown with some plugins) or feature-rich but slow and
 clunky. So I ended up rolling my own, called it Epilogue, and it now powers
@@ -39,30 +39,30 @@ after framework and package after package is
 #link("https://en.wikipedia.org/wiki/Npm_left-pad_incident")[well documented]
 at this point. There are also a great many static site generators that have
 been established for years. So it feels strange to declare that, actually, we
-don#(apostrophe)t have _enough_ choice already.
+don’t have _enough_ choice already.
 
-But I think it#(apostrophe)s true. Let#(apostrophe)s briefly analyze two
+But I think it’s true. Let’s briefly analyze two
 primary ways content driven sites are deployed to the web, in so-called
 #quote[modern web development]. One: choose a web framework, and write in that.
 Two: use a static site generator, create some #smallcaps[html] templates, and
 write in Markdown or a similarly minimalistic markup language. (Three: a
 combination of both, like #link("https://astro.build/")[Astro].)
 
-There#(apostrophe)s a time and place for web frameworks. I#(apostrophe)m
+There’s a time and place for web frameworks. I’m
 partial to Astro and Svelte. But for a personal website? Hell no.
-I#(apostrophe)m not going to depend on 1000 #smallcaps[npm] packages and ship
+I’m not going to depend on 1000 #smallcaps[npm] packages and ship
 users ten thousand lines of JavaScript for three interactive widgets and an
 image carousel.
 
 I think Markdown is fine, but we can seriously do better. Markdown is for when
-you#(apostrophe)re writing in a GitHub `README` and want some basic formatting.
-It#(apostrophe)s rather austere for a markup language that generates content on
+you’re writing in a GitHub `README` and want some basic formatting.
+It’s rather austere for a markup language that generates content on
 a website you control. What if you want to define a custom reusable component?
 What if you want to programmatically do anything?
 
 Of course there are systems to give you more power
 #footnote[#link("https://mdxjs.com/")[MDX]], but at the end of the day I think
-the principal issue is that you#(apostrophe)re either hacking a programming
+the principal issue is that you’re either hacking a programming
 system into a markup language or a markup language into a programming system.
 The gold standard would be an actual markup language that treats programming as
 a first class citizen, or, equivalently, a programming language where markup is
@@ -88,7 +88,7 @@ a first class citizen.
 }
 
 This is where Typst comes in. In Typst, markup and code are fused into one.
-Typst is like #LaTeX, in that it#(apostrophe)s programmatic and scriptable.
+Typst is like #LaTeX, in that it’s programmatic and scriptable.
 Typst is like Markdown, in that basic markup (paragraphs, lists, tables,
 headings, etc.) is easy to use with dedicated syntax. But it has a much better
 scripting language than #TeX while being just as easy as Markdown. And, despite
@@ -99,15 +99,15 @@ to use. So instead of relying on third-party conversion utilities like
 Typst language and not worry about things getting lost in translation during conversion.
 
 Enough evangelizing. How does this website actually work? This website is
-generated in Typst, but it was missing some pieces. Typst doesn#(apostrophe)t
+generated in Typst, but it was missing some pieces. Typst doesn’t
 understand intrinsically how to render a collection of #smallcaps[html] pages
 into a website, so I hacked some additional infrastructure together. I wrote a
 tiny (1.3k lines of safe Rust code) static site generator called Epilogue that can
 parse a directory of Typst documents---representing routes---and then build it
-into a website. It works pretty well (you#(apostrophe)re reading text generated
+into a website. It works pretty well (you’re reading text generated
 by Typst right now).
 
-Is it actually usable? Surprisingly, yes. I#(apostrophe)ve implemented a system
+Is it actually usable? Surprisingly, yes. I’ve implemented a system
 for obtaining metadata from Typst documents, so we can populate the website
 `<head>` for SEO. Almost every element on this site (with the exception of the
 navigation elements) is written somewhere in a Typst source file. I implemented
@@ -115,7 +115,7 @@ a thread pooled parallel compilation infrastructure so I can build hundreds of
 pages in a few seconds. I can basically do everything expected of a simple
 markdown static site generator right now.
 
-Remember those snazzy #LaTeX and #TeX symbols earlier? They#(apostrophe)re
+Remember those snazzy #LaTeX and #TeX symbols earlier? They’re
 rendered directly as embedded #smallcaps[svg]s, from this source code (stolen
 shamelessly from
 #link("https://github.com/typst/typst/discussions/1732", newtab: true)[swaits on the Typst GitHub]):
@@ -146,7 +146,7 @@ Try doing that with Markdown or React!
 There are a few essential features I still need to add though. We can get
 information out of a document, but we still need to pass information back
 in---for example, we might pass in a list of recent blog posts for rendering a
-feed. I also want stuff like Atom/RSS feeds. But overall, it#(apostrophe)s
+feed. I also want stuff like Atom/RSS feeds. But overall, it’s
 everything I want out of a static site generator---namely, the actual
 experience of writing markup is amazing thanks to Typst. I can define
 functions, create libraries for shared utilities and components, pull in
@@ -188,7 +188,7 @@ pages, sitemaps, etc.
 
 - #todo Implement the #quote[prefixes] system. Basically, rather than
   classifying pages based on their directory (e.g. `/blog` contains all blog
-  posts), I#(apostrophe)d like to prefix the source file to tell Epilogue
+  posts), I’d like to prefix the source file to tell Epilogue
   what kind of page it is. Right now, the prefix `+` is already used for all
   routes to indicate that they are a route, so it should be as simple as
   extracting the prefix and matching it against a lookup and storing it along

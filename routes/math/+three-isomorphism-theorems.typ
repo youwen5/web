@@ -29,8 +29,8 @@
 
 #[
   When I first learned about these they were difficult to understand or
-  justify. So I thought I#(apostrophe)d write things down, now that
-  I#(apostrophe)ve figured them out. These are particular cases of the more
+  justify. So I thought I’d write things down, now that
+  I’ve figured them out. These are particular cases of the more
   general
   #link("https://en.wikipedia.org/wiki/Isomorphism_theorems")[isomorphism
     theorems] in abstract algebra.
@@ -57,7 +57,7 @@
   Quick notation refresher: let $V$ be a vector space over a field $FF$ and $U$
   be a subspace of $V$. For $x,y in V$, let $x ~ y$ be a binary relation that
   is true when $y
-  - x in U$. It#(apostrophe)s easy to show $~$ is an equivalence relation.
+  - x in U$. It’s easy to show $~$ is an equivalence relation.
   $[x]$ or $overline(x)$ denotes the equivalence class with representative
   $x$,
   $
@@ -84,9 +84,9 @@
   $
   is a well defined isomorphism.
 
-  What we#(apostrophe)re really saying here is just that when we mod out the
+  What we’re really saying here is just that when we mod out the
   kernel of any linear map, we can define an injective map to its image. Since
-  it#(apostrophe)s trivially surjective over its image, it is an isomorphism.
+  it’s trivially surjective over its image, it is an isomorphism.
   This is intuitively very natural when we consider our intuition about the
   kernel is.
 ]<rendermath>
@@ -94,10 +94,10 @@
 #proof[
   #[
     The proof proceeds by first establishing that such a linear map exists and is
-    well defined, then proving it#(apostrophe)s an isomorphism.
+    well defined, then proving it’s an isomorphism.
 
     Let $V$ and $W$ be vector spaces over a field $FF$. Let $tau : V -> W$ be a
-    linear map. Let $U := ker tau$ (for simplicity of notation#(apostrophe)s
+    linear map. Let $U := ker tau$ (for simplicity of notation’s
     sake). Then, by the
     #link(
       "https://en.wikipedia.org/wiki/Universal_property",
@@ -118,10 +118,10 @@
 
   #[
     This establishes the existence of the map $overline(tau)$ we desire, now we
-    need to show it#(apostrophe)s both surjective and injective.
+    need to show it’s both surjective and injective.
 
     #btw[
-      editor#(apostrophe)s note: I have a proof of the universal property, but it is too large to fit in the margins.
+      editor’s note: I have a proof of the universal property, but it is too large to fit in the margins.
     ]
 
     We can easily see $overline(tau)$ is surjective, let $x in im tau$, then
@@ -132,7 +132,7 @@
       overline(0) = {x in V | x - 0 in ker tau} = ker tau.
     $
     Hence $ker overline(tau) = {overline(0)}$ so it is injective. Therefore,
-    it#(apostrophe)s an isomorphism between $V slash U$ $=$ $V slash ker tau$
+    it’s an isomorphism between $V slash U$ $=$ $V slash ker tau$
     and $im tau$.
   ]<rendermath>
 ]
@@ -146,7 +146,7 @@
   $
 
   #proof[
-    This proof is a little different. First we#(apostrophe)re going to show the
+    This proof is a little different. First we’re going to show the
     following linear map exists.
     $
       tau : U & -> (U + W) slash W \
@@ -161,7 +161,7 @@
     We know $iota$ and $pi_W$ to be linear, so the composition is also a linear
     map.
 
-    Now that we#(apostrophe)ve established the existence of such a linear map
+    Now that we’ve established the existence of such a linear map
     $tau$, the idea is to first show that $tau$ is surjective (that is, its
     image is its codomain $(U+W) slash W$). Then we show that $ker tau = U
     inter W$, and apply the first isomorphism theorem to obtain our desired
@@ -194,15 +194,15 @@
   $
     (V slash U) slash (W slash U) tilde.equiv V slash W
   $
-  Just imagine you#(apostrophe)re cancelling
+  Just imagine you’re cancelling
   $
     (V slash cancel(U)) / (W slash cancel(U)) tilde.equiv V slash W
   $
 
   #proof[
-    Again we#(apostrophe)re going to try to define a linear map that lets us
+    Again we’re going to try to define a linear map that lets us
     apply the first isomorphism theorem. No tricks this time, so
-    we#(apostrophe)ll attempt to directly construct a linear map $tau$ and show
+    we’ll attempt to directly construct a linear map $tau$ and show
     it is well defined.
 
     Let $tau$ be a linear map
@@ -210,7 +210,7 @@
       tau : V slash U & -> V slash W \
                 [x]_U & |-> [x]_W    \
     $
-    We need to show $tau$ is well defined, that is, it doesn#(apostrophe)t
+    We need to show $tau$ is well defined, that is, it doesn’t
     depend on choice of representatives. Suppose $[x]_U, [x']_U in V slash U$.
     Then $x - x' in U$, so $x - x' in W$. So $x = [x']_W$. Similarly $x' =
     [x]_W$. So $tau$ is well defined.

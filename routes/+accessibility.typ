@@ -57,7 +57,7 @@ Known limitations for web.youwen.dev:
 1. *Mathematical equations*: equations may not be able to be interpreted by
   screenreaders because they are rendered as SVGs without any unicode
   metadata that can be interpreted by text-based screenreaders.
-  I#(apostrophe)m trying to figure out a way to include theoriginal
+  I’m trying to figure out a way to include theoriginal
   plaintext math source code in an ARIA label. Try using a visual
   OCR-based screen reader.
 

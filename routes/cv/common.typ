@@ -2,7 +2,7 @@
 #import "./pesha.typ": *
 
 #let render-cv(long: false) = [
-  I#(apostrophe)m passionate about _design_---in all its facets---including systems, web, graphics, typography, and more. I love working on hard problems.
+  I’m passionate about _design_---in all its facets---including systems, web, graphics, typography, and more. I love working on hard problems.
 
   #context {
     if target() == "html" {
@@ -352,7 +352,7 @@
         type: "github",
       )[
         - Powered by a fully custom handrolled static site generator, written in Rust
-        - Accessible, perfect 100s on Google#(apostrophe)s Lighthouse benchmark
+        - Accessible, perfect 100s on Google’s Lighthouse benchmark
       ]
     ]
 
@@ -373,7 +373,7 @@
       link: "https://github.com/youwen5/jankboard",
       type: "github",
     )[
-      - A bespoke driver control dashboard for Team 1280#(apostrophe)s 2024 competition robot
+      - A bespoke driver control dashboard for Team 1280’s 2024 competition robot
       - Tauri application, with Svelte frontend and Rust glue code to communicate with robot
       - 3D robot visualization using Three.js
     ]
@@ -410,7 +410,7 @@
       #award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
       #award-entry(title: [SB Hacks XI, Winner], date: [2025])
       #award-entry(
-        title: [Dean#(apostrophe)s Honors #(sym.times)2],
+        title: [Dean’s Honors #(sym.times)2],
         date: [2024 --- 2025],
         web-only: true,
       )

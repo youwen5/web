@@ -7,7 +7,7 @@
 
 Some frequently asked and also less frequently asked questions. Updated every once in a while.
 
-1. _How#(apostrophe)s_ #smallcaps[ucsb]? \
+1. _How’s_ #smallcaps[ucsb]? \
   I think this quote sums it up nicely. I replaced all occurrences of the word #quote[electrochemistry] with #quote(smallcaps[ucsb.])
   #blockquote(attribution: [--- #link("https://discoelysium.fandom.com/wiki/Electrochemistry")[Electrochemistry] from _Disco Elysium_])[
     Go to party planet. Love and be loved by drugs.

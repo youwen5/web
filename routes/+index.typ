@@ -3,7 +3,7 @@
 #show: html-shim
 
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
-  #smallcaps(all: true)[Greetings. I#(apostrophe)m Youwen]. I study math and hack on computers at
+  #smallcaps(all: true)[Greetings. I’m Youwen]. I study math and hack on computers at
   #link("https://ucsb.edu")[UC Santa Barbara].
 ]
 
@@ -25,7 +25,7 @@ In my spare time, I play guitar and spend too much money on guitar pedals. I
 also hate coding.
 
 See my #link("/about")[about page] for more about myself, or my
-#link("/now")[now page] for what I#(apostrophe)m up to right now. Or explore
+#link("/now")[now page] for what I’m up to right now. Or explore
 the other pages on this website.
 
 #blockquote(attribution: [--- #link(

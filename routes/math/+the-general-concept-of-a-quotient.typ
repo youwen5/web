@@ -36,8 +36,8 @@ Let $V$ be an $FF$-vector space. Let $U subset.eq V$ be a subspace of $V$. Defin
 $
   x ~ y <==> x - y in U
 $
-It#(apostrophe)s easy to see that $~$ is an equivalence relation, that is,
-it#(apostrophe)s reflexive, symmetric, and transitive.
+It’s easy to see that $~$ is an equivalence relation, that is,
+it’s reflexive, symmetric, and transitive.
 
 #definition[
   The _quotient set_ is called #quote[V modulo U], and written with the notation
@@ -53,7 +53,7 @@ $
 $
 In other words, the map $pi$ takes you from $x$ to its equivalence class.
 
-It#(apostrophe)s not a coincidence that $V slash U$ is called the quotient set
+It’s not a coincidence that $V slash U$ is called the quotient set
 and written with that slash sign, like division. In general, when we think
 about equivalence classes in a set, we can imagine a more general idea of the
 concept of objects in the set being equal to zero under a modulus.

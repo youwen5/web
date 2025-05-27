@@ -7,7 +7,7 @@
 #dropcap[
   H#smallcaps[ow many words] does it take to get to know a person? To start---I could tell you
   my name is Youwen---romanized directly from the Chinese: #chinese-name.
-  I#(apostrophe)m from the San Francisco Bay Area but I currently study and live
+  I’m from the San Francisco Bay Area but I currently study and live
   in Santa Barbara, California.
 ]
 
@@ -17,7 +17,7 @@ much about music and philosophy and the human condition.
 If it helps, we might saunter through the streets of Isla Vista or window shop
 in downtown Santa Barbara, and bemoan the dining hall food and exorbitant prices
 in restaurants. I could tell you about the subtle genius of _Disco Elysium_ or
-Rust#(apostrophe)s algebraic type system. We could play _Risk of Rain 2_ or
+Rust’s algebraic type system. We could play _Risk of Rain 2_ or
 _Monster Hunter_, and binge _Frieren_. Is that enough?
 
 Or we could take a late afternoon trek over by Campus Point, look out past the
@@ -33,7 +33,7 @@ things.
 And for a moment, we might forget the ennui of the world and feel weightless
 atop its torrents.
 
-And maybe we#(apostrophe)d finally get to know each other.
+And maybe we’d finally get to know each other.
 
 But until then---I hope my words here suffice.
 
@@ -41,7 +41,7 @@ But until then---I hope my words here suffice.
 
 = History
 
-I#(apostrophe)m originally from Shanghai, China. I lived in the state of Utah
+I’m originally from Shanghai, China. I lived in the state of Utah
 for a few years as a kid, before moving to the San Francisco Bay Area. I study
 at UC Santa Barbara and spend most of my productive time doing math or
 programming.
@@ -79,7 +79,7 @@ Key benefits of my approach to computing include:
 
 = Math
 
-please help me man i can#(apostrophe)t even do an integral anymore all i know is abstraction
+please help me man i can’t even do an integral anymore all i know is abstraction
 
 #webimg(
   "https://preview.redd.it/kwp14kysyul41.png?auto=webp&s=25544fd77159edfd1b6276ea2c59a4d6b5c9cfe3",
