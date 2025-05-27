@@ -67,13 +67,13 @@ the other pages on this website.
   ]
 }
 
+#update(date: "May 19th, 2025", href: "/unicode-quotes")[
+  #icon(name: "newspaper")
+  Stop using the wrong quotes!
+]
 #update(date: "May 19th, 2025", href: "/math/three-isomorphism-theorems")[
   #icon(name: "newspaper")
   Three isomorphism theorems in linear algebra
-]
-#update(date: "May 16th, 2025", href: "/writing/do-you-want-to-write")[
-  #icon(name: "newspaper")
-  Do you want to write?
 ]
 #update(
   date: "May 12th, 2025",
