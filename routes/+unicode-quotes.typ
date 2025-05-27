@@ -16,11 +16,12 @@ of our limited physical keyboard glyphs descended from typewriters---please,
 let’s leave these habits behind. Unicode gives us access to all the fine character
 nuances of professional-quality writing in every modern program.
 
-You can input real quotes on Linux machines that use `libinput` (almost all
-Wayland compositors) using the shortcut `Ctrl+Shift+U` followed by the
-unicode---so to type a right single quotation mark, hit `Ctrl+Shift+U`, followed
-by `2019`, and then hit enter. For inferior macOS and Windows users, consult
-your system help pages.
+You can input real quotes on Linux machines that use
+#link("https://wiki.archlinux.org/title/IBus")[ibus] (almost all Wayland
+compositors) using the shortcut `Ctrl+Shift+U` followed by the unicode---so to
+type a right single quotation mark, hit `Ctrl+Shift+U`, followed by `2019`, and
+then hit enter. For inferior macOS and Windows users, consult your system help
+pages.
 
 In the `kitty` terminal, `Ctrl+Shift+U` brings up a dedicated Unicode input
 panel that gives you a richer search experience. Inferior terminal glyphs
