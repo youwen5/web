@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # this is a professional, licensed font. you'll have to remove or replace
+    # this is a professional, licensed font. you’ll have to remove or replace
     # it to build the site locally
     valkyrie-font = {
       url = "github:youwen5/valkyrie";

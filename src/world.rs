@@ -104,7 +104,7 @@ fn compile_document(
         if !dir.exists() {
             return Err(WorldError::Io(std::io::Error::new(
                 std::io::ErrorKind::NotFound,
-                "output dir doesn't exist",
+                "output dir doesn’t exist",
             )));
         }
 
@@ -170,7 +170,7 @@ fn compile_pdf(
         if !dir.exists() {
             return Err(WorldError::Io(std::io::Error::new(
                 std::io::ErrorKind::NotFound,
-                "output dir doesn't exist",
+                "output dir doesn’t exist",
             )));
         }
 
@@ -311,7 +311,7 @@ impl WorkingDirs {
         })
     }
 
-    /// Whether or not the working directories exist already. Says nothing about whether they're
+    /// Whether or not the working directories exist already. Says nothing about whether they’re
     /// actually valid
     pub fn working_dirs_exist() -> Result<bool, WorldError> {
         let dist_path = Path::new("./dist");
@@ -675,7 +675,7 @@ impl World {
 }
 
 /// Takes the raw tree structure of the routes directory and walks through it, throwing away
-/// anything that isn't a route, and turning page nodes into valid `TypstDoc` objects.
+/// anything that isn’t a route, and turning page nodes into valid `TypstDoc` objects.
 fn reconcile_raw_routes(tree: &RawRouteTree) -> RouteTree {
     let new_tree: RouteTree = tree
         .par_iter()

@@ -72,7 +72,7 @@ pub fn run() {
                 Err(err) => {
                     tracing::event!(
                         tracing::Level::ERROR,
-                        "I couldn't parse the routes directory! Are you sure you've set it up correctly? Does it exist? Are you in the right directory? I failed with the error {}.",
+                        "I couldn’t parse the routes directory! Are you sure you’ve set it up correctly? Does it exist? Are you in the right directory? I failed with the error {}.",
                         err
                     );
                     return;
@@ -96,7 +96,7 @@ pub fn run() {
                     epilogue::world::WorldError::TypstQuery => {
                         tracing::event!(
                             tracing::Level::ERROR,
-                            "I tried to query your routes for metadata, but something went wrong! Are you sure you've set up the `html-shim` correctly? Otherwise, metadata won't be generated! I failed with the error {}",
+                            "I tried to query your routes for metadata, but something went wrong! Are you sure you’ve set up the `html-shim` correctly? Otherwise, metadata won’t be generated! I failed with the error {}",
                             err
                         );
                     }

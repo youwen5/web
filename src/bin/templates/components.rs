@@ -110,7 +110,7 @@ impl Renderable for Head {
         let description = match &self.description {
             Some(desc) => desc,
             None => {
-                "Youwen's personal website. Also a gathering hub for supporters of homotopy coherent mathematics. Together we shall prevail against the set theorists."
+                "Youwen’s personal website. Also a gathering hub for supporters of homotopy coherent mathematics. Together we shall prevail against the set theorists."
             }
         };
         let image = match &self.thumbnail {
@@ -129,7 +129,7 @@ impl Renderable for Head {
 
                 title { (&page_title) }
                 meta name="og:title" content=(&page_title);
-                meta name="og:site_name" content="Youwen's Website";
+                meta name="og:site_name" content="Youwen’s Website";
 
                 meta name="description" content=(description);
 

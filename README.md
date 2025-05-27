@@ -25,7 +25,7 @@ GitHub pages and cached through Cloudflare's CDN.
 
 ## hacking
 
-(only works on Linux because I'm lazy.)
+(only works on Linux because I’m lazy.)
 
 Install [nix](https://nixos.org/), then
 

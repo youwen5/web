@@ -10,7 +10,7 @@ impl Template for TestTemplate {
     ) -> Rendered<String> {
         maud! {
             div {
-                h1 {"here's some content"}
+                h1 {"here’s some content"}
                 (content)
             }
         }
@@ -41,7 +41,7 @@ fn it_templates_successfully() {
         ),
         maud! {
             div {
-                h1 {"here's some content"}
+                h1 {"here’s some content"}
                 p {
                     "test content!"
                 }

@@ -20,7 +20,7 @@ place to be! I keep this document updated on a best-effort basis.
 
 ## By the way
 
-If you just want to edit some text, you don't actually need to build the whole
+If you just want to edit some text, you don’t actually need to build the whole
 site. Just go dig around in [routes](./routes) until you find the file with
 the content (the directory structure mirrors the website structure), then edit
 it, and send a PR. Otherwise, read on.
@@ -44,7 +44,7 @@ polished.
 
 HTML templates are written using the `hypertext` crate, using either the
 `maud!` or `rsx!` macros (whichever you prefer). Or you could write HTML in
-Rust strings if you're mentally deranged.
+Rust strings if you’re mentally deranged.
 
 ### Note about the fonts
 
@@ -85,7 +85,7 @@ above automatically.
 As mentioned above, some of fonts in this website are not free. They are
 [Valkyrie](https://practicaltypography.com/valkyrie.html) and [Concourse
 Index](https://practicaltypography.com/concourse-index.html), designed by
-Matthew Butterick. However you don't really need the fonts to hack on the code,
+Matthew Butterick. However you don’t really need the fonts to hack on the code,
 so it is not necessary to obtain them. The commands below should work for you,
 but the local site you build will obviously not have the right fonts available.
 
