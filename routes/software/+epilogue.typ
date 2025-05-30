@@ -60,13 +60,13 @@ It’s rather austere for a markup language that generates content on
 a website you control. What if you want to define a custom reusable component?
 What if you want to programmatically do anything?
 
-Of course there are systems to give you more power
-#footnote[#link("https://mdxjs.com/")[MDX]], but at the end of the day I think
-the principal issue is that you’re either hacking a programming
-system into a markup language or a markup language into a programming system.
-The gold standard would be an actual markup language that treats programming as
-a first class citizen, or, equivalently, a programming language where markup is
-a first class citizen.
+Of course there are systems to give you more power #footnote[See
+  #link("https://mdxjs.com/")[MDX], which lets you write JSX inside Markdown],
+but at the end of the day I think the principal issue is that you’re either
+hacking a programming system into a markup language or a markup language into a
+programming system. The gold standard would be an actual markup language that
+treats programming as a first class citizen, or, equivalently, a programming
+language where markup is a first class citizen.
 
 #let TeXRaw = {
   set text(font: "New Computer Modern")
