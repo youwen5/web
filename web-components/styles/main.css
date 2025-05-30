@@ -88,23 +88,10 @@ body {
 }
 
 .external-link {
-  @apply mr-1.5;
-}
-
-.external-link::after {
-  @apply font-sans;
-  content: "┓" / ", external";
-  position: absolute;
-  margin-top: 0.28em;
-  line-height: 1em;
-  font-size: 0.5em;
-}
-
-.internal-link {
   @apply mr-3;
 }
 
-.internal-link::after {
+.external-link::after {
   @apply font-sans;
   content: "°";
   position: absolute;
@@ -112,6 +99,20 @@ body {
   margin-top: 0.1em;
   line-height: 1em;
   font-size: 1.5em;
+}
+
+.internal-link {
+  @apply mr-3;
+}
+
+.internal-link::after {
+  @apply font-serif;
+  content: "†";
+  position: absolute;
+  margin-left: 0.05em;
+  margin-top: 0.2em;
+  line-height: 1em;
+  font-size: 0.8em;
 }
 
 .subhead:first-child:first-letter {
