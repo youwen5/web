@@ -2,14 +2,21 @@
 
 #show: html-shim.with(
   date: datetime(day: 25, year: 2025, month: 5),
-  title: "How I do my computing",
+  title: "Tools, software, etc.",
   meta-description: "How Youwen does his computing.",
 )
 
-These are all the tools I use for hacking and computing on a daily basis, as of
-the date above.
+These are all the tools I use for hacking and tinkering on a daily basis, as of
+the date above. By keeping an explicit list, I try to critically assess my
+usage of any tool. The less reliant I am on software and computers, the better #footnote[
+  For example, I explicitly choose not to use a calendar program, except to set reminders for
+  extremely important events. Meticulously organizing your life with a Google
+  Calendar---you’re literally ceding control to the machine.
+].
 
-*Software:*
+= Software
+
+*Core:*
 
 #table(
   columns: 2,
@@ -18,12 +25,24 @@ the date above.
   [Browser], [Zen],
   [Kernel(s)], [linux-zen, linux-asahi],
   [Desktop], [Hyprland (Wayland)],
-  [Layout], [Scroller],
+  [Layout], [hyprscroller],
   [Terminal], [kitty],
-  [Login shell], [Nushell (fish completer)],
+  [Login shell], [Nushell (w/ fish completer)],
 )
 
-*Hardware:*
+*Productivity:*
+
+#table(
+  columns: 2,
+  [Browser], [Zen],
+  [Typesetting], [Typst],
+  [Accounting], [#link("https://hledger.org/")[hledger]],
+  [Audio Workstation], [#link("https://www.reaper.fm/")[Reaper]],
+)
+
+= Hardware
+
+*Computers:*
 
 #table(
   columns: 2,
@@ -34,7 +53,37 @@ the date above.
   [`gallium`], [2014 Mac Mini, used as a homelab and server],
 )
 
-= Operating system
+*Other devices:*
+
+#table(
+  columns: 2,
+  [E-reader], [Kindle Scribe],
+  [Audio interface],
+  [#link(
+      "https://us.focusrite.com/products/scarlett-4i4-3rd-gen",
+    )[Scarlett 4i4 (Gen 3)]],
+
+  [Microphone],
+  [#link(
+      "https://www.astonmics.com/EN/product/Mics/Origin?ref=theboothambassadors.com",
+    )[Aston Microphones Origin]],
+)
+
+*Keyboards:*
+
+#table(
+  columns: 2,
+  [#link(
+      "https://www.keychron.com/products/keychron-q60-max-qmk-via-wireless-custom-mechanical-keyboard",
+    )[Keychron Q60 Max]],
+  [Happy Hacking layout, Gateron Oil Kings (factory lube)],
+
+  [Custom tofu65], [Ink Black v2 (hand lube)],
+)
+
+= More info
+
+== Operating system
 
 On all of my machines (including Apple), I currently run
 #link("https://nixos.org/")[NixOS unstable] (NixOS 25.11 #quote[Xantusia]), the
@@ -75,7 +124,7 @@ through #link("https://www.protondb.com/")[Proton]. macOS is seldom used but
 usually handles multimedia better---e.g. if I need to plug into a projector to
 play a movie or presentation.
 
-= Editor
+== Editor
 
 I use #link("https://neovim.io/")[Neovim]. Before that---VS Code---but I was
 growing increasingly wary of the AI
@@ -87,14 +136,14 @@ I created my #link("https://github.com/youwen5/viminal2")[configuration from
 strictly extend the capabilities of existing features rather than add entirely
 new ones.
 
-= Browser
+== Browser
 
 I use #link("https://zen-browser.app/")[Zen], a fork of Firefox. It’s kind of
 janky but it’s the only browser with all the features I want---namely, not
 Chromium based and supports sidebar tabs. I maintain the semi-popular
 #link("https://github.com/youwen5/zen-browser-flake")[Nix package] for it.
 
-= Kernel
+== Kernel
 
 I use `linux-zen` in general because regular `linux` has some weird
 interactions with my laptops when returning from suspend. I keep
@@ -105,7 +154,7 @@ On my Apple Silicon devices I of course use the `linux-asahi` kernel from the
 not the Asahi Fedora Remix. If you’re curious, it is a surprisingly smooth
 experience.
 
-= Desktop environment
+== Desktop environment
 
 I use #link("http://hyprland.org")[Hyprland]. It has all the features I expect
 out of a window manager. I use a plugin that enables a scrolling layout like
@@ -116,14 +165,22 @@ minor regressions and the community is somewhat suspect.
 Therefore, I’m looking to jump ship to the dedicated scrolling compositor
 #link("https://github.com/YaLTeR/niri")[Niri] once a few features are added.
 
-= Terminal
+== Terminal
 
 #link("https://sw.kovidgoyal.net/kitty/")[kitty] is good and Kovid is a cool
 guy. The terminal does everything I want and more, it’s fast, and I’ve never
 experienced any bug. No complaints.
 
-= Login shell
+== Login shell
 
 I used to use `fish`, but now I’m on #link("https://www.nushell.sh/")[nushell],
 an experimental shell that takes the concept of #smallcaps(all: true)[UNIX] pipes and makes them pass
 typed structured data that is much easier to manipulate.
+
+== Computers
+
+`adrastea` is a laptop-turned-workstation, on account of poor Razer quality
+control forcing me to toss the battery out. `callisto` is my daily driver
+laptop---the Apple Silicon processor gives it great battery life. `demeter` is
+my home PC, which I don’t keep with me in college.
+

@@ -36,7 +36,7 @@ of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
   useful applications.]
 
 #link("/static/img/iuselinuxbtw.jpg", newtab: true)[By the way], I use NixOS. See
-#link("/computing")[this page] to hear all about my neurotic software choices.
+#link("/tools")[this page] to hear all about my neurotic software choices.
 
 #dinkus
 
