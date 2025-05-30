@@ -88,7 +88,7 @@ body {
 }
 
 .external-link {
-  @apply mr-3;
+  @apply mr-[0.5em];
 }
 
 .external-link::after {
@@ -96,13 +96,13 @@ body {
   content: "°";
   position: absolute;
   margin-left: 0.05em;
-  margin-top: 0.1em;
+  margin-top: 0.2em;
   line-height: 1em;
-  font-size: 1.5em;
+  font-size: 1.35em;
 }
 
 .internal-link {
-  @apply mr-3;
+  @apply mr-[0.5em];
 }
 
 .internal-link::after {
