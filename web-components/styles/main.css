@@ -84,7 +84,7 @@ body {
 }
 
 .text-link {
-  @apply text-pine dark:text-foam hover:bg-rose/25 transition-colors;
+  @apply text-pine dark:text-foam hover:bg-rose/15 transition-colors;
 }
 
 .external-link {
