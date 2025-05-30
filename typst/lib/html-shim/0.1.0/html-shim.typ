@@ -235,11 +235,20 @@
             html.elem(
               "span",
               attrs: (
-                class: "footnote-tooltip font-index text-iris cursor-pointer",
+                class: "footnote-tooltip font-index text-iris cursor-pointer hover:bg-love/15 transition-colors",
                 onclick: "this.parentElement.classList.toggle('show-tooltip')",
+                role: "button",
                 aria-label: "Toggle footnote",
               ),
               it2.body,
+            )
+            html.elem(
+              "span",
+              attrs: (
+                class: "sr-only group-[.show-tooltip]:hidden",
+                aria-label: "Footnote content",
+              ),
+              it.body,
             )
             html.elem(
               "span",
@@ -253,7 +262,8 @@
                   attrs: (
                     onclick: "this.parentElement.parentElement.classList.remove('show-tooltip')",
                     aria-label: "Close footnote",
-                    class: "cursor-pointer text-love all-smallcaps",
+                    role: "button",
+                    class: "cursor-pointer text-love all-smallcaps hover:bg-love/15 transition-colors",
                   ),
                   [#linebreak() #sym.lozenge close],
                 )
