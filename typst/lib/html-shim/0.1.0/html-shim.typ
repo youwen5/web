@@ -222,6 +222,52 @@
     }
   }
 
+  show footnote: it => context {
+    if target() == "html" {
+      show super: it2 => {
+        [~]
+        html.elem(
+          "span",
+          attrs: (
+            class: "footnote-container group",
+          ),
+          {
+            html.elem(
+              "span",
+              attrs: (
+                class: "footnote-tooltip font-index text-iris cursor-pointer",
+                onclick: "this.parentElement.classList.toggle('show-tooltip')",
+                aria-label: "Toggle footnote",
+              ),
+              it2.body,
+            )
+            html.elem(
+              "span",
+              attrs: (
+                class: "hidden group-[.show-tooltip]:block font-serif text-foreground bg-overlay p-2 my-2 text-[0.8em] border-1 border-slate-200 dark:border-zinc-700 rounded-md min-w-full footnote-body",
+              ),
+              {
+                it.body
+                html.elem(
+                  "span",
+                  attrs: (
+                    onclick: "this.parentElement.parentElement.classList.remove('show-tooltip')",
+                    aria-label: "Close footnote",
+                    class: "cursor-pointer text-love all-smallcaps",
+                  ),
+                  [#linebreak() #sym.lozenge close],
+                )
+              },
+            )
+          },
+        )
+      }
+      it
+    } else {
+      it
+    }
+  }
+
   show raw.where(block: true): it => context {
     if target() == "html" {
       if it.lang == none {

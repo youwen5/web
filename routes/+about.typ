@@ -19,8 +19,8 @@ Favorite pastimes include watching classic movies and TV shows, playing guitar
 
 I like programming, somewhat. I hold the view of the
 #link("https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html")[Wizard
-  Book]#footnote[aka the legendary Structure and Interpretation of Computer
-  Programs] that programming is _procedural epistemology_---the act of learning
+  Book] #footnote[aka the legendary _Structure and Interpretation of Computer
+  Programs_] that programming is _procedural epistemology_---the act of learning
 and understanding enough about a problem to write code to solve it. The process
 of writing and iterating on code itself _is_ the valuable portion. In contrast,
 the final code produced to solve a problem is merely a _side effect_ of the
