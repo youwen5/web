@@ -111,33 +111,27 @@
 
 #let std-link = link
 
-// A smart link that newtabs any external link
-#let link(newtab: none, ..args) = context {
+// A smart link for the web. Pass in newtab or internal explicitly to set these, otherwise they will be auto-detected.
+#let link(newtab: none, internal: none, ..args) = context {
   let dest = args.pos().at(0)
   let body = args.pos().at(1)
-  let newtab = if newtab != none { newtab } else {
-    if dest.starts-with("/") {
-      false
-    } else {
-      true
-    }
-  }
+  let internal = if internal != none { internal } else { dest.starts-with("/") }
+  let newtab = if newtab != none { newtab } else { internal }
+  let link-class = (
+    "text-link " + if internal { "internal-link" } else { "external-link" }
+  )
   if target() == "html" {
     if newtab {
       html.elem(
         "a",
-        attrs: (class: "text-link external-link", href: dest, target: "_blank"),
+        attrs: (class: link-class, href: dest, target: "_blank"),
         body,
       )
     } else {
-      html.elem(
-        "a",
-        attrs: (class: "text-link internal-link", href: dest),
-        body,
-      )
+      html.elem("a", attrs: (class: link-class, href: dest), body)
     }
   } else {
-    std-link(dest, body)
+    std-link(..args)
   }
 }
 
