@@ -237,6 +237,14 @@ pages, sitemaps, etc.
 
 = Wishlist
 
+- Directly link to Typst crate rather than calling the CLI
+  - Should reduce overhead of IO. Possibly also increase performance via memoization of query and compile step.
+- Zettelkasten style system
+  - Introduce `#wikilink` function or similar based on _tags_
+  - Each document also has a corresponding ID
+  - Expose all the tags in a document during the query step
+  - Match up each tag to the route of the document with its (unique) ID, then pass JSON back providing each document with all of its tags, which it can then use in render step
+  - Also can provide backlinks, etc
 - Advanced print functionality: by compiling a PDF in parallel with HTML, we
   can provide each page with a beautifully typeset PDF to print/save offline
   instead of janky browser print.
