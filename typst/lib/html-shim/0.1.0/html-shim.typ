@@ -235,7 +235,7 @@
             html.elem(
               "span",
               attrs: (
-                class: "footnote-tooltip font-index text-iris cursor-pointer hover:bg-love/15 transition-colors",
+                class: "footnote-tooltip font-index text-iris cursor-pointer hover:bg-love/15 transition-colors [font-feature-settings:'ss01']",
                 onclick: "this.parentElement.classList.toggle('show-tooltip')",
                 role: "button",
                 aria-label: "Toggle footnote",
