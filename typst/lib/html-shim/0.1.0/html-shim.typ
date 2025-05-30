@@ -116,7 +116,7 @@
   let dest = args.pos().at(0)
   let body = args.pos().at(1)
   let internal = if internal != none { internal } else { dest.starts-with("/") }
-  let newtab = if newtab != none { newtab } else { internal }
+  let newtab = if newtab != none { newtab } else { not internal }
   let link-class = (
     "text-link " + if internal { "internal-link" } else { "external-link" }
   )
