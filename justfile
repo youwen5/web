@@ -34,4 +34,4 @@ build-release:
     cargo run --release -- build --minify
 
 sync-typst-package:
-    rsync -r ./typst/lib/html-shim ~/.cache/typst/packages/preview
+    rsync -a ./typst/lib/html-shim ~/.cache/typst/packages/preview

@@ -111,23 +111,36 @@
 
 #let std-link = link
 
-#let link(newtab: false, ..args) = context {
+// A smart link that newtabs any external link
+#let link(newtab: none, ..args) = context {
   let dest = args.pos().at(0)
-  let body = if args.pos().len() > 1 { args.pos().at(1) }
-  if target() == "html" and body != none {
+  let body = args.pos().at(1)
+  let newtab = if newtab != none { newtab } else {
+    if dest.starts-with("/") {
+      false
+    } else {
+      true
+    }
+  }
+  if target() == "html" {
     if newtab {
       html.elem(
         "a",
-        attrs: (class: "text-link", href: dest, target: "_blank"),
+        attrs: (class: "text-link external-link", href: dest, target: "_blank"),
         body,
       )
     } else {
-      html.elem("a", attrs: (class: "text-link", href: dest), body)
+      html.elem(
+        "a",
+        attrs: (class: "text-link internal-link", href: dest),
+        body,
+      )
     }
   } else {
     std-link(dest, body)
   }
 }
+
 
 #let html-shim(
   body,

@@ -5,46 +5,61 @@
 #let chinese-name = html.elem("span", attrs: (lang: "zh-Hans"), [佑文])
 
 #dropcap[
-  H#smallcaps[ow many words] does it take to get to know a person? To start---I could tell you
-  my name is Youwen---romanized directly from the Chinese: #chinese-name.
-  I’m from the San Francisco Bay Area but I currently study and live
-  in Santa Barbara, California.
+  W#smallcaps[elcome] to my hypertext garden on the World Wide Web. There are
+  many like it---but this one is mine.
 ]
 
-I could tell you that I study math, and computers, but I also care at least as
-much about music and philosophy and the human condition.
+I’m Youwen, and I #link("/software/epilogue")[designed this website] myself, down to the
+last pixel of margin in paragraph headings.
 
-If it helps, we might saunter through the streets of Isla Vista or window shop
-in downtown Santa Barbara, and bemoan the dining hall food and exorbitant prices
-in restaurants. I could tell you about the subtle genius of _Disco Elysium_ or
-Rust’s algebraic type system. We could play _Risk of Rain 2_ or
-_Monster Hunter_, and binge _Frieren_. Is that enough?
+I currently study math and computer science at the
+#link("https://www.ucsb.edu/")[University of California, Santa Barbara.]
+Favorite pastimes include watching classic movies and TV shows, playing guitar
+(poorly), video games, tinkering of all sorts, and long walks along the beach.
 
-Or we could take a late afternoon trek over by Campus Point, look out past the
-crumbling bluffs, and admire the deep inky waters of the Pacific. We could
-stare until the sun falls into a suffusion of gold and orange and indigo
-and the rays tear the glistening waves asunder.
+I like programming, somewhat. I hold the view of the
+#link("https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html")[Wizard
+  Book]#footnote[aka the legendary Structure and Interpretation of Computer
+  Programs] that programming is _procedural epistemology_---the act of learning
+and understanding enough about a problem to write code to solve it. The process
+of writing and iterating on code itself _is_ the valuable portion. In contrast,
+the final code produced to solve a problem is merely a _side effect_ of the
+process of discovering enough about the problem to write it in the first place.
+In that sense, I despise _coding_, the act of translating a known problem and
+solution into procedures for a computer. Coding is best left to so-called _code
+monkeys_.
 
-And then we would talk, about that out-of-tune carillon every Sunday, about
-niche indie online science fiction, about the climate and capitalism, about art
-and music and hope and death, and you could tell me about a million other
-things.
+I’m an adherent of the #link(newtab: true, "https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV]
+of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
+  observation that homotopy theory/algebraic topology, (homotopy) type theory,
+  (higher) category theory and (higher) categorical algebra have a plethora of
+  useful applications.]
 
-And for a moment, we might forget the ennui of the world and feel weightless
-atop its torrents.
-
-And maybe we’d finally get to know each other.
-
-But until then---I hope my words here suffice.
+#link("/static/img/iuselinuxbtw.jpg", newtab: true)[By the way], I use NixOS. See
+#link("/computing")[this page] to hear all about my neurotic software choices.
 
 #dinkus
 
 = History
 
-I’m originally from Shanghai, China. I lived in the state of Utah
-for a few years as a kid, before moving to the San Francisco Bay Area. I study
-at UC Santa Barbara and spend most of my productive time doing math or
-programming.
+I’m originally from Shanghai, China. I lived in the state of Utah for a few
+years as a kid, before moving to the San Francisco Bay Area. I attended 6
+different elementary schools, 1 middle school, and 2 high schools.
+
+= Math
+
+Broadly speaking the purpose of mathematics is likely to crush the dreams and
+self-esteem of young undergraduates. Before going to university I mistakenly
+believed that I was an intelligent entity who could think coherent thoughts and
+so-on. After a year of studying math I have come to the realization that I am
+merely a #link("https://www.goodreads.com/quotes/76608-anyone-who-cannot-cope-with-mathematics-is-not-fully-human")[#quote[tolerable
+    subhuman who has learned to wear his shoes, bathe, and not make messes in the
+    house.]]
+
+#webimg(
+  "https://preview.redd.it/kwp14kysyul41.png?auto=webp&s=25544fd77159edfd1b6276ea2c59a4d6b5c9cfe3",
+  "undergrad category theorist",
+)
 
 = Computing
 
@@ -76,12 +91,3 @@ Key benefits of my approach to computing include:
   secure yourself from malevolent state actors and resist the KTH by
   bootstrapping the entire system from its free source code and a minimal amount
   of binary seeds.
-
-= Math
-
-please help me man i can’t even do an integral anymore all i know is abstraction
-
-#webimg(
-  "https://preview.redd.it/kwp14kysyul41.png?auto=webp&s=25544fd77159edfd1b6276ea2c59a4d6b5c9cfe3",
-  "undergrad category theorist",
-)
