@@ -60,39 +60,39 @@ const INLINE_FONTS: Raw<&str> = Raw(r##"
 }
 
 @font-face {
-  font-family: "Valkyrie B";
+  font-family: "Valkyrie A";
   font-style: normal;
   font-weight: normal;
   font-stretch: normal;
   font-display: swap;
-  src: url("/fonts/valkyrie_ot_b_regular.woff2") format("woff2");
+  src: url("/fonts/valkyrie_ot_a_regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Valkyrie B";
+  font-family: "Valkyrie A";
   font-style: italic;
   font-weight: normal;
   font-stretch: normal;
   font-display: swap;
-  src: url("/fonts/valkyrie_ot_b_italic.woff2") format("woff2");
+  src: url("/fonts/valkyrie_ot_a_italic.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Valkyrie B";
+  font-family: "Valkyrie A";
   font-style: normal;
   font-weight: bold;
   font-stretch: normal;
   font-display: swap;
-  src: url("/fonts/valkyrie_ot_b_bold.woff2") format("woff2");
+  src: url("/fonts/valkyrie_ot_a_bold.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Valkyrie B";
+  font-family: "Valkyrie A";
   font-style: italic;
   font-weight: bold;
   font-stretch: normal;
   font-display: swap;
-  src: url("/fonts/valkyrie_ot_b_bold_italic.woff2") format("woff2");
+  src: url("/fonts/valkyrie_ot_a_bold_italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -152,8 +152,8 @@ impl Renderable for Head {
                 meta name="robots" content="index, follow";
 
                 // prefetch essential fonts
-                link rel="preload" as="font" href="/fonts/valkyrie_ot_b_regular.woff2" crossorigin;
-                link rel="preload" as="font" href="/fonts/valkyrie_ot_b_italic.woff2" crossorigin;
+                link rel="preload" as="font" href="/fonts/valkyrie_ot_a_regular.woff2" crossorigin;
+                link rel="preload" as="font" href="/fonts/valkyrie_ot_a_italic.woff2" crossorigin;
 
                 // inline the rest of fonts for performance
                 style { (INLINE_FONTS) }
