@@ -170,7 +170,7 @@
   }
 
   show math.equation.where(block: false): it => {
-    set text(size: 1.2em)
+    set text(size: 1.25em)
     if not math-escape-mode {
       html.elem(
         "span",
