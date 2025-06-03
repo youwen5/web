@@ -32,7 +32,11 @@ This is not an image. It is generated at compile time by CeTZ code (best results
 
   set-style(content: (frame: "rect", stroke: none, fill: white, padding: .1))
 
-  grid((0, 0), (8, 6), help-lines: true)
+  grid(
+    (0, 0),
+    (8, 6),
+    help-lines: true,
+  )
   line(
     (1, -0.5),
     (5, -0.5),
