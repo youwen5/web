@@ -2,7 +2,7 @@
 
 #show: html-shim.with(
   title: "How this website was made",
-  subtitle: "Introducing Epilogue, my static site generator based on Typst.",
+  subtitle: "An overview of Epilogue, a custom static site generator based on Typst.",
 )
 
 #let done = emoji.checkmark.box
