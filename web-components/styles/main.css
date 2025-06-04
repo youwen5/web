@@ -72,7 +72,7 @@
 }
 
 @utility prose-list-snazzy {
-  @apply prose-ul:list-none prose-ol:list-none prose-ul:[&>li]:before:content-['•'] prose-ol:[&>li]:before:content-[attr(value)] prose-li:before:font-index prose-li:before:text-[1.1em] prose-li:ml-2 prose-li:before:absolute prose-li:before:-ml-[2.15em];
+  @apply prose-ul:list-none prose-ol:list-none prose-ul:[&>li]:before:content-['•'] prose-ol:[&>li]:before:content-[attr(value)] prose-li:before:font-index prose-li:before:text-[1.1em] prose-li:ml-2 prose-li:before:absolute prose-ul:[&>li]:before:-ml-[2.15em] prose-ol:[&>li]:before:-ml-[2.2em];
 }
 
 @utility prose-table-snazzy {
