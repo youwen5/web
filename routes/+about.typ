@@ -6,11 +6,11 @@
 
 #dropcap[
   W#smallcaps[elcome] to my hypertext garden on the World Wide Web. There are
-  many like it---but this one is mine.
+  many like it---but this one is mine. I’m Youwen, and I
+  #link("/software/epilogue")[designed this website] myself, by hand, down to
+  the last pixel of margin in paragraph headings. Amongst its pages are a
+  mosaic of scattered thoughts, notes, essays, and fragments of my life.
 ]
-
-I’m Youwen, and I #link("/software/epilogue")[designed this website] myself, down to the
-last pixel of margin in paragraph headings.
 
 I currently study math and computer science at the
 #link("https://www.ucsb.edu/")[University of California, Santa Barbara.]
