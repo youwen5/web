@@ -103,6 +103,7 @@ impl DefaultShell {
             html lang="en" {
                 (self.head)
                 body class="antialiased mt-4 lg:mt-20 leading-relaxed mx-auto max-w-[1200px]" {
+                a rel="me" href="https://ucsb.closed.social/@youwen" class="hidden" { "Mastodon" }
                     div class="flex gap-8 px-4 lg:px-6" {
                         aside class="hidden md:block w-64 flex-none" {
                             a href="/" class="inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-3" {
