@@ -143,6 +143,7 @@
                 fletcher_0_5_7
                 cetz_0_3_4
                 cmarker_0_1_5
+                showybox
                 self.packages.${system}.html-shim
               ]
             )

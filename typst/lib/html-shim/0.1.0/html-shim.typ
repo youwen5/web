@@ -46,7 +46,7 @@
   alt,
   caption: none,
   extraImgClass: none,
-  extraFigureClass: none,
+  extraFigureClass: "",
 ) => context {
   if target() == "html" {
     let base-img-classes = "rounded-md mx-auto shadow-sm dark:shadow-none shadow-gray-900"
@@ -68,7 +68,7 @@
         img
         html.elem(
           "figcaption",
-          attrs: (class: "text-[0.88em] text-center"),
+          attrs: (class: "text-[0.88em] text-center text-subtle"),
           caption,
         )
       })
