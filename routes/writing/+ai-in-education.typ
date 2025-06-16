@@ -628,195 +628,6 @@ applying themselves to their education. In response, it’s more important than
 ever for the education system to be more lenient with mistakes, de-emphasize
 conformance with the status quo, and allow people to experiment and fall.
 
-// = Annotated bibliography<annotated-bib>
-//
-// #let bluebox(citation, body) = html.frame(showybox(
-//   frame: (
-//     border-color: blue.darken(50%),
-//     title-color: blue.lighten(10%),
-//     body-color: blue.lighten(80%),
-//   ),
-//   shadow: (
-//     offset: 3pt,
-//   ),
-//   breakable: true,
-//   title: citation,
-//   body,
-// ))
-//
-
-// #[
-//   #set cite(form: "full")
-//
-//   #bluebox[@Walsh2025Cheating][
-//     This _New York Magazine_ article is a long discussion of a few particular
-//     students’ experiences with ChatGPT and other chatbots. It begins with a
-//     student at Columbia University named Roy Lee, who expresses his disdain for
-//     the education system and college. He built a ChatGPT powered interview
-//     cheating tool that gives people an invisible AI assistant overlay in Zoom
-//     interviews to answer questions for them. In his eyes, school is nothing
-//     more than a place to network (#quote[It’s the best place to meet your
-//       co-founder and your wife]) and assignments are #quote[hackable] and
-//     worthless (since they can be done by ChatGPT). This sentiment really
-//     captures exactly the rot in the education system that I’m looking to
-//     describe---the incentives are such that everyone sees education as a career
-//     advancement opportunity. This starts at "where will we use this in real
-//     life?" in math class and ends with someone like Roy, declaring his entire
-//     core college education as "worthless" because it’s not helping him build
-//     his startup. The rest of the article also goes over a few really good
-//     anecdotes and interviews, which will be very useful in my project.
-//
-//     Funny story---I actually used to know Roy in high school. I took dual
-//     enrollment classes at the community college he attended in the Bay Area
-//     before he transferred to Columbia. He texted me about his interview
-//     cheating tool months before it went viral---he originally wanted to recruit
-//     me to work on it. It’s funny how these things work out. Also, he was just
-//     as insufferable in person as the article portrays him.
-//   ]
-//
-//
-//   #bluebox[@NewClassroomsInterviewAI2024][
-//     This is an interview with a few former school administrators discussing the
-//     role of AI in education. It takes an positive and optimistic tone, talking
-//     about the many "exciting opportunities" AI can bring in the short term.
-//     They also advocate for longer-term structural change---to better integrate
-//     AI, to produce the "educational outcomes we want this technology to
-//     create."
-//
-//     I selected this interview because it’s a perspective from school admin, not
-//     teachers or students, which we’ve been looking at primarily. The interests
-//     of administrators are unfortunately often not entirely aligned in the
-//     best interest of students and teachers. Also, note that these former
-//     administrators now work for an EdTech-adjacent company called New
-//     Classrooms. Their perspective, then, is similar to that of tech companies,
-//     that we should integrate AI into education because it’s _obviously_ good.
-//   ]
-//
-//
-//   #bluebox[@Kelly2023OpenPolicy][
-//     This is an article/interview with a professor (Professor Mollick) who has adopted an "Open
-//     ChatGPT Policy." He says that since students will use it anyways, he might
-//     as well integrate it officially into his syllabus.
-//
-//     This seems to be a common occurrence across universities. (Indeed, Writing 60 seems to have done this too. It’s a sensible conclusion to draw.) But one particular remark I'd like to note is near the end:
-//     #blockquote[
-//       Mollick agrees, but isn’t convinced that educators can ever truly stop cheating.
-//
-//       "I don’t think human nature changes as a result of ChatGPT. I think
-//       capability did."
-//     ]
-//     Mollick says that everyone cheating with ChatGPT is just human nature and
-//     there’s nothing we can do about it. I disagree. There are actions that can
-//     be taken now, as well as policy changes and fundamental restructurings that
-//     need to happen, but we needn’t accept the way things are going as human
-//     nature.
-//   ]
-//
-//
-//   #bluebox[@GoldsteinTeachersAI][
-//     An article about educators experimenting with using AI to help accelerate
-//     their work. Jon Gold, a middle school history teacher, uses generative AI
-//     for lesson planning by feeding it curriculum pages. But, he says that he
-//     does not want students to use AI themselves to write the essays he assigns.
-//     Here we see a complicated dynamic---AI can legitimately help overworked and
-//     underpaid teachers do work much faster. But the quality is dubious, and, it
-//     would be far more sensible to just not underpay or overwork them.
-//
-//     The article also shows a general attitude of educators being in favor of
-//     "AI literacy." We see two formulations, broadly. One is to teach students
-//     how to use AI effectively. I think this is unnecessary, and as other
-//     sources show, detrimental. The other is that students should understand the
-//     limitations of the technology and how it can be wrong. I think this is
-//     important.
-//   ]
-//
-//
-//   #bluebox[@ZieveCohenEtAl2023Balancing][
-//     A study conducted to analyze sentiment towards AI amongst students, through
-//     in-depth, structured interviews conducted over Zoom. 33% expressed negative
-//     attitudes, 40% expressed positive, and 26.7% were neutral. Students
-//     "demonstrated awareness and thoughtfulness regarding their use of ChatGPT."
-//     It also mentions that in some interviews, when asked about whether a
-//     student uses the "Writing Center" for help, it carries a negative
-//     connotation as if the writing center was for people with "problems," while
-//     ChatGPT had no such connotations. Perhaps this is worth looking further
-//     into.
-//   ]
-//
-//
-//   #bluebox[@ButterickCameraObscura2025][
-//     This is an opinion piece that also incorporates some teacher perspectives.
-//     The author is a lawyer who is currently litigating against ChatGPT and
-//     other AI tools for alleged copyright infringement. The article makes an
-//     argument for why AI shouldn’t be incorporated into the education system,
-//     arguing that we don’t just aim to teach facts to children in schools.
-//     Rather, the process of research and critically examining sources of
-//     information is more important. Even if AI could research and produce
-//     information that students need only fact check, students should still be
-//     researching on their own.
-//   ]
-//
-//
-//   #bluebox[@AzeemPersonalityCorrelates2025][
-//     This is an academic study on personality traits that arise/are associated
-//     with from reliance on GenAI tools. In particular, academic performance and
-//     academic self-efficacy were both negatively associated with use of GenAI
-//     while learned helplessness (that is, the induced inability to solve
-//     problems that the AI chatbots cannot solve) is associated positively with
-//     GenAI. This mainly confirms, empirically, facts that are easy to guess from
-//     the interviews and other sources.
-//   ]
-//
-//
-//   #bluebox[@Lake2024AIClassrooms][
-//     A research publication from the Center for Reinventing Public Education at
-//     ASU. It mainly discusses the speed of adoption of AI by teachers in
-//     particular, and barriers to it. This provides some perhaps useful
-//     statistical data, but the main takeaway from it should be its cavalier
-//     attitude to AI adoption. Throughout, it only ever considers responses from
-//     teachers based on their perception of the improvements made by AI, not
-//     actual empirical data or controlled studies. Indeed, most of the other
-//     studies examined have shown that AI actually leads to various deleterious
-//     outcomes in students’ personalities and performance. This article, then,
-//     serves as a good model of the attitude around EdTech and AI---adopt first,
-//     ask questions later---lest you be left behind by the coming revolution.
-//   ]
-//
-//   #bluebox[@Blose2023ProsCons][
-//     Some data from this article: 1 in 4 teachers have caught students cheating
-//     u sing ChatGPT or other chatbots. 43% of educators feel that AI will make
-//     their jobs more difficult while the rest predict it will make their lives
-//     easier.
-//
-//     Some experiences from teachers are also provided showcasing how AI is
-//     materially helping them in the classroom.
-//
-//     #blockquote[
-//       “With Chat, you can translate all of the supplementary materials into
-//       [students’] native language, which makes it far easier for them to complete
-//       their assignments,” says Shields.
-//     ]
-//
-//     #blockquote[
-//       The chatbot also can rewrite responses at different reading levels. Shields explains that she sent tenth-grade assignments to ChatGPT, asking the chatbot to restructure the material at a sixth-grade level. Her students were then able to follow along and participate in class with their differentiated material.
-//
-//       “It’s really easy now to make different types of assignments,” says Shields.
-//     ]
-//
-//     But also concerns:
-//     #blockquote[
-//       I think ChatGPT is a crutch that will prevent students from actually needing to learn content. Although I can see its use for small tasks, like how to email a teacher with questions, it also prevents students from developing the soft skills that completing those small tasks allows. ---K--12 teacher
-//     ]
-//
-//     This source mainly provides teacher anecdotes both in favor of AI and against. In particular, it does show that there are legitimate uses for the technology in education, but, even in the article some of the uses brought up are immediately arguably unethical.
-//
-//     #blockquote[
-//       Shields suggests students evaluate information generated by ChatGPT. Addressing the validity of an AI-generated report will build skills in editing and fact-checking. She also believes teachers should reimagine their assignments.
-//     ]
-//     There is an argument against this idea that students should be AI fact-checkers, in #cite(<ButterickCameraObscura2025>, form: "normal").
-//   ]
-// ]
-
 #show bibliography: it => {
   html.elem(
     "div",
@@ -828,3 +639,193 @@ conformance with the status quo, and allow people to experiment and fall.
 }
 
 #bibliography("refs.bib", full: true)
+
+= Annotated bibliography<annotated-bib>
+
+#let bluebox(citation, body) = html.elem(
+  "div",
+  attrs: (
+    class: "py-2 px-4 text-[0.8em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] my-3",
+  ),
+  {
+    html.elem(
+      "p",
+      attrs: (class: "border-b-1 border-b-foreground pb-2"),
+      citation,
+    )
+    body
+  },
+)
+
+
+#[
+  #set cite(form: "full")
+
+  #bluebox[@Walsh2025Cheating][
+    This _New York Magazine_ article is a long discussion of a few particular
+    students’ experiences with ChatGPT and other chatbots. It begins with a
+    student at Columbia University named Roy Lee, who expresses his disdain for
+    the education system and college. He built a ChatGPT powered interview
+    cheating tool that gives people an invisible AI assistant overlay in Zoom
+    interviews to answer questions for them. In his eyes, school is nothing
+    more than a place to network (#quote[It’s the best place to meet your
+      co-founder and your wife]) and assignments are #quote[hackable] and
+    worthless (since they can be done by ChatGPT). This sentiment really
+    captures exactly the rot in the education system that I’m looking to
+    describe---the incentives are such that everyone sees education as a career
+    advancement opportunity. This starts at "where will we use this in real
+    life?" in math class and ends with someone like Roy, declaring his entire
+    core college education as "worthless" because it’s not helping him build
+    his startup. The rest of the article also goes over a few really good
+    anecdotes and interviews, which will be very useful in my project.
+
+    Funny story---I actually used to know Roy in high school. I took dual
+    enrollment classes at the community college he attended in the Bay Area
+    before he transferred to Columbia. He texted me about his interview
+    cheating tool months before it went viral---he originally wanted to recruit
+    me to work on it. It’s funny how these things work out. Also, he was just
+    as insufferable in person as the article portrays him.
+  ]
+
+
+  #bluebox[@NewClassroomsInterviewAI2024][
+    This is an interview with a few former school administrators discussing the
+    role of AI in education. It takes an positive and optimistic tone, talking
+    about the many "exciting opportunities" AI can bring in the short term.
+    They also advocate for longer-term structural change---to better integrate
+    AI, to produce the "educational outcomes we want this technology to
+    create."
+
+    I selected this interview because it’s a perspective from school admin, not
+    teachers or students, which we’ve been looking at primarily. The interests
+    of administrators are unfortunately often not entirely aligned in the
+    best interest of students and teachers. Also, note that these former
+    administrators now work for an EdTech-adjacent company called New
+    Classrooms. Their perspective, then, is similar to that of tech companies,
+    that we should integrate AI into education because it’s _obviously_ good.
+  ]
+
+
+  #bluebox[@Kelly2023OpenPolicy][
+    This is an article/interview with a professor (Professor Mollick) who has adopted an "Open
+    ChatGPT Policy." He says that since students will use it anyways, he might
+    as well integrate it officially into his syllabus.
+
+    This seems to be a common occurrence across universities. (Indeed, Writing 60 seems to have done this too. It’s a sensible conclusion to draw.) But one particular remark I'd like to note is near the end:
+    #blockquote[
+      Mollick agrees, but isn’t convinced that educators can ever truly stop cheating.
+
+      "I don’t think human nature changes as a result of ChatGPT. I think
+      capability did."
+    ]
+    Mollick says that everyone cheating with ChatGPT is just human nature and
+    there’s nothing we can do about it. I disagree. There are actions that can
+    be taken now, as well as policy changes and fundamental restructurings that
+    need to happen, but we needn’t accept the way things are going as human
+    nature.
+  ]
+
+
+  #bluebox[@GoldsteinTeachersAI][
+    An article about educators experimenting with using AI to help accelerate
+    their work. Jon Gold, a middle school history teacher, uses generative AI
+    for lesson planning by feeding it curriculum pages. But, he says that he
+    does not want students to use AI themselves to write the essays he assigns.
+    Here we see a complicated dynamic---AI can legitimately help overworked and
+    underpaid teachers do work much faster. But the quality is dubious, and, it
+    would be far more sensible to just not underpay or overwork them.
+
+    The article also shows a general attitude of educators being in favor of
+    "AI literacy." We see two formulations, broadly. One is to teach students
+    how to use AI effectively. I think this is unnecessary, and as other
+    sources show, detrimental. The other is that students should understand the
+    limitations of the technology and how it can be wrong. I think this is
+    important.
+  ]
+
+
+  #bluebox[@ZieveCohenEtAl2023Balancing][
+    A study conducted to analyze sentiment towards AI amongst students, through
+    in-depth, structured interviews conducted over Zoom. 33% expressed negative
+    attitudes, 40% expressed positive, and 26.7% were neutral. Students
+    "demonstrated awareness and thoughtfulness regarding their use of ChatGPT."
+    It also mentions that in some interviews, when asked about whether a
+    student uses the "Writing Center" for help, it carries a negative
+    connotation as if the writing center was for people with "problems," while
+    ChatGPT had no such connotations. Perhaps this is worth looking further
+    into.
+  ]
+
+
+  #bluebox[@ButterickCameraObscura2025][
+    This is an opinion piece that also incorporates some teacher perspectives.
+    The author is a lawyer who is currently litigating against ChatGPT and
+    other AI tools for alleged copyright infringement. The article makes an
+    argument for why AI shouldn’t be incorporated into the education system,
+    arguing that we don’t just aim to teach facts to children in schools.
+    Rather, the process of research and critically examining sources of
+    information is more important. Even if AI could research and produce
+    information that students need only fact check, students should still be
+    researching on their own.
+  ]
+
+
+  #bluebox[@AzeemPersonalityCorrelates2025][
+    This is an academic study on personality traits that arise/are associated
+    with from reliance on GenAI tools. In particular, academic performance and
+    academic self-efficacy were both negatively associated with use of GenAI
+    while learned helplessness (that is, the induced inability to solve
+    problems that the AI chatbots cannot solve) is associated positively with
+    GenAI. This mainly confirms, empirically, facts that are easy to guess from
+    the interviews and other sources.
+  ]
+
+
+  #bluebox[@Lake2024AIClassrooms][
+    A research publication from the Center for Reinventing Public Education at
+    ASU. It mainly discusses the speed of adoption of AI by teachers in
+    particular, and barriers to it. This provides some perhaps useful
+    statistical data, but the main takeaway from it should be its cavalier
+    attitude to AI adoption. Throughout, it only ever considers responses from
+    teachers based on their perception of the improvements made by AI, not
+    actual empirical data or controlled studies. Indeed, most of the other
+    studies examined have shown that AI actually leads to various deleterious
+    outcomes in students’ personalities and performance. This article, then,
+    serves as a good model of the attitude around EdTech and AI---adopt first,
+    ask questions later---lest you be left behind by the coming revolution.
+  ]
+
+  #bluebox[@Blose2023ProsCons][
+    Some data from this article: 1 in 4 teachers have caught students cheating
+    u sing ChatGPT or other chatbots. 43% of educators feel that AI will make
+    their jobs more difficult while the rest predict it will make their lives
+    easier.
+
+    Some experiences from teachers are also provided showcasing how AI is
+    materially helping them in the classroom.
+
+    #blockquote[
+      “With Chat, you can translate all of the supplementary materials into
+      [students’] native language, which makes it far easier for them to complete
+      their assignments,” says Shields.
+    ]
+
+    #blockquote[
+      The chatbot also can rewrite responses at different reading levels. Shields explains that she sent tenth-grade assignments to ChatGPT, asking the chatbot to restructure the material at a sixth-grade level. Her students were then able to follow along and participate in class with their differentiated material.
+
+      “It’s really easy now to make different types of assignments,” says Shields.
+    ]
+
+    But also concerns:
+    #blockquote[
+      I think ChatGPT is a crutch that will prevent students from actually needing to learn content. Although I can see its use for small tasks, like how to email a teacher with questions, it also prevents students from developing the soft skills that completing those small tasks allows. ---K--12 teacher
+    ]
+
+    This source mainly provides teacher anecdotes both in favor of AI and against. In particular, it does show that there are legitimate uses for the technology in education, but, even in the article some of the uses brought up are immediately arguably unethical.
+
+    #blockquote[
+      Shields suggests students evaluate information generated by ChatGPT. Addressing the validity of an AI-generated report will build skills in editing and fact-checking. She also believes teachers should reimagine their assignments.
+    ]
+    There is an argument against this idea that students should be AI fact-checkers, in #cite(<ButterickCameraObscura2025>, form: "normal").
+  ]
+]
