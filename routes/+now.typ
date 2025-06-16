@@ -31,16 +31,17 @@ detailed answer to the question #quote[what have you been up to lately?]
 
 = Whereabouts
 
-I’m studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] for the foreseeable future.
+I’m studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] until Spring
+2026, when I will spend 2 quarters as a visiting student at Tsinghua University
+in Beijing!
 
 = Done and still doing
 
-- Recently I decided to switch to pure math, from applied math. I think the coding and numerical methods in applied math are not that interesting.
-- In a somewhat dissonant move I also picked up a double major in computer science, mainly to study #smallcaps[programming languages] and #smallcaps[formal verification], among other things. I am not particularly interested in software engineering as a career, however. Most commercial software built by companies these days is, as Linus Torvalds would say, #quote[#link("https://www.phoronix.com/news/MTc1MDQ")[utter crap.]] But I am open to writing commercial software if and when it would benefit the public good.
+- Freshman year is over!
 
 = Future
 
-- I’m thinking of starting a project called #quote[How #smallcaps[posix] can you get in 31 days?] where I try to write as much of a #smallcaps[posix] compliant operating system as possible, from scratch, with a 1 month time limit. Probably using Rust or Zig. I’m fleshing the idea out right now.
+- I’m still thinking of starting a project called #quote[How #smallcaps[posix] can you get in 31 days?] where I try to write as much of a #smallcaps[posix] compliant operating system as possible, from scratch, with a 1 month time limit. Probably using Rust or Zig. I’m not sure how much time I’ll have for this during the summer, though.
 
 = Fun
 
