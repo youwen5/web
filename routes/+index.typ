@@ -208,6 +208,10 @@ the other pages on this website.
       #icon(name: "send")
       Send me electronic mail (preferred)
     ]
+    entry(href: "https://matrix.to/#/@youwen:functor.systems")[
+      #icon(name: "atom")
+      Matrix
+    ]
     entry(href: "https://github.com/youwen5")[
       #icon(name: "github")
       See my code on GitHub
