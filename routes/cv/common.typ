@@ -410,7 +410,7 @@
       #award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
       #award-entry(title: [SB Hacks XI, Winner], date: [2025])
       #award-entry(
-        title: [Dean’s Honors #(sym.times)2],
+        title: [Dean’s Honors #(sym.times)3],
         date: [2024 --- 2025],
         web-only: true,
       )
