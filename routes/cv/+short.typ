@@ -18,9 +18,9 @@
       address: "Santa Barbara, CA | Danville, CA",
       contacts: (
         [(925)--791--1845],
-        [#link("mailto:youwen@ucsb.edu", smallcaps(
+        [#link("mailto:youwen@cs.ucsb.edu", smallcaps(
             all: true,
-          )[youwen\@youwen.dev])],
+          )[youwen\@cs.ucsb.edu])],
         [#link("https://web.youwen.dev")[web.youwen.dev]],
       ),
       footer-text: [Curriculum Vitae],
