@@ -79,14 +79,13 @@
             src = craneLib.cleanCargoSource ./.;
             strictDeps = true;
 
-            buildInputs =
-              [
-                # Add additional build inputs here
-              ]
-              ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
-                # Additional darwin specific inputs can be set here
-                pkgs.libiconv
-              ];
+            buildInputs = [
+              # Add additional build inputs here
+            ]
+            ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
+              # Additional darwin specific inputs can be set here
+              pkgs.libiconv
+            ];
           };
 
           cargoArtifacts = craneLib.buildDepsOnly commonArgs;
@@ -107,7 +106,8 @@
               pnpmDeps = pnpm.fetchDeps {
                 pname = "site-pnpm-deps";
                 src = ./web-components;
-                hash = "sha256-3w4KeHN3HHCr8j4QF7NduKE60wGvleM8brGXHF1MpZU=";
+                fetcherVersion = 2;
+                hash = "sha256-8QimCg/TMcRXhS2SGEltf8RZpvxfeTeRSMaAfbqplls=";
               };
             in
             pkgs.stdenv.mkDerivation (finalAttrs: {
@@ -308,23 +308,24 @@
 
               RUST_SRC_PATH = "${rustToolchain}/lib/rustlib/src/rust/library";
 
-              packages =
-                [ pnpm ]
-                ++ (
-                  with pkgs;
-                  [
-                    tailwindcss-language-server
-                    nodejs
-                    just
-                    rsync
-                    caddy
-                  ]
-                  ++ (lib.optionals stdenv.hostPlatform.isLinux [ cargo-valgrind ])
-                )
-                ++ [
-                  rustToolchain
-                  typst
-                ];
+              packages = [
+                pnpm
+              ]
+              ++ (
+                with pkgs;
+                [
+                  tailwindcss-language-server
+                  nodejs
+                  just
+                  rsync
+                  caddy
+                ]
+                ++ (lib.optionals stdenv.hostPlatform.isLinux [ cargo-valgrind ])
+              )
+              ++ [
+                rustToolchain
+                typst
+              ];
             };
         }
       );
