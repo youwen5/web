@@ -302,9 +302,13 @@
                     target: "_blank",
                   ),
                 )[
-                  #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
-                    name: "github",
-                  ))
+                  #html.elem(
+                    "span",
+                    attrs: (class: "my-auto"),
+                    lucide-icon(
+                      name: "github",
+                    ),
+                  )
                   View code
                 ]
               }
@@ -317,9 +321,13 @@
                     target: "_blank",
                   ),
                 )[
-                  #html.elem("span", attrs: (class: "my-auto"), lucide-icon(
-                    name: "box",
-                  ))
+                  #html.elem(
+                    "span",
+                    attrs: (class: "my-auto"),
+                    lucide-icon(
+                      name: "box",
+                    ),
+                  )
                   Try demo
                 ]
               }

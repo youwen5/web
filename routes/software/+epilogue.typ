@@ -158,7 +158,9 @@ For an example of something that is only possible with Typst, see my
 in both full and short variations, all generated from a single Typst source
 file.
 
-#blockquote(attribution: [Matthew Butterick, at the #link("https://www.youtube.com/watch?v=IMz09jYOgoc", newtab: true)[fourth RacketCon]])[
+#blockquote(
+  attribution: [Matthew Butterick, at the #link("https://www.youtube.com/watch?v=IMz09jYOgoc", newtab: true)[fourth RacketCon]],
+)[
   This whole idea of having like a document compiler that can take a source
   file [and] take it to multiple platforms, publishing targets is really more
   important than ever. I can tell you from many years spent among the short

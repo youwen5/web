@@ -112,7 +112,7 @@
                                       V
                                       edge(tau, ->)
                                       edge("d", pi, ->) & W \
-      V slash U edge("tr", exists!overline(tau), "-->")     \
+      V slash U edge("tr", exists!overline(tau), "-->") \
     $,
   ))
 
@@ -150,7 +150,7 @@
     following linear map exists.
     $
       tau : U & -> (U + W) slash W \
-            x & |-> [x]_W          \
+            x & |-> [x]_W \
     $
     To see that it exists and is linear, simply note it is the composition
     $
@@ -174,13 +174,13 @@
     Now let $x in U$.
     $
       x in ker tau & <==> tau(x) = overline(0) \
-                   & <==> [x]_W = overline(0)  \
-                   & <==> x - 0 in W           \
-                   & <==> x in U inter W       \
+                   & <==> [x]_W = overline(0) \
+                   & <==> x - 0 in W \
+                   & <==> x in U inter W \
     $
     Therefore $ker tau = U inter W$. Since we showed $tau$ is surjective, $im tau = (U+W) slash W$. Then, by the first isomorphism theorem, there is an isomorphism
     $
-        U slash (ker tau) & tilde.equiv im tau        \
+        U slash (ker tau) & tilde.equiv im tau \
       U slash (U inter W) & tilde.equiv (U+W) slash W \
     $
   ]
@@ -208,7 +208,7 @@
     Let $tau$ be a linear map
     $
       tau : V slash U & -> V slash W \
-                [x]_U & |-> [x]_W    \
+                [x]_U & |-> [x]_W \
     $
     We need to show $tau$ is well defined, that is, it doesn’t
     depend on choice of representatives. Suppose $[x]_U, [x']_U in V slash U$.
@@ -227,13 +227,13 @@
     Finally we need to show $ker tau = W slash U$.
     $
       ker tau & = {[x]_U in V slash U | [x]_W = [0]_W} \
-              & = {[x]_U in V slash U | x in W}        \
+              & = {[x]_U in V slash U | x in W} \
     $
     But actually that last set is precisely $W slash U$.
 
     With all the pieces in place, we now apply the first isomorphism theorem, and we are done
     $
-        (V slash U) slash (ker tau) & tilde.equiv im tau    \
+        (V slash U) slash (ker tau) & tilde.equiv im tau \
       (V slash U) slash (W slash U) & tilde.equiv V slash W \
     $
   ]

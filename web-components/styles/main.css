@@ -6,151 +6,151 @@
 @config "./tailwind.config.js";
 
 :root {
-  --bg-color: 254 254 254;
-  --foreground-color: 87 82 121;
-  --surface-color: 245 245 245;
-  --overlay-color: 242 242 242;
-  --muted-color: 152 147 165;
-  --subtle-color: 121 117 147;
-  --love-color: 180 99 122;
-  --rose-color: 215 130 126;
-  --pine-color: 40 105 131;
-  --foam-color: 86 148 159;
-  --iris-color: 144 122 169;
-  --gold-color: 234 157 52;
+	--bg-color: 254 254 254;
+	--foreground-color: 87 82 121;
+	--surface-color: 245 245 245;
+	--overlay-color: 242 242 242;
+	--muted-color: 152 147 165;
+	--subtle-color: 121 117 147;
+	--love-color: 180 99 122;
+	--rose-color: 215 130 126;
+	--pine-color: 40 105 131;
+	--foam-color: 86 148 159;
+	--iris-color: 144 122 169;
+	--gold-color: 234 157 52;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: 25 23 36;
-    --foreground-color: 224 222 244;
-    --surface-color: 31 29 46;
-    --overlay-color: 38 35 58;
-    --muted-color: 110 106 134;
-    --subtle-color: 144 140 170;
-    --love-color: 235 111 146;
-    --rose-color: 235 188 186;
-    --pine-color: 49 116 143;
-    --foam-color: 156 207 216;
-    --iris-color: 196 167 231;
-    --gold-color: 246 193 119;
-  }
+	:root {
+		--bg-color: 25 23 36;
+		--foreground-color: 224 222 244;
+		--surface-color: 31 29 46;
+		--overlay-color: 38 35 58;
+		--muted-color: 110 106 134;
+		--subtle-color: 144 140 170;
+		--love-color: 235 111 146;
+		--rose-color: 235 188 186;
+		--pine-color: 49 116 143;
+		--foam-color: 156 207 216;
+		--iris-color: 196 167 231;
+		--gold-color: 246 193 119;
+	}
 }
 
 /* ─── theme-aware color definitions ─────────────────────────────────── */
 @theme inline {
-  --color-bg: rgb(var(--bg-color));
-  --color-foreground: rgb(var(--foreground-color));
-  --color-surface: rgb(var(--surface-color));
-  --color-overlay: rgb(var(--overlay-color));
-  --color-muted: rgb(var(--muted-color));
-  --color-subtle: rgb(var(--subtle-color));
-  --color-love: rgb(var(--love-color));
-  --color-rose: rgb(var(--rose-color));
-  --color-pine: rgb(var(--pine-color));
-  --color-foam: rgb(var(--foam-color));
-  --color-iris: rgb(var(--iris-color));
-  --color-gold: rgb(var(--gold-color));
+	--color-bg: rgb(var(--bg-color));
+	--color-foreground: rgb(var(--foreground-color));
+	--color-surface: rgb(var(--surface-color));
+	--color-overlay: rgb(var(--overlay-color));
+	--color-muted: rgb(var(--muted-color));
+	--color-subtle: rgb(var(--subtle-color));
+	--color-love: rgb(var(--love-color));
+	--color-rose: rgb(var(--rose-color));
+	--color-pine: rgb(var(--pine-color));
+	--color-foam: rgb(var(--foam-color));
+	--color-iris: rgb(var(--iris-color));
+	--color-gold: rgb(var(--gold-color));
 }
 
 @theme {
-  --font-serif: "Valkyrie A", serif;
-  --font-sans: "Source Sans 3", sans-serif;
-  --font-index: "Concourse Index", sans-serif;
+	--font-serif: "Valkyrie A", serif;
+	--font-sans: "Source Sans 3", sans-serif;
+	--font-index: "Concourse Index", sans-serif;
 }
 
 @utility smallcaps {
-  font-variant: small-caps;
+	font-variant: small-caps;
 }
 
 @utility all-smallcaps {
-  font-variant: all-small-caps;
+	font-variant: all-small-caps;
 }
 
 @utility no-smallcaps {
-  font-variant: normal;
+	font-variant: normal;
 }
 
 @utility prose-list-snazzy {
-  @apply prose-ul:list-none prose-ol:list-none prose-ul:[&>li]:before:content-['•'] prose-ol:[&>li]:before:content-[attr(value)] prose-li:before:font-index prose-li:before:text-[1.1em] prose-li:ml-2 prose-li:before:absolute prose-ul:[&>li]:before:-ml-[2.15em] prose-ol:[&>li]:before:-ml-[2.2em];
+	@apply prose-ul:list-none prose-ol:list-none prose-ul:[&>li]:before:content-['•'] prose-ol:[&>li]:before:content-[attr(value)] prose-li:before:font-index prose-li:before:text-[1.1em] prose-li:ml-2 prose-li:before:absolute prose-ul:[&>li]:before:-ml-[2.15em] prose-ol:[&>li]:before:-ml-[2.2em];
 }
 
 @utility prose-table-snazzy {
-  @apply prose-table:table-auto prose-td:my-1 prose-td:mx-2 prose-td:border-t-muted prose-td:border-t-1 prose-thead:no-smallcaps prose-th:text-start prose-th:font-sans;
+	@apply prose-table:table-auto prose-td:my-1 prose-td:mx-2 prose-td:border-t-muted prose-td:border-t-1 prose-thead:no-smallcaps prose-th:text-start prose-th:font-sans;
 }
 
 body {
-  @apply font-serif text-foreground bg-bg;
+	@apply font-serif text-foreground bg-bg;
 }
 
 .text-link {
-  @apply text-pine dark:text-foam hover:bg-rose/15 transition-colors;
+	@apply text-pine dark:text-foam hover:bg-rose/15 transition-colors;
 }
 
 .external-link {
-  @apply mr-[0.5em];
+	@apply mr-[0.5em];
 }
 
 .external-link::after {
-  @apply font-sans;
-  content: "°";
-  position: absolute;
-  margin-left: 0.05em;
-  margin-top: 0.2em;
-  line-height: 1em;
-  font-size: 1.35em;
+	@apply font-sans;
+	content: "°";
+	position: absolute;
+	margin-left: 0.05em;
+	margin-top: 0.2em;
+	line-height: 1em;
+	font-size: 1.35em;
 }
 
 .internal-link {
-  @apply mr-[0.5em];
+	@apply mr-[0.5em];
 }
 
 .internal-link::after {
-  @apply font-serif;
-  content: "†";
-  position: absolute;
-  margin-left: 0.05em;
-  margin-top: 0.2em;
-  line-height: 1em;
-  font-size: 0.8em;
+	@apply font-serif;
+	content: "†";
+	position: absolute;
+	margin-left: 0.05em;
+	margin-top: 0.2em;
+	line-height: 1em;
+	font-size: 0.8em;
 }
 
 .subhead:first-child:first-letter {
-  @apply text-[5.6em] mt-[0.11em] mr-[0.14em];
-  font-variant: normal;
-  float: left;
-  line-height: 0.625em;
+	@apply text-[5.6em] mt-[0.11em] mr-[0.14em];
+	font-variant: normal;
+	float: left;
+	line-height: 0.625em;
 }
 
 .main-content {
-  .math {
-    filter: invert(0);
-    display: inline-block;
-  }
+	.math {
+		filter: invert(0);
+		display: inline-block;
+	}
 
-  table {
-    @apply block min-w-full w-0 overflow-x-auto text-[0.8em];
-  }
+	table {
+		@apply block min-w-full w-0 overflow-x-auto text-[0.8em];
+	}
 
-  .block-math {
-    @apply flex justify-center min-w-full w-0 overflow-x-auto my-0;
-  }
+	.block-math {
+		@apply flex justify-center min-w-full w-0 overflow-x-auto my-0;
+	}
 
-  @media (prefers-color-scheme: dark) {
-    .math {
-      filter: invert(1);
-    }
-  }
+	@media (prefers-color-scheme: dark) {
+		.math {
+			filter: invert(1);
+		}
+	}
 
-  hr {
-    display: none;
-  }
+	hr {
+		display: none;
+	}
 
-  pre {
-    @apply px-4 py-2 overflow-x-auto w-0 min-w-full rounded-md border-1 border-slate-200 dark:border-zinc-700;
-  }
+	pre {
+		@apply px-4 py-2 overflow-x-auto w-0 min-w-full rounded-md border-1 border-slate-200 dark:border-zinc-700;
+	}
 
-  code:not(pre *) {
-    @apply bg-overlay px-0.5 rounded-xs text-rose;
-  }
+	code:not(pre *) {
+		@apply bg-overlay px-0.5 rounded-xs text-rose;
+	}
 }
