@@ -5,6 +5,16 @@
   location: "Shanghai, China",
   title: "From Shanghai to Hong Kong: on the Chinese transit network",
   enable-comments: true,
+  subtitle: "A journey from Shanghai to (eventually) Hong Kong International Airport by rail, told in pictures.",
+)
+
+#let getResource(uri) = {
+  "https://cdn.youwen.dev/shanghai-to-hong-kong-resources/" + uri
+}
+
+#webimg(
+  getResource("aesthetic-train-platform-shot.jpg"),
+  "scenic shot of the shanghai hongqiao railway station at night, with a high speed rail car in frame",
 )
 
 In Leg 1, we head to the city of Changsha, to visit family. A few days later,
@@ -14,8 +24,8 @@ Francisco.
 = Leg 1
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
-  "fare gates",
+  getResource("changsha-rail-route.jpg"),
+  "screenshot of apple maps showing the route of leg 1",
   caption: "The route, roughly an 11 hour drive stretching 651 kilometers. Distance-wise, it’s a bit longer than San Francisco to Los Angeles, which takes 6-7 hours on a good day.",
 )
 
@@ -26,14 +36,14 @@ residential district. We’ll take the metro to Shanghai Hongqiao Railway Statio
 First, an ~8 minute walk to the nearest metro station, Hongxin Road Station (虹莘路站), on Line 12. From this point until our destination, we won’t ever have to leave the grounds of a metro/railway station.
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
-  "station entrance",
+  getResource("hongxin-lu-zhan.jpg"),
+  "hongxin road station entrance",
   caption: "Station entrance",
 )
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
-  "fare gates",
+  getResource("shanghai-metro-fare-gates.jpg"),
+  "metro fare gates",
   caption: "Fare gates. Shanghai metro accepts all major Western credit cards, China UnionPay, WeChat/Alipay QR codes, and China T-Union transit cards (physical and Apple Wallet).",
 )
 
@@ -43,15 +53,24 @@ mobile apps instead on the fare gate QR scanner instead, but I find this far
 less convenient.
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
+  getResource(
+    "shangha-metro-platform.jpg",
+  ),
   "station platform",
-  caption: "Waiting for a train on the platform.",
 )
+
+
+#webimg(
+  getResource("shanghai-metro-car-interior.jpg"),
+  "interior of shanghai metro car",
+  caption: "The train interiors are clean and spacious.",
+)
+
 
 After a few stops on Line 12, we get off and internally transfer onto Line 3.
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
+  getResource("shanghai-metro-raised-platform.jpg"),
   "line 3 platform",
   caption: "Line 3 is one of Shanghai’s older lines. The transfer station was grade-separated and raised above ground, reminiscient of BART stations like Walnut Creek in the Bay.",
 )
@@ -69,8 +88,8 @@ guarantees you’ll arrive on time.
 (Obviously, these prices are both pocket change for Americans---think of each RMB as one USD to get a rough sense of how an average resident views the situation.)
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
-  "metro route",
+  getResource("shanghai-hongqiao-rail-route.jpg"),
+  "metro route to hongqiao railway station",
   caption: "The route I took. Notice how I had to travel towards the city center to take the radial Line 4 in order to get onto the right line for the railway station.",
 )
 
@@ -94,7 +113,7 @@ guarantees you’ll arrive on time.
   #webimg(
     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Moscow_metro_map_zh-hans_sb.svg/1557px-Moscow_metro_map_zh-hans_sb.svg.png",
     "moscow metro map",
-    caption: "The Moscow metro.",
+    caption: "The Moscow metro. (Image courtesy of Wikimedia Commons.)",
   )
 ]
 
@@ -104,7 +123,7 @@ booked a high-speed rail ticket for 11:56. To recap chronologically, I left at
 departure time.
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
+  getResource("shanghai-hongqiao-train-station.jpg"),
   "hongqiao railway station",
   caption: "Hongqiao Station is massive. It is both a rail station and international airport.",
 )
@@ -118,7 +137,7 @@ lax than what you’re used to in American airports though, so no more than a
 couple minutes is standard. Expect longer if you have more luggage, obviously.
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
+  getResource("shanghai-hongqiao-departures.jpg"),
   "hongqiao railway station departures",
   caption: "The departures area. Lined with stores for last-minute gifts and restaurants.",
 )
@@ -126,7 +145,7 @@ couple minutes is standard. Expect longer if you have more luggage, obviously.
 At this point it was 11:46, 10 minutes before boarding, so I quickly made my way over to the terminal.
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hongxin_Road_Station.jpg/960px-Hongxin_Road_Station.jpg",
+  getResource("screenshot-12306-app-live-activity.jpg"),
   "12306 china railway live activities",
   caption: "A Live Activities widget shows me the boarding terminal and my car/seat assignment",
 )
@@ -135,6 +154,11 @@ To board, I simply pulled up a boarding QR code from the _12306 China Railway_
 app where I bought the ticket and scanned it at the automated fare gates. The
 overall rail boarding process is not much different from boarding the metro by
 using a transit QR code, besides the more stringent security checkpoint.
+
+#webimg(
+  getResource("shanghai-hongqiao-hsr-platform.jpg"),
+  "platform of shanghai hongqiao high speed rail station",
+)
 
 My train was the G-class high-speed line between Shanghai Hongqiao and
 Chongqing West (上海虹桥--重庆西), with a stop at Changsha South Station
@@ -145,10 +169,16 @@ the fastest high speed lines.
 #webimg(
   "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg/2560px-CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg",
   "fu xing cr400AF",
-  caption: "The train is a Fu Xing (复兴) CR400AF, with peak speeds of 350km/h.",
+  caption: "The train is a Fu Xing (复兴) CR400AF, with peak speeds of 350km/h. (Image courtesy of Wikimedia Commons.)",
 )
 
 The train was sleek and modern on the inside, with comfortable seats (even in 2nd class). It departed on time at 11:56.
+
+#webimg(
+  getResource("fuxing-interior.jpg"),
+  "interior of the fu xing train",
+  caption: "The train interior from my seat.",
+)
 
 At this point, it was time to think about lunch. Luckily, amenities on Chinese
 railways are likely the amongst the best in the world.
@@ -174,13 +204,14 @@ side in terms of RMB, but was less than US\$10. Sure enough, an attendant came
 by to deliver it after we left Hangzhou at around 1:00.
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg/2560px-CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg",
+  getResource("rail-food-delivery-bag.jpg"),
   "takeout delivered to seat",
 )
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg/2560px-CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg",
+  getResource("lunch.jpg"),
   "takeout food",
+  caption: "Taipei-style pork ribs over rice!",
 )
 
 After 4 hours, I arrived at Changsha South station. I made plans to meet at
@@ -191,13 +222,13 @@ owing to the high degree of standardization in Chinese metro systems that
 allows them to be built so prolifically.
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg/2560px-CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg",
+  getResource("changsha-metro-platform.jpg"),
   "changsha metro",
   caption: "The Changsha metro.",
 )
 
 #webimg(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg/2560px-CR400AF-Z-2285_at_Qingta_Weiyuan_%2820231019132529%29.jpg",
+  getResource("changsha-metro-station.jpg"),
   "changsha metro transfer signs",
   caption: "Clearly marked signs to transfer trains quickly.",
 )
@@ -211,16 +242,34 @@ etc.).
 
 A few stops and a transfer later, I arrived at Huangxing Square station. As
 promised, the entire journey was done entirely via rail and without ever
-leaving a metro or high-speed rail station. The final cost, not including food,
+leaving a metro or high-speed rail station.
+
+#webimg(
+  getResource("huangxing-square-arrived.jpg"),
+  "huangxing square",
+  caption: "Huangxing Square, a large shopping center in Changsha. The subway exit is located conveniently in the middle of the square (bottom middle of the image.)",
+)
+
+#webimg(
+  getResource("huangxing-square-enjoying-coffee.jpg"),
+  "picture of coffee with huangxing square as backdrop",
+  caption: "Relaxing after the journey.",
+)
+
+The final cost, not including food,
 was RMB\$530 (520元 for HSR ticket, 10元 for metro), and took 6 hours. The same
 journey by car would’ve taken 11 hours and
 4 minutes, as well as an aggregate toll of RMB\$501. Note that highways in China are
 not free to use and collect tolls (a decision I entirely support---why subsidize drivers?). This is also
 not including gas and other fees associated with owning a car.
 
+#webimg(
+  getResource("route-by-driving.jpg"),
+  "apple maps route by driving",
+  caption: "The same route by driving.",
+)
+
 In the end, we trekked a journey equivalent to SF to LA, entirely via public
 transit, in surprising comfort, and faster than driving. The success of the
 Chinese rail system is a definitive refutation of the argument that the US is
-too big for rail. In the most powerful and wealthy nation in the history of the
-world---with the political will necessary---we could have a rail system envied
-by the world once again.
+too big for rail.

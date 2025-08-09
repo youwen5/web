@@ -67,6 +67,13 @@ the other pages on this website.
   ]
 }
 
+#update(
+  date: "August 9th, 2025",
+  href: "/writing/a-journey-through-the-chinese-rail-network",
+)[
+  #icon(name: "newspaper")
+  A journey from Shanghai to Hong Kong told in pictures
+]
 #update(date: "May 19th, 2025", href: "/unicode-quotes")[
   #icon(name: "newspaper")
   Stop using the wrong quotes!
