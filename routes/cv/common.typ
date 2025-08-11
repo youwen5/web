@@ -112,7 +112,7 @@
   #education-section[
     #education-entry(
       institution: [University of California, Santa Barbara],
-      degree: [B.S. _in_ Mathematics],
+      degree: [B.S. _in_ Mathematics (GPA: 3.96)],
       date: [2024 --- 2028 (expected)],
     )
     #education-entry(
