@@ -8,11 +8,12 @@
 
 These are all the tools I use for hacking and tinkering on a daily basis, as of
 the date above. By keeping an explicit list, I try to critically assess my
-usage of any tool. The less reliant I am on software and computers, the better #footnote[
-  For example, I explicitly choose not to use a calendar program, except to set reminders for
-  extremely important events. Meticulously organizing your life with a Google
-  Calendar---you’re literally ceding control to the machine.
-].
+usage of any tool. The less reliant I am on software and computers, the better.
+
+#btw[
+  A rant on #quote[tools] and the productization of mindfulness.
+
+]
 
 = Software
 
