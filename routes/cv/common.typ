@@ -2,7 +2,7 @@
 #import "./pesha.typ": *
 
 #let render-cv(long: false) = [
-  I’m passionate about _design_---in all its facets---including systems, web, graphics, typography, and more. I love working on hard problems.
+  I’m passionate about _design_---in all its facets---including systems, web, graphics, typography, and more. I love hacking on hard problems.
 
   #context {
     if target() == "html" {
