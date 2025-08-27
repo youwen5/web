@@ -14,7 +14,7 @@ usage of any tool. The less reliant I am on software and computers, the better #
   Calendar---you’re literally ceding control to the machine.
 ].
 
-= Software
+= Overview
 
 *Core:*
 
@@ -40,9 +40,7 @@ usage of any tool. The less reliant I am on software and computers, the better #
   [Audio Workstation], [#link("https://www.reaper.fm/")[Reaper]],
 )
 
-= Hardware
-
-*Computers:*
+= Computers
 
 #table(
   columns: 2,
@@ -53,7 +51,7 @@ usage of any tool. The less reliant I am on software and computers, the better #
   [`gallium`], [2014 Mac Mini, used as a homelab and server],
 )
 
-*Other devices:*
+= Other devices
 
 #table(
   columns: 2,
@@ -67,9 +65,14 @@ usage of any tool. The less reliant I am on software and computers, the better #
   [#link(
       "https://www.astonmics.com/EN/product/Mics/Origin?ref=theboothambassadors.com",
     )[Aston Microphones Origin]],
+
+  [Headphones],
+  [#link(
+      "https://www.sennheiser-hearing.com/en-US/p/hd-600/",
+    )[Sennheiser HD600]],
 )
 
-*Keyboards:*
+= Keyboards
 
 #table(
   columns: 2,
@@ -81,9 +84,7 @@ usage of any tool. The less reliant I am on software and computers, the better #
   [Custom tofu65], [Ink Black v2 (hand lube)],
 )
 
-= More info
-
-== Operating system
+= Operating system
 
 On all of my machines (including Apple), I currently run
 #link("https://nixos.org/")[NixOS unstable] (NixOS 25.11 #quote[Xantusia]), the
@@ -124,7 +125,7 @@ through #link("https://www.protondb.com/")[Proton]. macOS is seldom used but
 usually handles multimedia better---e.g. if I need to plug into a projector to
 play a movie or presentation.
 
-== Editor
+= Editor
 
 I use #link("https://neovim.io/")[Neovim]. Before that---VS Code---but I was
 growing increasingly wary of the AI
@@ -136,14 +137,14 @@ I created my #link("https://github.com/youwen5/viminal2")[configuration from
 strictly extend the capabilities of existing features rather than add entirely
 new ones.
 
-== Browser
+= Browser
 
 I use #link("https://zen-browser.app/")[Zen], a fork of Firefox. It’s kind of
 janky but it’s the only browser with all the features I want---namely, not
 Chromium based and supports sidebar tabs. I maintain the semi-popular
 #link("https://github.com/youwen5/zen-browser-flake")[Nix package] for it.
 
-== Kernel
+= Kernel
 
 I use `linux-zen` in general because regular `linux` has some weird
 interactions with my laptops when returning from suspend. I keep
@@ -154,7 +155,7 @@ On my Apple Silicon devices I of course use the `linux-asahi` kernel from the
 not the Asahi Fedora Remix. If you’re curious, it is a surprisingly smooth
 experience.
 
-== Desktop environment
+= Desktop environment
 
 I use #link("http://hyprland.org")[Hyprland]. It has all the features I expect
 out of a window manager. I use a plugin that enables a scrolling layout like
@@ -165,19 +166,19 @@ minor regressions and the community is somewhat suspect.
 Therefore, I’m looking to jump ship to the dedicated scrolling compositor
 #link("https://github.com/YaLTeR/niri")[Niri] once a few features are added.
 
-== Terminal
+= Terminal
 
 #link("https://sw.kovidgoyal.net/kitty/")[kitty] is good and Kovid is a cool
 guy. The terminal does everything I want and more, it’s fast, and I’ve never
 experienced any bug. No complaints.
 
-== Login shell
+= Login shell
 
 I used to use `fish`, but now I’m on #link("https://www.nushell.sh/")[nushell],
 an experimental shell that takes the concept of #smallcaps(all: true)[UNIX] pipes and makes them pass
 typed structured data that is much easier to manipulate.
 
-== Computers
+= Computers
 
 `adrastea` is a laptop-turned-workstation, on account of poor Razer quality
 control forcing me to toss the battery out. `callisto` is my daily driver
