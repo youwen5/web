@@ -15,7 +15,7 @@ A #quote[NixOS module] is the standard configuration interface for NixOS, the
 Linux distribution (not to be confused with Nix, the package manager). It’s
 built on the infrastructure in the `nixpkgs` standard library.
 
-In simplest terms, all of the NixOS configuration you write will almost
+All of the NixOS configuration you write will almost
 certainly take place in a NixOS module, even if you don’t know it at first. Any
 external NixOS #quote[flakes] are merely neatly packaged exporters of NixOS
 modules. For example, to install home-manager, you import its NixOS module,
@@ -24,6 +24,10 @@ exposed at `home-manager.nixosModules.home-manager`.
 The most familiar is the standard `/etc/nixos/configuration.nix`. Indeed, this
 entire file declares a NixOS module with the very basic configuration for the
 system.
+
+In simplest terms, a NixOS module is an attribute set (AttrSet) that can
+declare values for NixOS options, or declare new custom NixOS options, or
+declare paths to additional NixOS modules to import.
 
 #btw[
   From this point on, this article assumes the reader has basic knowledge of
