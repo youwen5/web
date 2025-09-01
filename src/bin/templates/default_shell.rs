@@ -82,6 +82,7 @@ impl DefaultShell {
             li {a class="hover:bg-surface transition-colors" href="https://functor.systems" {"functor.systems"}}
             li {a class="hover:bg-surface transition-colors" href="/software/epilogue" {"How this site was made"}}
             li {a class="hover:bg-surface transition-colors" href="/tools" {"Favorite tools"}}
+            li {a class="hover:bg-surface transition-colors" href="/writing/anatomy-of-a-nixos-module" {"Anatomy of a NixOS module"}}
         };
 
         let math = maud! {
