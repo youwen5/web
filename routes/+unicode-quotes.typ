@@ -5,15 +5,15 @@
   enable-comments: true,
 )
 
-PSA: ' and " (straight quotes) are almost *never* correct. These characters
-_are_ legitimate, but they are for abbreviating length, like in 6' 11" (6 foot
-11 inches). You should almost always be using real angled curly quotes, “” and ‘’, in
+PSA: #"'" and #"\"" (straight quotes) are almost *never* correct. These characters
+_are_ legitimate, but they are for abbreviating length, like in 6#"'" 11#"\"" (6 foot
+11 inches). You should almost always be using real angled curly quotes, “” and ‘', in
 prose. The correct character for abbreviations is the right single quote,
-`U+2019`, ’. Here’s an example! Here's what not to use.
+`U+2019`, '. Here's an example! Here#"'"s what not to use.
 
 The fact that straight quotes are prevalent in internet text is merely vestigal
 of our limited physical keyboard glyphs descended from typewriters---please,
-let’s leave these habits behind. Unicode gives us access to all the fine character
+let's leave these habits behind. Unicode gives us access to all the fine character
 nuances of professional-quality writing in every modern program.
 
 You can input real quotes on Linux machines that use
@@ -38,7 +38,7 @@ Please consult the tables below.
   [Right double quotation mark], [”], [`U+201d`],
 )
 
-While we’re at it, please consider the three different dashes:
+While we're at it, please consider the three different dashes:
 
 #table(
   columns: 5,
@@ -59,17 +59,16 @@ While we’re at it, please consider the three different dashes:
   [—],
   [`U+2014`],
   [Break between parts of sentences],
-  [Em-dashes put a pause in the text—for when a comma doesn’t feel right.],
+  [Em-dashes put a pause in the text—for when a comma doesn't feel right.],
 )
 
 #btw[
-  The typesetting system Typst will automatically convert the bad quotes (' and
-  ") to the real ones. However, I prefer to use the dedicated `#quote[]`
-  function and type real curly single quotes anyways rather than letting it
-  guess my meaning with single quotes, to avoid ambiguity and edge cases.
+  The typesetting system Typst will automatically convert the bad quotes (#"'" and
+  #"\"") to the real ones.
 
   You can also type `---` and `--` to get real unicode em and en dashes in the
   output.
 
-  For users of inferior typesetting software, _use the real unicode symbols_!!!
+  For users of inferior typesetting software, _use the real unicode symbols_!
 ]
+
