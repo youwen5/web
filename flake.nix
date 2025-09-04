@@ -59,7 +59,29 @@
       (
         system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              (final: prev: {
+                typst = prev.typst.overrideAttrs (
+                  finalAttrs: prevAttrs: {
+                    src = pkgs.fetchFromGitHub {
+                      owner = "typst";
+                      repo = "typst";
+                      rev = "560e49b67ca738e2b2768d7eda3bccdb47570dcc";
+                      hash = "sha256-q7kXQaQFRe/2asUd/ntxKIJ4yhaUO+xqs7/wV6aQ0vA=";
+                    };
+                    cargoDeps = prevAttrs.cargoDeps.overrideAttrs (prevAttrs: {
+                      vendorStaging = prevAttrs.vendorStaging.overrideAttrs {
+                        inherit (finalAttrs) src;
+                        outputHash = "sha256-GeZB+ZOJ092pstPQQZPRJIMvkTsbUgkrIW695wwDvG8=";
+                      };
+                    });
+                  }
+                );
+              })
+            ];
+          };
 
           pnpm = pkgs.pnpm_10;
 
@@ -107,7 +129,7 @@
                 pname = "site-pnpm-deps";
                 src = ./web-components;
                 fetcherVersion = 2;
-                hash = "sha256-8QimCg/TMcRXhS2SGEltf8RZpvxfeTeRSMaAfbqplls=";
+                hash = "sha256-8U+9D4Kj2biFSMJg7/cJvcUOsuWNgONfUfq8VzXHuu8=";
               };
             in
             pkgs.stdenv.mkDerivation (finalAttrs: {
@@ -139,16 +161,14 @@
             (import ./nix/treefmt.nix) { inherit rustToolchain pkgs; }
           );
 
-          typst = (
-            pkgs.typst.withPackages (
-              p: with p; [
-                fletcher_0_5_7
-                cetz_0_3_4
-                cmarker_0_1_5
-                showybox
-                self.packages.${system}.html-shim
-              ]
-            )
+          typst = pkgs.typst.withPackages (
+            p: with p; [
+              fletcher_0_5_7
+              cetz_0_3_4
+              cmarker_0_1_5
+              showybox
+              self.packages.${system}.html-shim
+            ]
           );
         in
         {
