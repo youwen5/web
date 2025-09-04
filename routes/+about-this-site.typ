@@ -35,25 +35,29 @@
         },
       )
     }
-    entry(href: "/licensing", internal: true, newtab: false)[
-      #icon(name: "scale")
-      Content licensing
-    ]
-    entry(href: "/acknowledgements", internal: true, newtab: false)[
-      #icon(name: "square-code")
-      Open source and acknowledgements
-    ]
-    entry(href: "/colophon", newtab: false, internal: true)[
-      #icon(name: "ruler-dimension-line")
-      Colophon
-    ]
-    entry(href: "/accessibility", internal: true, newtab: false)[
-      #icon(name: "accessibility")
-      Accessibility statement
-    ]
-    entry(href: "/privacy", internal: true, newtab: false)[
-      #icon(name: "lock-keyhole")
-      Privacy policy
-    ]
+    entry(href: "/licensing", internal: true, newtab: false, {
+      icon(name: "scale")
+      [Content licensing]
+    })
+
+    entry(href: "/acknowledgements", internal: true, newtab: false, {
+      icon(name: "square-code")
+      [Open source and acknowledgements]
+    })
+
+    entry(href: "/colophon", newtab: false, internal: true, {
+      icon(name: "ruler-dimension-line")
+      [Colophon]
+    })
+
+    entry(href: "/accessibility", internal: true, newtab: false, {
+      icon(name: "accessibility")
+      [Accessibility statement]
+    })
+
+    entry(href: "/privacy", internal: true, newtab: false, {
+      icon(name: "lock-keyhole")
+      [Privacy policy]
+    })
   },
 )
