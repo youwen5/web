@@ -1,4 +1,5 @@
-rustToolchain: {
+{ pkgs, rustToolchain }:
+{
   # Used to find the project root
   projectRootFile = "flake.nix";
 
@@ -8,7 +9,8 @@ rustToolchain: {
     rustfmt.enable = true;
     rustfmt.package = rustToolchain;
     yamlfmt.enable = true;
-    biome.enable = true;
+    # temporary until #7164 makes its way to release
+    biome.enable = false;
     typstyle.enable = true;
   };
 

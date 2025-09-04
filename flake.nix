@@ -135,7 +135,9 @@
               '';
             });
 
-          treefmtEval = treefmt-nix.lib.evalModule pkgs ((import ./nix/treefmt.nix) rustToolchain);
+          treefmtEval = treefmt-nix.lib.evalModule pkgs (
+            (import ./nix/treefmt.nix) { inherit rustToolchain pkgs; }
+          );
 
           typst = (
             pkgs.typst.withPackages (
