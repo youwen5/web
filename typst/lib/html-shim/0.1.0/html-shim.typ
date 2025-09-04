@@ -135,6 +135,70 @@
   }
 }
 
+#let std-footnote = footnote
+
+#let footnote(..args) = context {
+  let body = args.pos().at(0)
+  let numbering = if args.pos().len() > 1 {
+    args.pos().at(1)
+  } else {
+    "1"
+  }
+
+  if target() == "html" {
+    counter("custom-footnote").step()
+    [~]
+    html.elem(
+      "span",
+      attrs: (
+        class: "footnote-container group",
+      ),
+      {
+        html.elem(
+          "span",
+          attrs: (
+            class: "footnote-tooltip font-index text-iris cursor-pointer hover:bg-love/15 transition-colors [font-feature-settings:'ss01']",
+            onclick: "this.parentElement.classList.toggle('show-tooltip')",
+            role: "button",
+            aria-label: "Toggle footnote",
+          ),
+          [#counter("custom-footnote").display()],
+        )
+        html.elem(
+          "span",
+          attrs: (
+            class: "sr-only group-[.show-tooltip]:hidden",
+            aria-label: "Footnote content",
+          ),
+          body,
+        )
+        html.elem(
+          "span",
+          attrs: (
+            class: "hidden group-[.show-tooltip]:block font-serif text-foreground bg-overlay p-2 my-2 text-[0.8em] border-1 border-slate-200 dark:border-zinc-700 rounded-md min-w-full footnote-body",
+          ),
+          {
+            body
+            html.elem(
+              "span",
+              attrs: (
+                onclick: "this.parentElement.parentElement.classList.remove('show-tooltip')",
+                aria-label: "Close footnote",
+                role: "button",
+                class: "cursor-pointer text-love all-smallcaps hover:bg-love/15 transition-colors",
+              ),
+              [#linebreak() #sym.lozenge close],
+            )
+          },
+        )
+      },
+    )
+    [~]
+  } else {
+    std-footnote(body, numbering: numbering)
+  }
+}
+
 
 #let html-shim(
   body,
@@ -151,6 +215,8 @@
   thumbnail: none,
   math-escape-mode: false,
 ) = {
+  counter("custom-footnote").step()
+
   show <rendermath>: it => {
     show math.equation.where(block: true): it => {
       html.elem(
@@ -210,62 +276,6 @@
         it2,
       )
 
-      it
-    } else {
-      it
-    }
-  }
-
-  show footnote: it => context {
-    if target() == "html" {
-      show super: it2 => {
-        [~]
-        html.elem(
-          "span",
-          attrs: (
-            class: "footnote-container group",
-          ),
-          {
-            html.elem(
-              "span",
-              attrs: (
-                class: "footnote-tooltip font-index text-iris cursor-pointer hover:bg-love/15 transition-colors [font-feature-settings:'ss01']",
-                onclick: "this.parentElement.classList.toggle('show-tooltip')",
-                role: "button",
-                aria-label: "Toggle footnote",
-              ),
-              it2.body,
-            )
-            html.elem(
-              "span",
-              attrs: (
-                class: "sr-only group-[.show-tooltip]:hidden",
-                aria-label: "Footnote content",
-              ),
-              it.body,
-            )
-            html.elem(
-              "span",
-              attrs: (
-                class: "hidden group-[.show-tooltip]:block font-serif text-foreground bg-overlay p-2 my-2 text-[0.8em] border-1 border-slate-200 dark:border-zinc-700 rounded-md min-w-full footnote-body",
-              ),
-              {
-                it.body
-                html.elem(
-                  "span",
-                  attrs: (
-                    onclick: "this.parentElement.parentElement.classList.remove('show-tooltip')",
-                    aria-label: "Close footnote",
-                    role: "button",
-                    class: "cursor-pointer text-love all-smallcaps hover:bg-love/15 transition-colors",
-                  ),
-                  [#linebreak() #sym.lozenge close],
-                )
-              },
-            )
-          },
-        )
-      }
       it
     } else {
       it
