@@ -18,7 +18,7 @@ I'm a member of the
 and benevolent dictator at #link("https://functor.systems")[functor.systems].
 Right now I'm working on
 #link("https://code.functor.systems/functor.systems/functorOS")[functorOS], an
-experimental NixOS-based Linux distribution, among other things.
+experimental NixOS-based Linux distribution---among other things.
 
 Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("/cv")[CV/resume], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
 
@@ -36,8 +36,10 @@ See my #link("/about")[about page] for more about myself, or my
 the other pages on this website.
 
 #blockquote(attribution: [--- #link(
-    "https://www.paulgraham.com/top.html",
-  )[Paul Graham]])[It's hard to do a really good job on anything you don't think about in the shower.]
+    "https://en.wikiquote.org/wiki/Linus_Torvalds",
+  )[Linus Torvalds]])[
+  And I am not a visionary. I do not have a five-year plan. I’m an engineer. And I think it’s really – I mean – I’m perfectly happy with all the people who are walking around and just staring at the clouds and looking at the stars and saying, “I want to go there.” But I’m looking at the ground, and I want to fix the pothole that’s right in front of me before I fall in. This is the kind of person I am.
+]
 
 #show heading.where(level: 1): it => {
   html.elem("h2", attrs: (class: "!text-foreground"), it.body)
