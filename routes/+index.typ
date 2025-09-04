@@ -16,17 +16,15 @@
 I'm a member of the
 #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Laboratory]
 and benevolent dictator at #link("https://functor.systems")[functor.systems].
-Right now I'm working on
-#link("https://code.functor.systems/functor.systems/functorOS")[functorOS], an
-experimental NixOS-based Linux distribution---among other things.
 
 Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("/cv")[CV/resume], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
 
 I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV] and
 how we can apply higher structures to solve hard problems. In general, I prefer
 to use #link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
-  software]. I contribute to #link("https://nixos.org")[NixOS] and other
-#smallcaps[foss] projects.
+  software]. Right now I'm working on
+#link("https://code.functor.systems/functor.systems/functorOS")[functorOS], an
+experimental NixOS-based Linux distribution---among other things.
 
 In my spare time, I play guitar and spend too much money on guitar pedals. I
 also hate coding.
