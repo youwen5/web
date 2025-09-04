@@ -25,14 +25,14 @@ the #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Lab].
 I like programming, somewhat. I hold the view of the
 #link("https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html")[Wizard
   Book] #footnote[aka the legendary _Structure and Interpretation of Computer
-  Programs_] that programming is _procedural epistemology_---the act of learning
+    Programs_] that programming is _procedural epistemology_---the act of learning
 and understanding enough about a problem to write code to solve it. The process
 of writing and iterating on code itself _is_ the valuable portion. In contrast,
 the final code produced to solve a problem is merely a _side effect_ of the
 process of discovering enough about the problem to write it in the first place.
 In that sense, I despise _coding_, the act of translating a known problem and
 solution into procedures for a computer. Coding is best left to so-called _code
-monkeys_.
+  monkeys_.
 
 I’m an adherent of the #link(newtab: true, "https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV]
 of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
@@ -58,8 +58,8 @@ self-esteem of young undergraduates. Before going to university I mistakenly
 believed that I was an intelligent entity who could think coherent thoughts and
 so-on. After a year of studying math I have come to the realization that I am
 merely a #link("https://www.goodreads.com/quotes/76608-anyone-who-cannot-cope-with-mathematics-is-not-fully-human")[#quote[tolerable
-    subhuman who has learned to wear his shoes, bathe, and not make messes in the
-    house.]]
+  subhuman who has learned to wear his shoes, bathe, and not make messes in the
+  house.]]
 
 #webimg(
   "https://preview.redd.it/kwp14kysyul41.png?auto=webp&s=25544fd77159edfd1b6276ea2c59a4d6b5c9cfe3",

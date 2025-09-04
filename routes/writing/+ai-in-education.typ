@@ -263,7 +263,7 @@ of students have picked up the idea that college is some sort of a job training
 center rather than an institution of higher learning.
 
 This seems to be corroborated by our other accounts. James D. Walsh, in _New
-York Magazine_’s _Intelligencer_, talks to a few students about AI. One of them
+  York Magazine_’s _Intelligencer_, talks to a few students about AI. One of them
 was our good friend Roy Lee from earlier, who explicitly sees college as
 nothing more than a place to "meet your wife and [startup] co-founder."
 

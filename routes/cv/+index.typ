@@ -19,8 +19,8 @@
       contacts: (
         [(925)--791--1845],
         [#link("mailto:youwen@cs.ucsb.edu", smallcaps(
-            all: true,
-          )[youwen\@cs.ucsb.edu])],
+          all: true,
+        )[youwen\@cs.ucsb.edu])],
         [#link("https://web.youwen.dev")[web.youwen.dev]],
       ),
       footer-text: [Curriculum Vitae],

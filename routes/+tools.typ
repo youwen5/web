@@ -58,18 +58,18 @@ usage of any tool. The less reliant I am on software and computers, the better #
   [E-reader], [Kindle Scribe],
   [Audio interface],
   [#link(
-      "https://us.focusrite.com/products/scarlett-4i4-3rd-gen",
-    )[Scarlett 4i4 (Gen 3)]],
+    "https://us.focusrite.com/products/scarlett-4i4-3rd-gen",
+  )[Scarlett 4i4 (Gen 3)]],
 
   [Microphone],
   [#link(
-      "https://www.astonmics.com/EN/product/Mics/Origin?ref=theboothambassadors.com",
-    )[Aston Microphones Origin]],
+    "https://www.astonmics.com/EN/product/Mics/Origin?ref=theboothambassadors.com",
+  )[Aston Microphones Origin]],
 
   [Headphones],
   [#link(
-      "https://www.sennheiser-hearing.com/en-US/p/hd-600/",
-    )[Sennheiser HD600]],
+    "https://www.sennheiser-hearing.com/en-US/p/hd-600/",
+  )[Sennheiser HD600]],
 )
 
 = Keyboards
@@ -77,8 +77,8 @@ usage of any tool. The less reliant I am on software and computers, the better #
 #table(
   columns: 2,
   [#link(
-      "https://www.keychron.com/products/keychron-q60-max-qmk-via-wireless-custom-mechanical-keyboard",
-    )[Keychron Q60 Max]],
+    "https://www.keychron.com/products/keychron-q60-max-qmk-via-wireless-custom-mechanical-keyboard",
+  )[Keychron Q60 Max]],
   [Happy Hacking layout, Gateron Oil Kings (factory lube)],
 
   [Custom tofu65], [Ink Black v2 (hand lube)],

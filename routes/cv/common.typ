@@ -197,13 +197,13 @@
       employer: [UCSB Robotics Lab],
       title: [Systems programmer],
       [#text(
-          10pt,
-          [
-            - Designed reproducible build systems massively speeding up development iteration
-            - Creating 3D simulacrums of laboratory experiments that are reproduced in
-              real life, using C++, React, and Three.js
-          ],
-        )],
+        10pt,
+        [
+          - Designed reproducible build systems massively speeding up development iteration
+          - Creating 3D simulacrums of laboratory experiments that are reproduced in
+            real life, using C++, React, and Three.js
+        ],
+      )],
     )
 
     #if long [
@@ -213,10 +213,10 @@
         employer: [NixOS],
         title: [Open source maintainer],
         [#text(10pt, [
-            - Maintaining nixpkgs & NixOS, a purely functional GNU/Linux
-              distribution built on the Nix package manager and Nix programming
-              language
-          ])],
+          - Maintaining nixpkgs & NixOS, a purely functional GNU/Linux
+            distribution built on the Nix package manager and Nix programming
+            language
+        ])],
       )
     ]
 
@@ -226,13 +226,13 @@
       employer: [FIRST Robotics Team 1280],
       title: [Artificial intelligence lead],
       [#text(10pt, [
-          - Worked on autonomous decision making and path planning algorithms
-          - Replaced the venerable *BozoAuto* autonomous subroutine with the
-            *DeepBozo* autonomous suite
-          - Designed a novel robot control dashboard
-            with 3D visualization using Rust, Tauri, and Svelte
-          - Won 2022 Monterey Bay Regional Competition
-        ])],
+        - Worked on autonomous decision making and path planning algorithms
+        - Replaced the venerable *BozoAuto* autonomous subroutine with the
+          *DeepBozo* autonomous suite
+        - Designed a novel robot control dashboard
+          with 3D visualization using Rust, Tauri, and Svelte
+        - Won 2022 Monterey Bay Regional Competition
+      ])],
     )
   ]
 
