@@ -3,7 +3,7 @@
 #show: html-shim
 
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
-  #smallcaps(all: true)[Greetings. I’m Youwen]. I study math and hack on computers at
+  #smallcaps(all: true)[Greetings. I'm Youwen]. I study math and hack on computers at
   #link("https://ucsb.edu")[UC Santa Barbara].
 ]
 

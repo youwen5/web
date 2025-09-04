@@ -8,7 +8,7 @@
 Some frequently asked and also less frequently asked questions. Updated every once in a while.
 
 1. _How’s_ #smallcaps[ucsb]? \
-  I think this quote sums it up nicely. I replaced all occurrences of the word #quote[electrochemistry] with #quote(smallcaps[ucsb.])
+  I think this quote sums it up nicely. I replaced all occurrences of the word "electrochemistry" with "#smallcaps[ucsb.]"
   #blockquote(
     attribution: [--- #link("https://discoelysium.fandom.com/wiki/Electrochemistry")[Electrochemistry] from _Disco Elysium_],
   )[
@@ -23,3 +23,4 @@ Some frequently asked and also less frequently asked questions. Updated every on
 
 2. _What programming language should I learn first?_ \
   Doesn’t matter. Pick a language, write some code. If you want to end up in corporate, try JavaScript or Python. If you want to be an elite hacker, try Rust or a Lisp dialect. If you don’t even like programming and happen to be a mathematician, try Haskell.
+

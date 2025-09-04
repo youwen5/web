@@ -187,7 +187,7 @@
 
   = Third isomorphism theorem
 
-  This one gives us a sort of #quote[cancellation of fractions] for our
+  This one gives us a sort of "cancellation of fractions" for our
   quotients.
 
   *Theorem statement*: Let $V$ be an $FF$-vector space. Let $U$, $W$ be subspaces of $V$. Suppose $U subset.eq W$. Then

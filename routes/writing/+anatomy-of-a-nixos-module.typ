@@ -11,13 +11,13 @@ NixOS modules are deceptively simple but really quite complicated. Surprisingly
 I haven’t seen this documented in an easily digestible manner anywhere, so this
 serves as an introductory resource.
 
-A #quote[NixOS module] is the standard configuration interface for NixOS, the
+A "NixOS module" is the standard configuration interface for NixOS, the
 Linux distribution (not to be confused with Nix, the package manager). It’s
 built on the infrastructure in the `nixpkgs` standard library.
 
 All of the NixOS configuration you write will almost
 certainly take place in a NixOS module, even if you don’t know it at first. Any
-external NixOS #quote[flakes] are merely neatly packaged exporters of NixOS
+external NixOS "flakes" are merely neatly packaged exporters of NixOS
 modules. For example, to install home-manager, you import its NixOS module,
 exposed at `home-manager.nixosModules.home-manager`.
 
@@ -61,7 +61,7 @@ proceeds.
 
 = All the ways to declare a NixOS module
 
-Most confusingly, there are actually many #quote[forms] a NixOS module can
+Most confusingly, there are actually many "forms" a NixOS module can
 take. I said earlier that the module is a function. In fact, this is not
 entirely accurate. A NixOS module may be declared as either a function $f :
 "AttrSet" -> "AttrSet"$, or simply as an `AttrSet`. This is merely a useful

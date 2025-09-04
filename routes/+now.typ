@@ -9,7 +9,7 @@
 )
 
 This is my #link("https://nownownow.com/about")[now page]. A now page is a
-detailed answer to the question #quote[what have you been up to lately?]
+detailed answer to the question "what have you been up to lately?"
 
 #webimg(
   "https://raw.githubusercontent.com/youwen5/youwen5/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg",
@@ -31,9 +31,8 @@ detailed answer to the question #quote[what have you been up to lately?]
 
 = Whereabouts
 
-I’m studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] until Spring
-2026, when I will spend 2 quarters as a visiting student at Tsinghua University
-in Beijing!
+I’m studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] until at least
+Winter 2026.
 
 = Done and still doing
 
@@ -41,7 +40,7 @@ in Beijing!
 
 = Future
 
-- I’m still thinking of starting a project called #quote[How #smallcaps[posix] can you get in 31 days?] where I try to write as much of a #smallcaps[posix] compliant operating system as possible, from scratch, with a 1 month time limit. Probably using Rust or Zig. I’m not sure how much time I’ll have for this during the summer, though.
+- I’m still thinking of starting a project called "How #smallcaps[posix] can you get in 31 days?" where I try to write as much of a #smallcaps[posix] compliant operating system as possible, from scratch, with a 1 month time limit. Probably using Rust or Zig. I’m not sure how much time I’ll have for this during the summer, though.
 
 = Prose
 
@@ -56,3 +55,4 @@ Some stuff I’ve been reading lately.
 
 - #link("https://archive.org/details/there-is-no-antimemetics-division/page/n9/mode/2up")[There is No Antimemetics Division] (also available as a #link("https://scp-wiki.wikidot.com/antimemetics-division-hub")[tale on the SCP wiki])
 - #link("https://www.teamten.com/lawrence/writings/coding-machines/")[Coding Machines] --- a story based on the #link("https://wiki.c2.com/?TheKenThompsonHack")[Ken Thompson Hack]
+

@@ -43,7 +43,7 @@ don’t have _enough_ choice already.
 
 But I think it’s true. Let’s briefly analyze two
 primary ways content driven sites are deployed to the web, in so-called
-#quote[modern web development]. One: choose a web framework, and write in that.
+"modern web development". One: choose a web framework, and write in that.
 Two: use a static site generator, create some #smallcaps[html] templates, and
 write in Markdown or a similarly minimalistic markup language. (Three: a
 combination of both, like #link("https://astro.build/")[Astro].)
@@ -188,7 +188,7 @@ pages, sitemaps, etc.
 
 = Triage
 
-- #todo Implement the #quote[prefixes] system. Basically, rather than
+- #todo Implement the "prefixes" system. Basically, rather than
   classifying pages based on their directory (e.g. `/blog` contains all blog
   posts), I’d like to prefix the source file to tell Epilogue
   what kind of page it is. Right now, the prefix `+` is already used for all

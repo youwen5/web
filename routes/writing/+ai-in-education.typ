@@ -364,13 +364,13 @@ but as we discuss further below, has profound ethical implications.
 ]
 
 Around 26% of students are using AI for assignments @SidotiUSTeensChatGPT2025,
-which is likely an underestimate. So, not quite the #quote[everyone] Ananth
+which is likely an underestimate. So, not quite the "everyone" Ananth
 describes, but a significant chunk.
 
 = A thought experiment about ethical AI use
 
 In the previous section, we briefly touched on the ethics of AI use, and we
-expound upon that here, in particular highlighting how #quote[ethical AI use]
+expound upon that here, in particular highlighting how "ethical AI use"
 is often _not_ ethical upon further inspection.
 
 In _Camera Obscura_, AI litigator Matthew Butterick makes the argument that
@@ -668,8 +668,8 @@ conformance with the status quo, and allow people to experiment and fall.
     the education system and college. He built a ChatGPT powered interview
     cheating tool that gives people an invisible AI assistant overlay in Zoom
     interviews to answer questions for them. In his eyes, school is nothing
-    more than a place to network (#quote[It’s the best place to meet your
-      co-founder and your wife]) and assignments are #quote[hackable] and
+    more than a place to network ("It’s the best place to meet your
+    co-founder and your wife") and assignments are "hackable" and
     worthless (since they can be done by ChatGPT). This sentiment really
     captures exactly the rot in the education system that I’m looking to
     describe---the incentives are such that everyone sees education as a career
@@ -829,3 +829,4 @@ conformance with the status quo, and allow people to experiment and fall.
     There is an argument against this idea that students should be AI fact-checkers, in #cite(<ButterickCameraObscura2025>, form: "normal").
   ]
 ]
+

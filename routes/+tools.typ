@@ -20,14 +20,15 @@ usage of any tool. The less reliant I am on software and computers, the better #
 
 #table(
   columns: 2,
-  [OS], [NixOS (unstable, #quote[Xantusia])],
-  [Editor], [Neovim],
-  [Browser], [Zen],
-  [Kernel(s)], [linux-zen, linux-asahi],
-  [Desktop], [Hyprland (Wayland)],
-  [Layout], [hyprscroller],
-  [Terminal], [kitty],
-  [Login shell], [Nushell (w/ fish completer)],
+  [OS], [NixOS (unstable, "Xantusia],
+)",
+[Editor], [Neovim],
+[Browser], [Zen],
+[Kernel(s)], [linux-zen, linux-asahi],
+[Desktop], [Hyprland (Wayland)],
+[Layout], [hyprscroller],
+[Terminal], [kitty],
+[Login shell], [Nushell (w/ fish completer)],
 )
 
 *Productivity:*
@@ -87,7 +88,7 @@ usage of any tool. The less reliant I am on software and computers, the better #
 = Operating system
 
 On all of my machines (including Apple), I currently run
-#link("https://nixos.org/")[NixOS unstable] (NixOS 25.11 #quote[Xantusia]), the
+#link("https://nixos.org/")[NixOS unstable] (NixOS 25.11 "Xantusia"), the
 bleeding-edge rolling-release branch of NixOS.
 
 On Apple Silicon, I rely on the Asahi Linux project which provides the
@@ -95,7 +96,7 @@ reverse-engineered graphics stack and hardware abstractions required to run
 Linux.
 
 #btw[
-  NixOS is a highly idiosyncratic Linux distribution (#quote[distro]) that behaves entirely
+  NixOS is a highly idiosyncratic Linux distribution ("distro") that behaves entirely
   differently from nearly all other distros. Your entire system is specified
   through expressions written in the Nix programming language---you must write
   code that specifies exactly how your system is deployed. For example, if I
@@ -104,7 +105,7 @@ Linux.
   configuration and figure out the requisite Nix code to write in order to set
   the color.
 
-  You may say #quote[this sounds completely insane.] You would be correct.
+  You may say "this sounds completely insane." You would be correct.
   However, somehow, _it works_. Just one consequential advantage of the
   aforementioned tedium is my entire system’s colorscheme is now generated at
   build-time, by running a genetic algorithm on my wallpaper that literally
@@ -184,4 +185,3 @@ typed structured data that is much easier to manipulate.
 control forcing me to toss the battery out. `callisto` is my daily driver
 laptop---the Apple Silicon processor gives it great battery life. `demeter` is
 my home PC, which I don’t keep with me in college.
-

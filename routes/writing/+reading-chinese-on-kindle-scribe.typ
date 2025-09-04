@@ -51,7 +51,7 @@ All you will need is a way to access an MTP filesystem. If you are using
 #smallcaps[GNOME], this should require no action on your part. The
 #smallcaps[gnome] #link("https://en.wikipedia.org/wiki/GVfs")[GVfs] should
 support MTP out of the box, and you should be able to find it in Nautilus (also
-called #quote[Files]). On my end, I’m running NixOS with Hyprland, but I have
+called "Files"). On my end, I’m running NixOS with Hyprland, but I have
 GVfs and Nautilus installed anyways, so that’s what I used.
 
 Whichever way you chose to open the file system, simply peruse the Kindle’s
@@ -63,7 +63,7 @@ To obtain Noto CJK, a free font developed by Google, you can grab it from the
 #link("https://github.com/notofonts/noto-cjk")[GitHub repository]. Noto Serif
 CJK Simplified Chinese in particular can be found in #link("https://github.com/notofonts/noto-cjk/tree/main/Serif/Variable/OTF")[this
   directory].
-Click the file #quote[NotoSerifCJKsc-VF.otf] and then hit the #quote[Download
+Click the file "NotoSerifCJKsc-VF.otf" and then hit the #quote[Download
   Raw] icon in the top right (it looks like an arrow pointing down into a
 bracket). (Note the other files are Noto Serif fonts for Traditional Chinese,
 Japanese, Korean, and Hong Kong Traditional Chinese, which can be installed

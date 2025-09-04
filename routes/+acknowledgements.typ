@@ -11,8 +11,8 @@ This page is my best effort to credit the people I’ve stolen designs from.
 
 In no particular order:
 
-- The snazzy lists on the #link("/")[main page] under #quote[Contact] and
-  #quote[Places] were ripped off from
+- The snazzy lists on the #link("/")[main page] under "Contact" and
+  "Places" were ripped off from
   #link("https://vlad.website/")[vlad.website]. I also stole the idea for the
   places tab from there.
 - The selector on #link("CV")[my CV] is inspired by

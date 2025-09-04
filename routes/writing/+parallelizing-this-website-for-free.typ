@@ -78,7 +78,7 @@ Not to mention, it’s also prone to race conditions because it
 involves creating lots of nested directories and files.
 
 A final consideration---although `rayon` handles data races very well thanks to
-#quote[fearless concurrency,] it can’t guarantee safety from race conditions in
+"fearless concurrency," it can’t guarantee safety from race conditions in
 real world IO. In particular, I realized that if I had two Typst files with the
 same filename but representing different routes, the file would get overwritten
 and things would get real wacky. (concrete example: both `/+index.typ` and
