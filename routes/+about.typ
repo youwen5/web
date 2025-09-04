@@ -17,6 +17,11 @@ I currently study math and computer science at the
 Favorite pastimes include watching classic movies and TV shows, playing guitar
 (poorly), video games, tinkering of all sorts, and long walks along the beach.
 
+Lately, besides hacking on random projects, my time has been mostly split
+between managing #link("functor.systems")[functor.systems], a hacker collective
+building cool stuff, and working on a few hardware/software projects with
+the #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Lab].
+
 I like programming, somewhat. I hold the view of the
 #link("https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html")[Wizard
   Book] #footnote[aka the legendary _Structure and Interpretation of Computer

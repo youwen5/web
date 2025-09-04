@@ -37,16 +37,11 @@ in Beijing!
 
 = Done and still doing
 
-- Freshman year is over!
+- I’m gonna be in Boston/Cambridge between Sep. 7th and 15th! Please reach out if you’re in the area. I’ll be at HackMIT too!
 
 = Future
 
 - I’m still thinking of starting a project called #quote[How #smallcaps[posix] can you get in 31 days?] where I try to write as much of a #smallcaps[posix] compliant operating system as possible, from scratch, with a 1 month time limit. Probably using Rust or Zig. I’m not sure how much time I’ll have for this during the summer, though.
-
-= Fun
-
-- Lately I’ve been playing/replaying #link("https://discoelysium.com/")[Disco Elysium].
-- In lieu of Monster Hunter Wilds (which is impossible to run without a supercomputer), I’ve been playing Monster Hunter World and Iceborne instead.
 
 = Prose
 

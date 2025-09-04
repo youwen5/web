@@ -13,6 +13,10 @@
   extraImgClass: "max-h-[200px] w-full object-cover h-[200px]",
 )
 
+I’m a member of the
+#link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Laboratory]
+and benevolent dictator at #link("https://functor.systems")[functor.systems].
+
 Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("/cv")[CV/resume], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
 
 I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV] and
