@@ -236,7 +236,7 @@
   }
 
   show math.equation.where(block: false): it => {
-    set text(size: 1.25em)
+    set text(size: 1em)
     if not math-escape-mode {
       html.elem(
         "span",
@@ -248,7 +248,7 @@
 
 
   show math.equation.where(block: true): it => {
-    set text(size: 1.2em)
+    set text(size: 1.1em)
     if not math-escape-mode {
       html.elem(
         "figure",
