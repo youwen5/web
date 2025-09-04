@@ -16,6 +16,9 @@
 I'm a member of the
 #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Laboratory]
 and benevolent dictator at #link("https://functor.systems")[functor.systems].
+Right now I'm working on
+#link("https://code.functor.systems/functor.systems/functorOS")[functorOS], an
+experimental NixOS-based Linux distribution, among other things.
 
 Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("/cv")[CV/resume], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
 
@@ -226,7 +229,12 @@ the other pages on this website.
 
     entry(href: "https://github.com/youwen5", {
       icon(name: "github")
-      [See my code on GitHub]
+      [Read my code on GitHub]
+    })
+
+    entry(href: "https://code.functor.systems/youwen", {
+      icon(name: "git-branch")
+      [Read my code on code.functor.systems]
     })
 
     entry(href: "https://youwen5.bsky.social", {
