@@ -259,14 +259,15 @@
                 href: link,
                 target: "_blank",
               ),
-            )[
-              #html.elem(
-                "span",
-                attrs: (class: "my-auto w-[24px]"),
-                lucide-icon(name: "github"),
-              )
-              View code
-            ]
+              {
+                html.elem(
+                  "span",
+                  attrs: (class: "my-auto w-[24px]"),
+                  lucide-icon(name: "github"),
+                )
+                [View code]
+              },
+            )
           }
           #if demo-link != "" {
             html.elem(
@@ -276,14 +277,15 @@
                 href: demo-link,
                 target: "_blank",
               ),
-            )[
-              #html.elem(
-                "span",
-                attrs: (class: "my-auto w-[24px]"),
-                lucide-icon(name: "box"),
-              )
-              Try demo
-            ]
+              {
+                html.elem(
+                  "span",
+                  attrs: (class: "my-auto w-[24px]"),
+                  lucide-icon(name: "box"),
+                )
+                [Try demo]
+              },
+            )
           }
         ],
         heading: project,
@@ -301,16 +303,17 @@
                     href: link,
                     target: "_blank",
                   ),
-                )[
-                  #html.elem(
-                    "span",
-                    attrs: (class: "my-auto"),
-                    lucide-icon(
-                      name: "github",
-                    ),
-                  )
-                  View code
-                ]
+                  {
+                    html.elem(
+                      "span",
+                      attrs: (class: "my-auto"),
+                      lucide-icon(
+                        name: "github",
+                      ),
+                    )
+                    [View code]
+                  },
+                )
               }
               if demo-link != "" {
                 html.elem(
@@ -320,16 +323,17 @@
                     href: demo-link,
                     target: "_blank",
                   ),
-                )[
-                  #html.elem(
-                    "span",
-                    attrs: (class: "my-auto"),
-                    lucide-icon(
-                      name: "box",
-                    ),
-                  )
-                  Try demo
-                ]
+                  {
+                    html.elem(
+                      "span",
+                      attrs: (class: "my-auto"),
+                      lucide-icon(
+                        name: "box",
+                      ),
+                    )
+                    [Try demo]
+                  },
+                )
               }
             },
           )

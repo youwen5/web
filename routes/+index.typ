@@ -71,28 +71,34 @@ the other pages on this website.
   ]
 }
 
-#update(date: "May 19th, 2025", href: "/unicode-quotes")[
-  #icon(name: "newspaper")
-  Stop using the wrong quotes!
-]
-#update(date: "May 19th, 2025", href: "/math/three-isomorphism-theorems")[
-  #icon(name: "newspaper")
-  Three isomorphism theorems in linear algebra
-]
-#update(
-  date: "May 12th, 2025",
-  href: "/writing/parallelizing-this-website-for-free",
-)[
-  #icon(name: "code")
-  Parallelizing this website for free
-]
-#update(
-  date: "May 10th, 2025",
-  href: "/writing/doing-web-development-in-typst",
-)[
-  #icon(name: "code")
-  Doing web development in Typst
-]
+#{
+  update(date: "May 19th, 2025", href: "/unicode-quotes", {
+    icon(name: "newspaper")
+    [Stop using the wrong quotes!]
+  })
+  update(date: "May 19th, 2025", href: "/math/three-isomorphism-theorems", {
+    icon(name: "newspaper")
+    [Three isomorphism theorems in linear algebra]
+  })
+
+  update(
+    date: "May 12th, 2025",
+    href: "/writing/parallelizing-this-website-for-free",
+    {
+      icon(name: "code")
+      [Parallelizing this website for free]
+    },
+  )
+
+  update(
+    date: "May 10th, 2025",
+    href: "/writing/doing-web-development-in-typst",
+    {
+      icon(name: "code")
+      [Doing web development in Typst]
+    },
+  )
+}
 
 = Photos
 
@@ -208,34 +214,40 @@ the other pages on this website.
         },
       )
     }
-    entry(href: "/impressum", newtab: false, internal: true)[
-      #icon(name: "send")
-      Send me electronic mail (preferred)
-    ]
-    entry(href: "https://matrix.to/#/@youwen:functor.systems")[
-      #icon(name: "atom")
-      Matrix
-    ]
-    entry(href: "https://github.com/youwen5")[
-      #icon(name: "github")
-      See my code on GitHub
-    ]
-    entry(href: "https://youwen5.bsky.social")[
-      #icon(name: "origami")
-      Bluesky
-    ]
-    entry(href: "https://www.instagram.com/youwenw5/")[
-      #icon(name: "instagram")
-      Instagram
-    ]
-    entry(href: "https://www.linkedin.com/in/youwen-wu-306221288/")[
-      #icon(name: "linkedin")
-      LinkedIn
-    ]
-    entry(is-link: false)[
-      #icon(name: "brain")
-      Telepathically scribe me over the ethereal plane
-    ]
+    entry(href: "/impressum", newtab: false, internal: true, {
+      icon(name: "send")
+      [Send me electronic mail (preferred)]
+    })
+
+    entry(href: "https://matrix.to/#/@youwen:functor.systems", {
+      icon(name: "atom")
+      [Matrix]
+    })
+
+    entry(href: "https://github.com/youwen5", {
+      icon(name: "github")
+      [See my code on GitHub]
+    })
+
+    entry(href: "https://youwen5.bsky.social", {
+      icon(name: "origami")
+      [Bluesky]
+    })
+
+    entry(href: "https://www.instagram.com/youwenw5/", {
+      icon(name: "instagram")
+      [Instagram]
+    })
+
+    entry(href: "https://www.linkedin.com/in/youwen-wu-306221288/", {
+      icon(name: "linkedin")
+      [LinkedIn]
+    })
+
+    entry(is-link: false, {
+      icon(name: "brain")
+      [Telepathically scribe me over the ethereal plane]
+    })
   },
 )
 
