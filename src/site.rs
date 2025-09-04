@@ -1,6 +1,6 @@
 use std::{collections::HashMap, path::PathBuf};
 
-use hypertext::Rendered;
+use hypertext::prelude::*;
 
 use crate::world::{Metadata, TypstDoc};
 

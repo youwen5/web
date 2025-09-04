@@ -1,5 +1,5 @@
 /// The default page shell that provides navigation bars, metadata, etc.
-use hypertext::{GlobalAttributes, Renderable, Rendered, html_elements, maud};
+use hypertext::prelude::*;
 
 use super::components::Head;
 
@@ -15,7 +15,7 @@ pub struct DefaultShell {
     pub width: PageWidth,
 }
 
-const LOGO: hypertext::Raw<&str> = hypertext::Raw(
+const LOGO: hypertext::Raw<&str> = hypertext::Raw::dangerously_create(
     r##"
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->

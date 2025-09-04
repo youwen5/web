@@ -1,5 +1,5 @@
 /// Utilities for templating pages
-use hypertext::{Renderable, Rendered, html_elements, maud};
+use hypertext::prelude::*;
 
 pub trait Template {
     /// Rendering a template consumes the `metadata` object.

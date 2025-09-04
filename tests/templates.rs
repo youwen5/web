@@ -1,5 +1,5 @@
 use epilogue::{templating::Template, world::Metadata};
-use hypertext::{Renderable, Rendered, html_elements, maud};
+use hypertext::prelude::*;
 
 struct TestTemplate {}
 impl Template for TestTemplate {
@@ -21,7 +21,7 @@ impl Template for TestTemplate {
 #[test]
 fn it_templates_successfully() {
     let template = TestTemplate {};
-    let injection = hypertext::Raw(String::from("<p>test content!</p>"));
+    let injection = hypertext::Raw::dangerously_create(String::from("<p>test content!</p>"));
     assert_eq!(
         template.render_page_with_content(
             injection,

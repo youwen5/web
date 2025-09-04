@@ -1,6 +1,6 @@
 /// Template particularly for the index page at `/`.
 use epilogue::{templating::Template, world::Metadata};
-use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
+use hypertext::prelude::*;
 
 use super::{components::Head, default_shell::DefaultShell};
 

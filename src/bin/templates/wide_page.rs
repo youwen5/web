@@ -1,7 +1,7 @@
 /// This template is for pages that should fill the full container. Suitable for content that
 /// needs more room than the wide margins of prose.
 use epilogue::{templating::Template, world::Metadata};
-use hypertext::{GlobalAttributes, Rendered, html_elements, maud};
+use hypertext::prelude::*;
 
 use super::{components::Head, default_shell::DefaultShell};
 

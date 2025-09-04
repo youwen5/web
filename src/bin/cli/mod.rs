@@ -4,7 +4,6 @@ use epilogue::{
     templating::Template,
     world::{WorkingDirs, World},
 };
-use hypertext::Raw;
 
 use clap::{ArgAction, Args, Parser, Subcommand};
 
@@ -80,7 +79,7 @@ pub fn run() {
             };
 
             let site = Site::new(routes, move |slug, content, metadata| {
-                let raw_content = Raw(content);
+                let raw_content = hypertext::Raw::dangerously_create(content);
 
                 match slug.as_str() {
                     "/" => index.render_page_with_content(raw_content, metadata),

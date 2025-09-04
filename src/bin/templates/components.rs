@@ -1,6 +1,6 @@
 use epilogue::world::Metadata;
 /// Reusable components that can be placed around the site. Footers, navbars, etc.
-use hypertext::{GlobalAttributes, Raw, Renderable, html_elements, maud};
+use hypertext::{Buffer, Raw, prelude::*};
 
 /// A site-wide usable head tag.
 pub struct Head {
@@ -24,7 +24,8 @@ impl Head {
     }
 }
 
-const LAZY_PRISM_CSS: Raw<&str> = Raw(r#"
+const LAZY_PRISM_CSS: Raw<&str> = Raw::dangerously_create(
+    r#"
 <link
     rel="preload"
     href="/styles/prism-catppuccin.css"
@@ -39,9 +40,11 @@ const LAZY_PRISM_CSS: Raw<&str> = Raw(r#"
     media="screen and (prefers-color-scheme: dark)"
     onload="this.onload=null;this.rel='stylesheet'"
 >
-"#);
+"#,
+);
 
-const INLINE_FONTS: Raw<&str> = Raw(r##"
+const INLINE_FONTS: Raw<&str> = Raw::dangerously_create(
+    r##"
 @font-face {
   font-family: "Source Sans 3";
   font-style: normal;
@@ -103,10 +106,11 @@ const INLINE_FONTS: Raw<&str> = Raw(r##"
   font-display: swap;
   src: url("/fonts/concourse_index_regular.woff2") format("woff2");
 }
-    "##);
+    "##,
+);
 
 impl Renderable for Head {
-    fn render_to(&self, output: &mut String) {
+    fn render_to(&self, output: &mut Buffer) {
         let description = match &self.description {
             Some(desc) => desc,
             None => {
@@ -185,7 +189,7 @@ impl Renderable for Head {
 
 pub struct Giscus;
 impl Renderable for Giscus {
-    fn render_to(&self, output: &mut String) {
+    fn render_to(&self, output: &mut Buffer) {
         maud! {
             script src="https://giscus.app/client.js"
                 data-repo="youwen5/web"

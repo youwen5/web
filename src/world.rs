@@ -1,4 +1,5 @@
 /// Utilities for interacting with and obtaining information from the World.
+use hypertext::Rendered;
 use std::{
     collections::HashMap,
     fs::{self, File},
@@ -523,14 +524,17 @@ impl World {
 
                     let html_path = target_path.with_extension("html");
                     let target_path = fs::read_to_string(path)?;
-                    let redirect_template = create_redirect_page(&target_path);
+                    let redirect_template: Rendered<String> = create_redirect_page(&target_path);
 
                     event!(
                         Level::INFO,
                         "Creating a redirect from {output_route} to {target_path}"
                     );
                     create_file_resilient(&html_path)?;
-                    std::fs::write(&html_path, redirect_template.as_str())?;
+                    std::fs::write::<&std::path::PathBuf, &str>(
+                        &html_path,
+                        redirect_template.as_inner(),
+                    )?;
                 }
                 (slug, RouteNode::Page(doc)) => {
                     let output_route = match slug.as_str() {
@@ -577,7 +581,7 @@ impl World {
                         contents,
                         doc.metadata.take().expect("no metadata in document"),
                     );
-                    let mut rendered = rendered.as_str().to_string();
+                    let mut rendered = rendered.as_inner().to_string();
                     let rendered = if minify {
                         match in_place_str(&mut rendered, minify_cfg) {
                             Ok(minified) => minified,
