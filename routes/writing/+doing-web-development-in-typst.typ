@@ -7,10 +7,10 @@
   enable-comments: true,
 )
 
-Over the past month I’ve been experimenting with writing a website
+Over the past month I've been experimenting with writing a website
 (specifically, this website) using #link("https://typst.app/")[Typst], a
 document preparation system and markup language. Most people know Typst as a
-LaTeX replacement, but it can also generate #smallcaps[html]. I’ve found that
+LaTeX replacement, but it can also generate #smallcaps[html]. I've found that
 it can probably act as a replacement for Markdown/Pandoc based static site
 generator systems too.
 
@@ -23,7 +23,7 @@ template (that contains navigation widgets, footer, `<head>`, etc). Each page is
 source file. The Typst source code for each page can emit metadata, similar to
 how #smallcaps[yaml] frontmatter works in Markdown. I implemented it so the
 syntax for setting metadata on a web page is really similar to setting up a
-typical Typst document template. For example, here’s the metadata for this
+typical Typst document template. For example, here's the metadata for this
 page:
 
 ```typst
@@ -156,11 +156,11 @@ easy to set up).
 ```
 
 
-Obviously you can’t create any interactive components like a fully fledged web
+Obviously you can't create any interactive components like a fully fledged web
 framework, but you get this middle ground between the austerity and ease of
 writing of Markdown, and the power of a templating system. (I am aware of
 #smallcaps[#link("https://mdxjs.com/")[mdx]], but then you have to use a
-fully-fledged web framework #emoji.face.nausea.) It’s surprisingly nice to use,
+fully-fledged web framework #emoji.face.nausea.) It's surprisingly nice to use,
 despite #smallcaps[html] export being a total afterthought in Typst right now
 (which, again, is 99% a document preparation system, not a static site
 generator).

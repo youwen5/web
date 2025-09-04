@@ -5,7 +5,7 @@
 #show: html-shim.with(
   title: "Curriculum Vitae",
   date: datetime(day: 11, month: 5, year: 2025),
-  meta-description: "Youwen’s resume / CV.",
+  meta-description: "Youwen's resume / CV.",
   also-compile-pdf: true,
   pdf-filename: "cv/youwen-wu-cv-full",
 )

@@ -8,15 +8,15 @@
 )
 
 NixOS modules are deceptively simple but really quite complicated. Surprisingly
-I haven’t seen this documented in an easily digestible manner anywhere, so this
+I haven't seen this documented in an easily digestible manner anywhere, so this
 serves as an introductory resource.
 
 A "NixOS module" is the standard configuration interface for NixOS, the
-Linux distribution (not to be confused with Nix, the package manager). It’s
+Linux distribution (not to be confused with Nix, the package manager). It's
 built on the infrastructure in the `nixpkgs` standard library.
 
 All of the NixOS configuration you write will almost
-certainly take place in a NixOS module, even if you don’t know it at first. Any
+certainly take place in a NixOS module, even if you don't know it at first. Any
 external NixOS "flakes" are merely neatly packaged exporters of NixOS
 modules. For example, to install home-manager, you import its NixOS module,
 exposed at `home-manager.nixosModules.home-manager`.
@@ -31,7 +31,7 @@ declare paths to additional NixOS modules to import.
 
 #btw[
   From this point on, this article assumes the reader has basic knowledge of
-  the Nix language and its syntax. If you don’t---not to fret, the Nix language
+  the Nix language and its syntax. If you don't---not to fret, the Nix language
   is tiny and quite simple. Familiarize yourself with the basics in
   #link("https://nix.dev/tutorials/nix-language.html")[this article], paying
   particular attention to
@@ -43,20 +43,20 @@ declare paths to additional NixOS modules to import.
   `pkgs` and `lib` objects are in `configuration.nix`.
 ]
 
-So what exactly is a NixOS module? At its core, it’s a function $f : "AttrSet"
+So what exactly is a NixOS module? At its core, it's a function $f : "AttrSet"
 -> "AttrSet"$ that accepts an attribute set with a few parameters, like `pkgs`,
 `config`, `lib`, and returns another attribute set declaring configuration
 options for NixOS.
 
 When the module is evaluated by a NixOS system build, the module (which, again,
 is just a function with a special format) is called, the input parameters are
-populated, the options are evaluated, and if there’s no issues, the build
+populated, the options are evaluated, and if there's no issues, the build
 proceeds.
 
 #btw[
   A word of advice: the section below will introduce and reintroduce concepts
   in gradually increasing complexity. If you read halfway through, then stop,
-  you’ll likely be left with a partial/incorrect understanding.
+  you'll likely be left with a partial/incorrect understanding.
 ]
 
 = All the ways to declare a NixOS module
@@ -67,7 +67,7 @@ entirely accurate. A NixOS module may be declared as either a function $f :
 "AttrSet" -> "AttrSet"$, or simply as an `AttrSet`. This is merely a useful
 shorthand in cases where none of the provided parameters are needed.
 
-For example, let’s say I want to install `neovim`. I can write this module:
+For example, let's say I want to install `neovim`. I can write this module:
 
 ```nix
 {
@@ -101,7 +101,7 @@ wherever you live). I would write the following module:
 }
 ```
 
-Since we just needed to set the option and didn’t need any additional
+Since we just needed to set the option and didn't need any additional
 parameters, such the package set, we can simply omit the parameters and write
 an AttrSet by itself. Keep in mind that this is just for convenience, the
 following snippet would have the exact same effect:
@@ -113,7 +113,7 @@ following snippet would have the exact same effect:
 }
 ```
 
-Ok, that’s two ways to declare a NixOS module, are there more? Of course, and
+Ok, that's two ways to declare a NixOS module, are there more? Of course, and
 these go beyond simple shorthand. (In fact, we may note that the form of module
 declaration shown above is actually shorthand for the module declaration
 described below.)
@@ -132,9 +132,9 @@ use to conditionally control other NixOS options? Of course, but note that
 additional custom options are also declared in NixOS modules. To separate the
 declaration of the options themselves with the declaration of the values of
 existing options, NixOS modules are technically separated into two parts:
-`options` and `config`. Maybe it’s better to show, not tell in this case.
+`options` and `config`. Maybe it's better to show, not tell in this case.
 
-Here’s an example NixOS module where we declare an option to use Helix instead
+Here's an example NixOS module where we declare an option to use Helix instead
 of Neovim, and then implement it.
 
 ```nix
@@ -164,19 +164,19 @@ of Neovim, and then implement it.
 }
 ```
 
-This is quite complicated, so let’s break it down. First, we’re declaring this
+This is quite complicated, so let's break it down. First, we're declaring this
 `options` attribute with our custom boolean option, `useHelixInsteadOfNeovim`.
 Based on the value of this option, we want to determine whether Neovim or Helix
 is added to `environment.systemPackages`.
 
-To do that, we’re making use of the `config` parameter. This is an entirely
-distinct concept from the `config` attribute we’re setting below, so don’t
+To do that, we're making use of the `config` parameter. This is an entirely
+distinct concept from the `config` attribute we're setting below, so don't
 conflate them!
 
 The `config` parameter is available to all NixOS modules and represents the
 final, resolved state of the NixOS configuration after all modules are
 evaluated. Of course, this is somewhat paradoxical; we are somehow relying on
-the final configuration even though it hasn’t been finalized, by definition,
+the final configuration even though it hasn't been finalized, by definition,
 until the module is evaluated. These concerns are warranted, and misuse of the
 `config` object (usually in self-referential ways) will cause infinite
 recursion errors that crash Nix evaluation. In particular, conditional module
@@ -191,13 +191,13 @@ achieved by making the NixOS module a
   combinator]. Other fixed-point combinators in the nixpkgs standard library
 include `stdenv.mkDerivation (finalAttrs: {})` and other similar cases.
 
-If you couldn’t understand the previous paragraph, don’t worry, it’s hardly
+If you couldn't understand the previous paragraph, don't worry, it's hardly
 relevant to understanding NixOS modules themselves. Anyways, notice that
 instead of `environment.systemPackages` being declared in the top level of the
-module as we expect, we’re declaring it nested one layer deep inside of this
+module as we expect, we're declaring it nested one layer deep inside of this
 `config` attribute. This is because declaring an `options` attribute in a NixOS
 module forces us to declare all of our NixOS option settings in a `config`
-attribute instead of at the top level like we’re used to.
+attribute instead of at the top level like we're used to.
 
 Finally, inside of the `config` attribute, we declare our familiar
 `environment.systemPackages` option, and we use a conditional to check the
@@ -208,7 +208,7 @@ and refers to the _final state_ of the configuration. Since we declared
 this attribute set for us to query the value of.
 
 So this is another way to declare a NixOS module. If you want to add custom
-options in a module, you’ll have to declare an `options` and `config` objects,
+options in a module, you'll have to declare an `options` and `config` objects,
 then declare all of your familiar NixOS options in the `config` object. From
 this point of view, the simple NixOS module declaration from before is actually
 just a shorthand for declaring `config = {...}` without declaring any new
@@ -326,7 +326,7 @@ evaluated. `options` is an AttrSet of additional NixOS modules to declare.
 `config` is an AttrSet of that sets values for arbitrary NixOS options, as
 defined by default or other custom options.
 
-If we aren’t declaring any new options, we can omit the `options` attribute,
+If we aren't declaring any new options, we can omit the `options` attribute,
 and thus we can directly declare our `config` options in the top level.
 Otherwise, if we are setting `options`, we must set our configuration in
 `config`.
@@ -334,7 +334,7 @@ Otherwise, if we are setting `options`, we must set our configuration in
 The parameters provided to each module include `lib`, the nixpkgs standard
 library, `pkgs`, the package set of the system, and `config`, an AttrSet
 representing the final configuration of the system after all modules evaluate.
-There are other parameters, but we won’t mention them here.
+There are other parameters, but we won't mention them here.
 
 #btw[
   What about home-manager? home-manager modules heavily mimic NixOS

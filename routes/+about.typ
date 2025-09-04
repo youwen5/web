@@ -6,7 +6,7 @@
 
 #dropcap[
   W#smallcaps[elcome] to my hypertext garden on the World Wide Web. There are
-  many like it---but this one is mine. I’m Youwen, and I
+  many like it---but this one is mine. I'm Youwen, and I
   #link("/software/epilogue")[designed this website] myself, by hand, down to
   the last pixel of margin in paragraph headings. Amongst its pages are a
   mosaic of scattered thoughts, notes, essays, and fragments of my life.
@@ -34,7 +34,7 @@ In that sense, I despise _coding_, the act of translating a known problem and
 solution into procedures for a computer. Coding is best left to so-called _code
   monkeys_.
 
-I’m an adherent of the #link(newtab: true, "https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV]
+I'm an adherent of the #link(newtab: true, "https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV]
 of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
   observation that homotopy theory/algebraic topology, (homotopy) type theory,
   (higher) category theory and (higher) categorical algebra have a plethora of
@@ -47,7 +47,7 @@ of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
 
 = History
 
-I’m originally from Shanghai, China. I lived in the state of Utah for a few
+I'm originally from Shanghai, China. I lived in the state of Utah for a few
 years as a kid, before moving to the San Francisco Bay Area. I attended 6
 different elementary schools, 1 middle school, and 2 high schools.
 

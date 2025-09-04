@@ -13,7 +13,7 @@
   extraImgClass: "max-h-[200px] w-full object-cover h-[200px]",
 )
 
-I’m a member of the
+I'm a member of the
 #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Laboratory]
 and benevolent dictator at #link("https://functor.systems")[functor.systems].
 
@@ -29,12 +29,12 @@ In my spare time, I play guitar and spend too much money on guitar pedals. I
 also hate coding.
 
 See my #link("/about")[about page] for more about myself, or my
-#link("/now")[now page] for what I’m up to right now. Or explore
+#link("/now")[now page] for what I'm up to right now. Or explore
 the other pages on this website.
 
 #blockquote(attribution: [--- #link(
     "https://www.paulgraham.com/top.html",
-  )[Paul Graham]])[It’s hard to do a really good job on anything you don’t think about in the shower.]
+  )[Paul Graham]])[It's hard to do a really good job on anything you don't think about in the shower.]
 
 #show heading.where(level: 1): it => {
   html.elem("h2", attrs: (class: "!text-foreground"), it.body)

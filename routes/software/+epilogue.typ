@@ -9,8 +9,8 @@
 #let todo = sym.ballot
 #let in-progress = emoji.clock
 
-Here’s the elevator pitch: I want a static site generator
-that’s hackable and lets me write in a markup language
+Here's the elevator pitch: I want a static site generator
+that's hackable and lets me write in a markup language
 human-readable and writable like markdown but with the full power of a
 programming language.
 
@@ -21,10 +21,10 @@ without any client side JavaScript, in the spirit of the Web (back when it was
 still a capital W).
 
 #blockquote[
-  _Write JavaScript like it’s 2005._
+  _Write JavaScript like it's 2005._
 ]
 
-I couldn’t find anything that perfectly matched all of the
+I couldn't find anything that perfectly matched all of the
 qualities above. Usually, it was a trade-off between slick but austere (usually
 only supporting markdown with some plugins) or feature-rich but slow and
 clunky. So I ended up rolling my own, called it Epilogue, and it now powers
@@ -39,30 +39,30 @@ after framework and package after package is
 #link("https://en.wikipedia.org/wiki/Npm_left-pad_incident")[well documented]
 at this point. There are also a great many static site generators that have
 been established for years. So it feels strange to declare that, actually, we
-don’t have _enough_ choice already.
+don't have _enough_ choice already.
 
-But I think it’s true. Let’s briefly analyze two
+But I think it's true. Let's briefly analyze two
 primary ways content driven sites are deployed to the web, in so-called
 "modern web development". One: choose a web framework, and write in that.
 Two: use a static site generator, create some #smallcaps[html] templates, and
 write in Markdown or a similarly minimalistic markup language. (Three: a
 combination of both, like #link("https://astro.build/")[Astro].)
 
-There’s a time and place for web frameworks. I’m
+There's a time and place for web frameworks. I'm
 partial to Astro and Svelte. But for a personal website? Hell no.
-I’m not going to depend on 1000 #smallcaps[npm] packages and ship
+I'm not going to depend on 1000 #smallcaps[npm] packages and ship
 users ten thousand lines of JavaScript for three interactive widgets and an
 image carousel.
 
 I think Markdown is fine, but we can seriously do better. Markdown is for when
-you’re writing in a GitHub `README` and want some basic formatting.
-It’s rather austere for a markup language that generates content on
+you're writing in a GitHub `README` and want some basic formatting.
+It's rather austere for a markup language that generates content on
 a website you control. What if you want to define a custom reusable component?
 What if you want to programmatically do anything?
 
 Of course there are systems to give you more power #footnote[See
   #link("https://mdxjs.com/")[MDX], which lets you write JSX inside Markdown],
-but at the end of the day I think the principal issue is that you’re either
+but at the end of the day I think the principal issue is that you're either
 hacking a programming system into a markup language or a markup language into a
 programming system. The gold standard would be an actual markup language that
 treats programming as a first class citizen, or, equivalently, a programming
@@ -88,7 +88,7 @@ language where markup is a first class citizen.
 }
 
 This is where Typst comes in. In Typst, markup and code are fused into one.
-Typst is like #LaTeX, in that it’s programmatic and scriptable.
+Typst is like #LaTeX, in that it's programmatic and scriptable.
 Typst is like Markdown, in that basic markup (paragraphs, lists, tables,
 headings, etc.) is easy to use with dedicated syntax. But it has a much better
 scripting language than #TeX while being just as easy as Markdown. And, despite
@@ -99,15 +99,15 @@ to use. So instead of relying on third-party conversion utilities like
 Typst language and not worry about things getting lost in translation during conversion.
 
 Enough evangelizing. How does this website actually work? This website is
-generated in Typst, but it was missing some pieces. Typst doesn’t
+generated in Typst, but it was missing some pieces. Typst doesn't
 understand intrinsically how to render a collection of #smallcaps[html] pages
 into a website, so I hacked some additional infrastructure together. I wrote a
 tiny (1.3k lines of safe Rust code) static site generator called Epilogue that can
 parse a directory of Typst documents---representing routes---and then build it
-into a website. It works pretty well (you’re reading text generated
+into a website. It works pretty well (you're reading text generated
 by Typst right now).
 
-Is it actually usable? Surprisingly, yes. I’ve implemented a system
+Is it actually usable? Surprisingly, yes. I've implemented a system
 for obtaining metadata from Typst documents, so we can populate the website
 `<head>` for SEO. Almost every element on this site (with the exception of the
 navigation elements) is written somewhere in a Typst source file. I implemented
@@ -115,7 +115,7 @@ a thread pooled parallel compilation infrastructure so I can build hundreds of
 pages in a few seconds. I can basically do everything expected of a simple
 markdown static site generator right now.
 
-Remember those snazzy #LaTeX and #TeX symbols earlier? They’re
+Remember those snazzy #LaTeX and #TeX symbols earlier? They're
 rendered directly as embedded #smallcaps[svg]s, from this source code (stolen
 shamelessly from
 #link("https://github.com/typst/typst/discussions/1732", newtab: true)[swaits on the Typst GitHub]):
@@ -146,7 +146,7 @@ Try doing that with Markdown or React!
 There are a few essential features I still need to add though. We can get
 information out of a document, but we still need to pass information back
 in---for example, we might pass in a list of recent blog posts for rendering a
-feed. I also want stuff like Atom/RSS feeds. But overall, it’s
+feed. I also want stuff like Atom/RSS feeds. But overall, it's
 everything I want out of a static site generator---namely, the actual
 experience of writing markup is amazing thanks to Typst. I can define
 functions, create libraries for shared utilities and components, pull in
@@ -164,7 +164,7 @@ file.
   This whole idea of having like a document compiler that can take a source
   file [and] take it to multiple platforms, publishing targets is really more
   important than ever. I can tell you from many years spent among the short
-  people of the web development community that they don’t really have anything
+  people of the web development community that they don't really have anything
   for this.
 ]
 
@@ -190,7 +190,7 @@ pages, sitemaps, etc.
 
 - #todo Implement the "prefixes" system. Basically, rather than
   classifying pages based on their directory (e.g. `/blog` contains all blog
-  posts), I’d like to prefix the source file to tell Epilogue
+  posts), I'd like to prefix the source file to tell Epilogue
   what kind of page it is. Right now, the prefix `+` is already used for all
   routes to indicate that they are a route, so it should be as simple as
   extracting the prefix and matching it against a lookup and storing it along
@@ -201,12 +201,12 @@ pages, sitemaps, etc.
   - #todo Figure out how to pass data from the static site generator back into the website.
 - #todo #smallcaps[rss]/Atom feed.
 - #todo Figure out how image hosting will work
-  - #todo #smallcaps[cdn]? That would introduce complexity, but I don’t like the idea of hosting static assets in GitHub using gh pages
+  - #todo #smallcaps[cdn]? That would introduce complexity, but I don't like the idea of hosting static assets in GitHub using gh pages
     - #todo Would have to set up deployment pipeline
     - #todo Alternatively could move hosting off of gh pages and onto a personal server. Would have to write some sort of `axum` backend for this site (thus making it no longer static)
-    I think I have an idea for this. We obviously don’t want to store big files
+    I think I have an idea for this. We obviously don't want to store big files
     in the source tree of this site---instead, I could store files using a
-    version control system for large files like Syncthing. We’d push all our
+    version control system for large files like Syncthing. We'd push all our
     blobs to an S3-compatible bucket, like Cloudflare R2. Then, it remains to
     implement a tiny utility that can crawl the blob storage and generate a
     machine-readable manifest, tagging some sort of unique ID to each blob. In
@@ -219,7 +219,7 @@ pages, sitemaps, etc.
 = Done
 
 - #done Parallelized all expensive operations, shrinking run times by an order of magnitude.
-- #done Allow some routes to be PDFs instead of webpages. So e.g. we could introduce a file pattern like `$doc.typ` and in the place where it would’ve been as a webpage, it’s a PDF instead.
+- #done Allow some routes to be PDFs instead of webpages. So e.g. we could introduce a file pattern like `$doc.typ` and in the place where it would've been as a webpage, it's a PDF instead.
 - #done Set up syntax highlighting with #link("https://docs.rs/syntect/latest/syntect/html/index.html")[syntect] or #link("https://github.com/tree-sitter/tree-sitter/tree/master/highlight")[tree-sitter-highlight].
   - Used `prism.js` for now.
 - #done Set up TailwindCSS and a nice Big Beautiful Stylesheet.
@@ -232,10 +232,10 @@ pages, sitemaps, etc.
 - #done Ingest a rendered HTML artifact and then process it to remove `<head>` and `<doctype>` tags amongst other extraneous tags.
 - #done "nested" templating for implementing Navbar.
 - #done Figure out how to do metadata...should be able to extract it from Typst source files?
-  - #done Metadata is now possible, but slow. I’m thinking of doing a cache system where we keep a `.json` or `.toml` file that caches extracted metadata in `.epilogue` for fast development (and a switch in the code to skip inspecting metadata and trust the cache).
-    - Eventually once we have file-watching hot reload this file will work better. But it’s faster than multi-second build steps.
+  - #done Metadata is now possible, but slow. I'm thinking of doing a cache system where we keep a `.json` or `.toml` file that caches extracted metadata in `.epilogue` for fast development (and a switch in the code to skip inspecting metadata and trust the cache).
+    - Eventually once we have file-watching hot reload this file will work better. But it's faster than multi-second build steps.
     - Maybe also look into extracting multiple pieces of metadata at once. If not possible in Typst CLI, then will have to wait until CLI is replaced by embedding the `typst` create directly.
-    - NOTE: I’ve marked this task done but the above has not been implemented. Rather I’ve just figured out how to make it much faster by parsing JSON out of a single query. However hot reload is still in question.
+    - NOTE: I've marked this task done but the above has not been implemented. Rather I've just figured out how to make it much faster by parsing JSON out of a single query. However hot reload is still in question.
 
 = Wishlist
 

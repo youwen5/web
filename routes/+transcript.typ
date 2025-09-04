@@ -3,11 +3,11 @@
 #show: html-shim.with(
   title: "Transcript",
   date: datetime(day: 29, month: 4, year: 2025),
-  meta-description: "Youwen’s university transcript",
+  meta-description: "Youwen's university transcript",
 )
 
-This is a (mostly) continuously updated list of math and CS classes I’ve taken.
-Course names/descriptions are mine, not the university’s (#smallcaps[ucsb]
+This is a (mostly) continuously updated list of math and CS classes I've taken.
+Course names/descriptions are mine, not the university's (#smallcaps[ucsb]
 loves to assign the vaguest course names for their math classes. If you want
 the original course description, search the course code in the
 #link("https://www.google.com/search?client=firefox-b-1-d&channel=entpr&q=ucsb+catalog")[catalog]).

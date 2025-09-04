@@ -65,7 +65,7 @@ impl DefaultShell {
                 "[year]-[month]-[day] [hour]:[minute]:[second] utc[offset_hour sign:mandatory]"
             );
             time::UtcDateTime::from_unix_timestamp(time_str)
-                .expect("couldn’t parse datetime from unix timestamp")
+                .expect("couldn't parse datetime from unix timestamp")
                 .to_offset(time::macros::offset!(-7))
                 .format(&format_description)
                 .unwrap()

@@ -14,14 +14,14 @@ pleasant for reading Chinese (and CJK in general!).
 
 This article will specifically target the Scribe, but it should also work on the latest other models.
 
-Here’s the deal: the Kindle is definitely designed for a Latin-reading
+Here's the deal: the Kindle is definitely designed for a Latin-reading
 audience. It comes with a large selection of Latin fonts and no CJK fonts. Many
 Chinese books are not available on the e-bookstore. The latter is an easy fix;
 you can obtain Chinese ebooks however you like from other storefronts and load
 them onto the Kindle through Calibre or your preferred methods. However, the
 issue remains of font selection. By default, CJK characters _are_ displayed,
 but switches weirdly between sans and serif (Song/Ming) glyphs. Also, if you
-don’t like the builtin system font, tough luck.
+don't like the builtin system font, tough luck.
 
 Luckily, the Kindle actually allows you to load custom fonts, a little-known
 feature. All you have to do is download the fonts onto your computer and drop
@@ -44,17 +44,17 @@ so they would show up as a USB Drive. The Scribe, and presumably other newer
 devices, use the
 #link("https://en.wikipedia.org/wiki/Media_Transfer_Protocol")[Media Transfer
   Protocol (MTP)]. This means that `lsblk` or `fdisk -l` will not bring up the
-Scribe’s filesystem and you can’t just use `mount(8)` to access it, unlike what
+Scribe's filesystem and you can't just use `mount(8)` to access it, unlike what
 the top results on Google would suggest.
 
 All you will need is a way to access an MTP filesystem. If you are using
 #smallcaps[GNOME], this should require no action on your part. The
 #smallcaps[gnome] #link("https://en.wikipedia.org/wiki/GVfs")[GVfs] should
 support MTP out of the box, and you should be able to find it in Nautilus (also
-called "Files"). On my end, I’m running NixOS with Hyprland, but I have
-GVfs and Nautilus installed anyways, so that’s what I used.
+called "Files"). On my end, I'm running NixOS with Hyprland, but I have
+GVfs and Nautilus installed anyways, so that's what I used.
 
-Whichever way you chose to open the file system, simply peruse the Kindle’s
+Whichever way you chose to open the file system, simply peruse the Kindle's
 files until you quickly find the `fonts` folder, then drop in your font of
 choice. I recommend the Noto CJK family, and the Song/Ming style. By the way,
 variable fonts are supported too!
