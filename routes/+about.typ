@@ -17,6 +17,16 @@ I currently study math and computer science at the
 Favorite pastimes include watching classic movies and TV shows, playing guitar
 (poorly), video games, tinkering of all sorts, and long walks along the beach.
 
+I'm originally from Shanghai, China. My second hometown is Leiyang City
+(耒阳市), in Hunan Province, China---the birthplace of Cai Lun, the inventor of
+paper.
+
+I lived in the state of Utah for a few years as a kid, before moving to the San
+Francisco Bay Area. I attended 6 different elementary schools, 1 middle school,
+and 2 high schools.
+
+#dinkus
+
 Lately, besides hacking on random projects, my time has been mostly split
 between managing #link("functor.systems")[functor.systems], a hacker collective
 building cool stuff, and working on a few hardware/software projects with
@@ -42,57 +52,3 @@ of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
 
 #link("/static/img/iuselinuxbtw.jpg", internal: true, newtab: true)[By the way], I use NixOS. See
 #link("/tools")[this page] to hear all about my neurotic software choices.
-
-#dinkus
-
-= History
-
-I'm originally from Shanghai, China. I lived in the state of Utah for a few
-years as a kid, before moving to the San Francisco Bay Area. I attended 6
-different elementary schools, 1 middle school, and 2 high schools.
-
-= Math
-
-Broadly speaking the purpose of mathematics is likely to crush the dreams and
-self-esteem of young undergraduates. Before going to university I mistakenly
-believed that I was an intelligent entity who could think coherent thoughts and
-so-on. After a year of studying math I have come to the realization that I am
-merely a #link("https://www.goodreads.com/quotes/76608-anyone-who-cannot-cope-with-mathematics-is-not-fully-human")[#quote[tolerable
-  subhuman who has learned to wear his shoes, bathe, and not make messes in the
-  house.]]
-
-#webimg(
-  "https://preview.redd.it/kwp14kysyul41.png?auto=webp&s=25544fd77159edfd1b6276ea2c59a4d6b5c9cfe3",
-  "undergrad category theorist",
-)
-
-= Computing
-
-I seek to create more _reliable_ and _resilient_ systems. To that end I
-contribute to various open source projects that aim to increase reproducibility
-and determinism in software systems at scale.
-
-I run a purely functional (in the true mathematical sense) computing
-environment that enables the deterministic deployment of software,
-configuration, and infrastructure all the way down the stack. This includes
-both the system itself, which can never mutate state and must be rebuilt for
-modifications to be made, as well as a purely functional userspace, that keeps
-programs configured precisely as described and managed transactionally. My text
-editor is configured in a Lisp called Fennel and deployed in a purely
-functional fashion by Nix.
-
-Additionally, I prefer to work on and with software that respects my freedom.
-In fact my M1 Macbook Pro runs an entirely free reverse engineered graphics and
-driver stack. All of my computers run a free GNU/Linux operating system.
-
-Key benefits of my approach to computing include:
-
-- fearless hacking: as the system is rebuilt each time it is modified, it can
-  simply transactionally rollback to a previous system generation.
-- text-based and keyboard driven: by keeping the system entirely deterministic (not just
-  technically, but philosophically), I can ditch unwieldy graphical interfaces
-  and build a text-centered user experience.
-- trustless full source bootstrap:
-  secure yourself from malevolent state actors and resist the KTH by
-  bootstrapping the entire system from its free source code and a minimal amount
-  of binary seeds.
