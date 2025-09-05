@@ -7,10 +7,17 @@
   #link("https://ucsb.edu")[UC Santa Barbara].
 ]
 
-#webimg(
-  "/static/img/sunset.jpg",
-  "ucsb campus point sunset",
-  extraImgClass: "max-h-[200px] w-full object-cover h-[200px]",
+// #webimg(
+//   "/static/img/sunset.jpg",
+//   "ucsb campus point sunset",
+//   extraImgClass: "max-h-[200px] w-full object-cover h-[200px]",
+// )
+#html.elem(
+  "div",
+  attrs: (
+    class: "bg-gradient-to-tr from-love to-foam w-full rounded-md h-40",
+  ),
+  "",
 )
 
 I'm a member of the
