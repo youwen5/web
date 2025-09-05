@@ -28,7 +28,7 @@ and 2 high schools.
 #dinkus
 
 Lately, besides hacking on random projects, my time has been mostly split
-between managing #link("functor.systems")[functor.systems], a hacker collective
+between managing #link("https://functor.systems")[functor.systems], a hacker collective
 building cool stuff, and working on a few hardware/software projects with
 the #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Lab].
 
