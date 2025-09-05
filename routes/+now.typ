@@ -1,9 +1,9 @@
 #import "@preview/html-shim:0.1.0": *
 
 #show: html-shim.with(
-  date: datetime(day: 25, year: 2025, month: 5),
+  date: datetime(day: 4, year: 2025, month: 9),
   title: "Now",
-  location: "Santa Barbara, California",
+  location: "San Francisco, California",
   meta-description: "A now page, aka an answer to \"what have you been up to lately?\"",
   enable-comments: true,
 )
@@ -36,7 +36,7 @@ Winter 2026.
 
 = Done and still doing
 
-- I'm gonna be in Boston/Cambridge between Sep. 7th and 15th! Please reach out if you're in the area. I'll be at HackMIT too!
+- I'm gonna be in Boston/Cambridge between Sep. 7th and 15th! Please reach out if you're nearby! I'm mostly going to be hanging around the MIT/Harvard area. I'll be a hacker at #link("https://hackmit.org/")[HackMIT] too!
 
 = Future
 
