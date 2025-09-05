@@ -120,6 +120,13 @@
       degree: [B.S. _in_ Computer Science],
       date: [2024 --- 2028 (expected)],
     )
+    #if long {
+      education-entry(
+        institution: [Tsinghua University, Beijing],
+        degree: [Visiting exchange student],
+        date: [2026 (anticipated)],
+      )
+    }
   ]
 
   #let entry-wrapper(body) = context {
