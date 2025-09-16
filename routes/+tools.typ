@@ -20,15 +20,14 @@ usage of any tool. The less reliant I am on software and computers, the better #
 
 #table(
   columns: 2,
-  [OS], [NixOS (unstable, "Xantusia],
-)",
-[Editor], [Neovim],
-[Browser], [Zen],
-[Kernel(s)], [linux-zen, linux-asahi],
-[Desktop], [Hyprland (Wayland)],
-[Layout], [hyprscroller],
-[Terminal], [kitty],
-[Login shell], [Nushell (w/ fish completer)],
+  [OS], [NixOS (unstable, "Xantusia")],
+  [Editor], [Neovim],
+  [Browser], [Zen],
+  [Kernel(s)], [linux-zen, linux-asahi],
+  [Desktop], [Hyprland (Wayland)],
+  [Layout], [hyprscroller],
+  [Terminal], [kitty],
+  [Login shell], [Nushell (w/ fish completer)],
 )
 
 *Productivity:*
