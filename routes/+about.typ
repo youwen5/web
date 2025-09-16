@@ -26,13 +26,7 @@ at #link("https://hackmit.org/")[HackMIT 2025]. I've also won prizes at
 #link("https://sbhacks.com/")[SB Hacks XI] and
 #link("https://dataorbit-2025.devpost.com/")[UCSB DataOrbit].
 
-I like programming, somewhat #footnote[
-  #blockquote(attribution: [--- #link("https://www.imdb.com/title/tt22248376/")[Frieren and Fern]])[
-    "Do you like magic?"
-    "I like it somewhat, I guess."
-    "In that, we’re alike."
-  ]
-]. I hold the view of the
+I like programming, #link("https://www.jxmcorriss.com/blog/frieren")[somewhat]. I hold the view of the
 #link("https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html")[Wizard
   Book] #footnote[aka the legendary _Structure and Interpretation of Computer
     Programs_] that programming is _procedural epistemology_---the act of learning
