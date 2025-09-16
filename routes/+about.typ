@@ -8,31 +8,31 @@
   W#smallcaps[elcome] to my hypertext garden on the World Wide Web. There are
   many like it---but this one is mine. I'm Youwen, and I
   #link("/software/epilogue")[designed this website] myself, by hand, down to
-  the last pixel of margin in paragraph headings. Amongst its pages are a
-  mosaic of scattered thoughts, notes, essays, and fragments of my life.
+  the last pixel of margin in paragraph headings.
 ]
 
 I currently study math and computer science at the
 #link("https://www.ucsb.edu/")[University of California, Santa Barbara.]
 Favorite pastimes include watching classic movies and TV shows, playing guitar
-(poorly), video games, tinkering of all sorts, and long walks along the beach.
-
-I'm originally from Shanghai, China. My second hometown is Leiyang City
-(耒阳市), in Hunan Province, China---the birthplace of Cai Lun, the inventor of
-paper.
-
-I lived in the state of Utah for a few years as a kid, before moving to the San
-Francisco Bay Area. I attended 6 different elementary schools, 1 middle school,
-and 2 high schools.
-
-#dinkus
+(poorly), video games, hacking of all sorts, and long walks along the beach.
 
 Lately, besides hacking on random projects, my time has been mostly split
 between managing #link("https://functor.systems")[functor.systems], a hacker collective
 building cool stuff, and working on a few hardware/software projects with
 the #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Lab].
 
-I like programming, somewhat. I hold the view of the
+I occasionally attend hackathons for fun. Most recently, I won the grand prize
+at #link("https://hackmit.org/")[HackMIT 2025]. I've also won prizes at
+#link("https://sbhacks.com/")[SB Hacks XI] and
+#link("https://dataorbit-2025.devpost.com/")[UCSB DataOrbit].
+
+I like programming, somewhat #footnote[
+  #blockquote(attribution: [--- #link("https://www.imdb.com/title/tt22248376/")[Frieren and Fern]])[
+    "Do you like magic?"
+    "I like it somewhat, I guess."
+    "In that, we’re alike."
+  ]
+]. I hold the view of the
 #link("https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html")[Wizard
   Book] #footnote[aka the legendary _Structure and Interpretation of Computer
     Programs_] that programming is _procedural epistemology_---the act of learning
@@ -49,6 +49,16 @@ of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
   observation that homotopy theory/algebraic topology, (homotopy) type theory,
   (higher) category theory and (higher) categorical algebra have a plethora of
   useful applications.]
+
+#dinkus
+
+I'm originally from Shanghai, China. My second hometown is Leiyang City
+(耒阳市), in Hunan Province, China---the birthplace of Cai Lun, the inventor of
+paper.
+
+I lived in the state of Utah for a few years as a kid, before moving to the San
+Francisco Bay Area. I attended 6 different elementary schools, 1 middle school,
+and 2 high schools.
 
 #link("/static/img/iuselinuxbtw.jpg", internal: true, newtab: true)[By the way], I use NixOS. See
 #link("/tools")[this page] to hear all about my neurotic software choices.
