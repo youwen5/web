@@ -199,7 +199,19 @@
 
   #entry-wrapper[
     #experience-entry(
-      date: [11/24 --- now],
+      date: [03/25 --- now],
+      location: [Earth],
+      employer: [MIT OpenCompute Lab],
+      title: [Hacker],
+      [#text(
+        10pt,
+        [
+          - Organizing/participating in reading groups, hardware/software projects
+        ],
+      )],
+    )
+    #experience-entry(
+      date: [11/24 --- 06/25],
       location: [Santa Barbara, CA],
       employer: [UCSB Robotics Lab],
       title: [Systems programmer],
@@ -227,20 +239,22 @@
       )
     ]
 
-    #experience-entry(
-      date: [09/22 --- 06/24],
-      location: [SF Bay Area, CA],
-      employer: [FIRST Robotics Team 1280],
-      title: [Artificial intelligence lead],
-      [#text(10pt, [
-        - Worked on autonomous decision making and path planning algorithms
-        - Replaced the venerable *BozoAuto* autonomous subroutine with the
-          *DeepBozo* autonomous suite
-        - Designed a novel robot control dashboard
-          with 3D visualization using Rust, Tauri, and Svelte
-        - Won 2022 Monterey Bay Regional Competition
-      ])],
-    )
+    #if long [
+      #experience-entry(
+        date: [09/22 --- 06/24],
+        location: [SF Bay Area, CA],
+        employer: [FIRST Robotics Team 1280],
+        title: [Artificial intelligence lead],
+        [#text(10pt, [
+          - Worked on autonomous decision making and path planning algorithms
+          - Replaced the venerable *BozoAuto* autonomous subroutine with the
+            *DeepBozo* autonomous suite
+          - Designed a novel robot control dashboard
+            with 3D visualization using Rust, Tauri, and Svelte
+          - Won 2022 Monterey Bay Regional Competition
+        ])],
+      )
+    ]
   ]
 
   = Projects
@@ -354,6 +368,15 @@
   #entry-wrapper[
     #project-entry(
       date: [2025],
+      project: [Colmena Maps],
+      link: "https://code.functor.systems/youwen/colmena-maps",
+      type: "github",
+    )[
+      - Embodied agentic AI system that hunts down any desired item in Google Streetview using novel geospatial intelligence and spacetime-embeddings
+      - Won HackMIT 2025 Grand Prize (worth over US\$16,000)
+    ]
+    #project-entry(
+      date: [2025],
       project: [Virion],
       link: "https://github.com/youwen5/virion",
       type: "github",
@@ -378,23 +401,25 @@
     #if long [
       #project-entry(
         date: [2024],
-        project: [liminalOS],
-        link: "https://github.com/youwen5/liminalOS",
+        project: [functorOS],
+        link: "https://code.functor.systems/functor.systems/functorOS",
         type: "github",
       )[
-        - My custom Linux distribution based on NixOS
+        - A highly experimental NixOS based Linux® distribution
       ]
     ]
 
-    #project-entry(
-      date: [2024],
-      project: [Jankboard],
-      link: "https://github.com/youwen5/jankboard",
-      type: "github",
-    )[
-      - A bespoke driver control dashboard for Team 1280's 2024 competition robot
-      - Tauri application, with Svelte frontend and Rust glue code to communicate with robot
-      - 3D robot visualization using Three.js
+    #if long [
+      #project-entry(
+        date: [2024],
+        project: [Jankboard],
+        link: "https://github.com/youwen5/jankboard",
+        type: "github",
+      )[
+        - A bespoke driver control dashboard for Team 1280's 2024 competition robot
+        - Tauri application, with Svelte frontend and Rust glue code to communicate with robot
+        - 3D robot visualization using Three.js
+      ]
     ]
 
     #if long [
@@ -425,6 +450,7 @@
       }
     }
 
+    #award-entry(title: [HackMIT 2025 Grand Prize], date: [2025])
     #if long [
       #award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
       #award-entry(title: [SB Hacks XI, Winner], date: [2025])
