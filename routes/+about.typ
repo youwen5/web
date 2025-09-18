@@ -1,14 +1,16 @@
 #import "@preview/html-shim:0.1.0": *
 
-#show: html-shim.with(title: "About")
+#show: html-shim.with(
+  title: "About",
+)
 
 #let chinese-name = html.elem("span", attrs: (lang: "zh-Hans"), [佑文])
 
 #dropcap[
   W#smallcaps[elcome] to my hypertext garden on the World Wide Web. There are
   many like it---but this one is mine. I'm Youwen, and I
-  #link("/software/epilogue")[designed this website] myself, by hand, down to
-  the last pixel of margin in paragraph headings.
+  #link("/software/epilogue")[designed this website] myself, by hand, following
+  the tradition of hackers of yore.
 ]
 
 I currently study math and computer science at the
@@ -25,6 +27,16 @@ I occasionally attend hackathons for fun. Most recently, I won the grand prize
 at #link("https://hackmit.org/")[HackMIT 2025]. I've also won prizes at
 #link("https://sbhacks.com/")[SB Hacks XI] and
 #link("https://dataorbit-2025.devpost.com/")[UCSB DataOrbit].
+
+I'm originally from Shanghai, China. My second hometown is Leiyang City
+(耒阳市), in Hunan Province, China---the birthplace of
+#link("https://en.wikipedia.org/wiki/Cai_Lun")[Cai Lun], the inventor of paper #footnote[Ok, you've got me. Per wikipedia: "Although traditionally regarded as the inventor of paper, earlier forms of paper have existed since the 3rd century BCE, so Cai's contributions are limited to innovation, rather than invention." But that's not nearly as cool.].
+
+After that, I lived in the state of Utah for a few years as a kid, before
+moving to the San Francisco Bay Area. I attended 6 different elementary
+schools, 1 middle school, and 2 high schools.
+
+#dinkus
 
 I like programming, #link("https://www.jxmcorriss.com/blog/frieren")[somewhat]. I hold the view of the
 #link("https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html")[Wizard
@@ -43,16 +55,6 @@ of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
   observation that homotopy theory/algebraic topology, (homotopy) type theory,
   (higher) category theory and (higher) categorical algebra have a plethora of
   useful applications.]
-
-#dinkus
-
-I'm originally from Shanghai, China. My second hometown is Leiyang City
-(耒阳市), in Hunan Province, China---the birthplace of Cai Lun, the inventor of
-paper.
-
-I lived in the state of Utah for a few years as a kid, before moving to the San
-Francisco Bay Area. I attended 6 different elementary schools, 1 middle school,
-and 2 high schools.
 
 #link("/static/img/iuselinuxbtw.jpg", internal: true, newtab: true)[By the way], I use NixOS. See
 #link("/tools")[this page] to hear all about my neurotic software choices.
