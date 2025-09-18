@@ -99,9 +99,9 @@ the other pages on this website.
 }
 
 #{
-  update(date: "May 19th, 2025", href: "/unicode-quotes", {
-    icon(name: "newspaper")
-    [Stop using the wrong quotes!]
+  update(date: "Aug 31, 2025", href: "/writing/anatomy-of-a-nixos-module", {
+    icon(name: "code")
+    [Explainer: the anatomy of a NixOS module]
   })
   update(date: "May 19th, 2025", href: "/math/three-isomorphism-theorems", {
     icon(name: "newspaper")
