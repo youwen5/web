@@ -69,6 +69,10 @@ the other pages on this website. Just for fun, my #link("/misc/fav-songs")[favor
 }
 = Recently
 
+#html.elem("p", attrs: (
+  class: "text-sm text-subtle not-prose",
+))[#smallcaps[RSS] feed coming soon!]
+
 #let icon(name: "") = {
   html.elem("span", attrs: (class: "my-auto w-[24px]"), lucide-icon(name: name))
 }
@@ -99,7 +103,7 @@ the other pages on this website. Just for fun, my #link("/misc/fav-songs")[favor
   ]
 }
 
-#{
+#html.elem("div", {
   update(date: "Aug 31, 2025", href: "/writing/anatomy-of-a-nixos-module", {
     icon(name: "code")
     [Explainer: the anatomy of a NixOS module]
@@ -126,9 +130,13 @@ the other pages on this website. Just for fun, my #link("/misc/fav-songs")[favor
       [Doing web development in Typst]
     },
   )
-}
+})
 
 = Photos
+
+#html.elem("p", attrs: (
+  class: "text-sm text-subtle",
+))[I recently won a Nikon D7500 DSLR at HackMIT so hopefully I'll be posting more in the near future!]
 
 #let photo-urls = (
   (
