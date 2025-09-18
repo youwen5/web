@@ -386,17 +386,29 @@
       - Won award at the #link("https://dataorbit-2025.devpost.com/")[UCSB DataOrbit Hackathon]
     ]
 
-    #if long [
-      #project-entry(
-        date: [2025],
-        project: [This website],
-        link: "https://github.com/youwen5/web",
-        type: "github",
-      )[
-        - Powered by a fully custom handrolled static site generator, written in Rust
-        - Accessible, perfect 100s on Google's Lighthouse benchmark
+    #context {
+      if long [
+        #project-entry(
+          date: [2025],
+          project: [
+            web.youwen.dev
+            #if target() == "html" [(this website)]
+          ],
+          link: "https://github.com/youwen5/web",
+          demo-link: if target() == "html" { "" } else {
+            "https://web.youwen.dev"
+          },
+          type: "github",
+        )[
+          - Powered by a fully custom handrolled static site generator, written in Rust
+          #if target() == "html" [
+            - Accessible, perfect 100s on Google's Lighthouse benchmark
+          ] else [
+            - My personal website
+          ]
+        ]
       ]
-    ]
+    }
 
     #if long [
       #project-entry(
