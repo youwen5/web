@@ -36,6 +36,9 @@ experimental NixOS-based Linux distribution---among other things.
 In my spare time, I play guitar and spend too much money on guitar pedals. I
 also hate coding.
 
+I occasionally attend hackathons for fun. Most recently, I won the grand prize
+at #link("https://hackmit.org/")[HackMIT 2025].
+
 See my #link("/about")[about page] for more about myself, or my
 #link("/now")[now page] for what I'm up to right now. Or explore
 the other pages on this website.
