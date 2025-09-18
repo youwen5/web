@@ -41,7 +41,8 @@ at #link("https://hackmit.org/")[HackMIT 2025].
 
 See my #link("/about")[about page] for more about myself, or my
 #link("/now")[now page] for what I'm up to right now. Or explore
-the other pages on this website.
+the other pages on this website. Just for fun, my #link("/misc/fav-songs")[favorite
+  songs] and #link("/tools")[tools].
 
 // #blockquote(attribution: [--- #link(
 //     "https://en.wikiquote.org/wiki/Linus_Torvalds",

@@ -133,6 +133,12 @@ impl DefaultShell {
                                     }
                                 }
                                 div class="space-y-1" {
+                                    p class="all-smallcaps text-lg" {"Fun"}
+                                    ul class="space-y-2 text-subtle text-base" {
+                                        (fun)
+                                    }
+                                }
+                                div class="space-y-1" {
                                     p class="all-smallcaps text-lg" {"Other"}
                                     ul class="space-y-2 text-subtle text-base" {
                                         (other)
