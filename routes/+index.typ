@@ -103,13 +103,13 @@ the other pages on this website.
     icon(name: "code")
     [Explainer: the anatomy of a NixOS module]
   })
-  update(date: "May 19th, 2025", href: "/math/three-isomorphism-theorems", {
+  update(date: "May 19, 2025", href: "/math/three-isomorphism-theorems", {
     icon(name: "newspaper")
     [Three isomorphism theorems in linear algebra]
   })
 
   update(
-    date: "May 12th, 2025",
+    date: "May 12, 2025",
     href: "/writing/parallelizing-this-website-for-free",
     {
       icon(name: "code")
@@ -118,7 +118,7 @@ the other pages on this website.
   )
 
   update(
-    date: "May 10th, 2025",
+    date: "May 10, 2025",
     href: "/writing/doing-web-development-in-typst",
     {
       icon(name: "code")

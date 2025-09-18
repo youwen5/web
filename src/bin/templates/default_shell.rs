@@ -89,6 +89,10 @@ impl DefaultShell {
             li {a class="hover:bg-surface transition-colors" href="/math/three-isomorphism-theorems" {"Three isomorphism theorems"}}
         };
 
+        let fun = maud! {
+            li {a class="hover:bg-surface transition-colors" href="/misc/fav-songs" {"Favorite songs"}}
+        };
+
         let other = maud! {
             li {a class="hover:bg-surface transition-colors" href="/faqs" {"Frequently asked questions"}}
             li {a class="hover:bg-surface transition-colors" href="/impressum" {"Impressum"}}
@@ -167,6 +171,12 @@ impl DefaultShell {
                                             span class="all-smallcaps text-lg" {"Math"}
                                             ul class="space-y-2 text-subtle text-lg" {
                                                 (math)
+                                            }
+                                        }
+                                        div class="space-y-2" {
+                                            span class="all-smallcaps text-lg" {"Fun"}
+                                            ul class="space-y-2 text-subtle text-lg" {
+                                                (fun)
                                             }
                                         }
                                         div class="space-y-1" {
