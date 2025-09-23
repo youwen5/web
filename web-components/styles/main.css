@@ -115,7 +115,7 @@ body {
 	font-size: 0.8em;
 }
 
-.subhead:first-child:first-letter {
+.subhead:first-letter {
 	@apply text-[5.6em] mt-[0.11em] mr-[0.14em];
 	font-variant: normal;
 	float: left;
