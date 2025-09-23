@@ -270,7 +270,7 @@ the other pages on this website. Just for fun, my #link("/misc/fav-songs")[favor
       [Read my code on code.functor.systems]
     })
 
-    entry(href: "https://youwen5.bsky.social", {
+    entry(href: "https://bsky.app/profile/youwen.dev", {
       icon(name: "origami")
       [Bluesky]
     })
