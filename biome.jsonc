@@ -6,10 +6,13 @@
 		"formatter": {
 			"quoteStyle": "single"
 		}
-	},
-	"css": {
-		"parser": {
-			"tailwindDirectives": true
-		}
 	}
+	// "css": {
+	// 	"parser": {
+	// 		"tailwindDirectives": true
+	// 	},
+	// 	"formatter": {
+	// 		"enabled": true
+	// 	}
+	// }
 }
