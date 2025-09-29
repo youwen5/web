@@ -373,7 +373,7 @@
       type: "github",
     )[
       - Embodied agentic AI system that hunts down any desired item in Google Streetview using novel geospatial intelligence and spacetime-embeddings
-      - Won HackMIT 2025 Grand Prize (worth over US\$16,000)
+      - Won HackMIT 2025 Grand Prize (worth over US\$4,000)
     ]
     #project-entry(
       date: [2025],
