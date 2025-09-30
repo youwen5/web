@@ -24,25 +24,27 @@ I'm a member of the
 #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Laboratory]
 and benevolent dictator at #link("https://functor.systems")[functor.systems].
 
-Here is my #link("https://github.com/youwen5")[GitHub], #link("/transcript")[university transcript], #link("/cv")[CV/resume], and #link("/static/img/cat_babies.jpg")[a picture of my cats].
+Here is my #link("https://github.com/youwen5")[GitHub],
+#link("/transcript")[university transcript], #link("/cv")[CV/resume], and
+#link("/static/img/cat_babies.jpg")[a picture of my cats].
 
-I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV] and
-how we can apply higher structures to solve hard problems. In general, I prefer
-to use #link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
-  software]. Right now I'm working on
+I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV]
+and how we can apply higher structures to solve hard problems. In general, I
+prefer to use
+#link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
+  software]. I developed
 #link("https://code.functor.systems/functor.systems/functorOS")[functorOS], an
-experimental NixOS-based Linux distribution---among other things.
-
-In my spare time, I play guitar and spend too much money on guitar pedals. I
-also hate coding.
+experimental NixOS-based Linux distribution---among other free software contributions.
 
 I occasionally attend hackathons for fun. Most recently, I won the grand prize
-at #link("https://hackmit.org/")[HackMIT 2025].
+at #link("https://hackmit.org/")[HackMIT 2025]. This year I am organizing #link("https://sbhacks.com/")[SB
+  Hacks], the headline hackathon of UC Santa Barbara.
 
-See my #link("/about")[about page] for more about myself, or my
-#link("/now")[now page] for what I'm up to right now. Or explore
-the other pages on this website. Just for fun, my #link("/misc/fav-songs")[favorite
-  songs] and #link("/tools")[tools].
+In my spare time, I play guitar and spend too much money on guitar pedals. I
+listen to a lot of #link("/misc/fav-songs")[music].
+
+See #link("/about")[about] for more about myself, or #link("/now")[now] for
+what I'm up to right now. Or explore the other pages on this website.
 
 // #blockquote(attribution: [--- #link(
 //     "https://en.wikiquote.org/wiki/Linus_Torvalds",
