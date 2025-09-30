@@ -464,8 +464,6 @@
 
     #award-entry(title: [HackMIT 2025 Grand Prize], date: [2025])
     #if long [
-      #award-entry(title: [UCSB DataOrbit, Winner], date: [2025])
-      #award-entry(title: [SB Hacks XI, Winner], date: [2025])
       #award-entry(
         title: [Dean's Honors #(sym.times)3],
         date: [2024 --- 2025],
