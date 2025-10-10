@@ -135,71 +135,6 @@
   }
 }
 
-#let std-footnote = footnote
-
-#let footnote(..args) = context {
-  let body = args.pos().at(0)
-  let numbering = if args.pos().len() > 1 {
-    args.pos().at(1)
-  } else {
-    "1"
-  }
-
-  if target() == "html" {
-    counter("custom-footnote").step()
-    [~]
-    html.elem(
-      "span",
-      attrs: (
-        class: "footnote-container group",
-      ),
-      {
-        html.elem(
-          "span",
-          attrs: (
-            class: "footnote-tooltip font-index text-iris cursor-pointer hover:bg-love/15 transition-colors [font-feature-settings:'ss01']",
-            onclick: "this.parentElement.classList.toggle('show-tooltip')",
-            role: "button",
-            aria-label: "Toggle footnote",
-          ),
-          [#counter("custom-footnote").display()],
-        )
-        html.elem(
-          "span",
-          attrs: (
-            class: "sr-only group-[.show-tooltip]:hidden",
-            aria-label: "Footnote content",
-          ),
-          body,
-        )
-        html.elem(
-          "span",
-          attrs: (
-            class: "hidden group-[.show-tooltip]:block font-serif text-foreground bg-overlay p-2 my-2 text-[0.8em] border-1 border-slate-200 dark:border-zinc-700 rounded-md min-w-full footnote-body",
-          ),
-          {
-            body
-            html.elem(
-              "span",
-              attrs: (
-                onclick: "this.parentElement.parentElement.classList.remove('show-tooltip')",
-                aria-label: "Close footnote",
-                role: "button",
-                class: "cursor-pointer text-love all-smallcaps hover:bg-love/15 transition-colors",
-              ),
-              [#linebreak() #sym.lozenge close],
-            )
-          },
-        )
-      },
-    )
-    [~]
-  } else {
-    std-footnote(body, numbering: numbering)
-  }
-}
-
-
 #let html-shim(
   body,
   date: none,
@@ -215,8 +150,6 @@
   thumbnail: none,
   math-escape-mode: false,
 ) = {
-  counter("custom-footnote").step()
-
   show <rendermath>: it => {
     show math.equation.where(block: true): it => {
       html.elem(
@@ -260,6 +193,19 @@
 
   show figure: it => {
     html.elem("figure", attrs: (class: "math block-math"), html.frame(it))
+  }
+
+  show footnote: it => {
+    show super: it2 => {
+      html.elem(
+        "sup",
+        attrs: (
+          class: "font-index text-iris text-[0.83em] hover:bg-love/15 transition-colors] ml-0.5 [vertical-align: baseline] relative -top-[0.33em]",
+        ),
+        [#it2.body],
+      )
+    }
+    it
   }
 
   show smallcaps: it => context {
