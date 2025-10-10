@@ -34,10 +34,15 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    typst = {
+      url = "github:typst/typst/b6afb56513fec5cecd499b4d03d42d50cdd4762a";
+      flake = false;
+    };
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       crane,
@@ -65,16 +70,11 @@
               (final: prev: {
                 typst = prev.typst.overrideAttrs (
                   finalAttrs: prevAttrs: {
-                    src = pkgs.fetchFromGitHub {
-                      owner = "typst";
-                      repo = "typst";
-                      rev = "560e49b67ca738e2b2768d7eda3bccdb47570dcc";
-                      hash = "sha256-q7kXQaQFRe/2asUd/ntxKIJ4yhaUO+xqs7/wV6aQ0vA=";
-                    };
+                    src = inputs.typst;
                     cargoDeps = prevAttrs.cargoDeps.overrideAttrs (prevAttrs: {
                       vendorStaging = prevAttrs.vendorStaging.overrideAttrs {
                         inherit (finalAttrs) src;
-                        outputHash = "sha256-GeZB+ZOJ092pstPQQZPRJIMvkTsbUgkrIW695wwDvG8=";
+                        outputHash = "sha256-xqdHfLGTPWk2yQrKw9daKFeQQHsUtfmorlG1IJ+x8t4=";
                       };
                     });
                   }

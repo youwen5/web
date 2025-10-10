@@ -155,6 +155,7 @@
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks",
         "treefmt-nix": "treefmt-nix",
+        "typst": "typst",
         "valkyrie-font": "valkyrie-font"
       }
     },
@@ -207,6 +208,23 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "typst": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760028212,
+        "narHash": "sha256-BBIAvupYZMZPP2FW/PVliIqIRygcilB+jMe0MAS6Dus=",
+        "owner": "typst",
+        "repo": "typst",
+        "rev": "b6afb56513fec5cecd499b4d03d42d50cdd4762a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "typst",
+        "repo": "typst",
+        "rev": "b6afb56513fec5cecd499b4d03d42d50cdd4762a",
         "type": "github"
       }
     },
