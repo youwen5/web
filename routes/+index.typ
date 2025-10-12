@@ -15,7 +15,7 @@
 #html.elem(
   "div",
   attrs: (
-    class: "bg-gradient-to-tr from-love to-foam w-full rounded-md h-40",
+    class: "bg-gradient-to-tr from-love to-foam w-full rounded-md h-40 bg-[length:200%_auto] animate-gradient-move",
   ),
   "",
 )
