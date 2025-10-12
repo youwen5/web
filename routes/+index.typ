@@ -37,8 +37,9 @@ prefer to use
 experimental NixOS-based Linux distribution---among other free software contributions.
 
 I occasionally attend hackathons for fun. Most recently, I won the grand prize
-at #link("https://hackmit.org/")[HackMIT 2025]. This year I am organizing #link("https://sbhacks.com/")[SB
-  Hacks], the headline hackathon of UC Santa Barbara.
+at #link("https://hackmit.org/")[HackMIT 2025]. This year I am organizing
+#link("https://sbhacks.com/")[SB Hacks], the headliner hackathon of UC Santa
+Barbara.
 
 In my spare time, I play guitar and spend too much money on guitar pedals. I
 listen to a lot of #link("/misc/fav-songs")[music].
