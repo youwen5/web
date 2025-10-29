@@ -11,7 +11,7 @@ Some frequently asked and also less frequently asked questions. Updated every
 once in a while. This is basically an advice page.
 
 Before internalizing anything from this page, my foremost advice is to _ignore
-  all advice you don't agree with_, including this. During high school I made the
+all advice you don't agree with_, including this. During high school I made the
 unfortunate decision to listen to the advice of many, many anonymous internet
 kind strangers as well as classmates who were far more mediocre than myself.
 For instance, be highly wary of advice of this form, especially in high school.
@@ -68,7 +68,7 @@ For convenience, quickly jump down to: #link("#programming")[programming FAQs], 
 
   For further consideration, MIT Admissions'
   #link("https://mitadmissions.org/blogs/entry/applying_sideways/")[_Applying
-    Sideways_] is so overrecommended but still so salient, and the general theme
+  Sideways_] is so overrecommended but still so salient, and the general theme
   applies to so much more than just MIT admissions. Want to do _X_ which seems
   intractable? Focus on learning doing as much as you can related to _X_ for
   its own sake, and you just might end up achieving _X_. In the (honestly
@@ -78,7 +78,7 @@ For convenience, quickly jump down to: #link("#programming")[programming FAQs], 
 
   Also read the similar post
   #link("https://mitadmissions.org/blogs/entry/applying-sideways-beyond-admissions/")[_applying
-    sideways, beyond admissions_] which further expands upon this.
+  sideways, beyond admissions_] which further expands upon this.
 
 #tag("school-and-college")
 == School & college

@@ -16,7 +16,7 @@ non-exhaustive list. Continuously updated, hopefully.
 - #link("https://www.last.fm/music/Ryo+Fukui")[Ryo Fukui]
 
   Not even considered one of the greatest jazz bands of all time, but _I Want
-    To Talk About You_ is so good.
+  To Talk About You_ is so good.
 
 - #link("https://www.last.fm/music/Kendrick+Lamar")[Kendrick Lamar]
 

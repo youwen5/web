@@ -41,14 +41,14 @@ schools, 1 middle school, and 2 high schools.
 I like programming, #link("https://www.jxmcorriss.com/blog/frieren")[somewhat]. I hold the view of the
 #link("https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html")[Wizard
   Book] #footnote[aka the legendary _Structure and Interpretation of Computer
-    Programs_] that programming is _procedural epistemology_---the act of learning
+  Programs_] that programming is _procedural epistemology_---the act of learning
 and understanding enough about a problem to write code to solve it. The process
 of writing and iterating on code itself _is_ the valuable portion. In contrast,
 the final code produced to solve a problem is merely a _side effect_ of the
 process of discovering enough about the problem to write it in the first place.
 In that sense, I despise _coding_, the act of translating a known problem and
 solution into procedures for a computer. Coding is best left to so-called _code
-  monkeys_.
+monkeys_.
 
 I'm an adherent of the #link(newtab: true, "https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV]
 of the #link("https://ncatlab.org/nlab/show/HomePage")[#emph[n]Lab]: #quote[the
