@@ -34,11 +34,6 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    typst = {
-      url = "github:typst/typst/b6afb56513fec5cecd499b4d03d42d50cdd4762a";
-      flake = false;
-    };
   };
 
   outputs =
@@ -64,24 +59,7 @@
       (
         system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [
-              (final: prev: {
-                typst = prev.typst.overrideAttrs (
-                  finalAttrs: prevAttrs: {
-                    src = inputs.typst;
-                    cargoDeps = prevAttrs.cargoDeps.overrideAttrs (prevAttrs: {
-                      vendorStaging = prevAttrs.vendorStaging.overrideAttrs {
-                        inherit (finalAttrs) src;
-                        outputHash = "sha256-xqdHfLGTPWk2yQrKw9daKFeQQHsUtfmorlG1IJ+x8t4=";
-                      };
-                    });
-                  }
-                );
-              })
-            ];
-          };
+          pkgs = import nixpkgs { inherit system; };
 
           pnpm = pkgs.pnpm_10;
 
