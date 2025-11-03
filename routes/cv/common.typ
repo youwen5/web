@@ -462,6 +462,12 @@
       }
     }
 
+    #if long [
+      #award-entry(
+        title: [George H. Griffiths and Olive J. Griffiths Scholarship (UCSB)],
+        date: [2025],
+      )
+    ]
     #award-entry(title: [HackMIT 2025 Grand Prize], date: [2025])
     #if long [
       #award-entry(
