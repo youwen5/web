@@ -58,13 +58,17 @@ what I'm up to right now. Or explore the other pages on this website.
 //   the kind of person I am.
 // ]
 
-#blockquote(attribution: [--- #link(
-    "https://johncarlosbaez.wordpress.com/2015/03/27/spivak-part-1/",
-  )[David Spivak]])[
-  Is the world alive, is it a single living thing? If it is, in the sense I
-  meant, then its primary job is to survive, and to survive it'll have to make
-  decisions. So there I was in my living room thinking, "oh my god, we’ve got to
-  steer this thing!"
+// #blockquote(attribution: [--- #link(
+//     "https://johncarlosbaez.wordpress.com/2015/03/27/spivak-part-1/",
+//   )[David Spivak]])[
+//   Is the world alive, is it a single living thing? If it is, in the sense I
+//   meant, then its primary job is to survive, and to survive it'll have to make
+//   decisions. So there I was in my living room thinking, "oh my god, we’ve got to
+//   steer this thing!"
+// ]
+
+#blockquote(attribution: [--- Albert Einstein])[
+  Do not worry too much about your difficulty in mathematics, I can assure you that mine are still greater.
 ]
 
 #show heading.where(level: 1): it => {
