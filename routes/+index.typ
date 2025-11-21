@@ -3,7 +3,7 @@
 #show: html-shim
 
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
-  #smallcaps(all: true)[Greetings. I'm Youwen]. I study math and hack on computers at
+  #smallcaps(all: true)[Hi there. I'm Youwen]. I study math and computer science at
   #link("https://ucsb.edu")[UC Santa Barbara].
 ]
 
@@ -12,13 +12,15 @@
 //   "ucsb campus point sunset",
 //   extraImgClass: "max-h-[200px] w-full object-cover h-[200px]",
 // )
+
 #html.elem(
   "div",
   attrs: (
-    class: "bg-gradient-to-tr from-love to-foam w-full rounded-md h-40 bg-[length:200%_auto] animate-gradient-move",
+    class: "bg-gradient-to-tr from-love to-foam w-full rounded-md h-40 bg-[length:200%_auto] animate-gradient-move relative",
   ),
   "",
 )
+
 
 I'm a member of the
 #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Laboratory]
@@ -36,8 +38,9 @@ prefer to use
 #link("https://code.functor.systems/functor.systems/functorOS")[functorOS], an
 experimental NixOS-based Linux distribution---among other free software contributions.
 
-I occasionally attend hackathons for fun. Most recently, I won the grand prize
-at #link("https://hackmit.org/")[HackMIT 2025]. This year I am organizing
+I like #link("https://stallman.org/articles/on-hacking.html")[hacking], and
+hackathons. Most recently, I won the grand prize at
+#link("https://hackmit.org/")[HackMIT 2025]. This year I am organizing
 #link("https://sbhacks.com/")[SB Hacks], the headliner hackathon of UC Santa
 Barbara.
 
@@ -58,18 +61,46 @@ what I'm up to right now. Or explore the other pages on this website.
 //   the kind of person I am.
 // ]
 
-// #blockquote(attribution: [--- #link(
-//     "https://johncarlosbaez.wordpress.com/2015/03/27/spivak-part-1/",
-//   )[David Spivak]])[
-//   Is the world alive, is it a single living thing? If it is, in the sense I
-//   meant, then its primary job is to survive, and to survive it'll have to make
-//   decisions. So there I was in my living room thinking, "oh my god, we’ve got to
-//   steer this thing!"
-// ]
-
-#blockquote(attribution: [--- Albert Einstein])[
-  Do not worry too much about your difficulty in mathematics, I can assure you that mine are still greater.
+#blockquote(attribution: [--- #link(
+    "https://johncarlosbaez.wordpress.com/2015/03/27/spivak-part-1/",
+  )[David Spivak]])[
+  Is the world alive, is it a single living thing? If it is, in the sense I
+  meant, then its primary job is to survive, and to survive it'll have to make
+  decisions. So there I was in my living room thinking, "oh my god, we’ve got to
+  steer this thing!"
 ]
+
+// #html.elem(
+//   "div",
+//   attrs: (
+//     class: "w-full h-40 relative mb-16",
+//   ),
+//   {
+//     html.elem(
+//       "div",
+//       attrs: (
+//         class: "absolute left-1/3 top-1/4 -translate-y-1/4 -translate-x-1/3 h-5/8 w-1/3 px-4 py-4 rounded-md bg-gradient-to-bl from-love to-foam",
+//       ),
+//       "",
+//     )
+//
+//     html.elem(
+//       "div",
+//       attrs: (
+//         class: "absolute left-1/3 top-1/4 translate-y-1/4 translate-x-1/3 h-5/8 w-1/3 px-4 py-4 rounded-md bg-gradient-to-tl from-iris to-pine",
+//       ),
+//       "",
+//     )
+//
+//     html.elem("span", attrs: (
+//       class: "absolute left-1/2 top-1/2 -translate-1/2 text-center w-full text-2xl text-zinc-100 dark:text-slate-100 mix-blend-difference",
+//     ))[_Imagine_ what we can _become_.]
+//   },
+// )
+//
+// #blockquote(attribution: [--- Albert Einstein])[
+//   Do not worry too much about your difficulty in mathematics, I can assure you that mine are still greater.
+// ]
 
 #show heading.where(level: 1): it => {
   html.elem("h2", attrs: (class: "!text-foreground"), it.body)
@@ -353,7 +384,13 @@ what I'm up to right now. Or explore the other pages on this website.
 #html.elem(
   "div",
   attrs: (
-    class: "bg-gradient-to-r from-love to-foam w-full rounded-md mt-8 h-24",
+    class: "bg-gradient-to-r from-love to-foam w-full rounded-md mt-8 h-24 relative",
   ),
-  "",
+  html.elem(
+    "span",
+    attrs: (
+      class: "absolute right-0 bottom-0 pb-2 pr-4 sm:text-2xl text-slate-100",
+    ),
+    [_Imagine_ what we can _become_.],
+  ),
 )
