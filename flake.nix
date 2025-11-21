@@ -107,7 +107,7 @@
                 pname = "site-pnpm-deps";
                 src = ./web-components;
                 fetcherVersion = 2;
-                hash = "sha256-8U+9D4Kj2biFSMJg7/cJvcUOsuWNgONfUfq8VzXHuu8=";
+                hash = "sha256-0P22HVoEWqFOoc8YCtmWZuKm2bxSucSdsy1YiQSefIE=";
               };
             in
             pkgs.stdenv.mkDerivation (finalAttrs: {
