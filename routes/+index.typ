@@ -389,7 +389,7 @@ what I'm up to right now. Or explore the other pages on this website.
   html.elem(
     "span",
     attrs: (
-      class: "absolute right-0 bottom-0 pb-2 pr-4 sm:text-2xl text-slate-100",
+      class: "absolute right-0 bottom-0 pb-2 pr-4 sm:text-2xl text-bg",
     ),
     [_Imagine_ what we can _become_.],
   ),
