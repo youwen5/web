@@ -18,10 +18,8 @@ impl Template for WidePage {
             width: super::default_shell::PageWidth::Wide,
         }
         .render_with_children(maud! {
-            @if metadata.title.is_some() {
-                 h1 class="all-smallcaps md:text-4xl text-center md:text-start text-3xl mt-3" {
-                     (metadata.title.as_ref().unwrap())
-                 }
+            @if let Some(title) = &metadata.title {
+                 h1 class="all-smallcaps md:text-4xl text-center md:text-start text-3xl mt-3" { (title) }
             }
             div id="typst-injected" class="prose-lg lg:prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground" {
                 (content)
