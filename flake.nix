@@ -317,6 +317,7 @@
                 just
                 rsync
                 caddy
+                prettier
               ])
               ++ [
                 rustToolchain

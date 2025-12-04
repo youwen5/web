@@ -8,9 +8,8 @@
     taplo.enable = true;
     rustfmt.enable = true;
     rustfmt.package = rustToolchain;
-    yamlfmt.enable = true;
-    # temporary until #7164 makes its way to release
-    biome.enable = false;
+    prettier.enable = true;
+    prettier.settings = builtins.fromJSON (builtins.readFile ../.prettierrc);
     typstyle.enable = true;
   };
 
