@@ -23,17 +23,15 @@ impl Template for Prose {
             width: super::default_shell::PageWidth::Prose,
         }
         .render_with_children(maud! {
-            @if metadata.title.is_some() { h1 class="all-smallcaps md:text-3xl text-2xl text-center mt-4" {(metadata.title.as_ref().unwrap())} }
+            @if let Some(title) = &metadata.title { h1 class="all-smallcaps md:text-3xl text-2xl text-center mt-4" {(title)} }
             div class="space-y-1 text-center mt-4" {
-                @if metadata.date.is_some() { p class="text-subtle text-md md:text-lg" {(metadata.date.unwrap().format(&date_format).unwrap())} }
-                @if metadata.location.is_some() { p class="text-subtle text-md md:text-lg" {(metadata.location.as_ref().unwrap())} }
-                @if metadata.special_author.is_some() { p class="text-lg md:text-xl mt-5" {span class="italic" {"by " } (metadata.special_author.as_ref().unwrap())} }
+                @if let Some(date) = &metadata.date { p class="text-subtle text-md md:text-lg" {(date.format(&date_format).unwrap())} }
+                @if let Some(location) = &metadata.location { p class="text-subtle text-md md:text-lg" {(location)} }
+                @if let Some(special_author) = &metadata.special_author { p class="text-lg md:text-xl mt-5" {span class="italic" {"by " } (special_author)} }
             }
             div id="typst-injected" class="prose-lg lg:prose-xl mt-8 prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground prose-list-snazzy prose-table-snazzy scroll-smooth" {
-                @if metadata.subtitle.is_some() {
-                    p class="text-subtle italic" {
-                        (metadata.subtitle.as_ref().unwrap())
-                    }
+                @if let Some(subtitle) = &metadata.subtitle {
+                    p class="text-subtle italic" { (subtitle) }
                 }
                 (content)
             }

@@ -18,10 +18,8 @@ impl Template for Index {
         }
         .render_with_children(maud! {
             div id="typst-injected" class="prose-lg lg:prose-xl mt-2 prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground" {
-                @if metadata.title.is_some() {
-                     h1 class="text-center md:text-start" {
-                         (metadata.title.as_ref().unwrap())
-                     }
+                @if let Some(title) = &metadata.title {
+                     h1 class="text-center md:text-start" { (title) }
                 }
                 (content)
             }
