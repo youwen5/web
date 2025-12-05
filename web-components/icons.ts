@@ -22,7 +22,7 @@ import {
   Send,
   SquareCode,
   GitBranch,
-} from "lucide";
+} from 'lucide'
 
 createIcons({
   icons: {
@@ -49,4 +49,4 @@ createIcons({
     Atom,
     GitBranch,
   },
-});
+})

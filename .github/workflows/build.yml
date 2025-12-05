@@ -16,7 +16,7 @@ jobs:
       - uses: cachix/cachix-action@v16
         with:
           name: luminite
-          authToken: "${{ secrets.CACHIX_TOKEN }}"
+          authToken: '${{ secrets.CACHIX_TOKEN }}'
       - run: |
           nix flake check
           nix build .#full --accept-flake-config
