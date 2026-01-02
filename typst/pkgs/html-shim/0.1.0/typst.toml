@@ -1,0 +1,7 @@
+[package]
+name = "html-shim"
+version = "0.1.0"
+entrypoint = "main.typ"
+authors = ["Youwen Wu"]
+license = "GPLv3"
+description = "A utility shim to smooth over and augment Typst HTML rendering."

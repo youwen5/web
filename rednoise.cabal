@@ -1,0 +1,67 @@
+cabal-version: 3.4
+-- Instructions on how to write this file are in the Cabal
+-- documentation, which can be found here:
+--   http://haskell.org/cabal/release/cabal-latest/doc/users-guide/
+name: rednoise
+version: 1.0.0.0
+license: GPL-3.0-or-later
+license-file: LICENSE
+copyright: (c) Youwen Wu
+author: Youwen Wu
+maintainer: Youwen Wu <youwen@functor.systems>
+bug-reports: https://code.functor.systems/youwen/rednoise/issues
+stability: stable
+homepage: https://web.youwen.dev
+synopsis: a website and blog
+category: Web, Text
+build-type: Simple
+description:
+  Source for https://web.youwen.dev
+
+source-repository head
+  type: git
+  location: https://code.functor.systems/youwen/web
+
+flag threaded
+  default: True
+
+executable rednoise
+  hs-source-dirs: src
+  main-is: Main.hs
+  other-modules:
+    BlazeSupport
+    Compilers
+    Constants
+    Templates
+    Types
+    Utils
+
+  build-depends:
+    base,
+    blaze-html,
+    blaze-markup,
+    bytestring,
+    filepath,
+    hakyll,
+    liquidhaskell,
+    pandoc,
+    process,
+    temporary,
+    text,
+    unix-time,
+
+  default-language: GHC2024
+  default-extensions:
+    DerivingStrategies
+    MultilineStrings
+    OverloadedStrings
+
+  if flag(threaded)
+    ghc-options:
+      -threaded
+      -rtsopts
+      -with-rtsopts=-N
+      -XDerivingStrategies
+      -XOverloadedStrings
+      -XMultilineStrings
+      -fplugin=LiquidHaskell

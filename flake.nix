@@ -1,192 +1,162 @@
 {
-  description = "A static site generator using Typst";
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    crane.url = "github:ipetkov/crane";
-
+    haskellNix.url = "github:input-output-hk/haskell.nix";
+    nixpkgs.follows = "haskellNix/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    pre-commit.url = "github:cachix/git-hooks.nix";
+    pre-commit.inputs.nixpkgs.follows = "nixpkgs";
 
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    fenix = {
-      url = "github:nix-community/fenix/monthly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # this is a professional, licensed font. you'll have to remove or replace
-    # it to build the site locally
+    # this is a professional, licensed font, in a private repository
     valkyrie-font = {
       url = "github:youwen5/valkyrie";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    advisory-db = {
-      url = "github:rustsec/advisory-db";
-      flake = false;
-    };
-
-    pre-commit-hooks = {
-      url = "github:cachix/git-hooks.nix";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    inputs@{
+    {
       self,
       nixpkgs,
-      crane,
       flake-utils,
-      treefmt-nix,
+      haskellNix,
+      pre-commit,
       valkyrie-font,
-      fenix,
-      advisory-db,
-      pre-commit-hooks,
-      ...
+      treefmt-nix,
     }:
-    flake-utils.lib.eachSystem
-      [
-        "aarch64-linux"
+    let
+      supportedSystems = [
         "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ]
-      (
-        system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-
-          pnpm = pkgs.pnpm_10;
-
-          rustToolchain = fenix.packages.${system}.complete.withComponents [
-            "rustc"
-            "cargo"
-            "clippy"
-            "rust-std"
-            "rustfmt"
-          ];
-
-          craneLib = (crane.mkLib pkgs).overrideToolchain rustToolchain;
-
-          # Common arguments can be set here to avoid repeating them later
-          # Note: changes here will rebuild all dependency crates
-          commonArgs = {
-            src = craneLib.cleanCargoSource ./.;
-            strictDeps = true;
-
-            buildInputs = [
-              # Add additional build inputs here
-            ]
-            ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
-              # Additional darwin specific inputs can be set here
-              pkgs.libiconv
-            ];
-          };
-
-          cargoArtifacts = craneLib.buildDepsOnly commonArgs;
-
-          epilogue-crate = craneLib.buildPackage (
-            commonArgs
-            // {
-              inherit cargoArtifacts;
-
-              # Additional environment variables or build phases/hooks can be set
-              # here *without* rebuilding all dependency crates
-              # MY_CUSTOM_VAR = "some value";
-            }
-          );
-
-          web-assets =
-            let
-              pnpmDeps = pnpm.fetchDeps {
-                pname = "site-pnpm-deps";
-                src = ./web-components;
-                fetcherVersion = 2;
-                hash = "sha256-0P22HVoEWqFOoc8YCtmWZuKm2bxSucSdsy1YiQSefIE=";
-              };
-            in
-            pkgs.stdenv.mkDerivation (finalAttrs: {
-              name = "web-assets";
-
-              src = ./.;
-
-              pnpmRoot = "./web-components";
-
-              nativeBuildInputs = [
-                pkgs.nodejs
-                pnpm.configHook
-              ];
-
-              inherit pnpmDeps;
-
-              buildPhase = ''
-                cd web-components
-                ln -s ${pnpmDeps} node_modules
-                pnpm build
-              '';
-
-              installPhase = ''
-                cp -r dist $out
-              '';
-            });
-
-          treefmtEval = treefmt-nix.lib.evalModule pkgs (
-            (import ./nix/treefmt.nix) { inherit rustToolchain pkgs; }
-          );
-
-          typst = pkgs.typst.withPackages (
-            p: with p; [
-              fletcher_0_5_7
-              cetz_0_3_4
-              cmarker_0_1_5
-              showybox
-              self.packages.${system}.html-shim
-            ]
-          );
-        in
-        {
-          formatter = treefmtEval.config.build.wrapper;
-
-          checks = {
-            inherit epilogue-crate;
-
-            epilogue-clippy = craneLib.cargoClippy (
-              commonArgs
-              // {
-                inherit cargoArtifacts;
-                cargoClippyExtraArgs = "--all-targets -- --deny warnings";
-              }
-            );
-
-            epilogue-doc = craneLib.cargoDoc (
-              commonArgs
-              // {
-                inherit cargoArtifacts;
-              }
-            );
-
-            epilogue-deny = craneLib.cargoDeny {
-              inherit (commonArgs) src;
-              inherit advisory-db;
-            };
-
-            pre-commit-check = pre-commit-hooks.lib.${system}.run {
-              src = ./.;
-              hooks = {
-                treefmt.enable = true;
-                treefmt.package = treefmtEval.config.build.wrapper;
-                check-merge-conflicts.enable = true;
+        "aarch64-linux"
+      ];
+    in
+    flake-utils.lib.eachSystem supportedSystems (
+      system:
+      let
+        overlays = [
+          haskellNix.overlay
+          (final: _prev: {
+            haskell-nix = _prev.haskell-nix // {
+              extraPkgconfigMappings = _prev.haskell-nix.extraPkgconfigMappings // {
+                # String pkgconfig-depends names are mapped to lists of Nixpkgs
+                # package names
+                "z3" = [ "z3" ];
               };
             };
+            rednoiseProject = final.haskell-nix.project' {
+              src = ./.;
+              compiler-nix-name = "ghc9122";
+              # This is used by `nix develop .` to open a shell for use with
+              # `cabal`, `hlint` and `haskell-language-server`
+              shell.tools = {
+                cabal = { };
+                hlint = { };
+                haskell-language-server = { };
+                cabal-gild = { };
+                fourmolu = { };
+              };
+              # Non-Haskell shell tools go here
+              shell.buildInputs =
+                (with pkgs; [
+                  just
+                  tailwindcss_4
+                  self.packages.${system}.typst-html-wrapper
+                  rsync
+                ])
+                ++ [ typst ];
+            };
+          })
+        ];
+        pkgs = import nixpkgs {
+          inherit system overlays;
+          inherit (haskellNix) config;
+        };
+
+        flake = pkgs.rednoiseProject.flake { };
+
+        typst = pkgs.typst.withPackages (
+          p: with p; [
+            fletcher_0_5_8
+            cetz_0_4_2
+            oxifmt_0_2_1
+            cmarker_0_1_5
+            showybox_2_0_4
+            self.packages.${system}.html-shim
+          ]
+        );
+
+        treefmtEval = treefmt-nix.lib.evalModule pkgs ((import ./nix/treefmt.nix) { inherit pkgs; });
+
+      in
+      flake
+      // {
+        formatter = treefmtEval.config.build.wrapper;
+
+        checks = {
+
+          pre-commit-check = pre-commit.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              treefmt.enable = true;
+              treefmt.package = treefmtEval.config.build.wrapper;
+              check-merge-conflicts.enable = true;
+              hlint.enable = true;
+              cabal-gild.enable = true;
+              trim-trailing-whitespace.enable = true;
+              end-of-file-fixer.enable = true;
+              mixed-line-endings.enable = true;
+            };
+          };
+        };
+
+        packages = flake.packages // {
+          rednoise-unwrapped = flake.packages."rednoise:exe:rednoise";
+          rednoise = pkgs.stdenvNoCC.mkDerivation {
+            name = "rednoise";
+            src = self.packages.${system}.rednoise-unwrapped;
+            nativeBuildInputs = [ pkgs.makeWrapper ];
+            installPhase = ''
+              install -Dm755 ./bin/rednoise $out/bin/rednoise
+              wrapProgram $out/bin/rednoise \
+                --prefix PATH : ${
+                  pkgs.lib.makeBinPath [
+                    self.packages.${system}.typst-html-wrapper
+                    pkgs.tailwindcss_4
+                    typst
+                  ]
+                }
+            '';
+          };
+          # website without licensed fonts -- everything will work but no fonts
+          site-demo = pkgs.stdenvNoCC.mkDerivation {
+            name = "site";
+            src = ./.;
+            nativeBuildInputs = [ self.packages.${system}.rednoise ];
+
+            LANG = "en_US.UTF-8";
+            LOCALE_ARCHIVE = pkgs.lib.optionalString (
+              pkgs.stdenv.buildPlatform.libc == "glibc"
+            ) "${pkgs.glibcLocales}/lib/locale/locale-archive";
+
+            TZ = "America/Los_Angeles";
+            GIT_COMMIT_HASH = builtins.toString (if (self ? rev) then self.rev else "unstable");
+            LAST_COMMIT_TIMESTAMP = builtins.toString (self.lastModified);
+
+            buildPhase = ''
+              rednoise build
+            '';
+            installPhase = ''
+              mkdir -p $out
+              mv ./_site/* $out
+            '';
           };
 
-          # the actual site, with the fonts bundled within
-          packages.full = self.packages.${system}.default.overrideAttrs (
+          # actual website to be deployed in production (cannot be built without access to private repo)
+          site-full = self.packages.${system}.site-demo.overrideAttrs (
             finalAttrs: prevAttrs: {
               name = "site";
 
@@ -200,141 +170,81 @@
               buildPhase =
                 # install licensed fonts from private repo
                 ''
-                  mkdir -p public/fonts
-                  cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 public/fonts
-                  cp "${valkyrie-font}/concourse-index/WOFF2/concourse_index_regular.woff2" public/fonts
+                  cp "${valkyrie-font}/WOFF2/OT-family/Valkyrie-OT/"*.woff2 fonts
+                  cp "${valkyrie-font}/concourse-index/WOFF2/concourse_index_regular.woff2" fonts
                 ''
                 + prevAttrs.buildPhase;
             }
           );
 
-          # builds the site without fonts which are in private repo
-          packages.default = pkgs.stdenv.mkDerivation {
-            name = "site-without-fonts";
+          default = self.packages.${system}.rednoise;
 
-            src = ./.;
-
-            nativeBuildInputs = [
-              self.packages.${system}.epilogue
-              typst
-              pkgs.git
-            ];
-
-            EPILOGUE_GIT_COMMIT = builtins.toString (if (self ? rev) then self.rev else "unstable");
-            EPILOGUE_LAST_MODIFIED = builtins.toString (self.lastModified);
-
-            buildPhase = ''
-              site build --minify
-            '';
-
-            installPhase = ''
-              mkdir -p $out
-              cp -r ${web-assets}/* dist/
-              cp -r dist $out/dist
-            '';
-          };
-
-          packages.epilogue = epilogue-crate;
-
-          packages.html-shim = pkgs.buildTypstPackage {
+          html-shim = pkgs.buildTypstPackage {
             pname = "html-shim";
             version = "0.1.0";
-
-            src = ./typst/lib/html-shim/0.1.0;
+            src = ./typst/pkgs/html-shim/0.1.0;
           };
 
-          apps =
-            let
-              preview-drv =
-                withFonts:
-                let
-                  siteFiles = if withFonts then self.packages.${system}.full else self.packages.${system}.default;
-                  caddyfile = pkgs.writeText "Caddyfile" ''
-                    :8000 {
-                        root * ${siteFiles}/dist
-                        file_server
-                        try_files {path} {path}.html {path}/ =404
-                        header Cache-Control max-age=0
-                    }
-                  '';
+          typst-html-wrapper = pkgs.writeShellScriptBin "typst-html-wrapper" ''
+            ${pkgs.lib.getExe typst} compile "$@" --features html --format html - - | head -n -2 | tail -n +8
+          '';
+        };
 
-                  formattedCaddyfile = pkgs.runCommand "Caddyfile" {
-                    nativeBuildInputs = [ pkgs.caddy ];
-                  } ''(caddy fmt ${caddyfile} || :) > "$out"'';
+        apps =
+          let
+            preview-drv =
+              withFonts:
+              let
+                siteFiles =
+                  if withFonts then self.packages.${system}.site-full else self.packages.${system}.site-demo;
+                caddyfile = pkgs.writeText "Caddyfile" ''
+                  :8000 {
+                      root * ${siteFiles}
+                      file_server
+                      try_files {path} {path}.html {path}/ =404
+                      header Cache-Control max-age=0
+                  }
+                '';
 
-                  script = pkgs.writeShellApplication {
-                    name = "preview";
+                formattedCaddyfile = pkgs.runCommand "Caddyfile" {
+                  nativeBuildInputs = [ pkgs.caddy ];
+                } ''(caddy fmt ${caddyfile} || :) > "$out"'';
 
-                    runtimeInputs = [ pkgs.caddy ];
+                script = pkgs.writeShellApplication {
+                  name = "preview";
 
-                    text = "caddy run --config ${formattedCaddyfile} --adapter caddyfile";
-                  };
+                  runtimeInputs = [ pkgs.caddy ];
 
-                in
-                script;
-            in
-            {
-              default = flake-utils.lib.mkApp {
-                drv = epilogue-crate;
-              };
+                  text = "caddy run --config ${formattedCaddyfile} --adapter caddyfile";
+                };
 
-              preview = flake-utils.lib.mkApp {
-                drv = preview-drv false;
-              };
-
-              # only works if you have access to my private repo containing licensed fonts
-              preview-with-fonts = flake-utils.lib.mkApp {
-                drv = preview-drv true;
-              };
+              in
+              script;
+          in
+          {
+            default = flake-utils.lib.mkApp {
+              drv = preview-drv false;
             };
 
-          devShells.default =
-            let
-              rustPkgs = fenix.packages.${system};
-              rustToolchain = rustPkgs.complete.withComponents [
-                "rustc"
-                "cargo"
-                "rustfmt"
-                "rust-docs"
-                "rust-analyzer"
-                "clippy"
-                "rust-src"
-                "rust-std"
-              ];
-            in
-            craneLib.devShell {
-              # Inherit inputs from checks.
-              checks = self.checks.${system};
-
-              RUST_SRC_PATH = "${rustToolchain}/lib/rustlib/src/rust/library";
-
-              packages = [
-                pnpm
-              ]
-              ++ (with pkgs; [
-                tailwindcss-language-server
-                nodejs
-                just
-                rsync
-                caddy
-                prettier
-              ])
-              ++ [
-                rustToolchain
-                typst
-              ];
+            # only works if you have access to my private repo containing licensed fonts
+            preview-full = flake-utils.lib.mkApp {
+              drv = preview-drv true;
             };
-        }
-      );
+          };
+      }
+    );
 
   nixConfig = {
     extra-substituters = [
+      "https://cache.iog.io"
       "https://luminite.cachix.org"
       "https://nix-community.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "luminite.cachix.org-1:+VgO/GJMmqsp4U79+QFle7TtEwT8LrJXPiImA8a3a3o="
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "luminite.cachix.org-1:+VgO/GJMmqsp4U79+QFle7TtEwT8LrJXPiImA8a3a3o="
     ];
+    allow-import-from-derivation = "true";
   };
 }

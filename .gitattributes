@@ -1,2 +1,4 @@
-routes/**/*.typ linguist-documentation
-public/styles/*.css linguist-generated
+posts/**/* linguist-documentation
+cv/**/* linguist-documentation
+root/**/* linguist-documentation
+css/*.css linguist-generated

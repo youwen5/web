@@ -1,0 +1,10 @@
+packages: .
+
+constraints:
+  zlib +bundled-c-zlib
+
+source-repository-package
+  type: git
+  location: https://code.functor.systems/youwen/liquidhaskell
+  tag: eff7f0f0072e03479a7dc4e113ec43bf924d8047
+  --sha256: 1rT4VFinZ65fy1VIAsB/92QAWu8qxu5Sfgd8ae6C7jk=

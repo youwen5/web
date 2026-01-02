@@ -27,15 +27,15 @@ jobs:
           name: luminite
           authToken: '${{ secrets.CACHIX_TOKEN }}'
       - run: |
-          nix flake check --accept-flake-config
-          nix build .#full --accept-flake-config
+          nix build .#checks.x86_64-linux.pre-commit-check --accept-flake-config
+          nix build .#site-full --accept-flake-config
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './result/dist'
+          path: './result'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

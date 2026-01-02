@@ -1,9 +1,51 @@
-/target
-result*
+# ---> Liquid
+src/*
+!src/*.hs
+.liquid
+
+# ---> Hakyll
+_cache
+_site
+
+# ---> Haskell
+dist
+dist-*
+cabal-dev
+*.o
+*.hi
+*.hie
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+*.eventlog
+.stack-work/
+cabal.project.local
+cabal.project.local~
+.HTF/
+.ghc.environment.*
+
+# ---> Nix
+# Ignore build outputs from performing a nix-build or `nix build` command
+result
+result-*
+
+# Ignore automatically generated direnv output
 .direnv
-/dist
-.epilogue
-public/fonts/*.woff2
-!public/fonts/source-sans-3-latin-300-normal.woff2
-!public/fonts/source-sans-3-latin-400-normal.woff2
-.pre-commit-config.yaml
+
+# ---> Checks
+styles
+.aider*
+
+
+# proprietary fonts
+fonts/*.woff2
+!fonts/source-sans-3-latin-300-normal.woff2
+!fonts/source-sans-3-latin-400-normal.woff2
