@@ -19,6 +19,7 @@ dataLoading
   , as
   , crossorigin
   , dataLucide
+  , dataCollectDnt
   , lazy ::
     AttributeValue -> Attribute
 as = attribute "as" " as=\""
@@ -37,3 +38,4 @@ dataTheme = attribute "data-theme" " data-theme=\""
 dataLang = attribute "data-lang" " data-lang=\""
 dataLoading = attribute "data-loading" " data-loading=\""
 dataLucide = attribute "data-lucide" " data-lucide=\""
+dataCollectDnt = attribute "data-collect-dnt" " data-collect-dnt=\""

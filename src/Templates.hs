@@ -73,6 +73,11 @@ pageHead (PageMetadata{title, pagetitle, slug, description, thumbnail, url}) = d
         ! crossorigin ""
       script ! defer "" ! src "/cdn-cgi/zaraz/i.js" $ ""
       H.style inlinedFontCss
+      script
+        ! dataCollectDnt "true"
+        ! async ""
+        ! src "https://scripts.simpleanalyticscdn.com/latest.js" $
+        ""
 
 type SidebarList = [(String, String)]
 
