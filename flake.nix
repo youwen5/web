@@ -86,6 +86,7 @@
             cmarker_0_1_5
             showybox_2_0_4
             self.packages.${system}.html-shim
+            bullseye
           ]
         );
 

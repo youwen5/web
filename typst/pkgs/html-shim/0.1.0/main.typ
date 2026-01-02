@@ -1,4 +1,6 @@
 // Adds support for HTML-based math rendering
+#import "@preview/bullseye:0.1.0": *
+#import "@preview/showybox:2.0.4": showybox
 
 #let blockquote = (attribution: none, body) => context {
   if target() == "html" {
@@ -29,18 +31,26 @@
       attrs: (class: "w-full text-center text-xl text-subtle select-none"),
       [⁂],
     )
+  } else {
+    [⁂]
   }
 }
 
-#let tombstone = {
-  html.elem(
-    "div",
-    attrs: (class: "inline-flex justify-end w-full text-xl dark:invert -mt-4"),
-    {
-      set text(2.5em)
-      html.frame(sym.square.filled)
-    },
-  )
+#let tombstone = context {
+  if target() == "html" {
+    html.elem(
+      "div",
+      attrs: (
+        class: "inline-flex justify-end w-full text-xl dark:invert -mt-4",
+      ),
+      {
+        set text(2.5em)
+        html.frame(sym.square.filled)
+      },
+    )
+  } else {
+    sym.square.filled
+  }
 }
 
 #let webimg = (
@@ -75,7 +85,9 @@
         )
       })
     }
-  }
+  } else [
+    Sorry, web images cannot be embedded in PDFs.
+  ]
 }
 
 #let lucide-icon(name: "", class: "") = context {
@@ -98,18 +110,43 @@
 
 #let apostrophe = sym.quote.r.single
 
-#let btw(body) = html.elem(
-  "div",
-  attrs: (
-    class: "py-2 px-4 text-[0.8em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em]",
-  ),
-  {
-    html.elem("div", smallcaps(all: true)[By the way])
-    html.elem("div", attrs: (class: "!mb-0 mt-2 prose-p:mb-0 prose-p:mt-3"), {
-      body
-    })
-  },
-)
+#let btw(body) = context {
+  if target() == "html" {
+    html.elem(
+      "div",
+      attrs: (
+        class: "py-2 px-4 text-[0.8em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em]",
+      ),
+      {
+        html.elem("div", smallcaps(all: true)[By the way])
+        html.elem(
+          "div",
+          attrs: (class: "!mb-0 mt-2 prose-p:mb-0 prose-p:mt-3"),
+          {
+            body
+          },
+        )
+      },
+    )
+  } else {
+    showybox(
+      title-style: (
+        weight: 900,
+        color: blue.darken(40%),
+        sep-thickness: 0pt,
+        align: center,
+      ),
+      frame: (
+        title-color: blue.lighten(80%),
+        border-color: blue.darken(40%),
+        thickness: (left: 1pt),
+        radius: 0pt,
+      ),
+      title: "By the way",
+      body,
+    )
+  }
+}
 
 #let std-link = link
 
@@ -179,16 +216,20 @@
   }
 
   show footnote: it => {
-    show super: it2 => {
-      html.elem(
-        "sup",
-        attrs: (
-          class: "font-index text-iris text-[0.83em] hover:bg-love/15 transition-colors] ml-0.5 [vertical-align: baseline] relative -top-[0.33em]",
-        ),
-        [#it2.body],
-      )
+    if target() == "html" {
+      show super: it2 => {
+        html.elem(
+          "sup",
+          attrs: (
+            class: "font-index text-iris text-[0.83em] hover:bg-love/15 transition-colors] ml-0.5 [vertical-align: baseline] relative -top-[0.33em]",
+          ),
+          [#it2.body],
+        )
+      }
+      it
+    } else {
+      it
     }
-    it
   }
 
   show smallcaps: it => context {
