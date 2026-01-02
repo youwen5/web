@@ -200,7 +200,7 @@ giscusComponent = do
     ! dataReactionsEnabled "1"
     ! dataEmitMetadata "0"
     ! dataInputPosition "top"
-    ! dataTheme "https://web.youwen.dev/styles/giscus.css"
+    ! dataTheme "https://web.youwen.dev/css/giscus.css"
     ! dataLang "en"
     ! dataLoading "lazy"
     ! crossorigin "anonymous"
