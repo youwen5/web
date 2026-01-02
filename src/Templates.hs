@@ -76,8 +76,8 @@ pageHead (PageMetadata{title, pagetitle, slug, description, thumbnail, url}) = d
       script
         ! dataCollectDnt "true"
         ! async ""
-        ! src "https://scripts.simpleanalyticscdn.com/latest.js" $
-        ""
+        ! src "https://scripts.simpleanalyticscdn.com/latest.js"
+        $ ""
 
 type SidebarList = [(String, String)]
 
