@@ -14,11 +14,11 @@ GitHub pages and cached through Cloudflare's CDN.
 ### build time
 
 - Haskell
-    - [Hakyll](https://jaspervdj.be/hakyll/) (the static site generator library I use)
-    - [blaze](https://hackage.haskell.org/package/blaze-html) (an HTML combinator library I use for templating)
-    - [clay](https://hackage.haskell.org/package/clay) (CSS preprocessor as a Haskell eDSL)
-    - [pandoc](https://pandoc.org/) (this one needs no introduction)
-    - [LiquidHaskell](https://ucsd-progsys.github.io/liquidhaskell/) (a highly experimental theorem prover which refines Haskell types using logical predicates to guarantee correctness, developed at UCSD)
+  - [Hakyll](https://jaspervdj.be/hakyll/) (the static site generator library I use)
+  - [blaze](https://hackage.haskell.org/package/blaze-html) (an HTML combinator library I use for templating)
+  - [clay](https://hackage.haskell.org/package/clay) (CSS preprocessor as a Haskell eDSL)
+  - [pandoc](https://pandoc.org/) (this one needs no introduction)
+  - [LiquidHaskell](https://ucsd-progsys.github.io/liquidhaskell/) (a highly experimental theorem prover which refines Haskell types using logical predicates to guarantee correctness, developed at UCSD)
 - Nix
 - [Typst](https://typst.app)
 
