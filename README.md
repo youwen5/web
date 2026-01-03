@@ -3,7 +3,7 @@
 # web.youwen.dev
 
 This is my personal site. It is built using a rather hacked version of the
-[https://jaspervdj.be/hakyll/](Hakyll) system, a static site generation
+[Hakyll](https://jaspervdj.be/hakyll/) system, a static site generation
 framework configured using the [Haskell](https://www.haskell.org/) language.
 
 You can view the site at [web.youwen.dev](https://web.youwen.dev), deployed using
