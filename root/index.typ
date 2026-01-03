@@ -138,7 +138,7 @@ what I'm up to right now. Or explore the other pages on this website.
     if is-link { "a" } else { "span" },
     attrs: (
       href: href,
-      class: "border-b-foreground border-b-1 py-1 px-1 hover:bg-foreground hover:text-bg w-full w-full font-serif flex justify-between flex-wrap-reverse content-center gap-x-2 gap-y-1 md:gap-4",
+      class: "py-1 px-1 hover:bg-foreground hover:text-bg w-full w-full font-serif flex justify-between flex-wrap-reverse content-center gap-x-2 gap-y-1 md:gap-4",
     ),
   )[
     #html.elem("span", attrs: (class: "inline-flex gap-3"), body)
@@ -159,18 +159,22 @@ what I'm up to right now. Or explore the other pages on this website.
   ]
 }
 
-#html.elem("div", attrs: (class: "mt-2"), {
-  for post in posts.slice(0, count: 4) {
-    update(date: post.date, href: post.url, {
-      icon(name: "newspaper")
-      post.title
+#html.elem(
+  "div",
+  attrs: (class: "mt-2 divide-foreground divide-dashed divide-y"),
+  {
+    for post in posts.slice(0, count: 4) {
+      update(date: post.date, href: post.url, {
+        icon(name: "newspaper")
+        post.title
+      })
+    }
+    update(href: "/archive", date: icon(name: "move-right"), {
+      icon(name: "folder-closed")
+      [Archive (all posts)]
     })
-  }
-  update(href: "/archive", date: icon(name: "move-right"), {
-    icon(name: "folder-closed")
-    [Archive (all posts)]
-  })
-})
+  },
+)
 
 
 = Photos
