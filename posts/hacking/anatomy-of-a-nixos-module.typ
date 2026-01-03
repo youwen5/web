@@ -10,7 +10,7 @@ description: "A not-quite-comprehensive primer on the NixOS module system."
 
 #import "@preview/html-shim:0.1.0": *
 
-#show: html-shim.with()
+#show: html-shim
 
 NixOS modules are deceptively simple but really quite complicated. Surprisingly
 I haven't seen this documented in an easily digestible manner anywhere, so this
@@ -20,15 +20,21 @@ A "NixOS module" is the standard configuration interface for NixOS, the
 Linux distribution (not to be confused with Nix, the package manager). It's
 built on the infrastructure in the `nixpkgs` standard library.
 
-All of the NixOS configuration you write will almost
-certainly take place in a NixOS module, even if you don't know it at first. Any
-external NixOS "flakes" are merely neatly packaged exporters of NixOS
-modules. For example, to install home-manager, you import its NixOS module,
-exposed at `home-manager.nixosModules.home-manager`.
+All the NixOS configuration you write will almost certainly take place in a
+NixOS module, even if you don't know it at first. Any external NixOS "flakes"
+which provide a `nixosModules.*` for you to slot into your configuration
+are merely neatly packaged exporters of NixOS modules declared within. For
+example, to install home-manager, you import its NixOS module, exposed at
+`home-manager.nixosModules.home-manager`.
 
 The most familiar is the standard `/etc/nixos/configuration.nix`. Indeed, this
 entire file declares a NixOS module with the very basic configuration for the
-system.
+system. I'll emphasize that `configuration.nix` is not really special in any
+way, and it's just a regular NixOS module, same as any other. (That is if you
+are using flakes. In a non-flakes NixOS configuration
+`/etc/nixos/configuration.nix` is the hardcoded entrypoint for your
+configuration, i.e. `nixos-rebuild` evaluates that module first. But the actual
+module itself is still exactly the same as any other.)
 
 In simplest terms, a NixOS module is an attribute set (AttrSet) that can
 declare values for NixOS options, or declare new custom NixOS options, or
@@ -48,15 +54,64 @@ declare paths to additional NixOS modules to import.
   `pkgs` and `lib` objects are in `configuration.nix`.
 ]
 
-So what exactly is a NixOS module? At its core, it's a function $f : "AttrSet"
--> "AttrSet"$ that accepts an attribute set with a few parameters, like `pkgs`,
-`config`, `lib`, and returns another attribute set declaring configuration
-options for NixOS.
+So how exactly does NixOS handle these modules? At their core, modules are
+_nothing more than_ functions $f : "AttrSet" -> "AttrSet"$, which accept an
+input attribute set with a few parameters, like `pkgs`, `config`, `lib`, and
+return another attribute set declaring configuration options for NixOS.
 
-When the module is evaluated by a NixOS system build, the module (which, again,
-is just a function with a special format) is called, the input parameters are
-populated, the options are evaluated, and if there's no issues, the build
-proceeds.
+From an enlightened point of view, all NixOS modules can be seen as simply pure
+functions which take in a set of useful parameters, and return an attribute set
+declaring options for the system. (The most familiar of these parameters is
+probably `pkgs`, the package set of the system consisting of all packages in
+`nixpkgs` and any custom ones you've added via overlay.) It's important to
+emphasize that there is really _nothing special_ about `configuration.nix` or
+any other module. It's simply just a function!
+
+When the module is evaluated by a NixOS system build (`nixos-rebuild`), the
+module (which, again, is just a function with a particular type signature) is
+called, the options are evaluated, and then they are _merged_. This is how
+NixOS handles modules with conflicting definitions. For example, suppose
+somewhere in your configuration you installed Firefox.
+
+```nix
+# module1.nix
+{
+  environment.systemPackages = with pkgs; [ firefox ];
+}
+```
+
+Now suppose in a different module, you want to declare additional packages. Then you can simply write
+
+```nix
+{
+  environment.systemPackages = with pkgs; [ neovim ];
+}
+```
+
+When I first began using NixOS, I thought doing something like this would have
+one declaration overwrite the other and we would only get either Firefox or
+Neovim. It turns out that NixOS will automatically handle the conflicting
+definitions by _merging_ them. The semantics for how exactly NixOS merges
+option declarations is actually quite complicated, but in general, arrays like
+above will be merged together naturally, while merging boolean true/false
+options will cause an evaluation failure as there is no way to merge `true`
+with `false`
+
+The merge system in fact leverages a whole option priority system for
+determining how options should be merged that lies under the hood, which I will
+not speak about for brevity, but I will mention that the function
+`lib.mkOverride` is useful for forcing one option declaration to take
+precedence over all others. This is useful for resolving the conflicting
+boolean options from the previous example.
+
+Once option merging is complete without errors, NixOS will have built up a
+single, full representation of the option declarations of the system composed
+of all constituent modules, if there's no other evaluation issues, the system
+build proceeds.
+
+Now, let's talk about the actual anatomy of a NixOS module, i.e. how to
+actually declare them, and what you are _actually declaring_ when you write
+them.
 
 #btw[
   A word of advice: the section below will introduce and reintroduce concepts
@@ -169,10 +224,21 @@ of Neovim, and then implement it.
 }
 ```
 
-This is quite complicated, so let's break it down. First, we're declaring this
-`options` attribute with our custom boolean option, `useHelixInsteadOfNeovim`.
-Based on the value of this option, we want to determine whether Neovim or Helix
-is added to `environment.systemPackages`.
+Now that we've done this, we're able to declare our own option in another module!
+
+```nix
+# configuration.nix
+{
+  # this will activate our option that causes `pkgs.helix` to be placed in
+  # environment.systemPackages
+  useHelixInsteadOfNeovim = true;
+}
+```
+
+All of that was quite complicated, so let's break it down. First, we're
+declaring this `options` attribute with our custom boolean option,
+`useHelixInsteadOfNeovim`. Based on the value of this option, we want to
+determine whether Neovim or Helix is added to `environment.systemPackages`.
 
 To do that, we're making use of the `config` parameter. This is an entirely
 distinct concept from the `config` attribute we're setting below, so don't
@@ -189,20 +255,22 @@ imports (i.e. conditionally deciding whether or not to import a NixOS module
 based on the `config` object) will almost always cause an infinite recursion
 error.
 
-In fact, functional programming buffs may appreciate that the ability to refer
-to the final state of an attribute set like the `config` object in this way is
-achieved by making the NixOS module a
-#link("https://en.wikipedia.org/wiki/Fixed-point_combinator")[fixed-point
-  combinator]. Other fixed-point combinators in the nixpkgs standard library
-include `stdenv.mkDerivation (finalAttrs: {})` and other similar cases.
+#btw[
+  In fact, functional programming buffs may appreciate that the ability to refer
+  to the final state of an attribute set like the `config` object in this way is
+  achieved by making the NixOS module a
+  #link("https://en.wikipedia.org/wiki/Fixed-point_combinator")[fixed-point
+    combinator]. Other fixed-point combinators in the nixpkgs standard library
+  include `stdenv.mkDerivation (finalAttrs: {})` and similar cases.
+]
 
-If you couldn't understand the previous paragraph, don't worry, it's hardly
-relevant to understanding NixOS modules themselves. Anyways, notice that
-instead of `environment.systemPackages` being declared in the top level of the
-module as we expect, we're declaring it nested one layer deep inside of this
-`config` attribute. This is because declaring an `options` attribute in a NixOS
-module forces us to declare all of our NixOS option settings in a `config`
-attribute instead of at the top level like we're used to.
+If you couldn't understand the previous box, don't worry, it's hardly relevant
+to understanding NixOS modules themselves. Anyways, notice that instead of
+`environment.systemPackages` being declared in the top level of the module as
+we expect, we're declaring it nested one layer deep inside of this `config`
+attribute. This is because declaring an `options` attribute in a NixOS module
+forces us to declare all of our NixOS option settings in a `config` attribute
+instead of at the top level like we're used to.
 
 Finally, inside of the `config` attribute, we declare our familiar
 `environment.systemPackages` option, and we use a conditional to check the
@@ -304,7 +372,7 @@ is just a list of additional NixOS modules to include and evaluate.
 }
 ```
 
-Even when `options` is not set, it is can still be declared top level alongside
+Even when `options` is not set, it can still be declared top level alongside
 all the other options.
 
 ```nix
@@ -340,6 +408,17 @@ The parameters provided to each module include `lib`, the nixpkgs standard
 library, `pkgs`, the package set of the system, and `config`, an AttrSet
 representing the final configuration of the system after all modules evaluate.
 There are other parameters, but we won't mention them here.
+
+And lastly, I'd like to point out that NixOS modules are essentially how the
+entirety of NixOS is developed (besides the low level implementation details
+that allow the most basic modules to be written, of course). All the options
+which you might find on
+#link("https://search.nixos.org/packages")[search.nixos.org], like
+`environment.systemPackages`, are simply declared in an `options` entry in
+another module somewhere in the `nixpkgs` source code. So it turns out most of
+the source code of NixOS is declared in the same kind of format you're writing
+in your configuration, which actually makes it a lot easier for an experienced
+power user to contribute to the NixOS distribution itself!
 
 #btw[
   What about home-manager? home-manager modules heavily mimic NixOS
