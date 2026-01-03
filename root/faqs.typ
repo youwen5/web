@@ -15,8 +15,9 @@ once in a while. This is basically an advice page.
 Before internalizing anything from this page, my foremost advice is to _ignore
 all advice you don't agree with_, including this. During high school I made the
 unfortunate decision to listen to the advice of many, many anonymous internet
-kind strangers as well as classmates who were far more mediocre than myself.
-For instance, be highly wary of advice of this form, especially in high school.
+kind strangers as well as classmates who ultimately did were not operating on
+much more information than myself. For instance, be highly wary of advice of
+this form, especially in high school.
 
 #blockquote[
   _X_ class is too hard. You should take _Y_ as an easy A.
@@ -26,7 +27,8 @@ For instance, be highly wary of advice of this form, especially in high school.
   You have to be _X_ to do _Y_, and you're not _X_.
 ]
 
-I am an idiot, so also be wary of advice from me.
+This advice applies self-referentially of course, so also be wary of advice
+from me. Including that advice itself.
 
 For convenience, quickly jump down to: #link("#programming")[programming FAQs], #link("#school-and-college")[school & college FAQs].
 
