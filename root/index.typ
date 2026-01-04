@@ -68,12 +68,16 @@ what I'm up to right now. Or explore the other pages on this website.
 // ]
 
 #blockquote(attribution: [--- #link(
-    "https://johncarlosbaez.wordpress.com/2015/03/27/spivak-part-1/",
-  )[David Spivak]])[
-  Is the world alive, is it a single living thing? If it is, in the sense I
-  meant, then its primary job is to survive, and to survive it'll have to make
-  decisions. So there I was in my living room thinking, "oh my god, we’ve got to
-  steer this thing!"
+    "https://direct.mit.edu/books/oa-monograph/5460/Sheaf-Theory-through-Examples",
+  )[Rosiak, _Sheaf Theory through Examples_]])[
+  I happen to believe that many of the staple questions that were originally
+  the provenance of the philosopher will eventually be handled with the care
+  they deserve once they are adequately framed as problems within category
+  theory, and that in the near future every major philosophical
+  dialectic---universal--particular, continuous--discrete, global-local,
+  quality--quantity---and even less obvious problems, such as those of
+  "personal identity," will be handed over to, and considerably enriched by,
+  the category theorist.
 ]
 
 #btw[
