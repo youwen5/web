@@ -37,6 +37,32 @@
     flake-utils.lib.eachSystem supportedSystems (
       system:
       let
+        pkgs = import nixpkgs {
+          inherit system overlays;
+          inherit (haskellNix) config;
+        };
+
+        typst = pkgs.typst.withPackages (
+          p: with p; [
+            fletcher_0_5_8
+            cetz_0_4_2
+            oxifmt_0_2_1
+            cmarker_0_1_5
+            showybox_2_0_4
+            self.packages.${system}.html-shim
+            bullseye
+          ]
+        );
+
+        runtimeDeps = [
+          typst
+        ]
+        ++ (with pkgs; [
+          minhtml
+          self.packages.${system}.typst-html-wrapper
+          tailwindcss_4
+        ]);
+
         overlays = [
           haskellNix.overlay
           (final: _prev: {
@@ -63,32 +89,14 @@
               shell.buildInputs =
                 (with pkgs; [
                   just
-                  tailwindcss_4
-                  self.packages.${system}.typst-html-wrapper
                   rsync
                 ])
-                ++ [ typst ];
+                ++ runtimeDeps;
             };
           })
         ];
-        pkgs = import nixpkgs {
-          inherit system overlays;
-          inherit (haskellNix) config;
-        };
 
         flake = pkgs.rednoiseProject.flake { };
-
-        typst = pkgs.typst.withPackages (
-          p: with p; [
-            fletcher_0_5_8
-            cetz_0_4_2
-            oxifmt_0_2_1
-            cmarker_0_1_5
-            showybox_2_0_4
-            self.packages.${system}.html-shim
-            bullseye
-          ]
-        );
 
         treefmtEval = treefmt-nix.lib.evalModule pkgs ((import ./nix/treefmt.nix) { inherit pkgs; });
 
@@ -124,11 +132,8 @@
               install -Dm755 ./bin/rednoise $out/bin/rednoise
               wrapProgram $out/bin/rednoise \
                 --prefix PATH : ${
-                  pkgs.lib.makeBinPath [
-                    self.packages.${system}.typst-html-wrapper
-                    pkgs.tailwindcss_4
-                    typst
-                  ]
+                  pkgs.lib.makeBinPath runtimeDeps
+
                 }
             '';
           };

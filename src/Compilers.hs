@@ -72,6 +72,12 @@ blazeTemplater template ctx item = do
 tailwindProcessor :: String -> IO String
 tailwindProcessor = readProcess "tailwindcss" ["-i", "-", "-o", "-"]
 
+universalOptimizer :: Item String -> Compiler (Item String)
+universalOptimizer item = do
+  transformed <-
+    unsafeCompiler $ readProcess "minhtml" ["--minify-css", "--minify-js"] (itemBody item)
+  makeItem transformed
+
 makeCompiler :: (String -> IO String) -> Compiler (Item String)
 makeCompiler f = do
   body <- getResourceBody

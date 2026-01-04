@@ -71,12 +71,11 @@ generateSite = do
 
     match "css/main.css" $ do
       sameRoute
-      compile $ do
-        makeCompiler tailwindProcessor
+      compile $ makeCompiler tailwindProcessor >>= universalOptimizer
 
-    match "css/*.css" $ do
+    match "css/giscus.css" $ do
       sameRoute
-      compile compressCssCompiler
+      compile $ getResourceBody >>= universalOptimizer
 
     match "posts/**.typ" $ do
       reroute toRootHTML
@@ -85,6 +84,7 @@ generateSite = do
         typstHtmlCompiler postContext
           >>= saveSnapshot snapshotDir
           >>= blazeTemplater Templates.postTemplate postContext
+          >>= universalOptimizer
 
     create ["archive.html"] $ do
       reroute expandRoute
@@ -97,6 +97,7 @@ generateSite = do
         makeItem ""
           >>= blazeTemplater Templates.archivePage archiveCtx
           >>= blazeTemplater Templates.wideTemplate archiveCtx
+          >>= universalOptimizer
 
     create ["explore.html"] $ do
       reroute expandRoute
@@ -109,18 +110,21 @@ generateSite = do
         makeItem ""
           >>= blazeTemplater Templates.explorePage exploreCtx
           >>= blazeTemplater Templates.defaultTemplate exploreCtx
+          >>= universalOptimizer
 
     match "root/index.typ" $ do
       reroute $ takeFileName . flip replaceExtension "html"
       compile $
         typstIndexCompiler defaultContext
           >>= blazeTemplater indexTemplate defaultContext
+          >>= universalOptimizer
 
     match ("cv/index.typ" .||. "cv/short.typ") $ do
       route $ setExtension "html"
       compile $
         typstHtmlCompiler defaultContext
           >>= blazeTemplater Templates.defaultTemplate defaultContext
+          >>= universalOptimizer
 
     match "cv/index.typ" $ version "pdf" $ do
       reroute $ \p ->
@@ -146,8 +150,7 @@ generateSite = do
       compile $
         typstHtmlCompiler defaultContext
           >>= blazeTemplater Templates.defaultTemplate defaultContext
-
-    match "templates/*" $ compile templateBodyCompiler
+          >>= universalOptimizer
 
     create ["atom.xml"] $ makeFeed renderAtom
     create ["feed.xml"] $ makeFeed renderRss
