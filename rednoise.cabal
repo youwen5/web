@@ -61,7 +61,4 @@ executable rednoise
       -threaded
       -rtsopts
       -with-rtsopts=-N
-      -XDerivingStrategies
-      -XOverloadedStrings
-      -XMultilineStrings
       -fplugin=LiquidHaskell
