@@ -176,19 +176,23 @@
 
 #let std-figure = figure
 #let figure(math: true, ..args) = context {
-  let figureClass = if math { "math block-math" } else { "" }
-  show std-figure: it => context {
-    if target() == "html" {
-      html.elem("figure", attrs: (class: figureClass), {
-        html.frame(it.body)
-        it.caption
-      })
-    } else {
-      it
+  if target() == "html" {
+    let figureClass = if math { "math block-math" } else { "" }
+    show std-figure: it => context {
+      if target() == "html" {
+        html.elem("figure", attrs: (class: figureClass), {
+          html.frame(it.body)
+          it.caption
+        })
+      } else {
+        it
+      }
     }
-  }
 
-  std-figure(..args)
+    std-figure(..args)
+  } else {
+    std-figure(..args)
+  }
 }
 
 #let html-shim(body) = {
