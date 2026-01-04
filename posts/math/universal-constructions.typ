@@ -144,7 +144,7 @@ as such:
 
 #figure(diagram(
   $
-    A edge(->, S) & C & B edge("l", ->, T)
+    cal(A) edge(->, S) & cal(C) & cal(B) edge("l", ->, T)
   $,
 ))
 
