@@ -8,10 +8,9 @@ title: "Acknowledgements"
 
 #blockquote[Great artists steal.]
 
-Every component and style on this website is hand-crafted because web design is
-an art, but it's an art I'm not very good at. So I've shamelessly bootlegged
-countless design motifs off of cool websites made by much more talented people.
-This page is my best effort to credit the people I've stolen designs from.
+I've shamelessly bootlegged countless design motifs off of cool websites made
+by much more talented people. This page is my best effort to credit the people
+I've stolen designs from. (Though all the code was written by hand, by myself.)
 
 In no particular order:
 
@@ -25,20 +24,17 @@ In no particular order:
 - The general typography borrows a lot of inspiration from Matthew Butterick's
   #link("https://practicaltypography.com/")[Practical Typography].
 
+You may also be interested in the #link("/colophon")[Colophon], where I
+describe the design of the website in more detail.
+
 = Open source licenses
 
 In addition to stolen designs, I've also used countless lines of free and open
 source libraries and programs. In particular,
 
 - #link("https://typst.app/")[Typst] converts markup to #smallcaps[html]. (Apache 2.0)
-- #link("https://www.rust-lang.org/")[Rust] is what the entire site was written in. (MIT/Apache 2.0)
-- The #link("https://crates.io/crates/hypertext")[hypertext crate] is what is used for #smallcaps(all: true)[HTML] templating. (MIT)
+- #link("https://www.haskell.org/")[Haskell] is what the entire site generator was written in. (#link("https://www.haskell.org/ghc/license.html")[The Glasgow Haskell Compiler License])
+- The hackages #link("https://jaspervdj.be/hakyll/")[Hakyll] and #link("https://hackage.haskell.org/package/blaze-html")[blaze-html] are used for  #smallcaps(all: true)[HTML] templating and static site generation infrastructure respectively (BSD 3 clause)
 - #link("https://tailwindcss.com/")[Tailwind CSS] handles all the styling. (MIT)
 - The site colors are inspired by #link("https://rosepinetheme.com/")[Rosé Pine]. (MIT)
 - Icons are from #link("https://lucide.dev/icons/")[Lucide]. (ISC)
-
-And, all of the #link("https://github.com/youwen5/web/blob/main/Cargo.lock")[
-  other crates],
-#link("https://github.com/youwen5/web/blob/main/web-components/pnpm-lock.yaml")[#smallcaps[npm]
-  packages], Typst packages, and
-#link("https://github.com/youwen5/web/blob/main/flake.lock")[Nix flakes].
