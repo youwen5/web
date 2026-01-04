@@ -27,10 +27,7 @@ description: "A proof of the first three isomorphism theorems for linear algebra
   tombstone
 }
 
-When I first learned about these they were difficult to understand or
-justify. So I thought I'd write things down, now that
-I've figured them out. These are particular cases of the more
-general
+These are particular cases of the more general
 #link("https://en.wikipedia.org/wiki/Isomorphism_theorems")[isomorphism
   theorems] in abstract algebra.
 
@@ -117,7 +114,7 @@ This establishes the existence of the map $overline(tau)$ we desire, now we
 need to show it's both surjective and injective.
 
 #btw[
-  editor's note: I have a proof of the universal property, but it is too large to fit in the margins.
+  More information on the #link("/math/universal-constructions")[universal property] here.
 ]
 
 We can easily see $overline(tau)$ is surjective, let $x in im tau$, then

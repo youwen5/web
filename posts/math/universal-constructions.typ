@@ -1,5 +1,5 @@
 ---
-title: Universal constructions and universal property of quotients
+title: Universal constructions and the universal property of quotients
 published: 2026-01-04
 ---
 
