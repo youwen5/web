@@ -51,7 +51,7 @@ the original course description, search the course code in the
 #table(
   columns: 3,
   table.header([Grade], [Course], [Short Desc.]),
-  [---], [Math 108B], [abstract linear algebra (group representation theory)],
-  [---], [Math 118A], [Real Analysis I (metric topology)],
-  [---], [Math 111A], [Abstract Algebra I (group theory)],
+  [A], [Math 108B], [abstract linear algebra (group representation theory)],
+  [A+], [Math 118A], [Real Analysis I (metric topology)],
+  [B+], [Math 111A], [Abstract Algebra I (group theory)],
 )
