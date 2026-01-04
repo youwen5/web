@@ -73,7 +73,7 @@
       html.elem(
         "div",
         attrs: (
-          class: "font-sans font-light space-y-2 prose-lg",
+          class: "font-sans font-light space-y-2 prose-lg divide-foreground divide-y divide-dashed",
         ),
         body,
       )
@@ -87,7 +87,7 @@
       html.elem(
         "div",
         attrs: (
-          class: "border-b-foreground border-b-1 flex flex-wrap justify-between py-1",
+          class: "flex flex-wrap justify-between pb-1",
         ),
       )[
         #html.elem("span", attrs: (class: "font-normal"))[
