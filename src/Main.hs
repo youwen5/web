@@ -112,7 +112,7 @@ generateSite = do
           >>= blazeTemplater Templates.defaultTemplate exploreCtx
           >>= universalOptimizer
 
-    match "root/index.typ" $ do
+    match ("root/index.typ" .||. "root/404.typ") $ do
       reroute $ takeFileName . flip replaceExtension "html"
       compile $
         typstIndexCompiler defaultContext
