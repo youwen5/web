@@ -86,6 +86,15 @@ generateSite = do
           >>= blazeTemplater Templates.postTemplate postContext
           >>= universalOptimizer
 
+    match "notes/**.typ" $ do
+      reroute $ ("notes" </>) . (</> "index.html") . takeBaseName
+
+      compile $
+        typstHtmlCompiler postContext
+          >>= saveSnapshot snapshotDir
+          >>= blazeTemplater Templates.postTemplate postContext
+          >>= universalOptimizer
+
     create ["archive.html"] $ do
       reroute expandRoute
       compile $ do
