@@ -139,7 +139,7 @@ the following diagram commutes.
 That is, $h = h' compose f$.
 
 Now we introduce the comma category, which essentially generalizes this notion.
-Let $cal(A)$, $cal(B)$, $cal(C)$ be categories, and let $F$ and $S$ be functors
+Let $cal(A)$, $cal(B)$, $cal(C)$ be categories, and let $S$ and $T$ be functors
 as such:
 
 #figure(diagram(
