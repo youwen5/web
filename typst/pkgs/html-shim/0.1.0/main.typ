@@ -110,7 +110,7 @@
 
 #let apostrophe = sym.quote.r.single
 
-#let btw(body) = context {
+#let callout(title, body) = context {
   if target() == "html" {
     html.elem(
       "div",
@@ -142,11 +142,13 @@
         thickness: (left: 1pt),
         radius: 0pt,
       ),
-      title: "By the way",
+      title: title,
       body,
     )
   }
 }
+
+#let btw(body) = callout("By the way", body)
 
 #let std-link = link
 
