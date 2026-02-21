@@ -8,8 +8,10 @@ title: Youwen Wu >> Welcome Home.
 #show: html-shim
 
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
-  #smallcaps(all: true)[Hi there. I'm Youwen]. I study math and computer science at
-  #link("https://ucsb.edu")[UC Santa Barbara].
+  #smallcaps(all: true)[Hi there. I'm Youwen]. I study math and computer
+  science at #link("https://ucsb.edu")[UCSB]. Currently I am a
+  visiting student at Tsinghua University in Beijing, China, in the department
+  of Computer Science and Technology.
 ]
 
 // #webimg(
@@ -368,6 +370,10 @@ what I'm up to right now. Or explore the other pages on this website.
 
   #html.elem("div", attrs: (class: "space-y-2 prose-lg"))[
     #double-entry[
+      Visiting student (Spring 2026) \
+      Tsinghua University
+    ]
+    #double-entry[
       B.S. Mathematics (2028) \
       University of California, Santa Barbara
     ]
@@ -377,7 +383,10 @@ what I'm up to right now. Or explore the other pages on this website.
     ]
   ]
   #html.elem("div", attrs: (class: "space-y-[7.33px] prose-lg"))[
-    #location-entry(area: [in Santa Barbara], country-or-state: [
+    #location-entry(area: [in Haidian, Beijing], country-or-state: [
+      #smallcaps(all: true)[China]
+    ])
+    #location-entry(area: [sometimes in Santa Barbara], country-or-state: [
       #smallcaps(all: true)[California, USA]
     ])
     #location-entry(area: [near San Francisco], country-or-state: [

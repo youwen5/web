@@ -29,13 +29,12 @@ the question "what have you been up to lately?"
 
 = Whereabouts
 
-I'm studying at #link("https://www.ucsb.edu/")[#smallcaps[ucsb]] until at least
-Winter 2026.
+I'm currently in Haidian District, Beijing, at
+#link("https://www.tsinghua.edu.cn/en/")[Tsinghua University]. I'll be studying
+there until July 2026.
 
-= Done and still doing
+= The Future
 
-- I was in Boston/Cambridge between Sep. 7th and 15th, mostly around the MIT/Harvard area. I was a hacker at #link("https://hackmit.org/")[HackMIT] too! If you met me then, feel free to reach out to one of these #link("/#contact")[contact methods]!
+- Who knows?
 
-= Future
-
-- I'm still thinking of starting a project called "How #smallcaps[posix] can you get in 31 days?" where I try to write as much of a #smallcaps[posix] compliant operating system as possible, from scratch, with a 1 month time limit. Probably using Rust or Zig. I'm not sure how much time I'll have for this during the summer, though.
+// - I'm still thinking of starting a project called "How #smallcaps[posix] can you get in 31 days?" where I try to write as much of a #smallcaps[posix] compliant operating system as possible, from scratch, with a 1 month time limit. Probably using Rust or Zig. I'm not sure how much time I'll have for this during the summer, though.
