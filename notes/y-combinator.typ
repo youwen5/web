@@ -23,6 +23,9 @@ For our purposes, our simply untyped $lambda$-calculus will be a $lambda
 beta$-theory, in the equational theory sense, in that it consists of the
 standard rules of the lambda calculus with the $beta$-conversion rule.
 
+A lambda abstraction is a term of the form $lambda x . s$. A combinator is a
+lambda abstraction with no free terms.
+
 A fixed point of a term $f$ is simply any term $x$ such that $f x = x$.
 Additionally, if there exists a combinator $s$ such that for any terms $f$ and
 $z$ we have $f (s z) = s z$, i.e. $s z$ is a fixed point of $f$, then we say $s$
@@ -43,17 +46,17 @@ $
   X = f X.
 $
 
-There is no way to do this, since $X$ appears in both sides. We can try naively to let $x$ be arbitrary and instead write
-$
-  X' x = f x.
-$
+There is no way to do this, since $X$ appears in both sides, and it is not
+clear (nor true) that every term has the same fixed point. Instead, we can
+search for a fixed-point combinator. We can first naively try the combinator
+that is the term itself. Let $x$ be arbitrary (free) and instead write $ X' x =
+f x. $
 
 This doesn't help us solve the problem at all, but it gives a hint, namely, we
 see that $X' X' = f X'$. If only the right side was $f (X' X')$, then we would
 be done!
 
-The trick is now to use self-reference (or some other "paradoxical" trick could
-work, but this is easy). Instead, write
+The key trick is to use self-reference. Instead, write the combinator $X''$ that gives
 $
   X'' x = f (x x)
 $
