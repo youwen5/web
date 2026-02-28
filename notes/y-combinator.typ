@@ -9,7 +9,7 @@ published: 2026-02-28
 
 #let theorem(body) = callout("Theorem", body)
 
-_Not that $bold(y)$-combinator_.
+_Not that Y-combinator_.
 
 Curry's "paradoxical" $bold(y)$-combinator gives a fixed-point for every single
 _term_ in the simply untyped $lambda$-calculus. (Recall that in the untyped
@@ -46,21 +46,20 @@ $
   X = f X.
 $
 
-There is no way to do this, since $X$ appears in both sides, and it is not
-clear (nor true) that every term has the same fixed point. Instead, we can
-search for a fixed-point combinator. We can first naively try the combinator
-that is the term itself. Let $x$ be arbitrary (free) and instead write $ X' x =
-f x. $
+Since $X$ appears in both sides, and it is not clear (nor true) that every term
+has the same fixed point, it's pretty obvious our solution is going to contain
+the term itself $f$. Therefore, we should search for a fixed-point combinator. We
+can first naively try the combinator that is the term itself. Let $x$ be
+arbitrary (free) and instead write $ X' x = f x. $
 
-This doesn't help us solve the problem at all, but it gives a hint, namely, we
-see that $X' X' = f X'$. If only the right side was $f (X' X')$, then we would
-be done!
+This doesn't actually help us solve the problem at all, but it gives a hint,
+namely, we see $f X' = X' X'$. If only the left side was $f (X' X')$, then we
+would be done!
 
-The key trick is to use self-reference. Instead, write the combinator $X''$ that gives
+The key trick is to use self-reference. Write the combinator $X''$ that gives
 $
   X'' x = f (x x)
 $
 and see that $X'' X'' = f(X'' X'')$. A fixed point! Now what could $X''$ be?
-It's so obvious, it might as well be written on the page. $X'' = lambda x . f(x
-  x)$ obviously works. Now just write out $X'' X''$ and bind $f$ and you recover
-the classical $bold(y)$-combinator!
+$X'' = lambda x . f(x x)$ obviously works. Now just write out $X'' X''$ and
+bind $f$ and you recover the classical $bold(y)$-combinator!
