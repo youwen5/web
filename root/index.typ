@@ -69,26 +69,46 @@ what I'm up to right now. Or explore the other pages on this website.
 //   the kind of person I am.
 // ]
 
+// #blockquote(attribution: [--- #link(
+//     "https://direct.mit.edu/books/oa-monograph/5460/Sheaf-Theory-through-Examples",
+//   )[Rosiak, _Sheaf Theory through Examples_]])[
+//   I happen to believe that many of the staple questions that were originally
+//   the provenance of the philosopher will eventually be handled with the care
+//   they deserve once they are adequately framed as problems within category
+//   theory, and that in the near future every major philosophical
+//   dialectic---universal--particular, continuous--discrete, global-local,
+//   quality--quantity---and even less obvious problems, such as those of
+//   "personal identity," will be handed over to, and considerably enriched by,
+//   the category theorist.
+// ]
+
 #blockquote(attribution: [--- #link(
-    "https://direct.mit.edu/books/oa-monograph/5460/Sheaf-Theory-through-Examples",
-  )[Rosiak, _Sheaf Theory through Examples_]])[
-  I happen to believe that many of the staple questions that were originally
-  the provenance of the philosopher will eventually be handled with the care
-  they deserve once they are adequately framed as problems within category
-  theory, and that in the near future every major philosophical
-  dialectic---universal--particular, continuous--discrete, global-local,
-  quality--quantity---and even less obvious problems, such as those of
-  "personal identity," will be handed over to, and considerably enriched by,
-  the category theorist.
+    "https://en.wikipedia.org/wiki/Alexander_Grothendieck",
+  )[Alexander Grothendieck]])[
+  Discovery is a child's privilege. I mean the small child, the child who is
+  not afraid to be wrong, to look silly, to not be serious, and to act
+  differently from everyone else. He is also not afraid that the things he is
+  interested in are in bad taste or turn out to be different from his
+  expectations, from what they should be, or rather he is not afraid of what
+  they actually are. He ignores the silent and flawless consensus that is part
+  of the air we breathe---the consensus of all the people who are, or are
+  reputed to be, reasonable.
 ]
 
-#btw[
-  I recently embarked on a full redesign of the underlying infrastructure of
-  this website, switching from Rust to Haskell. The website mostly looks the
-  same, with a few upgraded features thanks to
-  #link("https://jaspervdj.be/hakyll/")[Hakyll], but there may be broken
-  hyperlinks or outdated content for a while. Pardon the dust!
-]
+// #blockquote(attribution: [--- #link("")[The Zhuangzi]])[
+//   Rewards and punishment is the lowest form of education.
+//
+//   (The Zhuangzi lamenting the current regime of reinforcement learning in
+//   machine learning research.)
+// ]
+
+// #btw[
+//   I recently embarked on a full redesign of the underlying infrastructure of
+//   this website, switching from Rust to Haskell. The website mostly looks the
+//   same, with a few upgraded features thanks to
+//   #link("https://jaspervdj.be/hakyll/")[Hakyll], but there may be broken
+//   hyperlinks or outdated content for a while. Pardon the dust!
+// ]
 
 // #html.elem(
 //   "div",
@@ -187,7 +207,7 @@ what I'm up to right now. Or explore the other pages on this website.
 
 #html.elem("p", attrs: (
   class: "text-sm text-subtle",
-))[I need to automate this feed.]
+))[Hopefully I update this soon.]
 
 #let photo-urls = (
   (
