@@ -55,7 +55,7 @@ and PDF targets.
 
 Around a year after the initial website deployment using Epilogue I had still
 not implemented feed generation, tagging, and other standard SSG features,
-which was suboptimal. I had spent the past year climbing the latter of
+which was suboptimal. I had spent the past year climbing the ladder of
 mathematical abstraction, so rather than waste time implementing such trivial
 features, I decided to try my hand once again at actual Haskell development and
 began looking into the Hakyll system.
