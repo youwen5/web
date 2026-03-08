@@ -18,23 +18,21 @@ non-exhaustive list. Continuously updated, hopefully.
 
 - #link("https://www.last.fm/music/Ryo+Fukui")[Ryo Fukui]
 
-  _I Want To Talk About You_ is so good.
+  _I Want To Talk About You_ is good.
 
 - #link("https://www.last.fm/music/Kendrick+Lamar")[Kendrick Lamar]
 
-  No notes.
-
 - #link("https://www.last.fm/music/Polyphia")[Polyphia]
 
-  Virtuostic guitar work meets trap beats and hip-hop production. Listen to
+  Virtuostic guitar work + trap beats and hip-hop production. Listen to
   _The Worst_, _Ego Death_, and the rest of _Remember That You Will Die_. My
-  biggest flex is that I can actually play one of their songs.
+  biggest flex is that I can actually play one of their riffs.
 
 - #link(
     "https://www.last.fm/music/No+Party+For+Cao+Dong",
   )[No Party for Cao Dong (草東沒有派對)]
 
-  The best of Taiwanese indie mandopop. Every track is a banger. A little-known song by them is the first track in #link("https://www.youtube.com/watch?v=u_HXax8QOmw")[Devotion's original soundtrack]. It's progressive as hell.
+  The best of Taiwanese indie mandopop. A little-known song by them is the first track in #link("https://www.youtube.com/watch?v=u_HXax8QOmw")[Devotion's original soundtrack]. Super progressive (in the rock sense).
 
 - #link(
     "https://www.last.fm/music/%E5%87%9B%E3%81%A8%E3%81%97%E3%81%A6%E6%99%82%E9%9B%A8",
@@ -45,3 +43,11 @@ non-exhaustive list. Continuously updated, hopefully.
   better. Listen to
   #link("https://www.last.fm/music/%E5%87%9B%E3%81%A8%E3%81%97%E3%81%A6%E6%99%82%E9%9B%A8/moment+A+rhythm")[moment
     A rhythm].
+
+- #link("https://www.last.fm/music/Dire+Straits")[Dire Straits]
+
+  Money for Nothing, Espresso Love, and of course Sultans of Swing.
+
+- #link("https://yorushika.com/?lang=en")[Yorushika]
+
+  My favorite J-Pop/Rock-ish band. I like almost all their songs.
