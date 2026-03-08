@@ -11,17 +11,40 @@ published: 2026-02-28
 
 _Not that Y-combinator_.
 
-Curry's "paradoxical" $bold(y)$-combinator gives a fixed-point for every single
-_term_ in the simply untyped $lambda$-calculus. (Recall that in the untyped
+#link("https://en.wikipedia.org/wiki/Haskell_Curry")[Haskell Curry]'s
+"paradoxical" $bold(y)$-combinator gives a fixed-point for every single _term_
+in the untyped $lambda$-calculus. (Recall that in the untyped
 $lambda$-calculus, as there is no notion of a term having type "function" or
 "variable," every term may be regarded being allowed to have terms applied to
-it, even in nonsensical cases, which is in fact the crux of the derivation.)
+it, which is in fact the crux of the derivation.)
 
 = Notions
 
-For our purposes, our simply untyped $lambda$-calculus will be a $lambda
-beta$-theory, in the equational theory sense, in that it consists of the
+For our purposes, our untyped $lambda$-calculus will be a standard $lambda
+beta$-theory, in the equational theoretic sense, in that it consists of the
 standard rules of the lambda calculus with the $beta$-conversion rule.
+
+#btw[
+  This tidbit is not really necessary or too interesting, but I thought I'd
+  point it out. The $beta$-conversion rule is often called $beta$-reduction,
+  but there's a semantic distinction here. $beta$-conversion is defined by a
+  _binary relation_ called $beta$, which relates
+  $
+    (lambda x . z) s space beta space z[s\/x].
+  $
+  Here, $z[s\/x]$ is not a distinct term in the lambda calculus but represents
+  substituting all free occurrences of $x$ with $s$ in the term $z$, while
+  avoiding unintended capture of free variables via $alpha$-conversion.
+
+  For any relation $R$, we can define the _compatible closure_, an induced
+  relation denoted $attach(->, br: R)$. We call it the $R$-reduction. It's
+  simply the relation itself, along with relating $s u attach(br: R, ->) t u$
+  if $s attach(->, br: R) t$ (reduction on the left), a similar rule for
+  reduction on the right, and reduction under abstraction.
+
+  When studying $lambda$-calculi, we are usually interested in the
+  $beta$-reduction.
+]
 
 A lambda abstraction is a term of the form $lambda x . s$. A combinator is a
 lambda abstraction with no free terms.
@@ -63,3 +86,11 @@ $
 and see that $X'' X'' = f(X'' X'')$. A fixed point! Now what could $X''$ be?
 $X'' = lambda x . f(x x)$ obviously works. Now just write out $X'' X''$ and
 bind $f$ and you recover the classical $bold(y)$-combinator!
+
+$
+  bold(y) = lambda f . (lambda x . f(x x)) (lambda x . f(x x)).
+$
+
+#emoji.confetti
+#emoji.confetti
+#emoji.confetti
