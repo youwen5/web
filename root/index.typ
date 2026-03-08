@@ -47,10 +47,9 @@ prefer to use
 experimental NixOS-based Linux distribution---among other free software contributions.
 
 I like #link("https://stallman.org/articles/on-hacking.html")[hacking], and
-hackathons. Most recently, I won the grand prize at
-#link("https://hackmit.org/")[HackMIT 2025]. This year I am organizing
-#link("https://sbhacks.com/")[SB Hacks], the headliner hackathon of UC Santa
-Barbara.
+hackathons. I helped organize this year's #link("https://sbhacks.com/")[SB
+  Hacks], the headliner hackathon of UC Santa Barbara, and I'm now its Director
+of Development.
 
 In my spare time, I play guitar and spend too much money on guitar pedals. I
 listen to a lot of #link("/misc/fav-songs")[music].
