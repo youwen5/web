@@ -51,11 +51,8 @@ hackathons. I helped organize this year's #link("https://sbhacks.com/")[SB
   Hacks], the headliner hackathon of UC Santa Barbara, and I'm now its Director
 of Development.
 
-In my spare time, I play guitar and spend too much money on guitar pedals. I
-listen to a lot of #link("/misc/fav-songs")[music].
-
 See #link("/about")[about] for more about myself, or #link("/now")[now] for
-what I'm up to right now. Or explore the other pages on this website.
+what I'm up to right now. Or #link("/explore")[explore] the other pages on this website.
 
 // #blockquote(attribution: [--- #link(
 //     "https://en.wikiquote.org/wiki/Linus_Torvalds",
