@@ -9,6 +9,12 @@ framework configured using the [Haskell](https://www.haskell.org/) language.
 You can view the site at [web.youwen.dev](https://web.youwen.dev), deployed using
 GitHub pages and cached through Cloudflare's CDN.
 
+I wrote the contents of the website and all the code by hand without AI, and I
+intend to continue to do so indefinitely. Without taking a stance here on the
+morality, effectiveness, or philosophical quandaries of AI coding, I think
+having a personal web garden fully hand-wired down the entire stack is deeply
+satisfying.
+
 ## tech stack
 
 ### build time
