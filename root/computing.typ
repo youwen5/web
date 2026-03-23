@@ -28,13 +28,13 @@ personal lives. See footnote #footnote[In general,
   true sentiment for the creation of art, of course, but I think it can also be
   applied to other areas as well.
 
-  For example, when you plan your days out meticulously in a calendar program, it
-  becomes easy to let the calendar fix your days and your activities instead. I
-  don't mean of course that _anyone_ who uses a calendar has lost control of
-  their lives to the machine, and if I had a much busier schedule I think I would
-  probably use a calendar. The takeaway is that I try to think consciously weigh
-  ceding a certain computing tool some control over an aspect of my life against
-  the actual amount of time and toil saved.
+  For example, when you plan your days out meticulously in a calendar program,
+  it becomes easy to let the calendar fix your days and your activities
+  instead. I don't mean of course that _anyone_ who uses a calendar has lost
+  control of their lives to the machine, and if I had a much busier schedule I
+  think I would probably use a calendar. The takeaway is that I try to
+  consciously weigh ceding a certain computing tool some control over an aspect
+  of my life against the actual amount of time and toil saved.
 
   I find views like the following leveled against me quite incoherent:
 
@@ -47,8 +47,9 @@ personal lives. See footnote #footnote[In general,
     I take the opposite view: that computation is a fundamental aspect of human existence, and serves to trivialize that which was previously nontrivial.
   ]
 
-  I don't, per se, see any issue with the first complaint, and I don't see how
-  the second has any bearing on my philosophy around computing at all.
+  With regards to the first point, I don't, per se, see any issue with
+  self-righteousness, and I don't see how the second has any bearing on my
+  philosophy around computing at all.
 
   I certainly don't avoid "fancy software" or "computing systems." I maintain my
   own flavor of #link("https://functor.systems/functorOS")[Linux] (which happens
