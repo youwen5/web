@@ -104,13 +104,13 @@ personal lives. See footnote #footnote[In general,
 
 = Overview
 
-You can click the hyperlinked rows for more details where applicable.
+You can click the rows for more details where applicable.
 
 *Core:*
 
 #table(
   columns: 2,
-  [#link(<operating-system>)[OS]], [functorOS (based on NixOS unstable)],
+  [#std-link(<operating-system>)[OS]], [functorOS (based on NixOS unstable)],
   [Editor], [Neovim],
   [Browser], [Firefox],
   [Kernel(s)], [linux-zen, linux-asahi],
@@ -127,7 +127,7 @@ You can click the hyperlinked rows for more details where applicable.
   [Typesetting], [Typst],
   [Accounting], [#link("https://hledger.org/")[hledger]],
   [Audio Workstation], [#link("https://www.reaper.fm/")[Reaper]],
-  [#link(<photography>)[Photography]],
+  [#std-link(<photography>)[Photography]],
   [#link("https://www.darktable.org/")[Darktable], #link("https://www.digikam.org/")[digiKam]],
 )
 
@@ -162,12 +162,12 @@ You can click the hyperlinked rows for more details where applicable.
     "https://www.sennheiser-hearing.com/en-US/p/hd-600/",
   )[Sennheiser HD600]],
 
-  [#link(<photography>)[Camera]],
+  [#std-link(<photography>)[Camera]],
   [#link(
     "https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce7cm2b",
   )[Sony #(sym.alpha)7Cii]],
 
-  [#link(<photography>)[Lenses]],
+  [#std-link(<photography>)[Lenses]],
   [#link("https://electronics.sony.com/imaging/lenses/full-frame-e-mount/p/sel35f28z")[Carl Zeiss / Sony 35mm F/2.8], #link("https://www.sigmaphoto.com/24-70mm-f2-8-dg-dn-ii-a")[Sigma Art 24-70mm DG DN II]],
 )
 
