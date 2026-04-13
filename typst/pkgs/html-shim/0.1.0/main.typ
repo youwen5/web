@@ -20,6 +20,8 @@
         }
       },
     )
+  } else {
+    quote(body)
   }
 }
 
