@@ -186,7 +186,7 @@ pageFooter commit ghc time = footer ! class_ "border-t mt-8 border-solid border-
     a ! href "https://nixos.org/" $
       img ! width "88px" ! height "31px" ! alt "" ! src "/static/img/nixos.png"
     img ! width "88px" ! height "31px" ! alt "" ! src "/static/img/transnow2.gif"
-  script ! src "https://unpkg.com/lucide@latest" $ ""
+  script ! src "https://unpkg.com/lucide@1.0.0-rc.1" $ ""
   script "lucide.createIcons();"
 
 giscusComponent :: Html
