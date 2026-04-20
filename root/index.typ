@@ -31,6 +31,11 @@ title: Youwen Wu >> Welcome Home.
 
 #let posts = json(bytes(sys.inputs.posts))
 
+Beginning Fall 2026, I will be transferring to
+#link("https://www.berkeley.edu/")[UC Berkeley] to finish my B.A. in math and
+CS. Prior to that, I was pursuing the same degree(s) at
+#link("https://www.ucsb.edu/")[UC Santa Barbara].
+
 I'm a member of the
 #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Laboratory]
 and benevolent dictator at #link("https://functor.systems")[functor.systems].
