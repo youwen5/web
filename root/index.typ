@@ -387,6 +387,10 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 
   #html.elem("div", attrs: (class: "space-y-2 prose-lg"))[
     #double-entry[
+      B.A. Mathematics, Computer Science \
+      University of California, Berkeley
+    ]
+    #double-entry[
       Visiting student (Spring 2026) \
       Tsinghua University
     ]
@@ -403,10 +407,10 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     #location-entry(area: [in Haidian, Beijing], country-or-state: [
       #smallcaps(all: true)[China]
     ])
-    #location-entry(area: [sometimes in Santa Barbara], country-or-state: [
+    #location-entry(area: [near San Francisco], country-or-state: [
       #smallcaps(all: true)[California, USA]
     ])
-    #location-entry(area: [near San Francisco], country-or-state: [
+    #location-entry(area: [previously in Santa Barbara], country-or-state: [
       #smallcaps(all: true)[California, USA]
     ])
     #location-entry(area: [previously near Salt Lake City], country-or-state: [

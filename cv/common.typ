@@ -117,8 +117,8 @@
     )
     #if long {
       education-entry(
-        institution: [Tsinghua University, Beijing],
-        degree: [Visiting student],
+        institution: [Tsinghua University (Beijing, PRC)],
+        degree: [Visiting student, Dept. of Computer Science and Technology],
         date: [Spring 2026],
       )
       education-entry(
