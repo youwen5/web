@@ -110,12 +110,12 @@
   }
 
   #education-section[
+    #education-entry(
+      institution: [University of California, Berkeley],
+      degree: [B.A. _in_ Computer Science, Mathematics],
+      date: [2026 -- 2028 (expected)],
+    )
     #if long {
-      education-entry(
-        institution: [University of California, Berkeley],
-        degree: [B.A. _in_ Computer Science, Mathematics],
-        date: [2026 -- 2028 (expected)],
-      )
       education-entry(
         institution: [Tsinghua University, Beijing],
         degree: [Visiting student],
