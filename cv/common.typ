@@ -464,6 +464,10 @@
 
     #if long [
       #award-entry(
+        title: [College of Engineering Glen Culler Scholarship (UCSB)],
+        date: [2026],
+      )
+      #award-entry(
         title: [George H. Griffiths and Olive J. Griffiths Scholarship (UCSB)],
         date: [2025],
       )
