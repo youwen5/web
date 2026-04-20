@@ -91,14 +91,14 @@
         ),
       )[
         #html.elem("span", attrs: (class: "font-normal"))[
-          #institution \
           #html.elem(
             "span",
             attrs: (
               class: "font-serif",
             ),
-            degree,
-          )
+            institution,
+          ) \
+          #degree
         ]
         #html.elem("span", date)
       ]
