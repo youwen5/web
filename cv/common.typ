@@ -112,7 +112,7 @@
   #education-section[
     #education-entry(
       institution: [University of California, Berkeley],
-      degree: [B.A. _in_ Computer Science, Mathematics],
+      degree: [B.A. Computer Science, B.A. Mathematics],
       date: [(expected) 2026 -- 2028],
     )
     #if long {
@@ -123,7 +123,7 @@
       )
       education-entry(
         institution: [University of California, Santa Barbara],
-        degree: [B.S. _in_ Computer Science, Mathematics],
+        degree: [B.S. Computer Science, B.S. Mathematics],
         date: [(transferred out) 2024 --- 2025],
       )
     }
