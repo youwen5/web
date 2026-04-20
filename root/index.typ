@@ -8,10 +8,11 @@ title: Youwen Wu >> Welcome Home.
 #show: html-shim
 
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
-  #smallcaps(all: true)[Hi there. I'm Youwen]. I study math and computer
-  science at #link("https://ucsb.edu")[UCSB]. Currently I am a
-  visiting student at Tsinghua University in Beijing, China, in the department
-  of Computer Science and Technology.
+  #smallcaps(all: true)[Hi there. This is Youwen]. I study
+  #link("https://en.wikipedia.org/wiki/Abstract_nonsense")[abstract nonsense]
+  and hack on computers. Currently I am a visiting student at
+  #link("https://www.tsinghua.edu.cn/en/")[Tsinghua University] in Beijing,
+  China, in the department of Computer Science and Technology.
 ]
 
 // #webimg(

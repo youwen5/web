@@ -2,7 +2,7 @@
 #import "./pesha.typ": *
 
 #let render-cv(long: false) = [
-  I'm passionate about _design_---in all its facets---including systems, web, graphics, typography, and more. I love working on hard problems.
+  Boil the ocean.
 
   #context {
     if target() == "html" {
@@ -110,21 +110,21 @@
   }
 
   #education-section[
-    #education-entry(
-      institution: [University of California, Santa Barbara],
-      degree: [B.S. _in_ Mathematics (GPA: 3.96)],
-      date: [2024 --- 2028 (expected)],
-    )
-    #education-entry(
-      institution: [University of California, Santa Barbara],
-      degree: [B.S. _in_ Computer Science],
-      date: [2024 --- 2028 (expected)],
-    )
     #if long {
       education-entry(
+        institution: [University of California, Berkeley],
+        degree: [B.A. _in_ Computer Science, Mathematics],
+        date: [2026 -- 2028 (expected)],
+      )
+      education-entry(
         institution: [Tsinghua University, Beijing],
-        degree: [Visiting exchange student],
-        date: [2026 (anticipated)],
+        degree: [Visiting student],
+        date: [Spring 2026],
+      )
+      education-entry(
+        institution: [University of California, Santa Barbara],
+        degree: [B.S. _in_ Computer Science, Mathematics],
+        date: [2024 --- 2025 (transferred out)],
       )
     }
   ]
