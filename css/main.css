@@ -71,7 +71,7 @@
   font-variant: normal;
 }
 
-[role="doc-endnotes"] {
+[role='doc-endnotes'] {
   @apply prose-li:before:content-none;
 }
 
