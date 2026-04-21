@@ -98,7 +98,10 @@ hackingItems =
   ]
 
 mathItems :: SidebarList
-mathItems = [("Three isomorphism theorems", "/math/three-isomorphism-theorems")]
+mathItems =
+  [ ("Three isomorphism theorems", "/math/three-isomorphism-theorems")
+  , ("Computability and incompleteness", "/math/computability-and-incompleteness")
+  ]
 
 funItems :: SidebarList
 funItems = [("Favorite songs", "/misc/fav-songs")]
