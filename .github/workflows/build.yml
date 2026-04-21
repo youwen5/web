@@ -20,3 +20,18 @@ jobs:
       - run: |
           nix build .#checks.x86_64-linux.pre-commit-check --accept-flake-config
           nix build .#site-full --accept-flake-config
+  aarch64-binary-cache:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+      - uses: cachix/cachix-action@v16
+        with:
+          name: luminite
+          authToken: '${{ secrets.CACHIX_TOKEN }}'
+      - run: |
+          nix build .#checks.aarch64-linux.pre-commit-check --accept-flake-config
+          nix build .#site-full --accept-flake-config
+          nix build .#devShells.aarch64-linux.default --accept-flake-config
