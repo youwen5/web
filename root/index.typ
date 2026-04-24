@@ -86,7 +86,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 
 #blockquote(attribution: [--- #link(
     "https://en.wikipedia.org/wiki/Alexander_Grothendieck",
-  )[Alexander Grothendieck]])[
+  )[#smallcaps[Alexander Grothendieck]]])[
   Discovery is a child's privilege. I mean the small child, the child who is
   not afraid to be wrong, to look silly, to not be serious, and to act
   differently from everyone else. He is also not afraid that the things he is
@@ -96,6 +96,12 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   of the air we breathe---the consensus of all the people who are, or are
   reputed to be, reasonable.
 ]
+
+// #blockquote(
+//   attribution: [--- #smallcaps[Volition], _Disco Elysium_],
+// )[
+//   No. This is somewhere to be. This is all you have, but it’s still something. Streets and sodium lights. The sky, the world. You’re still alive.
+// ]
 
 // #blockquote(attribution: [--- #link("")[The Zhuangzi]])[
 //   Rewards and punishment is the lowest form of education.
