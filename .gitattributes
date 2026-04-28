@@ -1,4 +1,6 @@
 posts/**/* linguist-documentation
+thoughts/**/* linguist-documentation
+notes/**/* linguist-documentation
 cv/**/* linguist-documentation
 root/**/* linguist-documentation
 css/*.css linguist-generated
