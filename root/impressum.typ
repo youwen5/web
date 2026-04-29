@@ -22,6 +22,9 @@ title: "Impressum"
 ]
 
 Reach me at:
+- #link("mailto:youwen@berkeley.edu")[#smallcaps(
+    all: true,
+  )[youwen\@berkeley.edu]]
 - #link("mailto:youwen@functor.systems")[#smallcaps(
     all: true,
   )[youwen\@functor.systems]] \
@@ -30,9 +33,5 @@ Reach me at:
     all: true,
   )[wu-yw25\@mails.tsinghua.edu.cn]] \
   `AE7C 248E B329 776F 9C11 DE78 80D9 6DB0 9CC7 60AB`
-- #link("mailto:youwen@cs.ucsb.edu")[#smallcaps(
-    all: true,
-  )[youwen\@cs.ucsb.edu]] \
-  `D26A 0082 4013 D524 BDF1 1126 093F 1185 C55B 84A2`
 
 Keys available in #link("https://keys.openpgp.org/")[OpenPGP] and #link("https://pgp.mit.edu/")[MIT] keyservers.

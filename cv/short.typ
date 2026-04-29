@@ -9,12 +9,12 @@
     set heading(depth: 3)
     show: pesha.with(
       name: "Youwen Wu",
-      address: "Santa Barbara, CA | Danville, CA",
+      address: "Berkeley, CA",
       contacts: (
         [(925)--791--1845],
-        [#link("mailto:youwen@cs.ucsb.edu", smallcaps(
+        [#link("mailto:youwen@berkeley.edu", smallcaps(
           all: true,
-        )[youwen\@cs.ucsb.edu])],
+        )[youwen\@berkeley.edu])],
         [#link("https://web.youwen.dev")[web.youwen.dev]],
       ),
       footer-text: [Curriculum Vitae],
