@@ -7,6 +7,14 @@ title: Youwen Wu >> Welcome Home.
 
 #show: html-shim
 
+#let icon(name: "") = {
+  html.elem(
+    "span",
+    attrs: (class: "my-auto w-[24px]"),
+    lucide-icon(name: name),
+  )
+}
+
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
   #smallcaps(all: true)[Hi there. This is Youwen]. I study
   #link("https://en.wikipedia.org/wiki/Abstract_nonsense")[abstract nonsense]
@@ -31,7 +39,7 @@ title: Youwen Wu >> Welcome Home.
 
 #let posts = json(bytes(sys.inputs.posts))
 
-Beginning Fall 2026, I will be transferring to
+Beginning Fall 2026, I will be starting at
 #link("https://www.berkeley.edu/")[UC Berkeley] to finish my B.A. in math and
 CS. Prior to that, I was pursuing the same degree(s) at
 #link("https://www.ucsb.edu/")[UC Santa Barbara].
@@ -153,19 +161,26 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 #show heading.where(level: 1): it => {
   html.elem("h2", attrs: (class: "!text-foreground"), it.body)
 }
+
+#heading[
+  Notes
+  #html.a(
+    href: "/notes",
+    class: "text-link inline-flex gap-0.5",
+  )[(See more)]
+]
+
+#html.div(
+  class: "!mt-4 py-2 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit max-w-[60ch]",
+  [What is this.],
+)
+
+
 = Recently
 
 #html.elem("p", attrs: (
   class: "text-sm text-subtle not-prose",
 ))[You may enjoy #link("/feed.xml")[RSS] and #link("/atom.xml")[Atom] feeds.]
-
-#let icon(name: "") = {
-  html.elem(
-    "span",
-    attrs: (class: "my-auto w-[24px]"),
-    lucide-icon(name: name),
-  )
-}
 
 #let update(date: "", is-link: true, internal: true, href: "", body) = {
   html.elem(
@@ -209,7 +224,6 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     })
   },
 )
-
 
 = Photos
 
