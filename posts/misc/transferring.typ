@@ -16,9 +16,9 @@ friends, and (unsurprisingly) parents unsatisfied with their kids' college
 results, with questions along the lines of "why?" and "how?" This undoubtedly
 stems from the fact that 95% of Berkeley transfer admits come from community
 colleges so there doesn't exist much information on gaining transfer admission
-from a regular 4-year institution, for instance, from another UC like me.
+from a regular 4-year institution.
 
-I've texted/emailed people a smörgåsbord of the same scattered resources and
+I've texted/emailed people an array of the same scattered resources and
 thoughts. As such, I'm going to collect everything I know here in one place, so
 I can just send this webpage to people in the future. I'll briefly outline why
 I decided to transfer, but if you don't care, then just skip to the
@@ -50,7 +50,7 @@ September 2025 application filing period mostly on a whim, since one of my top
 school choices _was_ Berkeley back in high school.
 
 
-#blockquote[Ultimately, the main reason I transferred was due to the housing. #footnote[I'm getting mild #link("https://blog.evanchen.cc/transfer/#:~:text=Ultimately%2C%20the%20main%20reason%20I%20transferred%20was%20due%20to%20the%20housing")[déjà vu...]]]
+Ultimately, the main reason I transferred was due to the housing. #footnote[I'm getting mild #link("https://blog.evanchen.cc/transfer/#:~:text=Ultimately%2C%20the%20main%20reason%20I%20transferred%20was%20due%20to%20the%20housing")[déjà vu...]]
 
 You see, there's something of a critical housing crisis in Isla Vista (the
 unincorporated community that serves as UCSB's college town), and after various
@@ -67,7 +67,7 @@ Come February, I received the following in my mail:
   Unfortunately, we are unable to offer you a space in UCSB campus housing.
 ]
 
-Such is the woeful tale of many a UCSB upperclassman. At this point I was at my
+Such is the woeful tale of many a UCSB underclassman. At this point I was at my
 wits end and I decided it was probably less annoying to just get into UC
 Berkeley and get guaranteed housing there than figure out off-campus housing at
 UCSB. I therefore made my peace with UCSB and patiently awaited my application decision in mid-May. So long and thanks for all the fish!
