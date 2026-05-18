@@ -2,8 +2,6 @@
 #import "./pesha.typ": *
 
 #let render-cv(long: false) = [
-  Boil the ocean.
-
   #context {
     if target() == "html" {
       html.elem(
@@ -117,7 +115,7 @@
     )
     #if long {
       education-entry(
-        institution: [Tsinghua University (Beijing, PRC)],
+        institution: [Tsinghua University (Beijing)],
         degree: [Visiting student, Dept. of Computer Science and Technology],
         date: [Spring 2026],
       )
@@ -200,6 +198,19 @@
   #entry-wrapper[
     #experience-entry(
       date: [03/25 --- now],
+      location: [Santa Barbara, California],
+      employer: [SB Hacks],
+      title: [Director of Development],
+      [#text(
+        10pt,
+        [
+          - Worked on #link("https://storke.sbhacks.com")[Storke], the unified logistics platform for #link("http://2026.sbhacks.com/")[SB Hacks XII], UCSB's largest annual hackathon
+          - Served 600+ users at event, w/ applications, QR code check in, meal ticketing
+        ],
+      )],
+    )
+    #experience-entry(
+      date: [03/25 --- now],
       location: [Earth],
       employer: [MIT OpenCompute Lab],
       title: [Hacker],
@@ -210,21 +221,6 @@
         ],
       )],
     )
-    #experience-entry(
-      date: [11/24 --- 06/25],
-      location: [Santa Barbara, CA],
-      employer: [UCSB Robotics Lab],
-      title: [Systems programmer],
-      [#text(
-        10pt,
-        [
-          - Designed reproducible build systems massively speeding up development iteration
-          - Creating 3D simulacrums of laboratory experiments that are reproduced in
-            real life, using C++, React, and Three.js
-        ],
-      )],
-    )
-
     #if long [
       #experience-entry(
         date: [11/24 --- now],
@@ -372,8 +368,8 @@
       link: "https://code.functor.systems/youwen/colmena-maps",
       type: "github",
     )[
-      - Embodied agentic AI system that hunts down any desired item in Google Streetview using novel geospatial intelligence and spacetime-embeddings
-      - Won HackMIT 2025 Grand Prize (worth over US\$4,000)
+      - Embodied agentic AI system that navigates Google Streetview using geospatial intelligence and spacetime-embeddings
+      - Won Grand Prize at #link("https://en.wikipedia.org/wiki/HackMIT")[HackMIT 2025] (over US\$4,000), the largest annual hackathon at the #link("https://www.mit.edu/")[Massachusetts Institute of Technology].
     ]
     #project-entry(
       date: [2025],
@@ -464,18 +460,18 @@
 
     #if long [
       #award-entry(
-        title: [College of Engineering Glen Culler Scholarship (UCSB)],
+        title: [College of Engineering Glen Culler Merit Scholarship (UCSB)],
         date: [2026],
       )
       #award-entry(
-        title: [George H. Griffiths and Olive J. Griffiths Scholarship (UCSB)],
+        title: [George H. Griffiths and Olive J. Griffiths Merit Scholarship (UCSB)],
         date: [2025],
       )
     ]
     #award-entry(title: [HackMIT 2025 Grand Prize], date: [2025])
     #if long [
       #award-entry(
-        title: [Dean's Honors #(sym.times)3],
+        title: [Dean's Honors #(sym.times)4],
         date: [2024 --- 2025],
         web-only: true,
       )
