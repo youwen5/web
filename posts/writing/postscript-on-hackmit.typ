@@ -21,6 +21,8 @@ location: "Massachvsetts Institvte of Technology, Cambridge, MA"
   my successful attempt to "hack" HackMIT and my contributions to the hackathon.
 ]
 
+_This is a retrospective on HackMIT presented as an epic tale of wits and grit, contributed partly by guest writer Warren Futaba Lex. This essay is written from his perspective, not mine (Youwen's), although I was on the team._
+
 I initially applied to HackMIT over the summer of 2025. I noted my experience
 in electrical engineering, but approached the application as a purely
 intellectual and philosophical exercise. I mostly detailed my fascination with
