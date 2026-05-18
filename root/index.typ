@@ -172,7 +172,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 
 #html.div(
   class: "!mt-4 py-2 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit max-w-[60ch]",
-  [What is this.],
+  [Under construction.],
 )
 
 
