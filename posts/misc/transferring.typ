@@ -16,14 +16,15 @@ friends, and (unsurprisingly) parents unsatisfied with their kids' college
 results, with questions along the lines of "why?" and "how?" This undoubtedly
 stems from the fact that 95% of Berkeley transfer admits come from community
 colleges so there doesn't exist much information on gaining transfer admission
-from a regular 4-year institution.
+from another University of California (UC) campus.
 
 I've texted/emailed people an array of the same scattered resources and
 thoughts. As such, I'm going to collect everything I know here in one place, so
 I can just send this webpage to people in the future. I'll briefly outline why
 I decided to transfer, but if you don't care, then just skip to the
 #smallcaps(std-link(<how>)[How?]) section. I'll also leave some general advice
-at the end.
+at the end, so if you are actually considering attempting transferring between
+UCs, you should read there.
 
 #outline()
 
@@ -79,7 +80,7 @@ actually became ineligible for UCLA due to excess upper division unit
 restrictions, so Berkeley was my only actual option.
 
 #btw[
-  Nomenclature: I use CC to mean Community College, and CCC is Berkeleyifornia
+  Nomenclature: I use CC to mean Community College, and CCC is California
   Community College. UC-UC transfer means applying to another UC as a transfer
   student when you're already at one of the UCs.
 
@@ -91,15 +92,14 @@ restrictions, so Berkeley was my only actual option.
   leaving just 5% of the admit pool for _everyone_ else.
 
   That means the 25% or so admit rate for Berkeley transfers is _only_ for CCC
-  applicants. As a UC-UC applicant, for instance, you can expect an admit rate
-  of around 6-8% (per
+  applicants. As a UC-UC applicant, for instance, you can expect *an admit rate
+  of around 6-8%* (per
   #link("https://www.universityofcalifornia.edu/about-us/information-center/transfer-admissions-summary")[this
-    website]). Yes, this is actually worse than the 1st year admit rate from
+    website]). Yes, this is actually *worse than the 1st year admit rate* from
   high school.
 
-  *Therefore if your goal is to get into Berkeley or UCLA it is highly
-  recommended to attempt it from a CCC.* I'm only here to tell you how to
-  attempt to transfer from somewhere else, *not that you should.*
+  *Therefore if your goal is to maximize your odds of getting into Berkeley or
+  UCLA it is highly recommended to attempt it from a CCC.*
 ]
 
 With that out of the way, I will outline some initial context: I applied under
@@ -107,6 +107,9 @@ the regular transfer student application. At the time I applied I was a 2nd
 year. This is the standard time to apply, although you can apply in your 1st
 year if you have enough units _and_ you feel you've a strong enough application
 (elaborated on below).
+
+Note, the transfer application is nearly identical
+to the first-year one, except for a single PIQ prompt.
 
 == My application
 
@@ -124,12 +127,12 @@ of importance:
   had basically finished 60% of my major before transferring was probably not
   unhelpful.
 - I won various hackathon awards. Again, I don't think this is very impressive
-  excepting the fact that one of the awards was at HackMIT, a fairly
+  excepting the fact that one of the awards was 1st place at HackMIT, a fairly
   prestigious annual hackathon at MIT. You can read all about that experience in
   #link("/writing/postscript-on-hackmit/")[this blog post I wrote.]
 - I contributed a good deal to organizing SB Hacks, UCSB's largest hackathon,
   and I ended up in a high level leadership role. Obviously this demonstrates
-  leadership experience, initiative, etc
+  leadership experience, initiative, etc.
 - I had a lot of personal projects which you may find traces of all over this website.
 - I earned a couple merit scholarships from UCSB.
 
@@ -143,33 +146,70 @@ frequently. I actually wrote the following as a response to someone's question
 about transferring UC-UC and then pasted it here near verbatim so apologies in
 advance for any awkward phrasing.
 
+Essentially, you may apply as a transfer as soon as you have been enrolled in
+some college for more than a term, and the UCs will group you into various
+categories based solely on your credits obtained. The UCs (especially the top
+ones) only accept junior-level applicants, which is determined based on how
+many units you have. That's why a 1st year can apply for admission (and many
+do), given that they have sufficient units from prior dual enrollment or AP
+exams. However, if you are a student at a 4 year college, you can obtain _too
+many units_ and gain senior level standing, which makes you ineligible for
+transfer admission at most UCs. Therefore most people have at most two
+opportunities to apply, in their 1st and 2nd year of college. However, CCC
+applicants cannot have senior standing so they can technically stay in CC and
+apply as much as they want, although almost no one spends more than two years
+in practice. Also, one-year transfers will have high school grades taken into
+account, whereas 2nd year transfers will be evaluated only based on college
+coursework. So if your high school grades were subpar, a second year transfer
+will let you be seen from an entirely blank slate.
+
+As for filing period, the top UCs only accept applications for the standard
+Fall term start, i.e. you can only apply once per year during the regular
+filing period starting in August and closing in December (same as the
+first-year application). Therefore a one-year transfer must apply in the fall
+of their first year of college, almost immediately after they just started,
+while a second-year transfer would apply in their second fall term, after a
+full year of grades have been entered. Since the applications are usually filed
+before fall grades are finalized, applicants are asked to submit an academic
+update February listing their fall grades.
+
+So the bottom line is:
+
+- You file your application similarly to the first-year application
+- As a first-year transfer you have only a single fall term of grades (as well as high school and prior dual enrollment grades).
+- As a second-year transfer you have an entire year's worth and a fall term of grades, and dual enrollment grades, but _not_ high school grades. Second-year transfer is more standard and generally leads to more favorable outcomes, especially with a weaker high school transcript.
+
+== UC-UC specific requirements and remarks
+
 The transfer process is similar in terms of requirements for UC-UC transfer and
 CCC transfers. You need 90 quarter units (= 60 semester units) to be considered
 a junior transfer, while you must have no more than 120/135 quarter units (UCLA
-\/ Berkeley respectively), under which you would be considered a senior transfer and
-ineligible. For UCLA, they also require less than 39 upper-division units (at
-most UCs upper division means courses numbered with 3 digits, e.g. Math 117),
-which is why I'm likely no longer eligible. Berkeley has no such restrictions. Most
-people will not hit the upper division limit but if you're taking a ton of
-classes in your major it's possible. There are also a few course requirements,
-namely, for Berkeley they require the "7-course pattern," which includes some
-breadth classes across STEM/humanities, and writing requirements, while UCLA
-doesn't impose any additional requirements since they consider all UC-UC
-applicants to be UC-eligible already based on your prior admission to a UC.
-It's generally recommended you complete as much major prep as possible, I would
-recommend at least roughly trying to match the articulations on ASSIST. But
-since you are already at a UC I would probably expect you to be able to do a
-lot more major prep than a CC applicant so for me this wasn't a concern at all.
-I finished the lower division major prep expected of CC applicants in my second
-quarter and I took an additional 9 upper division classes in my major since
-then..
+\/ Berkeley respectively), under which you would be considered a senior
+transfer and ineligible. For UCLA, they also require less than 39
+upper-division units (at most UCs upper division means courses numbered with 3
+digits, e.g. Math 117), which is why I became ineligible for admission.
+Berkeley has no such restrictions. Most people will not hit the upper division
+limit but if you're taking a ton of classes in your major like me, it's
+possible.
+
+There are also a few course requirements, namely, for Berkeley they require the
+"7-course pattern," which includes some breadth classes across STEM/humanities,
+and writing requirements, while UCLA doesn't impose any additional requirements
+since they consider all UC-UC applicants to be UC-eligible already based on
+your prior admission to a UC. It's generally recommended you complete as much
+major prep as possible, I would recommend at least roughly trying to match the
+articulations on ASSIST. But since you are already at a UC I would probably
+expect you to be able to do a lot more major prep than a CC applicant so for me
+this wasn't a concern at all. I finished the lower division major prep expected
+of CC applicants in my second quarter and I took an additional 9 upper division
+classes in my major since then..
 
 The application process is essentially the same for all transfer applicants,
-and pretty much identical to the first year except for one PIQ prompt. For me,
-I just looked at some of the UC-UC transfer resources on this subreddit when I
-first enrolled and then just tried to take classes, get good grades, and get
-involved in campus activities or clubs, especially in my major. The accepted
-wisdom for transfer admissions (and official statements from Berkeley
+and pretty much identical to the first year except for one PIQ prompt. In my
+case, I just looked at some of the UC-UC transfer resources on this subreddit
+when I first enrolled and then just tried to take classes, get good grades, and
+get involved in campus activities or clubs, especially in my major. The
+accepted wisdom for transfer admissions (and official statements from Berkeley
 admissions corroborate this) is that grades are given a higher weight
 relatively speaking compared to HS admissions (they call this "Comprehensive
 Review," where academics are most important but other factors are considered,
@@ -194,7 +234,7 @@ admission odds but you're still much better off than a non-UC 4 year to UC
 transfer. All your credits will transfer (any credits earned at any UC will be
 transferred to any other UC). However, there is nothing like ASSIST which
 guarantees course articulation, but you can generally be sure that if you take
-standard classes like Linear Algebra, Berkeleyculus, Physics, they will be
+standard classes like Linear Algebra, Calculus, Physics, they will be
 articulated. Also, there is a thing called UC Reciprocity wherein if you
 complete the general education requirements at your home UC and then transfer,
 the new campus will waive their general education requirements. This is
@@ -236,8 +276,9 @@ There are a few resources that were most helpful when I was planning all of this
   #link("https://admission.universityofcalifornia.edu/counselors/_files/documents/quick-reference-guide-to-uc-admissions.pdf")[UC
     Admissions counselor's guide]. Seriously, they literally tell you exactly
   what to do, almost all the non-anecdotal information above can be found in
-  here. Note that the link breaks frequently so you should google "quick
-  reference guide to uc admissions" and look for the latest one for your
+  here. I highly recommend you read the transfer portions of this document in
+  their entirety. Note that the link breaks frequently so you should google
+  "quick reference guide to uc admissions" and look for the latest one for your
   relevant application cycle.
 - This #link("https://www.reddit.com/r/ApplyingToCollege/comments/128zxgo/guide_to_transferring_from_a_uc_to_a_uc/")[Reddit post].
 - If you like poring over asinine statistics, you can check out admit rates over time #link("https://www.universityofcalifornia.edu/about-us/information-center/transfer-admissions-summary")[here], and you'll be able to find information about average GPAs by school #link("https://www.universityofcalifornia.edu/about-us/information-center/admissions-source-school")[here.] This can help you feel either better or worse about your odds but in the end, remember that statistics are meaningless.
@@ -245,7 +286,40 @@ There are a few resources that were most helpful when I was planning all of this
 
 == Unsolicited advice
 
-- Don't go to another UC with the express purpose of transferring to a better one. There is a highly nontrivial chance you will end up disappointed with the outcome.
+- The most common advice counselors and people on the internet will give is not to attend another UC with the express purpose of transferring to a better one. There is a highly nontrivial chance you will end up disappointed with the outcome. They will tell you to attend a CCC instead if your goal is transferring.
+
+  _However_, I can offer a more nuanced perspective. If the financial aspect of attending CCC (i.e. money saved) is not a concern, then attending another UC and planning to transfer _may_ be a good option.
+
+  This is because you will still get a normal 1st year experience, and have
+  access to all the opportunities of a research university. In my opinion there
+  is absolutely no aspect of CC that is better than any UC. However, if you do
+  decide to go this route, you must keep two things in mind.
+
+  First, you should know that it is not very uncommon for disgruntled students
+  to attend a lower ranked UC and vaguely plan on transferring out---but then
+  after the first year will completely discard the idea. This is usually because
+  they either underestimated how difficult UC coursework would be and were no
+  longer competitive for admission, or simply decided it wasn't worth the hassle
+  to uproot their new college life which they enjoyed. Note that in the second scenario, this is not actually a bad
+  thing since these people ended up happy at their UC! However, the first
+  scenario is an unsatisfying outcome.
+
+  Anecdotally, not a single person I know who planned to transfer was successful,
+  usually because they didn't even bother applying. Once again the acceptance
+  rate is dismal, hovering at around 8%.
+
+  If you are OK with this first point, then you should ask yourself whether you
+  are actually OK with ending up remaining at the original UC for 4 years and
+  obtaining your degree there, if transfer applications aren't successful.
+  Honestly, I feel like most people would be fine with this. But if there is any
+  substantive doubt, you should go to CCC.
+
+  If you accept that there is a high likelihood you will not be successful in
+  transferring for myriad reasons, and you are also OK with not transferring out
+  of the UC you attend, then, counterintuitively: I think you have a good case
+  for attending a UC with the goal of UC-UC transfer, and *you should seriously
+  consider it.*
+
 - Save your syllabi, it will be useful for course articulations.
 - I think as a motivated student you can take a 3.9+ unweighted GPA for granted in high school. The same does not go for at a UC. On the other hand, a 3.9+ GPA holds a lot more academic weight from a UC than from high school, so it does a lot more heavy lifting for your application.
   - I do think CC is quite a bit easier than a UC. Especially if you take upper division classes in STEM at UC. Yet another reason why CCC is a better option if you intend on transferring unless you _know_ you can keep really high grades.
