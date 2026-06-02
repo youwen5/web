@@ -136,6 +136,11 @@ of importance:
 - I had a lot of personal projects which you may find traces of all over this website.
 - I earned a couple merit scholarships from UCSB.
 
+As always, when giving any college application advice, I would be remiss not to
+recommend
+#link("https://mitadmissions.org/blogs/entry/applying_sideways/")[Applying
+  Sideways] from the director of MIT Admissions. Do _not_ treat the above list as a checklist of things you yourself should do.
+
 == General requirements
 
 The information that follows was (to the best of my knowledge) accurate for the
@@ -146,13 +151,67 @@ frequently. I actually wrote the following as a response to someone's question
 about transferring UC-UC and then pasted it here near verbatim so apologies in
 advance for any awkward phrasing.
 
+Firstly, I will be as clear as possible about what a transfer student is.
+
 Essentially, you may apply as a transfer as soon as you have been enrolled in
-some college for more than a term, and the UCs will group you into various
-categories based solely on your credits obtained. The UCs (especially the top
-ones) only accept junior-level applicants, which is determined based on how
-many units you have. That's why a 1st year can apply for admission (and many
-do), given that they have sufficient units from prior dual enrollment or AP
-exams. However, if you are a student at a 4 year college, you can obtain _too
+some college for more than a term after high school (dual enrollment doesn't
+count). However, *not all transfers are equal*.
+
+Broadly speaking, the UCs classify transfer applicants based on their *class
+level* and *the institution that they are transferring from*.
+
+Firstly, class level. There are sophomore-level, junior-level, and senior-level
+transfers. The nomenclature works like this: your "transfer level" is the class
+level you will have _when you enroll, if admitted_. So for instance, if you
+apply to UCLA's transfer class of Fall 2026, from Santa Monica Community
+College (SMCC), the application is actually due end-of-year 2025, and you would
+_start_ at UCLA in the fall term of 2026, if admitted. Your class level for
+transfer is not determined by how many units you have at the time of
+application, but by how many units you _expect to have_ in your last term
+before Fall 2026, which would be the spring term at Santa Monica Community
+College in this case. So, if by the end of the 2025-2026 school year, that is,
+at the end of the Spring 2026 SMCC term, transferring to UCLA, you will have
+enough credits to be classified as a junior by UCLA, then you are a
+_junior-level_ transfer, _even if you may have been a sophomore level student
+back in 2025 when you were applying_.
+
+Your class level is not based on how much _time_ you've spent in college (that
+is, how many terms), but rather solely based on how many transferable units
+you'll have before matriculating at the new institution. The threshold is
+typically
+
+- 45 quarter units = sophomore-level
+- 90 quarter units = junior-level
+- 120 or 135 quarter units = senior-level (depends on institution)
+
+Note these are *quarter* units. Semester units are typically converted to
+quarter units at a #(sym.times)1.5 conversion factor. When in doubt, refer to the
+counselor guide, which is provided below in the
+#link(<resources>)[#smallcaps[Useful resources]] section. Do not rely on the
+figures above.
+
+In general, the UCs will _only_ accept junior-level transfers. This means you
+need between 90--120 units, but not any more or less. Note that typically AP
+credits are counted _towards_ the unit baseline (thus helping you reach
+junior-level), but will _not_ be used to count for the unit limit (that is, AP
+credits won't push you over the 120 unit senior-level cap that makes you
+ineligible for admission). This is great for those with lots of AP credits,
+since they won't be at risk of becoming ineligible when transferring in their
+second year of university.
+
+This class-level calculation is why a 1st year can apply for admission (and
+many do), given that they have sufficient units from prior dual enrollment or
+AP exams. When I say "one-year" or "first-year" transfer, I mean someone who
+applies in their first year of college, and they would be admitted to start in
+the fall of their 2nd year. A "two-year" or "second-year" transfer is someone
+who applies in their 2nd year of college, and would start in the fall of their
+3rd year.
+
+Two-year transfers are a lot more typical. However, one-year transfers are
+certainly possible, although UC-UC one-year transfers seem exceedingly rare. I
+was a two-year transfer.
+
+However, if you are a student at a 4 year college, be sure not to obtain _too
 many units_ and gain senior level standing, which makes you ineligible for
 transfer admission at most UCs. Therefore most people have at most two
 opportunities to apply, in their 1st and 2nd year of college. However, CCC
@@ -269,7 +328,7 @@ not have chosen to go to a CC, especially knowing what I know now.
 
 Here I will give some more resources and advice.
 
-== Useful resources
+== Useful resources <resources>
 
 There are a few resources that were most helpful when I was planning all of this out.
 - The
