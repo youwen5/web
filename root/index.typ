@@ -34,7 +34,13 @@ title: Youwen Wu >> Welcome Home.
   attrs: (
     class: "bg-gradient-to-tr from-love to-foam w-full rounded-md h-40 bg-[length:200%_auto] animate-gradient-move relative",
   ),
-  "",
+  html.elem(
+    "span",
+    attrs: (
+      class: "absolute right-0 bottom-0 pb-2 pr-4 sm:text-2xl text-bg",
+    ),
+    [_Sunrise, parabellum._],
+  ),
 )
 
 #let posts = json(bytes(sys.inputs.posts))
@@ -457,7 +463,6 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     attrs: (
       class: "absolute right-0 bottom-0 pb-2 pr-4 sm:text-2xl text-bg",
     ),
-    // [_Imagine_ what we can _become_.],
-    [_Sunrise, parabellum._],
+    [_Imagine what we can become._],
   ),
 )
