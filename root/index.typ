@@ -457,6 +457,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     attrs: (
       class: "absolute right-0 bottom-0 pb-2 pr-4 sm:text-2xl text-bg",
     ),
-    [_Imagine_ what we can _become_.],
+    // [_Imagine_ what we can _become_.],
+    [_Sunrise, parabellum._],
   ),
 )
