@@ -18,9 +18,7 @@ title: Youwen Wu >> Welcome Home.
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
   #smallcaps(all: true)[Hi there. This is Youwen]. I study
   #link("https://en.wikipedia.org/wiki/Abstract_nonsense")[abstract nonsense]
-  and hack on computers. Currently I am a visiting student at
-  #link("https://www.tsinghua.edu.cn/en/")[Tsinghua University] in Beijing,
-  China, in the department of Computer Science and Technology.
+  and hack on computers at #link("https://berkeley.edu")[UC Berkeley.]
 ]
 
 // #webimg(
@@ -45,30 +43,29 @@ title: Youwen Wu >> Welcome Home.
 
 #let posts = json(bytes(sys.inputs.posts))
 
-Beginning Fall 2026, I will be starting at
-#link("https://www.berkeley.edu/")[UC Berkeley] to finish my B.A. in math and
-CS. Prior to that, I was pursuing the same degree(s) at
-#link("https://www.ucsb.edu/")[UC Santa Barbara].
+Previously, I was at #link("https://www.ucsb.edu/")[UC Santa Barbara.]
+I also spent a semester in the CS department at
+#link("https://www.tsinghua.edu.cn/en")[Tsinghua University.]
 
 I'm a member of the
 #link("https://www.mit.edu/~ajzd/opencompute/")[MIT OpenCompute Laboratory]
-and benevolent dictator at #link("https://functor.systems")[functor.systems].
+and benevolent dictator at #link("https://functor.systems")[functor.systems.]
 
-Here is my #link("https://github.com/youwen5")[GitHub],
-#link("/transcript")[university transcript], #link("/cv")[CV/resume], and
-#link("/static/img/cat_babies.jpg")[a picture of my cats].
+Here is my #link("https://github.com/youwen5")[GitHub,]
+#link("/transcript")[university transcript], #link("/cv")[CV/resume,] and
+#link("/static/img/cat_babies.jpg")[a picture of my cats.]
 
 I am interested in the #link("https://ncatlab.org/nlab/show/nPOV")[#emph[n]POV]
 and how we can apply higher structures to solve hard problems. In general, I
 prefer to use
 #link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
-  software]. I developed
-#link("https://code.functor.systems/functor.systems/functorOS")[functorOS], an
+  software.] I developed
+#link("https://code.functor.systems/functor.systems/functorOS")[functorOS,] an
 experimental NixOS-based Linux distribution---among other free software contributions.
 
-I like #link("https://stallman.org/articles/on-hacking.html")[hacking], and
-hackathons. I helped organize this year's #link("https://sbhacks.com/")[SB
-  Hacks], the headliner hackathon of UC Santa Barbara, and I'm now its Director
+I like #link("https://stallman.org/articles/on-hacking.html")[hacking,] and
+hackathons. I helped organize the 2026 #link("https://sbhacks.com/")[SB
+  Hacks,] the headliner hackathon of UC Santa Barbara, and was briefly its Director
 of Development.
 
 See #link("/about")[about] for more about myself, or #link("/now")[now] for
