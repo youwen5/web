@@ -187,7 +187,7 @@ typically
 Note these are *quarter* units. Semester units are typically converted to
 quarter units at a #(sym.times)1.5 conversion factor. When in doubt, refer to the
 counselor guide, which is provided below in the
-#link(<resources>)[#smallcaps[Useful resources]] section. Do not rely on the
+#std-link(<resources>)[#smallcaps[Useful resources]] section. Do not rely on the
 figures above.
 
 In general, the UCs will _only_ accept junior-level transfers. This means you
