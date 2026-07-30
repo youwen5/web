@@ -22,9 +22,27 @@ I've texted/emailed people an array of the same scattered resources and
 thoughts. As such, I'm going to collect everything I know here in one place, so
 I can just send this webpage to people in the future. I'll briefly outline why
 I decided to transfer, but if you don't care, then just skip to the
-#smallcaps(std-link(<how>)[How?]) section. I'll also leave some general advice
-at the end, so if you are actually considering attempting transferring between
-UCs, you should read there.
+#smallcaps(std-link(<how>)[How?]) section.
+
+In addition to some general advice at the end, I'll also discuss my thoughts on
+whether you should attempt to transfer between UC campuses. If you are actually
+considering attempting transferring between UCs, you should read there.
+
+This post will focus primarily on transferring up to UC Berkeley and UCLA,
+which have substantially higher standards. I was also admitted to UC San Diego,
+which seems fairly easy to get into as a transfer if you have a high GPA (and
+does not consider application essays at all, as of the time of writing!) This
+article will mostly apply to those attempting to transfer to a lesser ranked UC
+(#sym.lt.eq UCSD) too, but the admission standards will be lower and the
+likelihood of success substantially greater. (Anecdotally, it seems everyone I
+know who tried transferring from UCSB to UCSD got in.)
+
+Lastly, I will note that it seems your source school doesn't really matter.
+That is, it doesn't seem to matter whether you are at UC Merced or UCSB. The
+only caveat is that it seems to be more difficult to go between UCLA $<->$ UC
+Berkeley.
+
+Please note the table of contents below consists of clickable sections.
 
 #outline()
 
@@ -343,41 +361,48 @@ There are a few resources that were most helpful when I was planning all of this
 - If you like poring over asinine statistics, you can check out admit rates over time #link("https://www.universityofcalifornia.edu/about-us/information-center/transfer-admissions-summary")[here], and you'll be able to find information about average GPAs by school #link("https://www.universityofcalifornia.edu/about-us/information-center/admissions-source-school")[here.] This can help you feel either better or worse about your odds but in the end, remember that statistics are meaningless.
 - Berkeley outlines its specific requirements #link("https://admissions.berkeley.edu/transfer-admissions-information-by-college/")[here], and also general requirements #link("https://admissions.berkeley.edu/apply-to-berkeley/transfer-students/")[here.]
 
-== Unsolicited advice
+== Should I attempt an intercampus transfer?
 
-- The most common advice counselors and people on the internet will give is not to attend another UC with the express purpose of transferring to a better one. There is a highly nontrivial chance you will end up disappointed with the outcome. They will tell you to attend a CCC instead if your goal is transferring.
+The most common advice counselors and people on the internet will give is not
+to attend another UC with the express purpose of transferring to a better one.
+There is a highly nontrivial chance you will end up disappointed with the
+outcome. They will tell you to attend a CCC instead if your goal is
+transferring.
 
-  _However_, I can offer a more nuanced perspective. If the financial aspect of attending CCC (i.e. money saved) is not a concern, then attending another UC and planning to transfer _may_ be a good option.
+_However_, I can offer a more nuanced perspective. If the financial aspect of attending CCC (i.e. money saved) is not a concern, then attending another UC and planning to transfer _may_ be a good option.
 
-  This is because you will still get a normal 1st year experience, and have
-  access to all the opportunities of a research university. In my opinion there
-  is absolutely no aspect of CC that is better than any UC. However, if you do
-  decide to go this route, you must keep two things in mind.
+This is because you will still get a normal 1st year experience, and have
+access to all the opportunities of a research university. In my opinion there
+is absolutely no aspect of CC that is better than any UC. However, if you do
+decide to go this route, you must keep two things in mind.
 
-  First, you should know that it is not very uncommon for disgruntled students
-  to attend a lower ranked UC and vaguely plan on transferring out---but then
-  after the first year will completely discard the idea. This is usually because
-  they either underestimated how difficult UC coursework would be and were no
-  longer competitive for admission, or simply decided it wasn't worth the hassle
-  to uproot their new college life which they enjoyed. Note that in the second scenario, this is not actually a bad
-  thing since these people ended up happy at their UC! However, the first
-  scenario is an unsatisfying outcome.
+First, you should know that it is not very uncommon for disgruntled students
+to attend a lower ranked UC and vaguely plan on transferring out---but then
+after the first year will completely discard the idea. This is usually because
+they either underestimated how difficult UC coursework would be and were no
+longer competitive for admission, or simply decided it wasn't worth the hassle
+to uproot their new college life which they enjoyed. Note that in the second scenario, this is not actually a bad
+thing since these people ended up happy at their UC! However, the first
+scenario is an unsatisfying outcome.
 
-  Anecdotally, not a single person I know who planned to transfer was successful,
-  usually because they didn't even bother applying. Once again the acceptance
-  rate is dismal, hovering at around 8%.
+Anecdotally, not a single person I know who planned to transfer was successful,
+usually because they didn't even bother applying. Once again the acceptance
+rate is dismal, hovering at around 8%.
 
-  If you are OK with this first point, then you should ask yourself whether you
-  are actually OK with ending up remaining at the original UC for 4 years and
-  obtaining your degree there, if transfer applications aren't successful.
-  Honestly, I feel like most people would be fine with this. But if there is any
-  substantive doubt, you should go to CCC.
+If you are OK with this first point, then you should ask yourself whether you
+are actually OK with ending up remaining at the original UC for 4 years and
+obtaining your degree there, if transfer applications aren't successful.
+Honestly, I feel like most people would be fine with this. But if there is any
+substantive doubt, you should go to CCC.
 
-  If you accept that there is a high likelihood you will not be successful in
-  transferring for myriad reasons, and you are also OK with not transferring out
-  of the UC you attend, then, counterintuitively: I think you have a good case
-  for attending a UC with the goal of UC-UC transfer, and *you should seriously
-  consider it.*
+If you accept that there is a high likelihood you will not be successful in
+transferring for myriad reasons, and you are also OK with not transferring out
+of the UC you attend, then, counterintuitively: I think you have a good case
+for attending a UC with the goal of UC-UC transfer, and *you should seriously
+consider it.*
+
+
+== Miscellaneous advice
 
 - Save your syllabi, it will be useful for course articulations.
 - I think as a motivated student you can take a 3.9+ unweighted GPA for granted in high school. The same does not go for at a UC. On the other hand, a 3.9+ GPA holds a lot more academic weight from a UC than from high school, so it does a lot more heavy lifting for your application.
