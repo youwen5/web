@@ -167,3 +167,31 @@ body {
     @apply bg-overlay px-0.5 rounded-xs text-rose;
   }
 }
+
+.layout-horiz {
+  @apply flex flex-row overflow-x-auto;
+}
+
+.layout-vert {
+  @apply grid grid-cols-1;
+}
+
+.layout-tile-double {
+  @apply grid grid-cols-2;
+}
+
+.layout-tile-triple {
+  @apply grid grid-cols-3;
+}
+
+.photos-img-thumb img {
+  @apply w-full object-cover;
+}
+
+.photos-img-thumb-aspect img {
+  @apply w-full aspect-square object-cover;
+}
+
+.photos-img-thumb-height img {
+  @apply h-[80vh];
+}

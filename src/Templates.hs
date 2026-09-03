@@ -140,24 +140,32 @@ desktopSidebar = aside ! class_ "hidden md:block w-64 flex-none" $ do
       img ! class_ "w-20" ! src "/static/logo/button.png" ! alt "my button"
 
 mobileHeader :: Html
-mobileHeader = header ! class_ "md:hidden border-b border-dashed border-muted mb-8 pb-8 w-full" $ do
-  H.div ! class_ "w-full flex justify-center"
-    $ a
-      ! href "/"
-      ! class_
-        "inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-8 mx-auto"
-    $ do
-      preEscapedToHtml logoSvg
-      H.span ! class_ "italic text-[3em] text-center select-none -translate-y-2 mx-auto" $
-        "youwen wu"
-  details ! class_ "w-full mt-4" $ do
-    H.summary ! class_ "text-center smallcaps text-xl cursor-pointer" $ "menu"
-    nav ! class_ "space-y-4 text-2xl mt-3" $ do
-      ul ! class_ "space-y-3 text-2xl text-love" $ itemToHtml navItems
-      sidebarSection "Hacking" hackingItems
-      sidebarSection "Math" mathItems
-      sidebarSection "Fun" funItems
-      sidebarSection "Other" otherItems
+mobileHeader = mobileHeader' True
+
+mobileHeader' :: Bool -> Html
+mobileHeader' autoHide = header
+  ! (class_ . toValue)
+    ( "border-b border-dashed border-muted mb-8 pb-8 w-full"
+        ++ (if autoHide then " md:hidden" else "")
+    )
+  $ do
+    H.div ! class_ "w-full flex justify-center"
+      $ a
+        ! href "/"
+        ! class_
+          "inline-flex justify-between gap-4 hover:bg-subtle/50 transition-colors mt-8 mx-auto"
+      $ do
+        preEscapedToHtml logoSvg
+        H.span ! class_ "italic text-[3em] text-center select-none -translate-y-2 mx-auto" $
+          "youwen wu"
+    details ! class_ "w-full mt-4" $ do
+      H.summary ! class_ "text-center smallcaps text-xl cursor-pointer" $ "menu"
+      nav ! class_ "space-y-4 text-2xl mt-3" $ do
+        ul ! class_ "space-y-3 text-2xl text-love" $ itemToHtml navItems
+        sidebarSection "Hacking" hackingItems
+        sidebarSection "Math" mathItems
+        sidebarSection "Fun" funItems
+        sidebarSection "Other" otherItems
 
 pageFooter :: String -> String -> String -> Html
 pageFooter commit ghc time = footer ! class_ "border-t mt-8 border-solid border-muted mb-4 text-sm text-muted py-1" $ do
@@ -211,6 +219,39 @@ giscusComponent = do
     ! crossorigin "anonymous"
     ! async ""
     $ ""
+
+photoTemplate :: Context String -> Item String -> Compiler Html
+photoTemplate ctx item = do
+  title <- getField' "title"
+  slug <- getField' "slug"
+  pagetitle <- getField' "pagetitle"
+  ghc <- getField' "ghc-version"
+  time <- getField' "last-commit-timestamp"
+  commitHash <- getField' "commit-hash"
+  url <- getField' "url"
+  thumbnail <- getField' "thumbnail"
+  description <- getField' "description"
+  let ghc' = fromMaybe "GHC_VER_PLACEHOLDER" ghc
+  let commitHash' = fromMaybe "COMMIT_HASH_PLACEHOLDER" commitHash
+  let time' = fromMaybe "TIME_PLACEHOLDER" time
+  return $ docTypeHtml ! lang "en" $ do
+    pageHead PageMetadata{title, pagetitle, slug, thumbnail, description, url}
+    body
+      ! class_
+        "antialiased mt-4 lg:mt-20 leading-relaxed mx-auto px-4 lg:px-20"
+      $ do
+        mobileHeader' False
+        main
+          ! class_ "main-content"
+          $ do
+            h1 ! class_ "all-smallcaps md:text-3xl text-2xl text-center mt-4" $ forM_ title toHtml
+            H.div
+              ! class_
+                "prose-lg lg:prose-xl prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground prose-list-snazzy prose-table-snazzy scroll-smooth mt-8"
+              $ preEscapedToHtml (itemBody item)
+            pageFooter commitHash' ghc' time'
+ where
+  getField' = getStringField ctx item
 
 defaultTemplate_ :: Bool -> Bool -> Context String -> Item String -> Compiler Html
 defaultTemplate_ enableComments wide ctx item =

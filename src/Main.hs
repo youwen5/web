@@ -153,6 +153,13 @@ generateSite = do
             p
       compile typstPdfCompiler
 
+    match "photos/index.typ" $ do
+      route $ setExtension "html"
+      compile $
+        typstIndexCompiler defaultContext
+          >>= blazeTemplater photoTemplate defaultContext
+          >>= universalOptimizer
+
     match "root/**.typ" $ do
       reroute toRootHTML
 
