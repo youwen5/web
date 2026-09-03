@@ -33,14 +33,19 @@ at #link("https://hackmit.org/")[HackMIT 2025]. I've also won prizes at
 #link("https://sbhacks.com/")[SB Hacks XI] and
 #link("https://dataorbit-2025.devpost.com/")[UCSB DataOrbit].
 
-I'm originally from Shanghai, China. My second hometown is Leiyang City
+I'm originally from Shanghai, China, but my real hometown is Leiyang City
 (耒阳市), in Hunan Province, China---the birthplace of
-#link("https://en.wikipedia.org/wiki/Cai_Lun")[Cai Lun], the inventor of paper #footnote[Ok, you've got me. Per wikipedia: "Although traditionally regarded as the inventor of paper, earlier forms of paper have existed since the 3rd century BCE, so Cai's contributions are limited to innovation, rather than invention." But that's not nearly as cool.].
+#link("https://en.wikipedia.org/wiki/Cai_Lun")[Cai Lun], the inventor of paper
+#footnote[Ok, you've got me. Per wikipedia: "Although traditionally regarded as
+  the inventor of paper, earlier forms of paper have existed since the 3rd
+  century BCE, so Cai's contributions are limited to innovation, rather than
+  invention." But that's not nearly as cool.].
 
 After that, I lived in the state of Utah for a few years as a kid, before
 moving to the SF Bay Area. I'm rather itinerant, having attended 6 different
 elementary schools, 1 middle school, 2 high schools, and I've been enrolled for
-at least a semester (non-concurrently) in 3 (research) universities.
+at least a semester (non-concurrently) in 3 (research) universities (across two
+different countries).
 
 #dinkus
 
