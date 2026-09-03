@@ -18,7 +18,8 @@ title: Youwen Wu >> Welcome Home.
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
   #smallcaps(all: true)[Hi there. This is Youwen]. I study
   #link("https://en.wikipedia.org/wiki/Abstract_nonsense")[abstract nonsense]
-  and hack on computers at #link("https://berkeley.edu")[UC Berkeley.]
+  and hack on computers at #link("https://berkeley.edu")[UC Berkeley.] Welcome
+  to my corner of the World Wide Web.
 ]
 
 // #webimg(
