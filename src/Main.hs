@@ -77,6 +77,13 @@ generateSite = do
       sameRoute
       compile $ getResourceBody >>= universalOptimizer
 
+    match "root/photos/gallery.typ" $ do
+      reroute toRootHTML
+      compile $
+        typstIndexCompiler defaultContext
+          >>= blazeTemplater photoTemplate defaultContext
+          >>= universalOptimizer
+
     match "posts/**.typ" $ do
       reroute toRootHTML
 
@@ -152,13 +159,6 @@ generateSite = do
               )
             p
       compile typstPdfCompiler
-
-    match "photos/index.typ" $ do
-      route $ setExtension "html"
-      compile $
-        typstIndexCompiler defaultContext
-          >>= blazeTemplater photoTemplate defaultContext
-          >>= universalOptimizer
 
     match "root/**.typ" $ do
       reroute toRootHTML

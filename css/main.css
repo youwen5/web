@@ -195,3 +195,7 @@ body {
 .photos-img-thumb-height img {
   @apply h-[80vh];
 }
+
+.photos-img-thumb-frontpage img {
+  @apply h-[20vh] lg:h-[40vh];
+}

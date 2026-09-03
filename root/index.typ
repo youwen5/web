@@ -15,6 +15,21 @@ title: Youwen Wu >> Welcome Home.
   )
 }
 
+#let parseDate(s) = {
+  let (year, month, day, hour, minute, second) = s
+    .match(regex("(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})"))
+    .captures
+    .map(int)
+  datetime(
+    year: year,
+    month: month,
+    day: day,
+    hour: hour,
+    minute: minute,
+    second: second,
+  )
+}
+
 #html.elem("p", attrs: (class: "prose-xl lg:prose-2xl"))[
   #smallcaps(all: true)[Hi there. This is Youwen]. I study
   #link("https://en.wikipedia.org/wiki/Abstract_nonsense")[abstract nonsense]
@@ -235,47 +250,50 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 ))[Hopefully I update this soon.]
 
 #let photo-urls = (
-  (
-    "https://cdn.youwen.dev/IMG_5525.jpeg",
-    "Moon over the Pacific, Santa Barbara",
-    datetime(day: 11, month: 5, year: 2025),
-  ),
-  (
-    "https://cdn.youwen.dev/sunset-over-berkeley.webp",
-    "Sunset over UC Berkeley",
-    datetime(day: 2, month: 1, year: 2025),
-  ),
-  (
-    "https://cdn.youwen.dev/dji_fly_20240805_060926_418_1722863474220_photo_optimized.jpeg",
-    "Mission Peak, Newark, California",
-    datetime(day: 5, month: 8, year: 2024),
-  ),
+  json("photos/manifest.json")
+    .photos
+    .map(x => (
+      web-url: x.webUrl,
+      fullres: x.originalUrl,
+      date: x.exif.at("capturedAt", default: x.uploadedAt),
+      caption: x.description,
+      alt: x.altText,
+      location: x.location,
+      camera: x.exif.cameraMake + " " + x.exif.cameraModel,
+      focal-length: x.exif.focalLength35mmEquivalent,
+      f-number: x.exif.fNumber,
+    ))
 )
 
-#let photo(src, caption, date) = {
-  let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group w-48 min-w-48"
+#let photo(data) = {
+  let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group/child block shrink-0"
+  // let final-class = if not show-in-selected {
+  //   base-class + " group-[.show-selected]:hidden"
+  // } else { base-class }
+  let final-class = base-class
 
   html.elem(
     "a",
     attrs: (
-      href: src,
+      href: data.fullres,
       target: "_blank",
-      class: base-class,
+      class: final-class,
     ),
     {
       html.elem("img", attrs: (
-        src: src,
-        class: "w-full aspect-square lg:aspect-3/4 object-cover !my-1",
-        alt: caption,
+        src: data.web-url,
+        alt: data.alt,
         loading: "lazy",
       ))
       html.elem("div", attrs: (class: "text-base w-full px-1"), [
         #html.elem(
           "span",
-          attrs: (class: "text-sm text-subtle group-hover:text-bg"),
-          date.display("[day padding:zero] [month repr:short], [year]"),
+          attrs: (class: "text-sm text-subtle group-hover/child:text-bg"),
+          parseDate(data.date).display(
+            "[day padding:zero] [month repr:short], [year]",
+          ),
         ) \
-        #caption
+        #data.caption
       ])
     },
   )
@@ -285,11 +303,11 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 #html.elem(
   "div",
   attrs: (
-    class: "overflow-x-auto w-0 min-w-full gap-4 inline-flex flex-nowrap",
+    class: "layout-horiz gap-8 mt-4 group show-selected not-prose photos-img-thumb-frontpage mx-auto min-w-full w-0",
   ),
   {
     for elem in (
-      photo-urls.map(it => photo(..it))
+      photo-urls.map(it => photo(it))
     ) {
       elem
     }
@@ -299,7 +317,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 #html.elem(
   "a",
   attrs: (
-    href: "/photos",
+    href: "/photos/gallery",
     class: "p-1 font-serif hover:text-bg hover:bg-foreground border-b-1 border-b-foreground text-foreground decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
   ),
   {
