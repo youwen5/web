@@ -170,7 +170,7 @@ mobileHeader' autoHide = header
         preEscapedToHtml logoSvg
         H.span ! class_ "italic text-[3em] text-center select-none -translate-y-2 mx-auto" $
           "youwen wu"
-    details ! class_ "w-full mt-4" $ do
+    details ! class_ "max-w-3xl mx-auto mt-4" $ do
       H.summary ! class_ "text-center smallcaps text-xl cursor-pointer" $ "menu"
       nav ! class_ "space-y-4 text-2xl mt-3" $ do
         ul ! class_ "space-y-3 text-2xl text-love" $ itemToHtml navItems
