@@ -31,7 +31,12 @@ title: "Photo Gallery"
   // let final-class = if not show-in-selected {
   //   base-class + " group-[.show-selected]:hidden"
   // } else { base-class }
-  let final-class = base-class
+  let final-class = (
+    base-class
+      + if data.rating >= 4 {
+        " group-[.show-selected]:hidden"
+      } else { "" }
+  )
 
   html.elem(
     "a",
@@ -103,17 +108,17 @@ title: "Photo Gallery"
         "button",
         attrs: (
           class: "before:content-['●'] before:text-[0.55em] before:text-foam before:pr-2 my-auto inline-flex before:my-auto cursor-pointer",
-          id: "selected-photos-button",
+          id: "all-photos-button",
         ),
-        [Curated],
+        [All],
       )
       html.elem(
         "button",
         attrs: (
           class: "before:content-['○'] before:text-[0.55em] before:pr-2 inline-flex my-auto before:my-auto hover:before:content-['●'] cursor-pointer",
-          id: "all-photos-button",
+          id: "selected-photos-button",
         ),
-        [All],
+        [Curated only],
       )
     },
   )
@@ -189,13 +194,14 @@ title: "Photo Gallery"
       shutter: str(100 / x.exif.exposureTimeSeconds),
       iso: x.exif.iso,
       mp: x.megapixels,
+      rating: if x.rating == none { 0 } else { x.rating },
     ))
 )
 
 #html.elem(
   "div",
   attrs: (
-    class: "layout-vert gap-8 mt-4 group show-selected not-prose photos-img-thumb mx-auto",
+    class: "layout-vert gap-8 mt-4 group not-prose photos-img-thumb mx-auto",
     id: "photos-container",
   ),
   for elem in (
@@ -214,8 +220,8 @@ const selected = document.getElementById('selected-photos-button');
 const all = document.getElementById('all-photos-button');
 const photos_parent = document.getElementById('photos-container');
 
-const selected_class = selected.className;
-const unselected_class = all.className;
+const selected_class = all.className;
+const unselected_class = selected.className;
 
 selected.addEventListener('click', () => {
   selected.className = selected_class;
