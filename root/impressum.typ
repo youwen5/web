@@ -13,12 +13,19 @@ title: "Impressum"
 //   United States of America
 // ]
 
-#smallcaps[
-  Youwen Wu (伍佑文) \
-  Tsinghua University (清华大学) \
-  Haidian District, Beijing (海淀区，北京) \
-  P.R.C.
+// #smallcaps[
+//   Youwen Wu (伍佑文) \
+//   Tsinghua University (清华大学) \
+//   Haidian District, Beijing (海淀区，北京) \
+//   P.R.C.
+//
+// ]
 
+#smallcaps[
+  Youwen Wu \
+  University of California, Berkeley \
+  Berkeley, California \
+  United States of America
 ]
 
 Reach me at:
