@@ -89,6 +89,17 @@ navItems =
   , ("CV", "/cv")
   ]
 
+moreItems =
+  [ ("Photography", "/photos/gallery")
+  , ("Writing", "/archive")
+  , ("functor.systems", "https://functor.systems")
+  , ("Favorite songs", "/misc/fav-songs")
+  , ("Contact", "/#contact")
+  , ("About this site", "/about-this-site")
+  , ("Colophon", "/colophon")
+  , ("Impressum", "/impressum")
+  ]
+
 hackingItems :: SidebarList
 hackingItems =
   [ ("functor.systems", "https://functor.systems")
@@ -131,10 +142,11 @@ desktopSidebar = aside ! class_ "hidden md:block w-64 flex-none" $ do
       H.span ! class_ "italic text-[2.5em] select-none -translate-y-[6px]" $ "youwen wu"
   nav ! class_ "space-y-4 mt-4" $ do
     ul ! class_ "space-y-2 text-love text-2xl" $ itemToHtml navItems
-    sidebarSection "Hacking" hackingItems
-    sidebarSection "Math" mathItems
-    sidebarSection "Fun" funItems
-    sidebarSection "Other" otherItems
+    sidebarSection "More" moreItems
+  -- sidebarSection "Hacking" hackingItems
+  -- sidebarSection "Math" mathItems
+  -- sidebarSection "Fun" funItems
+  -- sidebarSection "Other" otherItems
   H.div ! class_ "mt-6" $
     a ! href "/buttons" ! class_ "hover:brightness-75" $
       img ! class_ "w-20" ! src "/static/logo/button.png" ! alt "my button"
@@ -162,10 +174,7 @@ mobileHeader' autoHide = header
       H.summary ! class_ "text-center smallcaps text-xl cursor-pointer" $ "menu"
       nav ! class_ "space-y-4 text-2xl mt-3" $ do
         ul ! class_ "space-y-3 text-2xl text-love" $ itemToHtml navItems
-        sidebarSection "Hacking" hackingItems
-        sidebarSection "Math" mathItems
-        sidebarSection "Fun" funItems
-        sidebarSection "Other" otherItems
+        sidebarSection "More" moreItems
 
 pageFooter :: String -> String -> String -> Html
 pageFooter commit ghc time = footer ! class_ "border-t mt-8 border-solid border-muted mb-4 text-sm text-muted py-1" $ do
@@ -377,11 +386,11 @@ explorePage ctx item = do
           "https://www.technologyreview.com/2020/09/03/1007716/digital-gardens-let-you-cultivate-your-own-little-bit-of-the-internet/"
         ! class_ "text-link external-link"
         $ "digital garden"
-      ", so it might be helpful for the gardener (that’s me) to point out some trailheads. You should look at "
+      ", so it might be helpful to point out some trailheads. You should look at "
       a ! href "/" $ "the main page"
       " if you haven’t already, of course, for a brief introduction. The next major page is "
       a ! href "/about" $ "about me"
-      ", which is really a brief autobiography of me, the human. The other major pages are "
+      ", which is self explanatory. The other major pages are "
       a ! href "/now" $ "the now page"
       ", which is a brief recap on what I am doing right now—I don’t mean at this immediate moment, but moreso the overall stuff I am focused on at this point in my life. Lastly, my "
       a ! href "/cv" $ "CV is available"
@@ -391,7 +400,10 @@ explorePage ctx item = do
       em "itself"
       " was made, you might enjoy the "
       a ! href "/colophon" $ "colophon"
-      " , wherein I detail all of the elaborate and non-standard technologies that go into this website."
+      " , wherein I detail its construction. This place is a labor of love."
+    p $ do
+      "I like to take photos, and you can find them at "
+      a ! href "/photos/gallery" $ "the gallery."
     p $ do
       "Some miscellany includes a page about "
       a ! href "/computing" $ "how I do my computing"
@@ -413,7 +425,7 @@ explorePage ctx item = do
           H.a ! href "#" ! class_ "text-link external-link" $ "external links"
           " to the World Wide Web at large have a little ring (those two links are fake)."
     p $ do
-      "Instead of information about me, for a sense of the things I'm interested in, you might peruse the sidebar, where I’ve curated a few pages on this website across my primary interests—broadly construed, that’s hacking (aka programming for the uninitiated), mathematics, and everything else which is fun."
+      "For a sense of the things I'm interested in, you might peruse the sidebar, where I’ve curated a few pages on this website."
     p $ do
       "I also try to write occasionally, oftentimes about technical topics but also possibly just about my life and cool things happening. Here are the last 5 posts I’ve written:"
     H.div ! class_ "mx-auto max-w-10 border-t-1 border-t-foreground mb-4" $ ""
@@ -421,7 +433,7 @@ explorePage ctx item = do
     H.div ! class_ "mx-auto max-w-10 border-t-1 border-t-foreground mt-4" $ ""
     p $ "And here is " >> (a ! href "/archive" $ "an archive of every post.")
     p
-      "That’s pretty much the majority of good starting places to explore this site. Like I said, it’s supposed to be some sort of digital hypertext garden, so hyperlinks within pages may take you to branching paths yet unforeseen. Happy trails!"
+      "That’s pretty much the majority of starting places to explore this site. Like I said, it’s supposed to be some sort of digital hypertext garden, so hyperlinks within pages may take you on meandering paths. And it's always growing. Happy trails!"
 
 indexTemplate :: Context String -> Item String -> Compiler Html
 indexTemplate ctx item =
