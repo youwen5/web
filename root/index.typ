@@ -271,6 +271,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
       shutter: str(100 / x.exif.exposureTimeSeconds),
       iso: x.exif.iso,
       mp: x.megapixels,
+      aspect: str(x.originalWidth / x.originalHeight),
     ))
 )
 
@@ -300,6 +301,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
         src: data.web-url,
         alt: data.alt,
         loading: "lazy",
+        style: "aspect-ratio: " + data.aspect + ";",
       ))
       html.elem(
         "div",

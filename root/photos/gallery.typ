@@ -57,6 +57,7 @@ title: "Photo Gallery"
         src: data.fullres,
         alt: data.alt,
         loading: "lazy",
+        style: "aspect-ratio: " + data.aspect + ";",
       )
       html.elem(
         "div",
@@ -197,6 +198,7 @@ title: "Photo Gallery"
       iso: x.exif.iso,
       mp: x.megapixels,
       rating: if x.rating == none { 0 } else { x.rating },
+      aspect: str(x.originalWidth / x.originalHeight),
     ))
 )
 
