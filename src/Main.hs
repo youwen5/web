@@ -3,7 +3,7 @@ module Main where
 import Compilers
 import Constants
 import PhotoFeed (
-  Photo (uploadedAt),
+  Manifest (updatedAt),
   atom,
   defaultManifest,
   defaultPhoto,
@@ -206,9 +206,7 @@ photoFeedCompiler :: Context t -> Compiler (Item String)
 photoFeedCompiler ctx = do
   manifest <- getResourceLBS
   makeItem $ do
-    let x = decode $ itemBody manifest
-    let d = Data.Maybe.fromMaybe defaultManifest x
-    let p = photos d
+    let decoded = Data.Maybe.fromMaybe defaultManifest $ decode $ itemBody manifest
     atom
-      (uploadedAt $ fst $ fromMaybe (defaultPhoto, []) (Data.List.uncons p))
-      (map photoToEntry p)
+      (updatedAt decoded)
+      (map photoToEntry $ photos decoded)

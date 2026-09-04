@@ -14,8 +14,9 @@ import Data.Maybe qualified
 import GHC.Generics
 import Prelude hiding (id)
 
-newtype Manifest = Manifest
+data Manifest = Manifest
   { photos :: [Photo]
+  , updatedAt :: String
   }
   deriving (Generic, Show)
 
@@ -37,6 +38,7 @@ defaultPhoto =
 defaultManifest =
   Manifest
     { photos = [defaultPhoto]
+    , updatedAt = ""
     }
 
 instance FromJSON Photo
@@ -49,17 +51,6 @@ photoToEntry photo =
     photo.altText
     photo.originalUrl
     photo.uploadedAt
-
-main = do
-  manifest <- LBS.readFile "root/photos/manifest.json"
-  let x = decode manifest
-  let d = Data.Maybe.fromMaybe defaultManifest x
-  let p = photos d
-  let feed =
-        atom
-          (uploadedAt $ fst $ fromMaybe (defaultPhoto, []) (Data.List.uncons p))
-          (map photoToEntry p)
-  print feed
 
 entry title alt url date =
   """
