@@ -27,7 +27,7 @@ title: "Photo Gallery"
 }
 
 #let photo(data) = {
-  let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group/child block shrink-0"
+  let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group/child block shrink-0 h-min"
   // let final-class = if not show-in-selected {
   //   base-class + " group-[.show-selected]:hidden"
   // } else { base-class }
