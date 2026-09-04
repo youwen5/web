@@ -193,9 +193,9 @@ body {
 }
 
 .photos-img-thumb-height img {
-  @apply h-[80vh];
+  @apply h-[80vh] max-h-[80vh] w-auto;
 }
 
 .photos-img-thumb-frontpage img {
-  @apply h-[20vh] lg:h-[40vh];
+  @apply h-[40vh] max-h-[40vh] w-auto;
 }
