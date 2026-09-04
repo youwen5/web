@@ -2,9 +2,21 @@ module Main where
 
 import Compilers
 import Constants
+import PhotoFeed (
+  Photo (uploadedAt),
+  atom,
+  defaultManifest,
+  defaultPhoto,
+  entry,
+  photoToEntry,
+  photos,
+ )
 import Templates
 import Utils
 
+import Data.Aeson (decode)
+import Data.ByteString.Lazy qualified as LBS
+import Data.List qualified
 import Data.Maybe (fromMaybe)
 import Data.UnixTime (UnixTime (..), formatUnixTime, webDateFormat)
 import Data.Version (showVersion)
@@ -178,3 +190,25 @@ generateSite = do
     create ["atom.xml"] $ makeFeed renderAtom
     create ["feed.xml"] $ makeFeed renderRss
     create ["feed.json"] $ makeFeed renderJson
+
+    match "root/photos/manifest.json" $ do
+      reroute $ \p ->
+        dropFirstParent $
+          takeDirectory p
+            </> ( (takeFileName . flip replaceBaseName "feed")
+                    . (takeFileName . flip replaceExtension "xml")
+                )
+              p
+      compile $
+        photoFeedCompiler defaultContext
+
+photoFeedCompiler :: Context t -> Compiler (Item String)
+photoFeedCompiler ctx = do
+  manifest <- getResourceLBS
+  makeItem $ do
+    let x = decode $ itemBody manifest
+    let d = Data.Maybe.fromMaybe defaultManifest x
+    let p = photos d
+    atom
+      (uploadedAt $ fst $ fromMaybe (defaultPhoto, []) (Data.List.uncons p))
+      (map photoToEntry p)

@@ -204,7 +204,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 
 #html.elem("p", attrs: (
   class: "text-sm text-subtle not-prose",
-))[You may enjoy #link("/feed.xml")[RSS] and #link("/atom.xml")[Atom] feeds.]
+))[#link("/feed.xml")[RSS] and #link("/atom.xml")[Atom] feeds.]
 
 #let update(date: "", is-link: true, internal: true, href: "", body) = {
   html.elem(
@@ -251,13 +251,14 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 
 = Photos
 
-// #html.elem("p", attrs: (
-//   class: "text-sm text-subtle",
-// ))[Hopefully I update this soon.]
+#html.elem("p", attrs: (
+  class: "text-sm text-subtle",
+))[#link("/photos/feed.xml")[Atom] feed.]
 
 #let photo-urls = (
   json("photos/manifest.json")
     .photos
+    .slice(0, 10)
     .map(x => (
       web-url: x.webUrl,
       fullres: x.originalUrl,

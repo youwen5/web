@@ -10,6 +10,7 @@ import Types
 import Control.Applicative (optional)
 import Data.List (intercalate)
 import Data.Maybe (catMaybes, mapMaybe)
+import GHC.Generics
 import Hakyll
 import System.FilePath (
   dropExtension,

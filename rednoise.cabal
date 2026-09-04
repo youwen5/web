@@ -32,11 +32,13 @@ executable rednoise
     BlazeSupport
     Compilers
     Constants
+    PhotoFeed
     Templates
     Types
     Utils
 
   build-depends:
+    aeson,
     base,
     blaze-html,
     blaze-markup,
