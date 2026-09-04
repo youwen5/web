@@ -66,7 +66,9 @@ title: "Photo Gallery"
         [
           #html.elem(
             "span",
-            attrs: (class: "text-sm text-subtle group-hover/child:text-bg"),
+            attrs: (
+              class: "text-sm text-subtle group-hover/child:text-bg leading-none",
+            ),
             [
               #data.date
               #if data.location != none [

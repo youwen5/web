@@ -304,28 +304,32 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
       html.elem(
         "div",
         attrs: (
-          class: "text-base px-1 w-0 min-w-full whitespace-normal break-words",
+          class: "text-sm md:text-base px-1 w-0 min-w-full whitespace-normal break-words",
         ),
         [
           #html.elem(
             "span",
-            attrs: (class: "text-sm text-subtle group-hover/child:text-bg"),
+            attrs: (
+              class: "text-sm text-subtle group-hover/child:text-bg leading-none",
+            ),
             [
               #data.date
               #if data.location != none [
                 @ #data.location
               ]
-              ·
-              #(data.focal-length)mm
-              ·
-              f/#(data.f-number)
-              ·
-              #data.shutter
-              ·
-              #let cameraModel = if data.camera.model == "ILCE-7CM2" [
-                #(sym.alpha)7Cii
-              ] else { data.camera.model }
-              #data.camera.make #cameraModel
+              #html.span(class: "hidden md:inline", [
+                ·
+                #(data.focal-length)mm
+                ·
+                f/#(data.f-number)
+                ·
+                #data.shutter
+                ·
+                #let cameraModel = if data.camera.model == "ILCE-7CM2" [
+                  #(sym.alpha)7Cii
+                ] else { data.camera.model }
+                #data.camera.make #cameraModel
+              ])
             ],
           )
           #if data.caption != none [
