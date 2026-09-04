@@ -1,0 +1,26 @@
+name: Pull latest photos
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: Pull photos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Check for update and perform update
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          curl "https://photos.youwen.dev/_system/manifest.json" >> root/photos/manifest.json
+
+          git add -A
+          git commit -m "auto: update photos"
+          git push
