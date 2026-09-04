@@ -285,16 +285,22 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
         alt: data.alt,
         loading: "lazy",
       ))
-      html.elem("div", attrs: (class: "text-base w-full px-1"), [
-        #html.elem(
-          "span",
-          attrs: (class: "text-sm text-subtle group-hover/child:text-bg"),
-          parseDate(data.date).display(
-            "[day padding:zero] [month repr:short], [year]",
-          ),
-        ) \
-        #data.caption
-      ])
+      html.elem(
+        "div",
+        attrs: (class: "text-base w-full px-1 shrink flex-1 w-fit"),
+        [
+          #html.elem(
+            "span",
+            attrs: (
+              class: "text-sm text-subtle group-hover/child:text-bg",
+            ),
+            parseDate(data.date).display(
+              "[day padding:zero] [month repr:short], [year]",
+            ),
+          ) \
+          #data.caption
+        ],
+      )
     },
   )
 }
@@ -434,27 +440,26 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   #html.elem("div", attrs: (class: "space-y-2 prose-lg"))[
     #double-entry[
       B.A. Mathematics, Computer Science \
-      University of California, Berkeley
+      University of California, Berkeley ('28)
     ]
     #double-entry[
-      Visiting student (Spring 2026) \
-      Tsinghua University
+      Visiting student, CS department \
+      Tsinghua University (S26)
     ]
     #double-entry[
-      B.S. Mathematics (2028) \
-      University of California, Santa Barbara
-    ]
-    #double-entry[
-      B.S. Computer Science (2028) \
-      University of California, Santa Barbara
+      B.S. Mathematics, Computer Science \
+      University of California, Santa Barbara (cut short)
     ]
   ]
   #html.elem("div", attrs: (class: "space-y-[7.33px] prose-lg"))[
-    #location-entry(area: [in Haidian, Beijing], country-or-state: [
-      #smallcaps(all: true)[China]
+    #location-entry(area: [in Berkeley], country-or-state: [
+      #smallcaps(all: true)[California, USA]
     ])
     #location-entry(area: [near San Francisco], country-or-state: [
       #smallcaps(all: true)[California, USA]
+    ])
+    #location-entry(area: [previously in Beijing], country-or-state: [
+      #smallcaps(all: true)[China]
     ])
     #location-entry(area: [previously in Santa Barbara], country-or-state: [
       #smallcaps(all: true)[California, USA]
