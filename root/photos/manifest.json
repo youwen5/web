@@ -1,25 +1,25 @@
 {
-  "version": 3,
-  "revision": 47,
-  "updatedAt": "2026-09-04T08:58:36.089Z",
+  "version": 4,
+  "revision": 149,
+  "updatedAt": "2026-09-04T18:04:46.758Z",
   "photos": [
     {
-      "id": "bc64884d-3d12-4137-83fd-e2816ae7141c",
-      "uploadedAt": "2026-09-04T08:58:17.512Z",
-      "description": "Nanjing Street.",
-      "altText": "the oriental pearl viewed from nanjing street",
-      "originalName": "DSC02832.jpeg",
-      "originalKey": "originals/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.jpg",
-      "originalBytes": 5097576,
+      "id": "7436a17f-919c-4c08-8000-eb2e948f396c",
+      "uploadedAt": "2026-09-01T19:08:05.481Z",
+      "description": "Mission Peak at golden hour.",
+      "altText": "view of bay area deltas from mission peak at golden hour",
+      "originalName": "DSC03249.jpeg",
+      "originalKey": "originals/2026/09/7436a17f-919c-4c08-8000-eb2e948f396c.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/7436a17f-919c-4c08-8000-eb2e948f396c.jpg",
+      "originalBytes": 2152625,
       "originalMime": "image/jpeg",
-      "originalWidth": 3072,
-      "originalHeight": 4608,
-      "megapixels": 14.16,
-      "rating": 0,
+      "originalWidth": 4398,
+      "originalHeight": 2932,
+      "megapixels": 12.89,
+      "rating": 4,
       "location": {
-        "city": "Shanghai",
-        "country": "China"
+        "city": "Fremont",
+        "country": "USA"
       },
       "exif": {
         "cameraMake": "SONY",
@@ -33,17 +33,100 @@
         },
         "focalLengthMm": 55,
         "focalLength35mmEquivalent": 55,
-        "capturedAt": "2026-08-10T22:07:50+08:00",
-        "exposureTimeSeconds": 0.01,
-        "fNumber": 3.2,
-        "iso": 800
+        "capturedAt": "2026-08-31T18:22:01-08:00",
+        "exposureTimeSeconds": 4e-4,
+        "fNumber": 5.6,
+        "iso": 200
       },
-      "webKey": "web/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.webp",
-      "webBytes": 347986,
+      "webKey": "web/2026/09/7436a17f-919c-4c08-8000-eb2e948f396c.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/7436a17f-919c-4c08-8000-eb2e948f396c.webp",
+      "webBytes": 52348,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183,
+      "originalOrientation": null
+    },
+    {
+      "id": "240ab2dc-261e-447a-b2dd-61a4020cd78a",
+      "uploadedAt": "2026-09-04T07:05:51.344Z",
+      "altText": "cow standing on a mountainside against the sky",
+      "originalName": "DSC03223.jpeg",
+      "originalKey": "originals/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.jpg",
+      "originalBytes": 3664212,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4608,
+      "originalHeight": 3072,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {},
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-08-31T17:15:38-08:00",
+        "exposureTimeSeconds": 0.0003125,
+        "fNumber": 5.6,
+        "iso": 200
+      },
+      "webKey": "web/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.webp",
+      "webBytes": 215024,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183,
+      "originalOrientation": null
+    },
+    {
+      "id": "8be63f46-b05c-4cc7-90f4-e7457554c033",
+      "uploadedAt": "2026-09-04T17:33:11.213Z",
+      "description": "Last light in Yongsan.",
+      "altText": "last light over buildings and powerlines",
+      "originalName": "DSC02884.jpeg",
+      "originalKey": "originals/2026/09/8be63f46-b05c-4cc7-90f4-e7457554c033.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/8be63f46-b05c-4cc7-90f4-e7457554c033.jpg",
+      "originalBytes": 3613302,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Seoul",
+        "country": "South Korea"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-08-13T19:19:27+09:00",
+        "exposureTimeSeconds": 0.0025,
+        "fNumber": 8,
+        "iso": 400
+      },
+      "webKey": "web/2026/09/8be63f46-b05c-4cc7-90f4-e7457554c033.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/8be63f46-b05c-4cc7-90f4-e7457554c033.webp",
+      "webBytes": 195752,
       "webMime": "image/webp",
       "webWidth": 1183,
-      "webHeight": 1775
+      "webHeight": 1775,
+      "originalOrientation": null
     },
     {
       "id": "87443e92-d45c-47fd-9ee3-97886b12101f",
@@ -84,22 +167,27 @@
       "webBytes": 210642,
       "webMime": "image/webp",
       "webWidth": 1775,
-      "webHeight": 1183
+      "webHeight": 1183,
+      "originalOrientation": null
     },
     {
-      "id": "240ab2dc-261e-447a-b2dd-61a4020cd78a",
-      "uploadedAt": "2026-09-04T07:05:51.344Z",
-      "altText": "cow standing on a mountainside against the sky",
-      "originalName": "DSC03223.jpeg",
-      "originalKey": "originals/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.jpg",
-      "originalBytes": 3664212,
+      "id": "bc64884d-3d12-4137-83fd-e2816ae7141c",
+      "uploadedAt": "2026-09-04T08:58:17.512Z",
+      "description": "Nanjing Street.",
+      "altText": "the oriental pearl viewed from nanjing street",
+      "originalName": "DSC02832.jpeg",
+      "originalKey": "originals/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.jpg",
+      "originalBytes": 5097576,
       "originalMime": "image/jpeg",
-      "originalWidth": 4608,
-      "originalHeight": 3072,
+      "originalWidth": 3072,
+      "originalHeight": 4608,
       "megapixels": 14.16,
       "rating": 0,
-      "location": {},
+      "location": {
+        "city": "Shanghai",
+        "country": "China"
+      },
       "exif": {
         "cameraMake": "SONY",
         "cameraModel": "ILCE-7CM2",
@@ -112,31 +200,542 @@
         },
         "focalLengthMm": 55,
         "focalLength35mmEquivalent": 55,
-        "capturedAt": "2026-08-31T17:15:38-08:00",
-        "exposureTimeSeconds": 0.0003125,
-        "fNumber": 5.6,
-        "iso": 200
+        "capturedAt": "2026-08-10T22:07:50+08:00",
+        "exposureTimeSeconds": 0.01,
+        "fNumber": 3.2,
+        "iso": 800
       },
-      "webKey": "web/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.webp",
-      "webBytes": 215024,
+      "webKey": "web/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.webp",
+      "webBytes": 347986,
       "webMime": "image/webp",
-      "webWidth": 1775,
-      "webHeight": 1183
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": null
     },
     {
-      "id": "d4365917-1ea8-43ab-9f0a-c324b5067a00",
-      "uploadedAt": "2026-09-04T04:14:07.826Z",
-      "altText": "roof of a korean temple",
-      "originalName": "DSC03087.jpeg",
-      "originalKey": "originals/2026/09/d4365917-1ea8-43ab-9f0a-c324b5067a00.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/d4365917-1ea8-43ab-9f0a-c324b5067a00.jpg",
-      "originalBytes": 4644583,
+      "id": "3a9dbef0-f314-4e1c-96cd-dbc33696b464",
+      "uploadedAt": "2026-09-04T17:49:07.209Z",
+      "description": "Tokyo Tower.",
+      "altText": "tokyo tower lit at night",
+      "originalName": "DSC02156.jpeg",
+      "originalKey": "originals/2026/09/3a9dbef0-f314-4e1c-96cd-dbc33696b464.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/3a9dbef0-f314-4e1c-96cd-dbc33696b464.jpg?orientation=8&v=mtn9dyc3",
+      "originalBytes": 4851673,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 4,
+      "location": {
+        "city": "Tokyo",
+        "country": "Japan"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 35mm F2.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 35,
+          "maxFocalLengthMm": 35,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 35,
+        "focalLength35mmEquivalent": 35,
+        "capturedAt": "2026-07-21T22:54:13+09:00",
+        "exposureTimeSeconds": 0.03333333333333333,
+        "fNumber": 2.8,
+        "iso": 125
+      },
+      "webKey": "web/2026/09/3a9dbef0-f314-4e1c-96cd-dbc33696b464.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/3a9dbef0-f314-4e1c-96cd-dbc33696b464.webp",
+      "webBytes": 314520,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": 8
+    },
+    {
+      "id": "611fca38-b1e4-47c6-915d-a79947d57194",
+      "uploadedAt": "2026-09-04T17:48:48.854Z",
+      "altText": "stylized photo of neon retro diner sign",
+      "originalName": "DSC05818.jpeg",
+      "originalKey": "originals/2026/09/611fca38-b1e4-47c6-915d-a79947d57194.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/611fca38-b1e4-47c6-915d-a79947d57194.jpg?orientation=8&v=mtn9epbg",
+      "originalBytes": 3497872,
       "originalMime": "image/jpeg",
       "originalWidth": 3072,
       "originalHeight": 4608,
       "megapixels": 14.16,
       "rating": 0,
+      "location": {
+        "city": "Chengdu",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 35mm F2.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 35,
+          "maxFocalLengthMm": 35,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 35,
+        "focalLength35mmEquivalent": 35,
+        "capturedAt": "2026-04-04T19:57:19+08:00",
+        "exposureTimeSeconds": 0.625,
+        "fNumber": 8,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/611fca38-b1e4-47c6-915d-a79947d57194.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/611fca38-b1e4-47c6-915d-a79947d57194.webp",
+      "webBytes": 146192,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": 8
+    },
+    {
+      "id": "50def05e-81ca-4c01-9969-a7301a2535fa",
+      "uploadedAt": "2026-09-04T17:48:50.674Z",
+      "altText": "stylized neon store sign with streaks of shutter drag light",
+      "originalName": "DSC05807.jpeg",
+      "originalKey": "originals/2026/09/50def05e-81ca-4c01-9969-a7301a2535fa.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/50def05e-81ca-4c01-9969-a7301a2535fa.jpg?orientation=8&v=mtn9ekpa",
+      "originalBytes": 3986101,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Chengdu",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 35mm F2.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 35,
+          "maxFocalLengthMm": 35,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 35,
+        "focalLength35mmEquivalent": 35,
+        "capturedAt": "2026-04-04T19:53:30+08:00",
+        "exposureTimeSeconds": 0.625,
+        "fNumber": 11,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/50def05e-81ca-4c01-9969-a7301a2535fa.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/50def05e-81ca-4c01-9969-a7301a2535fa.webp",
+      "webBytes": 150082,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": 8
+    },
+    {
+      "id": "d10e706d-2a3e-49e7-b352-aef705a6b529",
+      "uploadedAt": "2026-09-04T17:48:52.419Z",
+      "altText": "chaotic signpost",
+      "originalName": "DSC05776.jpeg",
+      "originalKey": "originals/2026/09/d10e706d-2a3e-49e7-b352-aef705a6b529.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/d10e706d-2a3e-49e7-b352-aef705a6b529.jpg?orientation=8&v=mtn9edqo",
+      "originalBytes": 5286544,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Chengdu",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 35mm F2.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 35,
+          "maxFocalLengthMm": 35,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 35,
+        "focalLength35mmEquivalent": 35,
+        "capturedAt": "2026-04-04T18:52:30+08:00",
+        "exposureTimeSeconds": 0.025,
+        "fNumber": 4,
+        "iso": 200
+      },
+      "webKey": "web/2026/09/d10e706d-2a3e-49e7-b352-aef705a6b529.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/d10e706d-2a3e-49e7-b352-aef705a6b529.webp",
+      "webBytes": 277582,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": 8
+    },
+    {
+      "id": "0e734280-b7df-4662-81aa-a2d0061f253d",
+      "uploadedAt": "2026-09-04T17:48:46.895Z",
+      "altText": "bustling pedestrian shopping street",
+      "originalName": "DSC05485.jpeg",
+      "originalKey": "originals/2026/09/0e734280-b7df-4662-81aa-a2d0061f253d.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/0e734280-b7df-4662-81aa-a2d0061f253d.jpg?orientation=6&v=mtn9extr",
+      "originalBytes": 6922715,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Chongqing",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 35mm F2.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 35,
+          "maxFocalLengthMm": 35,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 35,
+        "focalLength35mmEquivalent": 35,
+        "capturedAt": "2026-04-03T13:59:42+08:00",
+        "exposureTimeSeconds": 0.002,
+        "fNumber": 4.5,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/0e734280-b7df-4662-81aa-a2d0061f253d.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/0e734280-b7df-4662-81aa-a2d0061f253d.webp",
+      "webBytes": 492044,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": 6
+    },
+    {
+      "id": "0a010c14-747a-42dc-b772-07daf781add1",
+      "uploadedAt": "2026-09-04T17:49:03.029Z",
+      "description": "Early spring blossoms at Old Summer Palace.",
+      "altText": "blossoming flowers with out of focus woman sitting on bench in background",
+      "originalName": "DSC04434.jpeg",
+      "originalKey": "originals/2026/09/0a010c14-747a-42dc-b772-07daf781add1.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/0a010c14-747a-42dc-b772-07daf781add1.jpg",
+      "originalBytes": 4334038,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Beijing",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 70,
+        "focalLength35mmEquivalent": 70,
+        "capturedAt": "2026-03-27T17:17:09+08:00",
+        "exposureTimeSeconds": 0.00625,
+        "fNumber": 8,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/0a010c14-747a-42dc-b772-07daf781add1.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/0a010c14-747a-42dc-b772-07daf781add1.webp",
+      "webBytes": 212098,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": null
+    },
+    {
+      "id": "56b0dd1f-a5fc-40a0-97cf-7a1b89d85a97",
+      "uploadedAt": "2026-09-04T17:49:05.681Z",
+      "description": "Nice stroll after class by 第六教室楼.",
+      "altText": "straight path through verdant trees",
+      "originalName": "DSC04259.jpeg",
+      "originalKey": "originals/2026/09/56b0dd1f-a5fc-40a0-97cf-7a1b89d85a97.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/56b0dd1f-a5fc-40a0-97cf-7a1b89d85a97.jpg?orientation=8&v=mtn9dtvq",
+      "originalBytes": 584398,
+      "originalMime": "image/jpeg",
+      "originalWidth": 1080,
+      "originalHeight": 1616,
+      "megapixels": 1.75,
+      "rating": 0,
+      "location": {
+        "city": "Beijing",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 61.1,
+        "focalLength35mmEquivalent": 61,
+        "capturedAt": "2026-03-24T15:18:50+08:00",
+        "exposureTimeSeconds": 0.0125,
+        "fNumber": 5.6,
+        "iso": 160
+      },
+      "webKey": "web/2026/09/56b0dd1f-a5fc-40a0-97cf-7a1b89d85a97.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/56b0dd1f-a5fc-40a0-97cf-7a1b89d85a97.webp",
+      "webBytes": 347082,
+      "webMime": "image/webp",
+      "webWidth": 1080,
+      "webHeight": 1616,
+      "originalOrientation": 8
+    },
+    {
+      "id": "b71b4595-9901-4dc6-b948-bbae34c3e669",
+      "uploadedAt": "2026-09-04T17:49:04.358Z",
+      "description": "Late winter in Tsinghua University.",
+      "altText": "man walking on a path through a clearing",
+      "originalName": "DSC04270.jpeg",
+      "originalKey": "originals/2026/09/b71b4595-9901-4dc6-b948-bbae34c3e669.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/b71b4595-9901-4dc6-b948-bbae34c3e669.jpg",
+      "originalBytes": 500146,
+      "originalMime": "image/jpeg",
+      "originalWidth": 1616,
+      "originalHeight": 1080,
+      "megapixels": 1.75,
+      "rating": 0,
+      "location": {
+        "city": "Beijing",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 70,
+        "focalLength35mmEquivalent": 70,
+        "capturedAt": "2026-03-24T15:33:32+08:00",
+        "exposureTimeSeconds": 0.00125,
+        "fNumber": 4,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/b71b4595-9901-4dc6-b948-bbae34c3e669.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/b71b4595-9901-4dc6-b948-bbae34c3e669.webp",
+      "webBytes": 385176,
+      "webMime": "image/webp",
+      "webWidth": 1616,
+      "webHeight": 1080,
+      "originalOrientation": null
+    },
+    {
+      "id": "e92779a0-e0cc-44f8-832d-bf9cf3bb5c28",
+      "uploadedAt": "2026-09-04T17:48:56.162Z",
+      "altText": "ornate chinese lion bust",
+      "originalName": "DSC04970.jpeg",
+      "originalKey": "originals/2026/09/e92779a0-e0cc-44f8-832d-bf9cf3bb5c28.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/e92779a0-e0cc-44f8-832d-bf9cf3bb5c28.jpg",
+      "originalBytes": 3867685,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4608,
+      "originalHeight": 3072,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Gubei Water Town",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 67.7,
+        "focalLength35mmEquivalent": 67,
+        "capturedAt": "2026-03-28T14:46:39+08:00",
+        "exposureTimeSeconds": 8e-4,
+        "fNumber": 2.8,
+        "iso": 64
+      },
+      "webKey": "web/2026/09/e92779a0-e0cc-44f8-832d-bf9cf3bb5c28.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/e92779a0-e0cc-44f8-832d-bf9cf3bb5c28.webp",
+      "webBytes": 130812,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183,
+      "originalOrientation": null
+    },
+    {
+      "id": "514e62f0-81b9-44c6-a314-3a6d4539751a",
+      "uploadedAt": "2026-09-04T17:48:54.494Z",
+      "altText": "traditional chinese boat paddling through a man made river",
+      "originalName": "DSC05017.jpeg",
+      "originalKey": "originals/2026/09/514e62f0-81b9-44c6-a314-3a6d4539751a.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/514e62f0-81b9-44c6-a314-3a6d4539751a.jpg?orientation=8&v=mtn9ec12",
+      "originalBytes": 6733426,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Gubei Water Town",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 67.1,
+        "focalLength35mmEquivalent": 67,
+        "capturedAt": "2026-03-28T15:12:20+08:00",
+        "exposureTimeSeconds": 0.003125,
+        "fNumber": 5.6,
+        "iso": 64
+      },
+      "webKey": "web/2026/09/514e62f0-81b9-44c6-a314-3a6d4539751a.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/514e62f0-81b9-44c6-a314-3a6d4539751a.webp",
+      "webBytes": 482264,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": 8
+    },
+    {
+      "id": "95bd35ea-50b0-44b8-a23f-b41d15e1561b",
+      "uploadedAt": "2026-09-04T17:48:57.772Z",
+      "description": "I never realized the Great Wall was on a mountain range.",
+      "altText": "panning landscape shot of the great wall of china",
+      "originalName": "DSC04512.jpeg",
+      "originalKey": "originals/2026/09/95bd35ea-50b0-44b8-a23f-b41d15e1561b.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/95bd35ea-50b0-44b8-a23f-b41d15e1561b.jpg",
+      "originalBytes": 4804294,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4608,
+      "originalHeight": 3072,
+      "megapixels": 14.16,
+      "rating": 4,
+      "location": {
+        "city": "Gubei Water Town",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 24,
+        "focalLength35mmEquivalent": 24,
+        "capturedAt": "2026-03-28T12:43:21+08:00",
+        "exposureTimeSeconds": 0.004,
+        "fNumber": 16,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/95bd35ea-50b0-44b8-a23f-b41d15e1561b.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/95bd35ea-50b0-44b8-a23f-b41d15e1561b.webp",
+      "webBytes": 266198,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183,
+      "originalOrientation": null
+    },
+    {
+      "id": "f9657a0a-f233-4b08-b79f-9ee10e3b2837",
+      "uploadedAt": "2026-09-04T17:48:59.545Z",
+      "description": "A rampart of Simatai, Great Wall of China.",
+      "altText": "a rampart of the great wall connected to a straight and upwards path",
+      "originalName": "DSC04488.jpeg",
+      "originalKey": "originals/2026/09/f9657a0a-f233-4b08-b79f-9ee10e3b2837.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/f9657a0a-f233-4b08-b79f-9ee10e3b2837.jpg?orientation=8&v=mtn9e3rw",
+      "originalBytes": 7327152,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": null,
+      "location": {
+        "city": "Gubei Water Town",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 41.6,
+        "focalLength35mmEquivalent": 41,
+        "capturedAt": "2026-03-28T12:40:00+08:00",
+        "exposureTimeSeconds": 0.001,
+        "fNumber": 8,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/f9657a0a-f233-4b08-b79f-9ee10e3b2837.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/f9657a0a-f233-4b08-b79f-9ee10e3b2837.webp",
+      "webBytes": 457034,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": 8
+    },
+    {
+      "id": "93dd6262-12c4-4ebb-8046-70a9bfc98a4a",
+      "uploadedAt": "2026-09-04T17:23:43.269Z",
+      "altText": "ornate eaves of the gyeokbokgong temple",
+      "originalName": "DSC03087.jpeg",
+      "originalKey": "originals/2026/09/93dd6262-12c4-4ebb-8046-70a9bfc98a4a.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/93dd6262-12c4-4ebb-8046-70a9bfc98a4a.jpg",
+      "originalBytes": 4644583,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 4,
       "location": {
         "city": "Seoul",
         "country": "South Korea"
@@ -158,70 +757,31 @@
         "fNumber": 5.6,
         "iso": 200
       },
-      "webKey": "web/2026/09/d4365917-1ea8-43ab-9f0a-c324b5067a00.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/d4365917-1ea8-43ab-9f0a-c324b5067a00.webp",
+      "webKey": "web/2026/09/93dd6262-12c4-4ebb-8046-70a9bfc98a4a.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/93dd6262-12c4-4ebb-8046-70a9bfc98a4a.webp",
       "webBytes": 287704,
       "webMime": "image/webp",
       "webWidth": 1183,
-      "webHeight": 1775
+      "webHeight": 1775,
+      "originalOrientation": null
     },
     {
-      "id": "7436a17f-919c-4c08-8000-eb2e948f396c",
-      "uploadedAt": "2026-09-01T19:08:05.481Z",
-      "description": "Mission Peak at golden hour.",
-      "altText": "view of bay area deltas from mission peak at golden hour",
-      "originalName": "DSC03249.jpeg",
-      "originalKey": "originals/2026/09/7436a17f-919c-4c08-8000-eb2e948f396c.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/7436a17f-919c-4c08-8000-eb2e948f396c.jpg",
-      "originalBytes": 2152625,
+      "id": "87069639-49a9-46ef-913b-ffc4e04d7117",
+      "uploadedAt": "2026-09-04T17:49:01.412Z",
+      "altText": "man sitting on the steps of the great wall of china and reading with a rampart as background",
+      "originalName": "DSC04503.jpeg",
+      "originalKey": "originals/2026/09/87069639-49a9-46ef-913b-ffc4e04d7117.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/87069639-49a9-46ef-913b-ffc4e04d7117.jpg?orientation=8&v=mtn9e1ii",
+      "originalBytes": 4575626,
       "originalMime": "image/jpeg",
-      "originalWidth": 4398,
-      "originalHeight": 2932,
-      "megapixels": 12.89,
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
       "rating": 4,
       "location": {
-        "city": "Fremont",
-        "country": "USA"
+        "city": "Gubei Water Town",
+        "country": "China"
       },
-      "exif": {
-        "cameraMake": "SONY",
-        "cameraModel": "ILCE-7CM2",
-        "lensModel": "FE 55mm F1.8 ZA",
-        "lensSpecification": {
-          "minFocalLengthMm": 55,
-          "maxFocalLengthMm": 55,
-          "minFNumberAtMinFocalLength": 1.8,
-          "minFNumberAtMaxFocalLength": 1.8
-        },
-        "focalLengthMm": 55,
-        "focalLength35mmEquivalent": 55,
-        "capturedAt": "2026-08-31T18:22:01-08:00",
-        "exposureTimeSeconds": 0.0004,
-        "fNumber": 5.6,
-        "iso": 200
-      },
-      "webKey": "web/2026/09/7436a17f-919c-4c08-8000-eb2e948f396c.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/7436a17f-919c-4c08-8000-eb2e948f396c.webp",
-      "webBytes": 52348,
-      "webMime": "image/webp",
-      "webWidth": 1775,
-      "webHeight": 1183
-    },
-    {
-      "id": "bcff6fe1-2309-47ca-9d30-3e81321cee6e",
-      "uploadedAt": "2026-09-04T03:52:43.412Z",
-      "description": "From the Chinese World Trade Center.",
-      "altText": "neon lit highway with streaks of cars",
-      "originalName": "DSC04012.jpeg",
-      "originalKey": "originals/2026/09/bcff6fe1-2309-47ca-9d30-3e81321cee6e.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/bcff6fe1-2309-47ca-9d30-3e81321cee6e.jpg",
-      "originalBytes": 778998,
-      "originalMime": "image/jpeg",
-      "originalWidth": 1616,
-      "originalHeight": 940,
-      "megapixels": 1.52,
-      "rating": 3,
-      "location": {},
       "exif": {
         "cameraMake": "SONY",
         "cameraModel": "ILCE-7CM2",
@@ -232,19 +792,20 @@
           "minFNumberAtMinFocalLength": 2.8,
           "minFNumberAtMaxFocalLength": 2.8
         },
-        "focalLengthMm": 24,
-        "focalLength35mmEquivalent": 24,
-        "capturedAt": "2026-03-21T21:44:28+08:00",
-        "exposureTimeSeconds": 0.25,
-        "fNumber": 2.8,
-        "iso": 250
+        "focalLengthMm": 57.1,
+        "focalLength35mmEquivalent": 57,
+        "capturedAt": "2026-03-28T12:41:55+08:00",
+        "exposureTimeSeconds": 0.0003125,
+        "fNumber": 4,
+        "iso": 100
       },
-      "webKey": "web/2026/09/bcff6fe1-2309-47ca-9d30-3e81321cee6e.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/bcff6fe1-2309-47ca-9d30-3e81321cee6e.webp",
-      "webBytes": 222152,
+      "webKey": "web/2026/09/87069639-49a9-46ef-913b-ffc4e04d7117.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/87069639-49a9-46ef-913b-ffc4e04d7117.webp",
+      "webBytes": 236232,
       "webMime": "image/webp",
-      "webWidth": 1616,
-      "webHeight": 940
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "originalOrientation": 8
     },
     {
       "id": "a59b9a4f-2974-4ac7-8ceb-232ba9a5e575",
@@ -285,172 +846,8 @@
       "webBytes": 182368,
       "webMime": "image/webp",
       "webWidth": 1775,
-      "webHeight": 1183
-    },
-    {
-      "id": "f6978563-5adf-42e9-8036-7fd7f64ab066",
-      "uploadedAt": "2026-09-04T03:52:41.283Z",
-      "description": "Nice stroll after class.",
-      "altText": "straight path through verdant forest",
-      "originalName": "DSC04259.jpeg",
-      "originalKey": "originals/2026/09/f6978563-5adf-42e9-8036-7fd7f64ab066.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/f6978563-5adf-42e9-8036-7fd7f64ab066.jpg",
-      "originalBytes": 584398,
-      "originalMime": "image/jpeg",
-      "originalWidth": 1080,
-      "originalHeight": 1616,
-      "megapixels": 1.75,
-      "rating": 0,
-      "location": {
-        "city": "Beijing, China"
-      },
-      "exif": {
-        "cameraMake": "SONY",
-        "cameraModel": "ILCE-7CM2",
-        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
-        "lensSpecification": {
-          "minFocalLengthMm": 24,
-          "maxFocalLengthMm": 70,
-          "minFNumberAtMinFocalLength": 2.8,
-          "minFNumberAtMaxFocalLength": 2.8
-        },
-        "focalLengthMm": 61.1,
-        "focalLength35mmEquivalent": 61,
-        "capturedAt": "2026-03-24T15:18:50+08:00",
-        "exposureTimeSeconds": 0.0125,
-        "fNumber": 5.6,
-        "iso": 160
-      },
-      "webKey": "web/2026/09/f6978563-5adf-42e9-8036-7fd7f64ab066.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/f6978563-5adf-42e9-8036-7fd7f64ab066.webp",
-      "webBytes": 347082,
-      "webMime": "image/webp",
-      "webWidth": 1080,
-      "webHeight": 1616
-    },
-    {
-      "id": "939b3623-5feb-4b16-b7d1-9c48cca98f25",
-      "uploadedAt": "2026-09-04T03:52:40.076Z",
-      "altText": "student walking through a path in grass",
-      "originalName": "DSC04270.jpeg",
-      "originalKey": "originals/2026/09/939b3623-5feb-4b16-b7d1-9c48cca98f25.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/939b3623-5feb-4b16-b7d1-9c48cca98f25.jpg",
-      "originalBytes": 500146,
-      "originalMime": "image/jpeg",
-      "originalWidth": 1616,
-      "originalHeight": 1080,
-      "megapixels": 1.75,
-      "rating": 0,
-      "location": {
-        "city": "Beijing",
-        "country": "China"
-      },
-      "exif": {
-        "cameraMake": "SONY",
-        "cameraModel": "ILCE-7CM2",
-        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
-        "lensSpecification": {
-          "minFocalLengthMm": 24,
-          "maxFocalLengthMm": 70,
-          "minFNumberAtMinFocalLength": 2.8,
-          "minFNumberAtMaxFocalLength": 2.8
-        },
-        "focalLengthMm": 70,
-        "focalLength35mmEquivalent": 70,
-        "capturedAt": "2026-03-24T15:33:32+08:00",
-        "exposureTimeSeconds": 0.00125,
-        "fNumber": 4,
-        "iso": 100
-      },
-      "webKey": "web/2026/09/939b3623-5feb-4b16-b7d1-9c48cca98f25.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/939b3623-5feb-4b16-b7d1-9c48cca98f25.webp",
-      "webBytes": 385176,
-      "webMime": "image/webp",
-      "webWidth": 1616,
-      "webHeight": 1080
-    },
-    {
-      "id": "1887e826-267e-454c-b0bc-56360dcfff18",
-      "uploadedAt": "2026-09-04T03:52:38.678Z",
-      "description": "Rampart at Simatai, Great Wall of China.",
-      "altText": "rampart at Simatai, Great Wall of China",
-      "originalName": "DSC04488.jpeg",
-      "originalKey": "originals/2026/09/1887e826-267e-454c-b0bc-56360dcfff18.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/1887e826-267e-454c-b0bc-56360dcfff18.jpg",
-      "originalBytes": 7327152,
-      "originalMime": "image/jpeg",
-      "originalWidth": 3072,
-      "originalHeight": 4608,
-      "megapixels": 14.16,
-      "rating": 4,
-      "location": {
-        "city": "Beijing",
-        "country": "China"
-      },
-      "exif": {
-        "cameraMake": "SONY",
-        "cameraModel": "ILCE-7CM2",
-        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
-        "lensSpecification": {
-          "minFocalLengthMm": 24,
-          "maxFocalLengthMm": 70,
-          "minFNumberAtMinFocalLength": 2.8,
-          "minFNumberAtMaxFocalLength": 2.8
-        },
-        "focalLengthMm": 41.6,
-        "focalLength35mmEquivalent": 41,
-        "capturedAt": "2026-03-28T12:40:00+08:00",
-        "exposureTimeSeconds": 0.001,
-        "fNumber": 8,
-        "iso": 100
-      },
-      "webKey": "web/2026/09/1887e826-267e-454c-b0bc-56360dcfff18.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/1887e826-267e-454c-b0bc-56360dcfff18.webp",
-      "webBytes": 457034,
-      "webMime": "image/webp",
-      "webWidth": 1183,
-      "webHeight": 1775
-    },
-    {
-      "id": "a8f85c04-e174-45a0-890d-ba82bac886f3",
-      "uploadedAt": "2026-09-04T03:52:36.877Z",
-      "altText": "man reading a book against a rampart at the great wall of china",
-      "originalName": "DSC04503.jpeg",
-      "originalKey": "originals/2026/09/a8f85c04-e174-45a0-890d-ba82bac886f3.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/a8f85c04-e174-45a0-890d-ba82bac886f3.jpg",
-      "originalBytes": 4575626,
-      "originalMime": "image/jpeg",
-      "originalWidth": 3072,
-      "originalHeight": 4608,
-      "megapixels": 14.16,
-      "rating": 3,
-      "location": {
-        "city": "Beijing",
-        "country": "China"
-      },
-      "exif": {
-        "cameraMake": "SONY",
-        "cameraModel": "ILCE-7CM2",
-        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
-        "lensSpecification": {
-          "minFocalLengthMm": 24,
-          "maxFocalLengthMm": 70,
-          "minFNumberAtMinFocalLength": 2.8,
-          "minFNumberAtMaxFocalLength": 2.8
-        },
-        "focalLengthMm": 57.1,
-        "focalLength35mmEquivalent": 57,
-        "capturedAt": "2026-03-28T12:41:55+08:00",
-        "exposureTimeSeconds": 0.0003125,
-        "fNumber": 4,
-        "iso": 100
-      },
-      "webKey": "web/2026/09/a8f85c04-e174-45a0-890d-ba82bac886f3.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/a8f85c04-e174-45a0-890d-ba82bac886f3.webp",
-      "webBytes": 236232,
-      "webMime": "image/webp",
-      "webWidth": 1183,
-      "webHeight": 1775
+      "webHeight": 1183,
+      "originalOrientation": null
     },
     {
       "id": "973c6a81-5bfb-430e-b0f4-964436b4584f",
@@ -491,130 +888,8 @@
       "webBytes": 208332,
       "webMime": "image/webp",
       "webWidth": 1775,
-      "webHeight": 1183
-    },
-    {
-      "id": "3276e807-f95d-419e-bf8a-18b4ce9c0d26",
-      "uploadedAt": "2026-09-04T03:52:24.859Z",
-      "altText": "chaotic signpost",
-      "originalName": "DSC05776.jpeg",
-      "originalKey": "originals/2026/09/3276e807-f95d-419e-bf8a-18b4ce9c0d26.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/3276e807-f95d-419e-bf8a-18b4ce9c0d26.jpg",
-      "originalBytes": 5286544,
-      "originalMime": "image/jpeg",
-      "originalWidth": 3072,
-      "originalHeight": 4608,
-      "megapixels": 14.16,
-      "rating": 0,
-      "location": {
-        "city": "Chengdu",
-        "country": "China"
-      },
-      "exif": {
-        "cameraMake": "SONY",
-        "cameraModel": "ILCE-7CM2",
-        "lensModel": "FE 35mm F2.8 ZA",
-        "lensSpecification": {
-          "minFocalLengthMm": 35,
-          "maxFocalLengthMm": 35,
-          "minFNumberAtMinFocalLength": 2.8,
-          "minFNumberAtMaxFocalLength": 2.8
-        },
-        "focalLengthMm": 35,
-        "focalLength35mmEquivalent": 35,
-        "capturedAt": "2026-04-04T18:52:30+08:00",
-        "exposureTimeSeconds": 0.025,
-        "fNumber": 4,
-        "iso": 200
-      },
-      "webKey": "web/2026/09/3276e807-f95d-419e-bf8a-18b4ce9c0d26.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/3276e807-f95d-419e-bf8a-18b4ce9c0d26.webp",
-      "webBytes": 277582,
-      "webMime": "image/webp",
-      "webWidth": 1183,
-      "webHeight": 1775
-    },
-    {
-      "id": "55764673-58b8-438d-9e41-a47e40fd6069",
-      "uploadedAt": "2026-09-04T03:52:23.066Z",
-      "altText": "stylized photo of a neon restaurant sign with streaks of light",
-      "originalName": "DSC05807.jpeg",
-      "originalKey": "originals/2026/09/55764673-58b8-438d-9e41-a47e40fd6069.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/55764673-58b8-438d-9e41-a47e40fd6069.jpg",
-      "originalBytes": 3986101,
-      "originalMime": "image/jpeg",
-      "originalWidth": 3072,
-      "originalHeight": 4608,
-      "megapixels": 14.16,
-      "rating": 0,
-      "location": {
-        "city": "Chengdu",
-        "country": "China"
-      },
-      "exif": {
-        "cameraMake": "SONY",
-        "cameraModel": "ILCE-7CM2",
-        "lensModel": "FE 35mm F2.8 ZA",
-        "lensSpecification": {
-          "minFocalLengthMm": 35,
-          "maxFocalLengthMm": 35,
-          "minFNumberAtMinFocalLength": 2.8,
-          "minFNumberAtMaxFocalLength": 2.8
-        },
-        "focalLengthMm": 35,
-        "focalLength35mmEquivalent": 35,
-        "capturedAt": "2026-04-04T19:53:30+08:00",
-        "exposureTimeSeconds": 0.625,
-        "fNumber": 11,
-        "iso": 100
-      },
-      "webKey": "web/2026/09/55764673-58b8-438d-9e41-a47e40fd6069.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/55764673-58b8-438d-9e41-a47e40fd6069.webp",
-      "webBytes": 150082,
-      "webMime": "image/webp",
-      "webWidth": 1183,
-      "webHeight": 1775
-    },
-    {
-      "id": "2bfb73b9-8524-4d46-8d4e-db04f982f186",
-      "uploadedAt": "2026-09-04T03:52:21.547Z",
-      "altText": "Stylized photo of old school neon diner signpost",
-      "originalName": "DSC05818.jpeg",
-      "originalKey": "originals/2026/09/2bfb73b9-8524-4d46-8d4e-db04f982f186.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/2bfb73b9-8524-4d46-8d4e-db04f982f186.jpg",
-      "originalBytes": 3497872,
-      "originalMime": "image/jpeg",
-      "originalWidth": 3072,
-      "originalHeight": 4608,
-      "megapixels": 14.16,
-      "rating": 0,
-      "location": {
-        "city": "Chengdu",
-        "country": "China"
-      },
-      "exif": {
-        "cameraMake": "SONY",
-        "cameraModel": "ILCE-7CM2",
-        "lensModel": "FE 35mm F2.8 ZA",
-        "lensSpecification": {
-          "minFocalLengthMm": 35,
-          "maxFocalLengthMm": 35,
-          "minFNumberAtMinFocalLength": 2.8,
-          "minFNumberAtMaxFocalLength": 2.8
-        },
-        "focalLengthMm": 35,
-        "focalLength35mmEquivalent": 35,
-        "capturedAt": "2026-04-04T19:57:19+08:00",
-        "exposureTimeSeconds": 0.625,
-        "fNumber": 8,
-        "iso": 100
-      },
-      "webKey": "web/2026/09/2bfb73b9-8524-4d46-8d4e-db04f982f186.webp",
-      "webUrl": "https://photos.youwen.dev/web/2026/09/2bfb73b9-8524-4d46-8d4e-db04f982f186.webp",
-      "webBytes": 146192,
-      "webMime": "image/webp",
-      "webWidth": 1183,
-      "webHeight": 1775
+      "webHeight": 1183,
+      "originalOrientation": null
     },
     {
       "id": "f7e8340a-13c6-4f8c-88a8-8e71ccd2c0d5",
@@ -656,7 +931,8 @@
       "webBytes": 296048,
       "webMime": "image/webp",
       "webWidth": 1775,
-      "webHeight": 1183
+      "webHeight": 1183,
+      "originalOrientation": null
     },
     {
       "id": "62216776-9713-48e0-b187-22b9a984684f",
@@ -689,7 +965,7 @@
         "focalLengthMm": 31.1,
         "focalLength35mmEquivalent": 31,
         "capturedAt": "2026-04-03T17:41:10+08:00",
-        "exposureTimeSeconds": 0.0005,
+        "exposureTimeSeconds": 5e-4,
         "fNumber": 4.5,
         "iso": 100
       },
@@ -698,7 +974,8 @@
       "webBytes": 194876,
       "webMime": "image/webp",
       "webWidth": 1775,
-      "webHeight": 1183
+      "webHeight": 1183,
+      "originalOrientation": null
     },
     {
       "id": "eb9636be-dbcc-47a4-8182-53e961ec9163",
@@ -739,7 +1016,8 @@
       "webBytes": 384510,
       "webMime": "image/webp",
       "webWidth": 1775,
-      "webHeight": 1183
+      "webHeight": 1183,
+      "originalOrientation": null
     },
     {
       "id": "77249806-0f83-497b-8783-721711939d2f",
@@ -747,7 +1025,7 @@
       "altText": "temples and old chinese architecture",
       "originalName": "DSC05320.jpeg",
       "originalKey": "originals/2026/09/77249806-0f83-497b-8783-721711939d2f.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/77249806-0f83-497b-8783-721711939d2f.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/77249806-0f83-497b-8783-721711939d2f.jpg?orientation=8&v=mtn9fnza",
       "originalBytes": 7561351,
       "originalMime": "image/jpeg",
       "originalWidth": 3072,
@@ -780,7 +1058,8 @@
       "webBytes": 577096,
       "webMime": "image/webp",
       "webWidth": 1183,
-      "webHeight": 1775
+      "webHeight": 1775,
+      "originalOrientation": 8
     },
     {
       "id": "cd1eddde-f44f-4e2a-9dbc-6800355c9d0c",
@@ -822,7 +1101,48 @@
       "webBytes": 237640,
       "webMime": "image/webp",
       "webWidth": 1775,
-      "webHeight": 1183
+      "webHeight": 1183,
+      "originalOrientation": null
+    },
+    {
+      "id": "bcff6fe1-2309-47ca-9d30-3e81321cee6e",
+      "uploadedAt": "2026-09-04T03:52:43.412Z",
+      "description": "From the Chinese World Trade Center.",
+      "altText": "neon lit highway with streaks of cars",
+      "originalName": "DSC04012.jpeg",
+      "originalKey": "originals/2026/09/bcff6fe1-2309-47ca-9d30-3e81321cee6e.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/bcff6fe1-2309-47ca-9d30-3e81321cee6e.jpg",
+      "originalBytes": 778998,
+      "originalMime": "image/jpeg",
+      "originalWidth": 1616,
+      "originalHeight": 940,
+      "megapixels": 1.52,
+      "rating": 3,
+      "location": {},
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 24,
+        "focalLength35mmEquivalent": 24,
+        "capturedAt": "2026-03-21T21:44:28+08:00",
+        "exposureTimeSeconds": 0.25,
+        "fNumber": 2.8,
+        "iso": 250
+      },
+      "webKey": "web/2026/09/bcff6fe1-2309-47ca-9d30-3e81321cee6e.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/bcff6fe1-2309-47ca-9d30-3e81321cee6e.webp",
+      "webBytes": 222152,
+      "webMime": "image/webp",
+      "webWidth": 1616,
+      "webHeight": 940,
+      "originalOrientation": null
     },
     {
       "id": "eec919a2-1195-4cf5-a530-9707e4a5ee8c",
@@ -857,7 +1177,8 @@
       "webBytes": 177938,
       "webMime": "image/webp",
       "webWidth": 1775,
-      "webHeight": 1183
+      "webHeight": 1183,
+      "originalOrientation": null
     },
     {
       "id": "9f6596ef-9e9d-43fc-95c6-7851da69e156",
@@ -892,7 +1213,8 @@
       "webBytes": 385994,
       "webMime": "image/webp",
       "webWidth": 1673,
-      "webHeight": 1255
+      "webHeight": 1255,
+      "originalOrientation": null
     },
     {
       "id": "5358ec33-1ab6-478d-9e2d-207e1d89bf66",
@@ -926,7 +1248,8 @@
       "webBytes": 294204,
       "webMime": "image/webp",
       "webWidth": 1673,
-      "webHeight": 1255
+      "webHeight": 1255,
+      "originalOrientation": null
     }
   ]
 }
