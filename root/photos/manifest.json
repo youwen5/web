@@ -1,8 +1,91 @@
 {
   "version": 3,
-  "revision": 42,
-  "updatedAt": "2026-09-04T07:05:52.029Z",
+  "revision": 47,
+  "updatedAt": "2026-09-04T08:58:36.089Z",
   "photos": [
+    {
+      "id": "bc64884d-3d12-4137-83fd-e2816ae7141c",
+      "uploadedAt": "2026-09-04T08:58:17.512Z",
+      "description": "Nanjing Street.",
+      "altText": "the oriental pearl viewed from nanjing street",
+      "originalName": "DSC02832.jpeg",
+      "originalKey": "originals/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.jpg",
+      "originalBytes": 5097576,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Shanghai",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-08-10T22:07:50+08:00",
+        "exposureTimeSeconds": 0.01,
+        "fNumber": 3.2,
+        "iso": 800
+      },
+      "webKey": "web/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/bc64884d-3d12-4137-83fd-e2816ae7141c.webp",
+      "webBytes": 347986,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775
+    },
+    {
+      "id": "87443e92-d45c-47fd-9ee3-97886b12101f",
+      "uploadedAt": "2026-09-04T08:58:19.231Z",
+      "altText": "a grassy plain with buildings circling it",
+      "originalName": "DSC02857.jpeg",
+      "originalKey": "originals/2026/09/87443e92-d45c-47fd-9ee3-97886b12101f.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/87443e92-d45c-47fd-9ee3-97886b12101f.jpg",
+      "originalBytes": 4423778,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4608,
+      "originalHeight": 3072,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Seoul",
+        "country": "South Korea"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-08-13T19:03:26+09:00",
+        "exposureTimeSeconds": 0.01,
+        "fNumber": 8,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/87443e92-d45c-47fd-9ee3-97886b12101f.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/87443e92-d45c-47fd-9ee3-97886b12101f.webp",
+      "webBytes": 210642,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183
+    },
     {
       "id": "240ab2dc-261e-447a-b2dd-61a4020cd78a",
       "uploadedAt": "2026-09-04T07:05:51.344Z",
