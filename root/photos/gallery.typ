@@ -54,7 +54,7 @@ title: "Photo Gallery"
     ),
     {
       html.img(
-        src: data.web-url,
+        src: data.fullres,
         alt: data.alt,
         loading: "lazy",
       )
