@@ -245,9 +245,9 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 
 = Photos
 
-#html.elem("p", attrs: (
-  class: "text-sm text-subtle",
-))[Hopefully I update this soon.]
+// #html.elem("p", attrs: (
+//   class: "text-sm text-subtle",
+// ))[Hopefully I update this soon.]
 
 #let photo-urls = (
   json("photos/manifest.json")
@@ -256,12 +256,24 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
       web-url: x.webUrl,
       fullres: x.originalUrl,
       date: x.exif.at("capturedAt", default: x.uploadedAt),
-      caption: x.description,
+      caption: if x.at("description", default: none) != none {
+        x.description
+      } else { none },
       alt: x.altText,
-      location: x.location,
-      camera: x.exif.cameraMake + " " + x.exif.cameraModel,
+      location: {
+        let city = x.location.at("city", default: none)
+        let country = x.location.at("country", default: none)
+
+        if (city == none) and (country == none) { none } else if (
+          city == none
+        ) [Somewhere, #country] else if (
+          country == none
+        ) [#city, Earth] else [#city, #country]
+      },
+      camera: (make: x.exif.cameraMake, model: x.exif.cameraModel),
       focal-length: x.exif.focalLength35mmEquivalent,
       f-number: x.exif.fNumber,
+      shutter: [1⁄#(100 / x.exif.exposureTimeSeconds)],
     ))
 )
 
@@ -285,22 +297,35 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
         alt: data.alt,
         loading: "lazy",
       ))
-      html.elem(
-        "div",
-        attrs: (class: "text-base w-full px-1 shrink flex-1 w-fit"),
-        [
-          #html.elem(
-            "span",
-            attrs: (
-              class: "text-sm text-subtle group-hover/child:text-bg",
-            ),
-            parseDate(data.date).display(
+      html.elem("div", attrs: (class: "text-base w-full px-1"), [
+        #html.elem(
+          "span",
+          attrs: (class: "text-sm text-subtle group-hover/child:text-bg"),
+          [
+            #parseDate(data.date).display(
               "[day padding:zero] [month repr:short], [year]",
-            ),
-          ) \
+            )
+            #if data.location != none [
+              @ #data.location
+            ]
+            ·
+            #(data.focal-length)mm
+            ·
+            f/#(data.f-number)
+            ·
+            #data.shutter
+            ·
+            #let cameraModel = if data.camera.model == "ILCE-7CM2" [
+              #(sym.alpha)7Cii
+            ] else { data.camera.model }
+            #data.camera.make #cameraModel
+          ],
+        )
+        #if data.caption != none [
+          \
           #data.caption
-        ],
-      )
+        ]
+      ])
     },
   )
 }
