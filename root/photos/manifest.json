@@ -1,7 +1,7 @@
 {
   "version": 4,
-  "revision": 149,
-  "updatedAt": "2026-09-04T18:04:46.758Z",
+  "revision": 155,
+  "updatedAt": "2026-09-04T19:44:25.082Z",
   "photos": [
     {
       "id": "7436a17f-919c-4c08-8000-eb2e948f396c",
@@ -34,7 +34,7 @@
         "focalLengthMm": 55,
         "focalLength35mmEquivalent": 55,
         "capturedAt": "2026-08-31T18:22:01-08:00",
-        "exposureTimeSeconds": 4e-4,
+        "exposureTimeSeconds": 0.0004,
         "fNumber": 5.6,
         "iso": 200
       },
@@ -431,7 +431,7 @@
       "altText": "blossoming flowers with out of focus woman sitting on bench in background",
       "originalName": "DSC04434.jpeg",
       "originalKey": "originals/2026/09/0a010c14-747a-42dc-b772-07daf781add1.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/0a010c14-747a-42dc-b772-07daf781add1.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/0a010c14-747a-42dc-b772-07daf781add1.jpg?orientation=8&v=mtnbd2fb",
       "originalBytes": 4334038,
       "originalMime": "image/jpeg",
       "originalWidth": 3072,
@@ -465,7 +465,7 @@
       "webMime": "image/webp",
       "webWidth": 1183,
       "webHeight": 1775,
-      "originalOrientation": null
+      "originalOrientation": 8
     },
     {
       "id": "56b0dd1f-a5fc-40a0-97cf-7a1b89d85a97",
@@ -583,7 +583,7 @@
         "focalLengthMm": 67.7,
         "focalLength35mmEquivalent": 67,
         "capturedAt": "2026-03-28T14:46:39+08:00",
-        "exposureTimeSeconds": 8e-4,
+        "exposureTimeSeconds": 0.0008,
         "fNumber": 2.8,
         "iso": 64
       },
@@ -729,7 +729,7 @@
       "altText": "ornate eaves of the gyeokbokgong temple",
       "originalName": "DSC03087.jpeg",
       "originalKey": "originals/2026/09/93dd6262-12c4-4ebb-8046-70a9bfc98a4a.jpg",
-      "originalUrl": "https://photos.youwen.dev/originals/2026/09/93dd6262-12c4-4ebb-8046-70a9bfc98a4a.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/93dd6262-12c4-4ebb-8046-70a9bfc98a4a.jpg?orientation=8&v=mtnbcju7",
       "originalBytes": 4644583,
       "originalMime": "image/jpeg",
       "originalWidth": 3072,
@@ -763,7 +763,7 @@
       "webMime": "image/webp",
       "webWidth": 1183,
       "webHeight": 1775,
-      "originalOrientation": null
+      "originalOrientation": 8
     },
     {
       "id": "87069639-49a9-46ef-913b-ffc4e04d7117",
@@ -965,7 +965,7 @@
         "focalLengthMm": 31.1,
         "focalLength35mmEquivalent": 31,
         "capturedAt": "2026-04-03T17:41:10+08:00",
-        "exposureTimeSeconds": 5e-4,
+        "exposureTimeSeconds": 0.0005,
         "fNumber": 4.5,
         "iso": 100
       },
@@ -1250,6 +1250,50 @@
       "webWidth": 1673,
       "webHeight": 1255,
       "originalOrientation": null
+    },
+    {
+      "id": "f9d241d6-63fd-4fd3-99b3-35e51432b73a",
+      "uploadedAt": "2026-09-04T19:43:35.099Z",
+      "description": "My hometown!",
+      "altText": "Pudong viewed from the Bund in the classic angle, lit at night",
+      "originalName": "IDG_20250726_191251_088.jpeg",
+      "originalKey": "originals/2026/09/f9d241d6-63fd-4fd3-99b3-35e51432b73a.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/f9d241d6-63fd-4fd3-99b3-35e51432b73a.jpg",
+      "originalBytes": 2569621,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3934,
+      "originalHeight": 2246,
+      "originalOrientation": 1,
+      "megapixels": 8.84,
+      "rating": 4,
+      "location": {
+        "city": "Shanghai",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "Apple",
+        "cameraModel": "iPhone 14 Pro",
+        "lensMake": "Apple",
+        "lensModel": "iPhone 14 Pro back camera 6.86mm f/1.78",
+        "lensSpecification": {
+          "minFocalLengthMm": 6.8600001335175875,
+          "maxFocalLengthMm": 6.8600001335175875,
+          "minFNumberAtMinFocalLength": 1.7799999713880652,
+          "minFNumberAtMaxFocalLength": 1.7799999713880652
+        },
+        "focalLengthMm": 6.86,
+        "focalLength35mmEquivalent": 24,
+        "capturedAt": "2025-07-26T19:12:51+08:00",
+        "exposureTimeSeconds": 0.005847953216374269,
+        "fNumber": 1.78,
+        "iso": 200
+      },
+      "webKey": "web/2026/09/f9d241d6-63fd-4fd3-99b3-35e51432b73a.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/f9d241d6-63fd-4fd3-99b3-35e51432b73a.webp",
+      "webBytes": 225192,
+      "webMime": "image/webp",
+      "webWidth": 1918,
+      "webHeight": 1095
     }
   ]
 }
