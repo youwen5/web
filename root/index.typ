@@ -186,20 +186,6 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   html.elem("h2", attrs: (class: "!text-foreground"), it.body)
 }
 
-#heading[
-  Notes
-  #html.a(
-    href: "/notes",
-    class: "text-link inline-flex gap-0.5",
-  )[(See more)]
-]
-
-#html.div(
-  class: "!mt-4 py-2 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit max-w-[60ch]",
-  [Under construction.],
-)
-
-
 = Recently
 
 #html.elem("p", attrs: (
@@ -380,6 +366,19 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     ]
     icon(name: "move-right")
   },
+)
+
+#heading[
+  Notes
+  #html.a(
+    href: "/notes",
+    class: "text-link inline-flex gap-0.5",
+  )[(See more)]
+]
+
+#html.div(
+  class: "!mt-4 py-2 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit max-w-[60ch]",
+  [Under construction.],
 )
 
 #show heading.where(level: 1): it => {
