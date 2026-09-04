@@ -19,7 +19,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          curl "https://photos.youwen.dev/_system/manifest.json" >> root/photos/manifest.json
+          curl "https://photos.youwen.dev/_system/manifest.json" > root/photos/manifest.json
 
           git add -A
           git commit -m "auto: update photos"
