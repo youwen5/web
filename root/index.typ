@@ -373,7 +373,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     class: "p-1 font-serif hover:text-bg hover:bg-foreground border-b-1 border-b-foreground text-foreground decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
   ),
   {
-    html.elem("span", attrs: (class: "flex gap-2 my-auto"))[
+    html.elem("span", attrs: (class: "flex gap-1 my-auto"))[
       #icon(name: "camera")
       Full gallery
     ]
