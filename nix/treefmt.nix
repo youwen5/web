@@ -18,5 +18,6 @@
     "pnpm-lock.yaml"
     "web-components/pnpm-lock.yaml"
     ".epilogue/"
+    "root/photos/manifest.json"
   ];
 }
