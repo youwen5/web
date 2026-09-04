@@ -81,7 +81,14 @@ generateSite = do
       reroute toRootHTML
       compile $
         typstIndexCompiler defaultContext
-          >>= blazeTemplater photoTemplate defaultContext
+          >>= blazeTemplater (photoTemplate True) defaultContext
+          >>= universalOptimizer
+
+    match "root/photos/viewer.html" $ do
+      reroute toRootHTML
+      compile $
+        getResourceBody
+          >>= blazeTemplater (photoTemplate False) defaultContext
           >>= universalOptimizer
 
     match "posts/**.typ" $ do

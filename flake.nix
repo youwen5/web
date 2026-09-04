@@ -51,6 +51,7 @@
             showybox_2_0_4
             self.packages.${system}.html-shim
             bullseye
+            based_0_2_0
           ]
         );
 

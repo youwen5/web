@@ -3,6 +3,7 @@ title: "Photo Gallery"
 ---
 
 #import "@preview/html-shim:0.1.0": *
+#import "@preview/based:0.2.0": base64
 
 #show: html-shim
 
@@ -21,6 +22,10 @@ title: "Photo Gallery"
   )
 }
 
+#let encodePhotoData(data) = {
+  base64.encode(json.encode(data, pretty: false))
+}
+
 #let photo(data) = {
   let base-class = "p-1 hover:bg-foreground hover:text-bg space-y-1 group/child block shrink-0"
   // let final-class = if not show-in-selected {
@@ -31,7 +36,14 @@ title: "Photo Gallery"
   html.elem(
     "a",
     attrs: (
-      href: data.fullres,
+      href: "/photos/viewer?data="
+        + encodePhotoData({
+          let exportData = data
+          let _ = exportData.remove("web-url")
+
+          exportData
+        })
+        + "#display",
       target: "_blank",
       class: final-class,
     ),
@@ -46,9 +58,7 @@ title: "Photo Gallery"
           "span",
           attrs: (class: "text-sm text-subtle group-hover/child:text-bg"),
           [
-            #parseDate(data.date).display(
-              "[day padding:zero] [month repr:short], [year]",
-            )
+            #data.date
             #if data.location != none [
               @ #data.location
             ]
@@ -57,7 +67,7 @@ title: "Photo Gallery"
             ·
             f/#(data.f-number)
             ·
-            #data.shutter
+            1⁄#data.shutter
             ·
             ISO #data.iso
             ·
@@ -150,7 +160,9 @@ title: "Photo Gallery"
     .map(x => (
       web-url: x.webUrl,
       fullres: x.originalUrl,
-      date: x.exif.at("capturedAt", default: x.uploadedAt),
+      date: parseDate(x.exif.at("capturedAt", default: x.uploadedAt)).display(
+        "[day padding:zero] [month repr:short], [year]",
+      ),
       caption: if x.at("description", default: none) != none {
         x.description
       } else { none },
@@ -161,15 +173,16 @@ title: "Photo Gallery"
 
         if (city == none) and (country == none) { none } else if (
           city == none
-        ) [Somewhere, #country] else if (
+        ) { "Somewhere, " + country } else if (
           country == none
-        ) [#city, Earth] else [#city, #country]
+        ) { city + ", Earth" } else { city + ", " + country }
       },
       camera: (make: x.exif.cameraMake, model: x.exif.cameraModel),
       focal-length: x.exif.focalLength35mmEquivalent,
       f-number: x.exif.fNumber,
-      shutter: [1⁄#(100 / x.exif.exposureTimeSeconds)],
+      shutter: str(100 / x.exif.exposureTimeSeconds),
       iso: x.exif.iso,
+      mp: x.megapixels,
     ))
 )
 

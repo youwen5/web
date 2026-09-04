@@ -1,0 +1,56 @@
+---
+title: 'Photo Viewer'
+---
+
+<!-- <img id="display"></img> -->
+<div class="p-1 block mx-auto w-fit">
+  <a id="img-link" href="#"
+    ><img
+      alt=""
+      loading="lazy"
+      src="#"
+      id="display"
+      class="max-h-[80vh] !m-0 w-auto"
+  /></a>
+  <div class="text-base w-full px-1 mt-2 text-center">
+    <div id="metadata" class="text-sm text-subtle mx-auto w-fit"></div>
+    <div id="caption" class="mt-1 mx-auto w-fit max-w-[80%]"></div>
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search)
+
+  let parsed
+
+  try {
+    const data = params.get('data')
+    const decoded = atob(data)
+    parsed = JSON.parse(decoded)
+  } catch (e) {
+    console.log(e)
+  }
+
+  const img = document.getElementById('display')
+  img.src = parsed['fullres']
+  img.alt = parsed['alt']
+
+  document.getElementById('img-link').href = parsed['fullres']
+
+  let camera_model = parsed['camera']['model']
+  if (camera_model === 'ILCE-7CM2') {
+    camera_model = 'α7Cii'
+  }
+  let metadata_line = `${parsed['date']}`
+  if (parsed['location']) {
+    metadata_line += ` @ ${parsed['location']} · `
+  } else {
+    metadata_line += ' · '
+  }
+  metadata_line += `${parsed['focal-length']}mm · f/${parsed['f-number']} · 1⁄${parsed['shutter']} · ISO ${parsed['iso']} · ${parsed['mp']}MP · ${parsed['camera']['make']} ${camera_model}`
+
+  document.getElementById('metadata').innerText = metadata_line
+  document.getElementById('caption').innerText = parsed.caption
+  // " @ Beijing, China · 27mm · f/7.1 · 1⁄800 · ISO 4000 · NIKON
+  // CORPORATION NIKON D7200
+</script>

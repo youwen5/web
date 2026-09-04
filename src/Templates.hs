@@ -220,8 +220,8 @@ giscusComponent = do
     ! async ""
     $ ""
 
-photoTemplate :: Context String -> Item String -> Compiler Html
-photoTemplate ctx item = do
+photoTemplate :: Bool -> Context String -> Item String -> Compiler Html
+photoTemplate showTitle ctx item = do
   title <- getField' "title"
   slug <- getField' "slug"
   pagetitle <- getField' "pagetitle"
@@ -238,13 +238,15 @@ photoTemplate ctx item = do
     pageHead PageMetadata{title, pagetitle, slug, thumbnail, description, url}
     body
       ! class_
-        "antialiased mt-4 lg:mt-20 leading-relaxed mx-auto px-4 lg:px-20"
+        "antialiased mt-4 leading-relaxed mx-auto px-4 lg:px-20"
       $ do
         mobileHeader' False
         main
           ! class_ "main-content"
           $ do
-            h1 ! class_ "all-smallcaps md:text-3xl text-2xl text-center mt-4" $ forM_ title toHtml
+            when showTitle $
+              h1 ! class_ "all-smallcaps md:text-3xl text-2xl text-center mt-4" $
+                forM_ title toHtml
             H.div
               ! class_
                 "prose-lg lg:prose-xl prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground prose-list-snazzy prose-table-snazzy scroll-smooth mt-8"

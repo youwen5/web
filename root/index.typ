@@ -4,8 +4,14 @@ title: Youwen Wu >> Welcome Home.
 ---
 
 #import "@preview/html-shim:0.1.0": *
+#import "@preview/based:0.2.0": base64
 
 #show: html-shim
+
+#let encodePhotoData(data) = {
+  base64.encode(json.encode(data, pretty: false))
+}
+
 
 #let icon(name: "") = {
   html.elem(
@@ -255,7 +261,9 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     .map(x => (
       web-url: x.webUrl,
       fullres: x.originalUrl,
-      date: x.exif.at("capturedAt", default: x.uploadedAt),
+      date: parseDate(x.exif.at("capturedAt", default: x.uploadedAt)).display(
+        "[day padding:zero] [month repr:short], [year]",
+      ),
       caption: if x.at("description", default: none) != none {
         x.description
       } else { none },
@@ -266,14 +274,16 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 
         if (city == none) and (country == none) { none } else if (
           city == none
-        ) [Somewhere, #country] else if (
+        ) { "Somewhere, " + country } else if (
           country == none
-        ) [#city, Earth] else [#city, #country]
+        ) { city + ", Earth" } else { city + ", " + country }
       },
       camera: (make: x.exif.cameraMake, model: x.exif.cameraModel),
       focal-length: x.exif.focalLength35mmEquivalent,
       f-number: x.exif.fNumber,
-      shutter: [1⁄#(100 / x.exif.exposureTimeSeconds)],
+      shutter: str(100 / x.exif.exposureTimeSeconds),
+      iso: x.exif.iso,
+      mp: x.megapixels,
     ))
 )
 
@@ -287,7 +297,14 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   html.elem(
     "a",
     attrs: (
-      href: data.fullres,
+      href: "/photos/viewer?data="
+        + encodePhotoData({
+          let exportData = data
+          let _ = exportData.remove("web-url")
+
+          exportData
+        })
+        + "#display",
       target: "_blank",
       class: final-class,
     ),
@@ -302,9 +319,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
           "span",
           attrs: (class: "text-sm text-subtle group-hover/child:text-bg"),
           [
-            #parseDate(data.date).display(
-              "[day padding:zero] [month repr:short], [year]",
-            )
+            #data.date
             #if data.location != none [
               @ #data.location
             ]
