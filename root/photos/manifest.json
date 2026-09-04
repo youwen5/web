@@ -1,8 +1,46 @@
 {
   "version": 3,
-  "revision": 41,
-  "updatedAt": "2026-09-04T04:14:08.324Z",
+  "revision": 42,
+  "updatedAt": "2026-09-04T07:05:52.029Z",
   "photos": [
+    {
+      "id": "240ab2dc-261e-447a-b2dd-61a4020cd78a",
+      "uploadedAt": "2026-09-04T07:05:51.344Z",
+      "altText": "cow standing on a mountainside against the sky",
+      "originalName": "DSC03223.jpeg",
+      "originalKey": "originals/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.jpg",
+      "originalBytes": 3664212,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4608,
+      "originalHeight": 3072,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {},
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-08-31T17:15:38-08:00",
+        "exposureTimeSeconds": 0.0003125,
+        "fNumber": 5.6,
+        "iso": 200
+      },
+      "webKey": "web/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/240ab2dc-261e-447a-b2dd-61a4020cd78a.webp",
+      "webBytes": 215024,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183
+    },
     {
       "id": "d4365917-1ea8-43ab-9f0a-c324b5067a00",
       "uploadedAt": "2026-09-04T04:14:07.826Z",
@@ -75,7 +113,7 @@
         "focalLengthMm": 55,
         "focalLength35mmEquivalent": 55,
         "capturedAt": "2026-08-31T18:22:01-08:00",
-        "exposureTimeSeconds": 4e-4,
+        "exposureTimeSeconds": 0.0004,
         "fNumber": 5.6,
         "iso": 200
       },
@@ -568,7 +606,7 @@
         "focalLengthMm": 31.1,
         "focalLength35mmEquivalent": 31,
         "capturedAt": "2026-04-03T17:41:10+08:00",
-        "exposureTimeSeconds": 5e-4,
+        "exposureTimeSeconds": 0.0005,
         "fNumber": 4.5,
         "iso": 100
       },
