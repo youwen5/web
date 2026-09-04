@@ -117,7 +117,10 @@
               hlint.enable = true;
               cabal-gild.enable = true;
               trim-trailing-whitespace.enable = true;
-              end-of-file-fixer.enable = true;
+              end-of-file-fixer = {
+                enable = true;
+                excludes = [ "manifest.json" ];
+              };
               mixed-line-endings.enable = true;
             };
           };

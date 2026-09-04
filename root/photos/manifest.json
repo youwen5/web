@@ -1,8 +1,49 @@
 {
   "version": 3,
-  "revision": 40,
-  "updatedAt": "2026-09-04T03:54:05.217Z",
+  "revision": 41,
+  "updatedAt": "2026-09-04T04:14:08.324Z",
   "photos": [
+    {
+      "id": "d4365917-1ea8-43ab-9f0a-c324b5067a00",
+      "uploadedAt": "2026-09-04T04:14:07.826Z",
+      "altText": "roof of a korean temple",
+      "originalName": "DSC03087.jpeg",
+      "originalKey": "originals/2026/09/d4365917-1ea8-43ab-9f0a-c324b5067a00.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/d4365917-1ea8-43ab-9f0a-c324b5067a00.jpg",
+      "originalBytes": 4644583,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Seoul",
+        "country": "South Korea"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-08-16T15:31:00+09:00",
+        "exposureTimeSeconds": 0.004,
+        "fNumber": 5.6,
+        "iso": 200
+      },
+      "webKey": "web/2026/09/d4365917-1ea8-43ab-9f0a-c324b5067a00.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/d4365917-1ea8-43ab-9f0a-c324b5067a00.webp",
+      "webBytes": 287704,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775
+    },
     {
       "id": "7436a17f-919c-4c08-8000-eb2e948f396c",
       "uploadedAt": "2026-09-01T19:08:05.481Z",
@@ -34,7 +75,7 @@
         "focalLengthMm": 55,
         "focalLength35mmEquivalent": 55,
         "capturedAt": "2026-08-31T18:22:01-08:00",
-        "exposureTimeSeconds": 0.0004,
+        "exposureTimeSeconds": 4e-4,
         "fNumber": 5.6,
         "iso": 200
       },
@@ -527,7 +568,7 @@
         "focalLengthMm": 31.1,
         "focalLength35mmEquivalent": 31,
         "capturedAt": "2026-04-03T17:41:10+08:00",
-        "exposureTimeSeconds": 0.0005,
+        "exposureTimeSeconds": 5e-4,
         "fNumber": 4.5,
         "iso": 100
       },
