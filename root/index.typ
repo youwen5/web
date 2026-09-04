@@ -323,7 +323,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
                 ·
                 f/#(data.f-number)
                 ·
-                #data.shutter
+                1⁄#data.shutter
                 ·
                 #let cameraModel = if data.camera.model == "ILCE-7CM2" [
                   #(sym.alpha)7Cii
@@ -334,7 +334,9 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
           )
           #if data.caption != none [
             \
-            #data.caption
+            #html.span(class: "hidden lg:inline-block")[
+              #data.caption
+            ]
           ]
         ],
       )
