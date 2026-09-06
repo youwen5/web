@@ -13,10 +13,10 @@ title: Youwen Wu >> Welcome Home.
 }
 
 
-#let icon(name: "") = {
+#let icon(name: "", extraClass: "") = {
   html.elem(
     "span",
-    attrs: (class: "my-auto w-[24px]"),
+    attrs: (class: "w-[24px] mt-[0.1em] " + extraClass),
     lucide-icon(name: name),
   )
 }
@@ -197,40 +197,52 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     if is-link { "a" } else { "span" },
     attrs: (
       href: href,
-      class: "py-1 px-1 hover:bg-foreground hover:text-bg w-full w-full font-serif flex justify-between flex-wrap-reverse content-center gap-x-2 gap-y-1 md:gap-4",
+      class: "py-2 px-2 hover:bg-foreground hover:text-bg w-full font-serif flex justify-between lg:flex-row flex-col-reverse content-center gap-x-2 gap-y-1 lg:gap-4",
     ),
-  )[
-    #html.elem("span", attrs: (class: "inline-flex gap-3"), body)
-    #html.elem("span", attrs: (class: "inline-flex gap-4"))[
-      #if date != "" {
-        html.elem("span", attrs: (class: "font-light text-lg my-auto"))[
-          #smallcaps(all: true, date)
-        ]
-      }
-      #if date == "" {
-        if internal {
-          icon(name: "move-right")
-        } else if is-link {
-          icon(name: "external-link")
+    {
+      html.elem("span", attrs: (class: "inline-flex gap-2"), body)
+      html.elem("span", attrs: (class: "inline-flex gap-4 shrink-0"), {
+        if date != "" {
+          html.elem(
+            "span",
+            attrs: (
+              class: "my-auto [font-feature-settings:'onum'] text-lg inline-flex justify-between w-full",
+            ),
+            {
+              date
+              if internal {
+                icon(name: "move-right", extraClass: "lg:hidden")
+              } else if is-link {
+                icon(name: "external-link", extraClass: "lg:hidden")
+              }
+            },
+          )
         }
-      }
-    ]
-  ]
+        if internal {
+          icon(name: "move-right", extraClass: "hidden lg:inline")
+        } else if is-link {
+          icon(name: "external-link", extraClass: "hidden lg:inline")
+        }
+      })
+    },
+  )
 }
 
 #html.elem(
   "div",
-  attrs: (class: "mt-2 divide-foreground divide-dashed divide-y"),
+  attrs: (
+    class: "mt-2 divide-solid divide-y-1 divide-foreground border-1 border-foreground",
+  ),
   {
     for post in posts.slice(0, count: 4) {
       update(date: post.date, href: post.url, {
-        icon(name: "newspaper")
+        icon(name: "sticky-note", extraClass: "mt-[0.2em]")
         post.title
       })
     }
-    update(href: "/archive", date: icon(name: "move-right"), {
-      icon(name: "folder-closed")
-      [Archive (all posts)]
+    update(href: "/archive", {
+      icon(name: "folder-closed", extraClass: "mt-[0.2em]")
+      [All posts]
     })
   },
 )
@@ -365,14 +377,14 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   "a",
   attrs: (
     href: "/photos/gallery",
-    class: "p-1 font-serif hover:text-bg hover:bg-foreground border-b-1 border-b-foreground text-foreground decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
+    class: "p-1 font-serif hover:text-bg hover:bg-foreground text-foreground decoration-none min-w-full inline-flex justify-between content-center min-h-[50px]",
   ),
   {
     html.elem("span", attrs: (class: "flex gap-1 my-auto"))[
-      #icon(name: "camera")
+      #icon(name: "camera", extraClass: "mt-[0.2em]")
       Full gallery
     ]
-    icon(name: "move-right")
+    icon(name: "move-right", extraClass: "mt-[0.4em]")
   },
 )
 
@@ -417,9 +429,9 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
         {
           html.elem("span", attrs: (class: "flex gap-2 my-auto"), body)
           if internal {
-            icon(name: "move-right")
+            icon(name: "move-right", extraClass: "mt-[0.4em]")
           } else if is-link {
-            icon(name: "external-link")
+            icon(name: "external-link", extraClass: "mt-[0.4em]")
           }
         },
       )
