@@ -8,6 +8,7 @@ module PhotoFeed where
 
 import Data.Aeson (FromJSON, decode)
 import Data.ByteString.Lazy qualified as LBS
+import Data.List (dropWhileEnd)
 import Data.List qualified
 import Data.Maybe (fromMaybe)
 import Data.Maybe qualified
@@ -52,6 +53,9 @@ photoToEntry photo =
     photo.originalUrl
     photo.uploadedAt
 
+dropQueryParams :: String -> String
+dropQueryParams = takeWhile (/= '?')
+
 entry title alt url date =
   """
   <entry>
@@ -64,7 +68,7 @@ entry title alt url date =
     ++ """"
        />
        <id>"""
-    ++ url
+    ++ dropQueryParams url
     ++ """</id>
        <published>"""
     ++ date
