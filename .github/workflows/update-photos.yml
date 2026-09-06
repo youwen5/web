@@ -17,6 +17,7 @@ jobs:
 
       - name: Check for update and perform update
         run: |
+          set -euo pipefail
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           curl "https://photos.youwen.dev/_system/manifest.json" > root/photos/manifest.json
@@ -24,3 +25,5 @@ jobs:
           git add -A
           git commit -m "auto: update photos"
           git push
+
+          exit 0
