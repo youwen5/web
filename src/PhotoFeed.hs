@@ -57,37 +57,38 @@ dropQueryParams :: String -> String
 dropQueryParams = takeWhile (/= '?')
 
 entry title alt url date =
-  """
-  <entry>
-         <title>"""
-    ++ title
-    ++ """</title>
-       <link href=
-       \""""
-    ++ url
-    ++ """"
-       />
-       <id>"""
-    ++ dropQueryParams url
-    ++ """</id>
-       <published>"""
-    ++ date
-    ++ """</published>
-       <updated>"""
-    ++ date
-    ++ """</updated>
-       <summary type="html">
-       &lt;img src=\""""
-    ++ url
-    ++ "\" alt=\""
-    ++ alt
-    ++ """"/&gt;</summary>
-              <author>
-                      <name>Youwen Wu</name>
-                      <email>youwen@berkeley.edu</email>
-              </author>
-       </entry>
-       """
+  let url' = dropQueryParams url
+   in """
+      <entry>
+             <title>"""
+        ++ title
+        ++ """</title>
+           <link href=
+           \""""
+        ++ url'
+        ++ """"
+           />
+           <id>"""
+        ++ url'
+        ++ """</id>
+           <published>"""
+        ++ date
+        ++ """</published>
+           <updated>"""
+        ++ date
+        ++ """</updated>
+           <summary type="html">
+           &lt;img src=\""""
+        ++ url'
+        ++ "\" alt=\""
+        ++ alt
+        ++ """"/&gt;</summary>
+                  <author>
+                          <name>Youwen Wu</name>
+                          <email>youwen@berkeley.edu</email>
+                  </author>
+           </entry>
+           """
 
 atom updated entry =
   """
