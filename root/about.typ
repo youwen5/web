@@ -11,7 +11,7 @@ title: "About"
 #dropcap[
   W#smallcaps[elcome] to my hypertext garden on the World Wide Web. There are
   many like it---but this one is mine. I'm Youwen, and I
-  #link("/software/epilogue")[designed this website] myself, by hand, following
+  #link("/colophon")[designed] this website myself, by hand, following
   the tradition of hackers of yore.
 ]
 

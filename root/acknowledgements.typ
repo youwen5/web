@@ -18,7 +18,7 @@ In no particular order:
   "Places" were ripped off from
   #link("https://vlad.website/")[vlad.website]. I also stole the idea for the
   places tab from there.
-- The selector on #link("CV")[my CV] is inspired by
+- The selector on #link("/cv")[my CV] is inspired by
   #link("https://muan.co/")[muan.co]'s language selector. My link
   styling is also stolen from her.
 - The general typography borrows a lot of inspiration from Matthew Butterick's
