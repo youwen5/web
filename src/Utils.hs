@@ -28,7 +28,7 @@ import System.FilePath (
 data ListData = forall a. ListData (Context a) [Item a]
 
 postContext :: Context String
-postContext = dateField "date" "%B %e, %Y" <> rednoiseContext
+postContext = dateField "date" "%b %d, %Y" <> rednoiseContext
 
 -- | Replace the default `url` context with a canonicalized form, available at `key`
 canonicalUrl :: String -> Context String
