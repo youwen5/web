@@ -92,10 +92,47 @@
                   just
                   rsync
                 ])
-                ++ runtimeDeps;
+                ++ runtimeDeps
+                ++ [ pnpm ];
             };
           })
         ];
+
+        pnpm = pkgs.pnpm;
+
+        web-assets =
+          let
+            pnpmDeps = pnpm.fetchDeps {
+              pname = "site-pnpm-deps";
+              src = ./web-components;
+              fetcherVersion = 2;
+              hash = "sha256-z52ySkXo1UEJV0HRDhhacEMLoV91Sh5mCEAMirlaVXo=";
+            };
+          in
+          pkgs.stdenv.mkDerivation (finalAttrs: {
+            name = "web-assets";
+
+            src = ./.;
+
+            pnpmRoot = "./web-components";
+
+            nativeBuildInputs = [
+              pkgs.nodejs
+              pnpm.configHook
+            ];
+
+            inherit pnpmDeps;
+
+            buildPhase = ''
+              cd web-components
+              ln -s ${pnpmDeps} node_modules
+              pnpm build
+            '';
+
+            installPhase = ''
+              cp -r dist $out
+            '';
+          });
 
         flake = pkgs.rednoiseProject.flake { };
 
@@ -157,6 +194,9 @@
             LAST_COMMIT_TIMESTAMP = builtins.toString (self.lastModified);
 
             buildPhase = ''
+              mkdir -p web-out
+              cp -r ${web-assets}/* web-out
+
               rednoise build
             '';
             installPhase = ''

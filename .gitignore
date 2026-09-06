@@ -49,3 +49,5 @@ styles
 fonts/*.woff2
 !fonts/source-sans-3-latin-300-normal.woff2
 !fonts/source-sans-3-latin-400-normal.woff2
+
+/web-out

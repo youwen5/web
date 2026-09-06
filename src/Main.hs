@@ -77,6 +77,10 @@ generateSite = do
       sameRoute
       compile copyFileCompiler
 
+    match "web-out/*" $ do
+      sameRoute
+      compile copyFileCompiler
+
     match "root/favicon.ico" $ do
       reroute takeFileName
       compile copyFileCompiler
