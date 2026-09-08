@@ -23,6 +23,10 @@ import {
   Send,
   SquareCode,
   GitBranch,
+  GalleryVertical,
+  GalleryHorizontal,
+  Grid3x3,
+  Grid2x2,
 } from 'lucide'
 
 createIcons({
@@ -50,5 +54,9 @@ createIcons({
     Origami,
     Atom,
     GitBranch,
+    GalleryVertical,
+    GalleryHorizontal,
+    Grid3x3,
+    Grid2x2,
   },
 })
