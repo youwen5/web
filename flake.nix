@@ -164,6 +164,7 @@
         };
 
         packages = flake.packages // {
+          inherit web-assets;
           rednoise-unwrapped = flake.packages."rednoise:exe:rednoise";
           rednoise = pkgs.stdenvNoCC.mkDerivation {
             name = "rednoise";
