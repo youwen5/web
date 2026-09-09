@@ -101,7 +101,7 @@ body {
 }
 
 .external-link {
-  @apply mr-[0.5em];
+  @apply mr-[0.5em] relative;
 }
 
 .external-link::after {
