@@ -177,7 +177,7 @@ generateSite = do
       route $ setExtension "html"
       compile $
         typstHtmlCompiler defaultContext
-          >>= blazeTemplater Templates.defaultTemplate defaultContext
+          >>= blazeTemplater Templates.cvTemplate defaultContext
           >>= universalOptimizer
 
     match "cv/index.typ" $ version "pdf" $ do

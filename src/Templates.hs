@@ -263,8 +263,9 @@ photoTemplate showTitle ctx item = do
  where
   getField' = getStringField ctx item
 
-defaultTemplate_ :: Bool -> Bool -> Bool -> Context String -> Item String -> Compiler Html
-defaultTemplate_ enableComments wide styleLists ctx item =
+defaultTemplate_ ::
+  Bool -> Bool -> Bool -> Bool -> Context String -> Item String -> Compiler Html
+defaultTemplate_ enableComments wide styleLists bigText ctx item =
   do
     title <- getField' "title"
     author <- getField' "author"
@@ -305,8 +306,9 @@ defaultTemplate_ enableComments wide styleLists ctx item =
                 H.div
                   ! class_
                     ( stringValue $
-                        "prose-lg lg:prose-xl prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground scroll-smooth mt-8 prose-table-snazzy"
+                        "prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground scroll-smooth mt-8 prose-table-snazzy"
                           ++ (if styleLists then " prose-list-snazzy" else " prose-ul:ps-0 prose-li:ps-0 prose-ol:ps-0")
+                          ++ (if bigText then " prose-lg xl:prose-xl" else " prose-md xl:prose-lg 2xl:prose-xl")
                     )
                   $ preEscapedToHtml (itemBody item)
                 when (enableComments || fromMaybe "false" enableComments' == "true") giscusComponent
@@ -315,16 +317,19 @@ defaultTemplate_ enableComments wide styleLists ctx item =
   getField' = getStringField ctx item
 
 defaultTemplate :: Context String -> Item String -> Compiler Html
-defaultTemplate = defaultTemplate_ False False True
+defaultTemplate = defaultTemplate_ False False True False
 
 postTemplate :: Context String -> Item String -> Compiler Html
-postTemplate = defaultTemplate_ True False True
+postTemplate = defaultTemplate_ True False True False
 
 wideTemplate :: Context String -> Item String -> Compiler Html
-wideTemplate = defaultTemplate_ False True True
+wideTemplate = defaultTemplate_ False True True False
 
 archiveTemplate :: Context String -> Item String -> Compiler Html
-archiveTemplate = defaultTemplate_ False True False
+archiveTemplate = defaultTemplate_ False True False False
+
+cvTemplate :: Context String -> Item String -> Compiler Html
+cvTemplate = defaultTemplate_ False False True True
 
 -- icon :: String -> Html
 -- icon xs = H.span ! class_ "my-auto w-[24px]" $ H.i ! dataLucide xs
