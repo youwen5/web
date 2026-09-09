@@ -1,8 +1,10 @@
 module Compilers where
 
+import Control.Applicative (optional)
 import Data.ByteString qualified as LBS
-import Data.List (intersperse)
+import Data.List (intersperse, uncons)
 import Data.Maybe (fromMaybe)
+import Debug.Trace qualified as Debug
 import GHC.IO.Handle (hClose)
 import Hakyll
 import System.FilePath (takeDirectory)
@@ -40,10 +42,29 @@ typstIndexCompiler ctx = do
   body <- getResourceBody
   title <- getStringField ctx body "title"
   posts <- loadAll "posts/**"
+  notes <- loadAllSnapshots "notes/**.typ" "raw"
   sortedPosts <- recentFirst posts
-  pairs <- flattenContext (jsonListHandler keys) ["posts"] (archiveContext sortedPosts) body
+  sortedNotes <- recentFirst notes
+  pairs <-
+    flattenContext
+      (jsonListHandler keys)
+      ["posts", "notes"]
+      (archiveContext sortedPosts sortedNotes)
+      body
+
+  dummyItem <- makeItem ""
+  field <-
+    optional $ unContext ctx "body" [] (fst $ fromMaybe (dummyItem, []) (uncons sortedNotes))
+  latestNoteBody <- case field of
+    Just (StringField s) -> return $ Just ("latestNoteBody", s)
+    _ -> return Nothing
+
   transformed <-
-    unsafeCompiler $ typstProcessor filePath (itemBody body) pairs
+    unsafeCompiler $
+      typstProcessor
+        filePath
+        (itemBody body)
+        (pairs ++ [fromMaybe ("", "") latestNoteBody])
   makeItem transformed
 
 typstHtmlCompiler :: Context t -> Compiler (Item String)

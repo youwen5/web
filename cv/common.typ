@@ -197,15 +197,30 @@
 
   #entry-wrapper[
     #experience-entry(
-      date: [03/25 --- now],
+      date: [05/30 --- now],
+      location: [Virtual & Boston, MA],
+      employer: [Alpaca Systems],
+      title: [Founding Engineer],
+      [#text(
+        10pt,
+        [
+          - Management stuff
+          - Infra, Nix, internal tools
+          - (Alpaca is an early-stage startup building infra for local inference, and just raised with Sequoia + got into YC (but declined).)
+        ],
+      )],
+    )
+    #experience-entry(
+      date: [03/25 --- 07/31],
       location: [Santa Barbara, California],
       employer: [SB Hacks],
       title: [Director of Development],
       [#text(
         10pt,
         [
-          - Worked on #link("https://storke.sbhacks.com")[Storke], the unified logistics platform for #link("http://2026.sbhacks.com/")[SB Hacks XII], UCSB's largest annual hackathon
+          - Developed #link("https://storke.sbhacks.com")[Storke], the unified logistics platform for #link("http://2026.sbhacks.com/")[SB Hacks XII], UCSB's largest annual hackathon
           - Served 600+ users at event, w/ applications, QR code check in, meal ticketing
+          - Buzzwords: SvelteKit, React, Next.js, Prisma, SQLite, NixOS, Docker
         ],
       )],
     )

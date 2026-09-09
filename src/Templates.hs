@@ -263,8 +263,8 @@ photoTemplate showTitle ctx item = do
  where
   getField' = getStringField ctx item
 
-defaultTemplate_ :: Bool -> Bool -> Context String -> Item String -> Compiler Html
-defaultTemplate_ enableComments wide ctx item =
+defaultTemplate_ :: Bool -> Bool -> Bool -> Context String -> Item String -> Compiler Html
+defaultTemplate_ enableComments wide styleLists ctx item =
   do
     title <- getField' "title"
     author <- getField' "author"
@@ -304,7 +304,10 @@ defaultTemplate_ enableComments wide ctx item =
                   forM_ author $ \author' -> p ! class_ "text-lg md:text-xl mt-5" $ em "by " >> toHtml author'
                 H.div
                   ! class_
-                    "prose-lg lg:prose-xl prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground prose-list-snazzy prose-table-snazzy scroll-smooth mt-8"
+                    ( stringValue $
+                        "prose-lg lg:prose-xl prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground scroll-smooth mt-8 prose-table-snazzy"
+                          ++ (if styleLists then " prose-list-snazzy" else " prose-ul:ps-0 prose-li:ps-0 prose-ol:ps-0")
+                    )
                   $ preEscapedToHtml (itemBody item)
                 when (enableComments || fromMaybe "false" enableComments' == "true") giscusComponent
                 pageFooter commitHash' ghc' time'
@@ -312,13 +315,16 @@ defaultTemplate_ enableComments wide ctx item =
   getField' = getStringField ctx item
 
 defaultTemplate :: Context String -> Item String -> Compiler Html
-defaultTemplate = defaultTemplate_ False False
+defaultTemplate = defaultTemplate_ False False True
 
 postTemplate :: Context String -> Item String -> Compiler Html
-postTemplate = defaultTemplate_ True False
+postTemplate = defaultTemplate_ True False True
 
 wideTemplate :: Context String -> Item String -> Compiler Html
-wideTemplate = defaultTemplate_ False True
+wideTemplate = defaultTemplate_ False True True
+
+archiveTemplate :: Context String -> Item String -> Compiler Html
+archiveTemplate = defaultTemplate_ False True False
 
 -- icon :: String -> Html
 -- icon xs = H.span ! class_ "my-auto w-[24px]" $ H.i ! dataLucide xs
@@ -353,6 +359,29 @@ postListItem ctx item = do
  where
   getField' = getStringField ctx item
 
+noteFeedItem :: Context t -> Item t -> Compiler Html
+noteFeedItem ctx item = do
+  title <- getField' "title"
+  url' <- getField' "url"
+  date <- getField' "date"
+  path <- getField' "path"
+  body' <- getField' "body"
+  let
+    url = fromMaybe "#" url'
+  pure $
+    li $
+      do
+        article
+          ! class_
+            "!mt-4 py-4 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit prose-list-snazzy"
+          $ do
+            forM_ title $ (h1 ! class_ "font-bold") . toHtml
+            forM_ date $ (H.span ! class_ "text-subtle") . toHtml
+            forM_ body' ((H.div ! class_ "max-h-[50ch] overflow-y-hidden") . preEscapedToHtml)
+            H.a ! class_ "mt-4 text-link" ! (href . stringValue) url $ "Full text."
+ where
+  getField' = getStringField ctx item
+
 archivePage :: Context String -> Item String -> Compiler Html
 archivePage ctx item = do
   let getList' = getList ctx item
@@ -369,6 +398,25 @@ archivePage ctx item = do
       " feed."
     H.div ! class_ "mx-auto max-w-10 border-t-1 border-t-foreground mb-4" $ ""
     ul ! class_ "not-prose" $ mconcat postsRendered
+
+notesPage :: Context String -> Item String -> Compiler Html
+notesPage ctx item = do
+  let getList' = getList ctx item
+  ListData innerCtx notes <- getList' "notes"
+  sortedNotes <- recentFirst notes
+  notesRendered <- mapM (noteFeedItem innerCtx) sortedNotes
+  let a = H.a ! class_ "text-link internal-link"
+  pure $ do
+    p $ do
+      "This is a "
+      a ! href "https://en.wikipedia.org/wiki/Microblogging" $ "microblog"
+      ", where I leave mostly banal thoughts and research notes. "
+      a ! href "/notes/feed.xml" $ "RSS"
+      " and "
+      a ! href "/notes/atom.xml" $ "Atom"
+      " feed."
+    H.div ! class_ "mx-auto max-w-10 border-t-1 border-t-foreground mb-4" $ ""
+    ul $ mconcat notesRendered
 
 explorePage :: Context String -> Item String -> Compiler Html
 explorePage ctx item = do
@@ -417,7 +465,7 @@ explorePage ctx item = do
           H.span ! A.style "font-variant-caps: all-small-caps" $
             H.span ! class_ "inline-block all-smallcaps" $
               "By the way"
-        H.div ! class_ "!mb-0 mt-2 prose-p:mb-0 prose-p:mt-3" $ do
+        H.div ! class_ "!mb-0 mt-2 prose-p:mx-1 prose-p:mt-3" $ do
           "You may have noticed that the hyperlinks have a little symbol next to them. This is a convenient guide for you, and "
           a ! href "#" $ "internal links"
           " to other pages on this website have a cross while "
@@ -461,7 +509,7 @@ indexTemplate ctx item =
             main ! class_ "main-content" $ do
               H.div
                 ! class_
-                  "prose-lg lg:prose-xl prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground prose-list-snazzy prose-table-snazzy scroll-smooth mt-2"
+                  "prose-lg lg:prose-xl prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground scroll-smooth mt-2"
                 $ preEscapedToHtml (itemBody item)
               pageFooter commitHash' ghc' time'
  where

@@ -64,6 +64,7 @@ title: Youwen Wu >> Welcome Home.
 )
 
 #let posts = json(bytes(sys.inputs.posts))
+#let notes = json(bytes(sys.inputs.notes))
 
 Previously, I was at #link("https://www.ucsb.edu/")[UC Santa Barbara.]
 I also spent a semester in the CS department at
@@ -393,12 +394,24 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   #html.a(
     href: "/notes",
     class: "text-link inline-flex gap-0.5",
-  )[(See more)]
+  )[(Recent notes)]
 ]
 
-#html.div(
-  class: "!mt-4 py-2 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit max-w-[60ch]",
-  [Under construction.],
+#html.article(
+  class: "!mt-4 p-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit relative",
+  {
+    html.div(class: "max-h-[50ch] overflow-y-hidden", {
+      html.div(class: "font-bold", notes.at(0).at("date"))
+      eval(
+        sys.inputs.latestNoteBody,
+        mode: "markup",
+      )
+    })
+    html.div(class: "mt-4", html.a(
+      class: "text-link",
+      href: notes.at(0).at("url"),
+    )[Full text.])
+  },
 )
 
 #show heading.where(level: 1): it => {

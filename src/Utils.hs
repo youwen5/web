@@ -49,17 +49,30 @@ canonicalizeUrl url
 rednoiseContext :: Context String
 rednoiseContext = canonicalUrl "url" <> Hakyll.defaultContext
 
-archiveContext :: [Item String] -> Context String
-archiveContext posts = listField "posts" postContext (return posts) <> rednoiseContext
+archiveContext :: [Item String] -> [Item String] -> Context String
+archiveContext posts notes =
+  listField "posts" postContext (return posts)
+    <> listField "notes" postContext (return notes)
+    <> rednoiseContext
 
-makeFeed :: Renderer -> Rules ()
-makeFeed renderer = do
+makePostsFeed :: Renderer -> Rules ()
+makePostsFeed renderer = do
   route idRoute
   compile $ do
     let feedCtx = postContext <> bodyField "description"
     posts <-
       fmap (take 10) . recentFirst
         =<< loadAllSnapshots "posts/**" snapshotDir
+    renderer feed feedCtx posts
+
+makeNotesFeed :: Renderer -> Rules ()
+makeNotesFeed renderer = do
+  route idRoute
+  compile $ do
+    let feedCtx = postContext <> bodyField "description"
+    posts <-
+      fmap (take 10) . recentFirst
+        =<< loadAllSnapshots "notes/**.typ" snapshotDir
     renderer feed feedCtx posts
 
 -- | dir/foo/bar/whatever -> /foo/bar/whatever/index.html

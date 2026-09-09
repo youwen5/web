@@ -120,7 +120,9 @@ generateSite = do
       reroute $ ("notes" </>) . (</> "index.html") . takeBaseName
 
       compile $
-        typstHtmlCompiler postContext
+        getResourceBody
+          >>= saveSnapshot "raw"
+          >> typstHtmlCompiler postContext
           >>= saveSnapshot snapshotDir
           >>= blazeTemplater Templates.postTemplate postContext
           >>= universalOptimizer
@@ -135,7 +137,20 @@ generateSite = do
                 <> defaultContext
         makeItem ""
           >>= blazeTemplater Templates.archivePage archiveCtx
-          >>= blazeTemplater Templates.wideTemplate archiveCtx
+          >>= blazeTemplater Templates.archiveTemplate archiveCtx
+          >>= universalOptimizer
+
+    create ["notes.html"] $ do
+      reroute expandRoute
+      compile $ do
+        posts <- loadAllSnapshots "notes/**.typ" snapshotDir
+        let archiveCtx =
+              listField "notes" postContext (pure posts)
+                <> constField "title" "Notes"
+                <> defaultContext
+        makeItem ""
+          >>= blazeTemplater Templates.notesPage archiveCtx
+          >>= blazeTemplater Templates.archiveTemplate archiveCtx
           >>= universalOptimizer
 
     create ["explore.html"] $ do
@@ -191,9 +206,13 @@ generateSite = do
           >>= blazeTemplater Templates.defaultTemplate defaultContext
           >>= universalOptimizer
 
-    create ["atom.xml"] $ makeFeed renderAtom
-    create ["feed.xml"] $ makeFeed renderRss
-    create ["feed.json"] $ makeFeed renderJson
+    create ["atom.xml"] $ makePostsFeed renderAtom
+    create ["feed.xml"] $ makePostsFeed renderRss
+    create ["feed.json"] $ makePostsFeed renderJson
+
+    create ["notes/atom.xml"] $ makeNotesFeed renderAtom
+    create ["notes/feed.xml"] $ makeNotesFeed renderRss
+    create ["notes/feed.json"] $ makeNotesFeed renderJson
 
     match "root/photos/manifest.json" $ do
       reroute $ \p ->
