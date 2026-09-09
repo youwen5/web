@@ -5,6 +5,7 @@ title: Youwen Wu >> Welcome Home.
 
 #import "@preview/html-shim:0.1.0": *
 #import "@preview/based:0.2.0": base64
+#import "@preview/cmarker:0.1.5"
 
 #show: html-shim
 
@@ -402,10 +403,14 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   {
     html.div(class: "max-h-[50ch] overflow-y-hidden", {
       html.div(class: "font-bold", notes.at(0).at("date"))
-      eval(
-        sys.inputs.latestNoteBody,
-        mode: "markup",
-      )
+      if notes.at(0).at("path").ends-with(".md") {
+        cmarker.render(sys.inputs.latestNoteBody)
+      } else {
+        eval(
+          sys.inputs.latestNoteBody,
+          mode: "markup",
+        )
+      }
     })
     html.div(class: "mt-4", html.a(
       class: "text-link",

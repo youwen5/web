@@ -116,13 +116,24 @@ generateSite = do
           >>= blazeTemplater Templates.postTemplate postContext
           >>= universalOptimizer
 
-    match "notes/**.typ" $ do
+    match "microblog/**.typ" $ do
       reroute $ ("notes" </>) . (</> "index.html") . takeBaseName
 
       compile $
         getResourceBody
           >>= saveSnapshot "raw"
           >> typstHtmlCompiler postContext
+          >>= saveSnapshot snapshotDir
+          >>= blazeTemplater Templates.postTemplate postContext
+          >>= universalOptimizer
+
+    match "microblog/**.md" $ do
+      reroute $ ("notes" </>) . (</> "index.html") . takeBaseName
+
+      compile $
+        getResourceBody
+          >>= saveSnapshot "raw"
+          >> pandocCompiler
           >>= saveSnapshot snapshotDir
           >>= blazeTemplater Templates.postTemplate postContext
           >>= universalOptimizer
@@ -143,7 +154,7 @@ generateSite = do
     create ["notes.html"] $ do
       reroute expandRoute
       compile $ do
-        posts <- loadAllSnapshots "notes/**.typ" snapshotDir
+        posts <- loadAllSnapshots "microblog/**" snapshotDir
         let archiveCtx =
               listField "notes" postContext (pure posts)
                 <> constField "title" "Notes"
@@ -206,14 +217,6 @@ generateSite = do
           >>= blazeTemplater Templates.defaultTemplate defaultContext
           >>= universalOptimizer
 
-    create ["atom.xml"] $ makePostsFeed renderAtom
-    create ["feed.xml"] $ makePostsFeed renderRss
-    create ["feed.json"] $ makePostsFeed renderJson
-
-    create ["notes/atom.xml"] $ makeNotesFeed renderAtom
-    create ["notes/feed.xml"] $ makeNotesFeed renderRss
-    create ["notes/feed.json"] $ makeNotesFeed renderJson
-
     match "root/photos/manifest.json" $ do
       reroute $ \p ->
         dropFirstParent $
@@ -225,6 +228,14 @@ generateSite = do
       compile $
         photoFeedCompiler defaultContext
 
+    create ["atom.xml"] $ makePostsFeed renderAtom
+    create ["feed.xml"] $ makePostsFeed renderRss
+    create ["feed.json"] $ makePostsFeed renderJson
+
+    create ["notes/atom.xml"] $ makeNotesFeed renderAtom
+    create ["notes/feed.xml"] $ makeNotesFeed renderRss
+    create ["notes/feed.json"] $ makeNotesFeed renderJson
+
 photoFeedCompiler :: Context t -> Compiler (Item String)
 photoFeedCompiler ctx = do
   manifest <- getResourceLBS
@@ -233,3 +244,4 @@ photoFeedCompiler ctx = do
     atom
       (updatedAt decoded)
       (map photoToEntry $ photos decoded)
+

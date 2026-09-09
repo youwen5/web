@@ -72,7 +72,7 @@ makeNotesFeed renderer = do
     let feedCtx = postContext <> bodyField "description"
     posts <-
       fmap (take 10) . recentFirst
-        =<< loadAllSnapshots "notes/**.typ" snapshotDir
+        =<< loadAllSnapshots "microblog/**" snapshotDir
     renderer feed feedCtx posts
 
 -- | dir/foo/bar/whatever -> /foo/bar/whatever/index.html

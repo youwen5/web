@@ -34,7 +34,7 @@ typstProcessor fp content kv = do
   readCreateProcess processSpec content
 
 keys :: [String]
-keys = ["title", "date", "url"]
+keys = ["title", "date", "url", "path"]
 
 typstIndexCompiler :: Context String -> Compiler (Item String)
 typstIndexCompiler ctx = do
@@ -42,7 +42,7 @@ typstIndexCompiler ctx = do
   body <- getResourceBody
   title <- getStringField ctx body "title"
   posts <- loadAll "posts/**"
-  notes <- loadAllSnapshots "notes/**.typ" "raw"
+  notes <- loadAllSnapshots "microblog/**" "raw"
   sortedPosts <- recentFirst posts
   sortedNotes <- recentFirst notes
   pairs <-
@@ -111,3 +111,4 @@ makeCompiler' f = do
   body <- getResourceBody
   transformed <- unsafeCompiler $ f filePath (itemBody body)
   makeItem transformed
+
