@@ -197,20 +197,6 @@
 
   #entry-wrapper[
     #experience-entry(
-      date: [05/30 --- now],
-      location: [Virtual & Boston, MA],
-      employer: [Alpaca Systems],
-      title: [Founding Engineer],
-      [#text(
-        10pt,
-        [
-          - Management stuff
-          - Infra, Nix, internal tools
-          - (Alpaca is an early-stage startup building infra for local inference, and just raised with Sequoia + got into YC (but declined).)
-        ],
-      )],
-    )
-    #experience-entry(
       date: [03/25 --- 07/31],
       location: [Santa Barbara, California],
       employer: [SB Hacks],
