@@ -111,4 +111,3 @@ makeCompiler' f = do
   body <- getResourceBody
   transformed <- unsafeCompiler $ f filePath (itemBody body)
   makeItem transformed
-

@@ -244,4 +244,3 @@ photoFeedCompiler ctx = do
     atom
       (updatedAt decoded)
       (map photoToEntry $ photos decoded)
-
