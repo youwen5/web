@@ -104,6 +104,12 @@ body {
   @apply mr-[0.5em] relative;
 }
 
+.invert-link {
+  a {
+    @apply text-teal-100 dark:text-teal-800;
+  }
+}
+
 .external-link::after {
   @apply font-sans;
   content: '°';

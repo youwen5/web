@@ -64,33 +64,33 @@ title: Youwen Wu >> Welcome Home.
   ),
 )
 
-#let posts = json(bytes(sys.inputs.posts))
-#let notes = json(bytes(sys.inputs.notes))
+#let posts = json(bytes(sys.inputs.at("posts", default: "{}")))
+#let notes = json(bytes(sys.inputs.at("notes", default: "{}")))
+
+#let invert(body) = {
+  html.span(class: "text-bg bg-foreground invert-link py-0.5 px-1", body)
+}
 
 Previously, I was at #link("https://www.ucsb.edu/")[UC Santa Barbara.]
 I also spent a semester in the CS department at
-#link("https://www.tsinghua.edu.cn/en")[Tsinghua University.]
-
-I help run #link("https://functor.systems")[functor.systems], a small computing
-community, and tinker with #link("https://www.mit.edu/~ajzd/opencompute/")[MIT
-  OpenCompute.]
-
-Here is my #link("https://github.com/youwen5")[GitHub],
-#link("/transcript")[university transcript], #link("/cv")[CV/resume], and
-#link("/static/img/cat_babies.jpg")[a picture of my cats.]
-
-In general, I prefer to use
-#link("https://www.gnu.org/philosophy/free-sw.html")[free-as-in-freedom
+#link("https://www.tsinghua.edu.cn/en")[Tsinghua University]
+⁂
+#invert[I help run #link("https://functor.systems")[functor.systems], a small computing
+  community, and tinker with #link("https://www.mit.edu/~ajzd/opencompute/")[MIT
+    OpenCompute]]
+⁂
+I care about #link("https://www.gnu.org/philosophy/free-sw.html")[free
   software.] I developed
 #link("https://code.functor.systems/functor.systems/functorOS")[functorOS], an
-experimental NixOS-based Linux distribution---among other free software
-contributions.
-
-I like #link("https://stallman.org/articles/on-hacking.html")[hacking], and
-hackathons. I helped organize the 2026 #link("https://sbhacks.com/")[SB
-  Hacks], the headliner hackathon of UC Santa Barbara, and was briefly its Director
-of Development.
-
+experimental NixOS-based Linux distribution
+⁂
+#invert[
+  I like #link("https://stallman.org/articles/on-hacking.html")[hacking], and
+  hackathons. I helped organize the 2026 #link("https://sbhacks.com/")[SB
+    Hacks], the headliner hackathon of UC Santa Barbara, and was briefly its Director
+  of Development
+]
+⁂
 See #link("/about")[about] for more about myself, or #link("/now")[now] for
 what I'm up to right now. Or #link("/explore")[explore] the other pages on this website.
 
@@ -118,7 +118,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 //   the category theorist.
 // ]
 
-#blockquote(attribution: [--- #link(
+#html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
     "https://en.wikipedia.org/wiki/Alexander_Grothendieck",
   )[#smallcaps[Alexander Grothendieck]]])[
   Discovery is a child's privilege. I mean the small child, the child who is
@@ -129,7 +129,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   they actually are. He ignores the silent and flawless consensus that is part
   of the air we breathe---the consensus of all the people who are, or are
   reputed to be, reasonable.
-]
+])
 
 // #blockquote(
 //   attribution: [--- #smallcaps[Volition], _Disco Elysium_],
