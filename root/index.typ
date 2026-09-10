@@ -402,7 +402,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   class: "!mt-4 p-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit relative",
   {
     html.div(class: "max-h-[50ch] overflow-y-hidden", {
-      html.div(class: "font-bold", notes.at(0).at("date"))
+      html.div(class: "text-subtle", notes.at(0).at("date"))
       if notes.at(0).at("path").ends-with(".md") {
         cmarker.render(sys.inputs.latestNoteBody)
       } else {
