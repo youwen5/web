@@ -92,6 +92,7 @@ navItems =
 moreItems =
   [ ("Photography", "/photos/gallery")
   , ("Writing", "/archive")
+  , ("Microblog", "/notes")
   , ("functor.systems", "https://functor.systems")
   , ("Favorite songs", "/misc/fav-songs")
   , ("Contact", "/#contact")
