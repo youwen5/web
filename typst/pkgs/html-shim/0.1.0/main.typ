@@ -123,7 +123,7 @@
         html.elem("div", smallcaps(all: true, title))
         html.elem(
           "div",
-          attrs: (class: "!mb-0 mt-2 prose-p:mb-0 prose-p:mt-3"),
+          attrs: (class: "!mb-0 mt-2 prose-p:my-1 prose-p:mt-1"),
           {
             body
           },
@@ -261,4 +261,28 @@
   }
 
   body
+}
+
+// math stuff
+
+#let definition(body) = callout("Definition", body)
+#let abuse(body) = callout("Abuse of Notation", body)
+#let theorem(body) = callout("Theorem", body)
+#let example(body) = callout("Example", body)
+#let proof(body, name: none) = {
+  [_Proof_]
+  if name != none {
+    [ #thmname[#name]]
+  }
+  [.]
+  body
+
+  // Add a word-joiner so that the proof square and the last word before the
+  // 1fr spacing are kept together.
+  sym.wj
+
+  // Add a non-breaking space to ensure a minimum amount of space between the
+  // text and the proof square.
+  sym.space.nobreak
+  tombstone
 }

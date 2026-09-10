@@ -378,7 +378,7 @@ noteFeedItem ctx item = do
       do
         article
           ! class_
-            "!mt-4 py-4 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit prose-list-snazzy"
+            "!mt-4 py-4 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit prose-ol:list-decimal prose-ul:list-disc"
           $ do
             forM_ pagetitle $ (h1 ! class_ "font-bold") . toHtml
             forM_ date $ (H.span ! class_ "text-subtle") . toHtml
