@@ -264,8 +264,8 @@ photoTemplate showTitle ctx item = do
   getField' = getStringField ctx item
 
 defaultTemplate_ ::
-  Bool -> Bool -> Bool -> Bool -> Context String -> Item String -> Compiler Html
-defaultTemplate_ enableComments wide styleLists bigText ctx item =
+  Bool -> Bool -> Bool -> Bool -> Bool -> Context String -> Item String -> Compiler Html
+defaultTemplate_ enableComments wide styleLists bigText usePagetitle ctx item =
   do
     title <- getField' "title"
     author <- getField' "author"
@@ -298,7 +298,9 @@ defaultTemplate_ enableComments wide styleLists bigText ctx item =
                     ("main-content" ++ (if not wide then " lg:max-w-[40rem]" else ""))
                 )
               $ do
-                h1 ! class_ "all-smallcaps md:text-3xl text-2xl text-center mt-4" $ forM_ title toHtml
+                forM_
+                  (if usePagetitle then pagetitle else title)
+                  ((h1 ! class_ "all-smallcaps md:text-3xl text-2xl text-center mt-4") . toHtml)
                 H.div ! class_ "space-y-1 text-center mt-4" $ do
                   forM_ date $ \date' -> p ! class_ "text-subtle text-md md:text-lg" $ toHtml date'
                   forM_ location $ \location' -> p ! class_ "text-subtle text-md md:text-lg" $ toHtml location'
@@ -317,19 +319,22 @@ defaultTemplate_ enableComments wide styleLists bigText ctx item =
   getField' = getStringField ctx item
 
 defaultTemplate :: Context String -> Item String -> Compiler Html
-defaultTemplate = defaultTemplate_ False False True False
+defaultTemplate = defaultTemplate_ False False True False False
 
 postTemplate :: Context String -> Item String -> Compiler Html
-postTemplate = defaultTemplate_ True False True False
+postTemplate = defaultTemplate_ True False True False False
 
 wideTemplate :: Context String -> Item String -> Compiler Html
-wideTemplate = defaultTemplate_ False True True False
+wideTemplate = defaultTemplate_ False True True False False
 
 archiveTemplate :: Context String -> Item String -> Compiler Html
-archiveTemplate = defaultTemplate_ False True False False
+archiveTemplate = defaultTemplate_ False True False False False
 
 cvTemplate :: Context String -> Item String -> Compiler Html
-cvTemplate = defaultTemplate_ False False True True
+cvTemplate = defaultTemplate_ False False True True False
+
+noteTemplate :: Context String -> Item String -> Compiler Html
+noteTemplate = defaultTemplate_ True False True False True
 
 -- icon :: String -> Html
 -- icon xs = H.span ! class_ "my-auto w-[24px]" $ H.i ! dataLucide xs

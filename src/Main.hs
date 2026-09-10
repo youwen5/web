@@ -124,7 +124,7 @@ generateSite = do
           >>= saveSnapshot "raw"
           >> typstHtmlCompiler postContext
           >>= saveSnapshot snapshotDir
-          >>= blazeTemplater Templates.postTemplate postContext
+          >>= blazeTemplater Templates.noteTemplate postContext
           >>= universalOptimizer
 
     match "microblog/**.md" $ do
@@ -135,7 +135,7 @@ generateSite = do
           >>= saveSnapshot "raw"
           >> pandocCompiler
           >>= saveSnapshot snapshotDir
-          >>= blazeTemplater Templates.postTemplate postContext
+          >>= blazeTemplater Templates.noteTemplate postContext
           >>= universalOptimizer
 
     create ["archive.html"] $ do
