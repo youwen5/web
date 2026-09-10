@@ -311,7 +311,7 @@ defaultTemplate_ enableComments wide styleLists bigText usePagetitle ctx item =
                     ( stringValue $
                         "prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground scroll-smooth mt-8 prose-table-snazzy"
                           ++ (if styleLists then " prose-list-snazzy" else " prose-ul:ps-0 prose-li:ps-0 prose-ol:ps-0")
-                          ++ (if bigText then " prose-lg xl:prose-xl" else " prose-md xl:prose-lg 2xl:prose-xl")
+                          ++ (if bigText then " prose-lg xl:prose-xl" else " prose-base xl:prose-lg")
                     )
                   $ preEscapedToHtml (itemBody item)
                 when (enableComments || fromMaybe "false" enableComments' == "true") giscusComponent
