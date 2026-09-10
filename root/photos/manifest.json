@@ -1,8 +1,220 @@
 {
   "version": 4,
-  "revision": 155,
-  "updatedAt": "2026-09-04T19:44:25.082Z",
+  "revision": 170,
+  "updatedAt": "2026-09-10T00:52:31.107Z",
   "photos": [
+    {
+      "id": "4a1fd166-51a3-4911-86f3-eb76332c8ee7",
+      "uploadedAt": "2026-09-10T00:50:44.511Z",
+      "altText": "two people crossing a stone bridge across a pond",
+      "originalName": "DSC07441.jpeg",
+      "originalKey": "originals/2026/09/4a1fd166-51a3-4911-86f3-eb76332c8ee7.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/4a1fd166-51a3-4911-86f3-eb76332c8ee7.jpg",
+      "originalBytes": 4351899,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4608,
+      "originalHeight": 3072,
+      "originalOrientation": 1,
+      "megapixels": 14.16,
+      "rating": 4,
+      "location": {
+        "city": "Yongzhou",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 70,
+        "focalLength35mmEquivalent": 70,
+        "capturedAt": "2026-05-04T09:57:06+08:00",
+        "exposureTimeSeconds": 0.0004,
+        "fNumber": 2.8,
+        "iso": 125
+      },
+      "webKey": "web/2026/09/4a1fd166-51a3-4911-86f3-eb76332c8ee7.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/4a1fd166-51a3-4911-86f3-eb76332c8ee7.webp",
+      "webBytes": 381590,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183,
+      "description": "One of the coolest places I've visited."
+    },
+    {
+      "id": "3ee4cdc4-5572-4280-9895-6edf7ac4c247",
+      "uploadedAt": "2026-09-10T00:50:42.600Z",
+      "altText": "overgrown chinese brick buildings",
+      "originalName": "DSC07664.jpeg",
+      "originalKey": "originals/2026/09/3ee4cdc4-5572-4280-9895-6edf7ac4c247.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/3ee4cdc4-5572-4280-9895-6edf7ac4c247.jpg",
+      "originalBytes": 8336185,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "originalOrientation": 8,
+      "megapixels": 14.16,
+      "rating": 4,
+      "location": {
+        "city": "Yongzhou",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 24,
+        "focalLength35mmEquivalent": 24,
+        "capturedAt": "2026-05-04T11:30:38+08:00",
+        "exposureTimeSeconds": 0.0125,
+        "fNumber": 5.6,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/3ee4cdc4-5572-4280-9895-6edf7ac4c247.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/3ee4cdc4-5572-4280-9895-6edf7ac4c247.webp",
+      "webBytes": 815638,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775
+    },
+    {
+      "id": "b4ab684a-0006-41c2-b7b6-d1604f2df2fd",
+      "uploadedAt": "2026-09-10T00:49:37.569Z",
+      "altText": "a chicken crossing the road",
+      "originalName": "DSC07845.jpeg",
+      "originalKey": "originals/2026/09/b4ab684a-0006-41c2-b7b6-d1604f2df2fd.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/b4ab684a-0006-41c2-b7b6-d1604f2df2fd.jpg",
+      "originalBytes": 4035622,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "originalOrientation": 8,
+      "megapixels": 14.16,
+      "rating": 4,
+      "location": {
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 70,
+        "focalLength35mmEquivalent": 70,
+        "capturedAt": "2026-05-05T15:49:58+08:00",
+        "exposureTimeSeconds": 0.0015625,
+        "fNumber": 4,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/b4ab684a-0006-41c2-b7b6-d1604f2df2fd.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/b4ab684a-0006-41c2-b7b6-d1604f2df2fd.webp",
+      "webBytes": 189772,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775,
+      "description": "Untitled."
+    },
+    {
+      "id": "68583c0b-b375-4dd4-bfb5-5961da22e777",
+      "uploadedAt": "2026-09-10T00:48:32.854Z",
+      "altText": "pink building with a sunstar",
+      "originalName": "DSC08266.jpeg",
+      "originalKey": "originals/2026/09/68583c0b-b375-4dd4-bfb5-5961da22e777.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/68583c0b-b375-4dd4-bfb5-5961da22e777.jpg",
+      "originalBytes": 1960552,
+      "originalMime": "image/jpeg",
+      "originalWidth": 2383,
+      "originalHeight": 3144,
+      "originalOrientation": 1,
+      "megapixels": 7.49,
+      "rating": 4,
+      "location": {
+        "city": "Changsha",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 35mm F2.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 35,
+          "maxFocalLengthMm": 35,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 35,
+        "focalLength35mmEquivalent": 35,
+        "capturedAt": "2026-05-09T17:02:31+08:00",
+        "exposureTimeSeconds": 0.005,
+        "fNumber": 8,
+        "iso": 100
+      },
+      "webKey": "web/2026/09/68583c0b-b375-4dd4-bfb5-5961da22e777.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/68583c0b-b375-4dd4-bfb5-5961da22e777.webp",
+      "webBytes": 273030,
+      "webMime": "image/webp",
+      "webWidth": 1262,
+      "webHeight": 1665
+    },
+    {
+      "id": "a01c0608-5898-4fd9-b633-03fe42ebc3ef",
+      "uploadedAt": "2026-09-10T00:48:31.440Z",
+      "altText": "bright sunrise with docks visible",
+      "originalName": "DSC01400.jpeg",
+      "originalKey": "originals/2026/09/a01c0608-5898-4fd9-b633-03fe42ebc3ef.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/09/a01c0608-5898-4fd9-b633-03fe42ebc3ef.jpg",
+      "originalBytes": 2034017,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3370,
+      "originalHeight": 2247,
+      "originalOrientation": 1,
+      "megapixels": 7.57,
+      "rating": 4,
+      "location": {
+        "city": "Jinan",
+        "country": "China"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "24-70mm F2.8 DG DN II | Art 024",
+        "lensSpecification": {
+          "minFocalLengthMm": 24,
+          "maxFocalLengthMm": 70,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 24,
+        "focalLength35mmEquivalent": 24,
+        "capturedAt": "2026-07-15T05:01:46+08:00",
+        "exposureTimeSeconds": 0.0015625,
+        "fNumber": 2.8,
+        "iso": 250
+      },
+      "webKey": "web/2026/09/a01c0608-5898-4fd9-b633-03fe42ebc3ef.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/09/a01c0608-5898-4fd9-b633-03fe42ebc3ef.webp",
+      "webBytes": 216596,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183,
+      "description": "Sunrise from the deck of the Dalian–Jinan ferry."
+    },
     {
       "id": "7436a17f-919c-4c08-8000-eb2e948f396c",
       "uploadedAt": "2026-09-01T19:08:05.481Z",
