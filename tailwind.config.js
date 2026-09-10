@@ -20,6 +20,29 @@ module.exports = {
         },
       },
       typography: () => ({
+        base: {
+          css: [
+            {
+              lineHeight: 1.6,
+              h1: {
+                fontSize: em(1, 1),
+                marginBottom: em(6, 20),
+              },
+              h2: {
+                fontSize: em(1, 1),
+                marginBottom: em(6, 20),
+              },
+              h3: {
+                fontSize: em(1, 1),
+                marginBottom: em(6, 20),
+              },
+              h4: {
+                fontSize: em(1, 1),
+                marginBottom: em(6, 20),
+              },
+            },
+          ],
+        },
         lg: {
           css: [
             {
