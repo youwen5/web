@@ -1,5 +1,5 @@
 ---
-title: "Deriving the Y-Combinator"
+pagetitle: "Deriving the Y-Combinator"
 published: 2026-02-28
 ---
 

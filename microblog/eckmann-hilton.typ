@@ -1,5 +1,5 @@
 ---
-title: "The Eckmann-Hilton Argument"
+pagetitle: "The Eckmann-Hilton Argument"
 published: 2026-02-13
 ---
 

@@ -366,7 +366,7 @@ postListItem ctx item = do
 
 noteFeedItem :: Context t -> Item t -> Compiler Html
 noteFeedItem ctx item = do
-  title <- getField' "title"
+  pagetitle <- getField' "pagetitle"
   url' <- getField' "url"
   date <- getField' "date"
   path <- getField' "path"
@@ -380,7 +380,7 @@ noteFeedItem ctx item = do
           ! class_
             "!mt-4 py-4 px-4 text-[0.75em] rounded-md border-1 border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-overlay leading-[1.5em] w-fit prose-list-snazzy"
           $ do
-            forM_ title $ (h1 ! class_ "font-bold") . toHtml
+            forM_ pagetitle $ (h1 ! class_ "font-bold") . toHtml
             forM_ date $ (H.span ! class_ "text-subtle") . toHtml
             forM_ body' ((H.div ! class_ "max-h-[50ch] overflow-y-hidden") . preEscapedToHtml)
             H.a ! class_ "mt-4 text-link" ! (href . stringValue) url $ "Full text."
@@ -410,15 +410,20 @@ notesPage ctx item = do
   ListData innerCtx notes <- getList' "notes"
   sortedNotes <- recentFirst notes
   notesRendered <- mapM (noteFeedItem innerCtx) sortedNotes
-  let a = H.a ! class_ "text-link internal-link"
+  let a n =
+        H.a
+          ! class_
+            ( stringValue
+                ("text-link" ++ (if n then " external-link" else " internal-link"))
+            )
   pure $ do
     p $ do
       "This is a "
-      a ! href "https://en.wikipedia.org/wiki/Microblogging" $ "microblog"
+      a True ! href "https://en.wikipedia.org/wiki/Microblogging" $ "microblog"
       ", where I leave mostly banal thoughts and research notes. "
-      a ! href "/notes/feed.xml" $ "RSS"
+      a False ! href "/notes/feed.xml" $ "RSS"
       " and "
-      a ! href "/notes/atom.xml" $ "Atom"
+      a False ! href "/notes/atom.xml" $ "Atom"
       " feed."
     H.div ! class_ "mx-auto max-w-10 border-t-1 border-t-foreground mb-4" $ ""
     ul $ mconcat notesRendered
