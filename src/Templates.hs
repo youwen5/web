@@ -309,7 +309,7 @@ defaultTemplate_ enableComments wide styleLists bigText usePagetitle ctx item =
                 H.div
                   ! class_
                     ( stringValue $
-                        "prose-headings:all-smallcaps prose-headings:text-love prose-h1:text-foreground scroll-smooth mt-8 prose-table-snazzy"
+                        "prose-headings:all-smallcaps prose-h2:before:content-['§'] prose-h2:before:mr-0.5 prose-headings:text-love prose-h1:text-foreground scroll-smooth mt-8 prose-table-snazzy"
                           ++ (if styleLists then " prose-list-snazzy" else " prose-ul:ps-0 prose-li:ps-0 prose-ol:ps-0")
                           ++ (if bigText then " prose-lg xl:prose-xl" else " prose-base xl:prose-lg")
                     )
