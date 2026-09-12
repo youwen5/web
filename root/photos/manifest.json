@@ -1,7 +1,7 @@
 {
   "version": 4,
-  "revision": 170,
-  "updatedAt": "2026-09-10T00:52:31.107Z",
+  "revision": 172,
+  "updatedAt": "2026-09-11T22:26:40.811Z",
   "photos": [
     {
       "id": "4a1fd166-51a3-4911-86f3-eb76332c8ee7",
@@ -187,7 +187,7 @@
       "megapixels": 7.57,
       "rating": 4,
       "location": {
-        "city": "Jinan",
+        "city": "Yantai",
         "country": "China"
       },
       "exif": {
@@ -213,7 +213,7 @@
       "webMime": "image/webp",
       "webWidth": 1775,
       "webHeight": 1183,
-      "description": "Sunrise from the deck of the Dalian–Jinan ferry."
+      "description": "Sunrise from the deck of the Dalian–Yantai ferry over the Bohai sea."
     },
     {
       "id": "7436a17f-919c-4c08-8000-eb2e948f396c",
