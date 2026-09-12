@@ -52,6 +52,7 @@
             self.packages.${system}.html-shim
             bullseye
             based_0_2_0
+            mitex_0_2_5
           ]
         );
 

@@ -6,6 +6,7 @@ title: Youwen Wu >> Welcome Home.
 #import "@preview/html-shim:0.1.0": *
 #import "@preview/based:0.2.0": base64
 #import "@preview/cmarker:0.1.5"
+#import "@preview/mitex:0.2.5": mitex
 
 #show: html-shim
 
@@ -407,7 +408,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
     html.div(class: "max-h-[50ch] overflow-y-hidden", {
       html.div(class: "text-subtle", notes.at(0).at("date"))
       if notes.at(0).at("path").ends-with(".md") {
-        cmarker.render(sys.inputs.latestNoteBody)
+        cmarker.render(sys.inputs.latestNoteBody, math: mitex)
       } else {
         eval(
           sys.inputs.latestNoteBody,

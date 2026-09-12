@@ -33,6 +33,11 @@ import System.FilePath (
  )
 import System.Info
 import Text.Blaze.Html.Renderer.String
+import Text.Pandoc (
+  HTMLMathMethod (MathML),
+  ReaderOptions (ReaderOptions),
+  WriterOptions (writerHTMLMathMethod),
+ )
 import Text.Pandoc.UTF8 (toString)
 import Text.Read (readMaybe)
 
@@ -133,7 +138,9 @@ generateSite = do
       compile $
         getResourceBody
           >>= saveSnapshot "raw"
-          >> pandocCompiler
+          >> pandocCompilerWith
+            defaultHakyllReaderOptions
+            (defaultHakyllWriterOptions{writerHTMLMathMethod = MathML})
           >>= saveSnapshot snapshotDir
           >>= blazeTemplater Templates.noteTemplate postContext
           >>= universalOptimizer
