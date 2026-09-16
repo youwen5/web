@@ -128,8 +128,8 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
   We must not believe those, who today, with philosophical bearing and
   deliberative tone, prophesy the fall of culture and accept the _ignorabimus_.
   For us there is no _ignorabimus_, and in my opinion none whatever in natural
-  science. In opposition to the foolish _ignorabimus_ our slogan shall be Wir
-  _müssen wissen – wir werden wissen_ ("We must know---we will know").
+  science. In opposition to the foolish _ignorabimus_ our slogan shall be _Wir
+  müssen wissen – wir werden wissen_ ("We must know---we will know").
 ])
 
 // #html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
