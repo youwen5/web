@@ -123,17 +123,27 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 // ]
 
 #html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
-    "https://en.wikipedia.org/wiki/Alexander_Grothendieck",
-  )[#smallcaps[Alexander Grothendieck]]])[
-  Discovery is a child's privilege. I mean the small child, the child who is
-  not afraid to be wrong, to look silly, to not be serious, and to act
-  differently from everyone else. He is also not afraid that the things he is
-  interested in are in bad taste or turn out to be different from his
-  expectations, from what they should be, or rather he is not afraid of what
-  they actually are. He ignores the silent and flawless consensus that is part
-  of the air we breathe---the consensus of all the people who are, or are
-  reputed to be, reasonable.
+    "https://en.wikipedia.org/wiki/David_Hilbert",
+  )[Hilbert]])[
+  We must not believe those, who today, with philosophical bearing and
+  deliberative tone, prophesy the fall of culture and accept the _ignorabimus_.
+  For us there is no _ignorabimus_, and in my opinion none whatever in natural
+  science. In opposition to the foolish _ignorabimus_ our slogan shall be Wir
+  _müssen wissen – wir werden wissen_ ("We must know---we will know"").
 ])
+
+// #html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
+//     "https://en.wikipedia.org/wiki/Alexander_Grothendieck",
+//   )[#smallcaps[Alexander Grothendieck]]])[
+//   Discovery is a child's privilege. I mean the small child, the child who is
+//   not afraid to be wrong, to look silly, to not be serious, and to act
+//   differently from everyone else. He is also not afraid that the things he is
+//   interested in are in bad taste or turn out to be different from his
+//   expectations, from what they should be, or rather he is not afraid of what
+//   they actually are. He ignores the silent and flawless consensus that is part
+//   of the air we breathe---the consensus of all the people who are, or are
+//   reputed to be, reasonable.
+// ])
 
 // #blockquote(
 //   attribution: [--- #smallcaps[Volition], _Disco Elysium_],
