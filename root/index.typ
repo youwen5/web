@@ -124,7 +124,7 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 
 #html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
     "https://en.wikipedia.org/wiki/David_Hilbert",
-  )[Hilbert]])[
+  )[#smallcaps[Hilbert]]])[
   We must not believe those, who today, with philosophical bearing and
   deliberative tone, prophesy the fall of culture and accept the _ignorabimus_.
   For us there is no _ignorabimus_, and in my opinion none whatever in natural
