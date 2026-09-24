@@ -97,9 +97,10 @@ generateSite = do
 
     match "css/giscus.css" $ do
       sameRoute
-      compile $ getResourceBody
-        >>= relativizeUrlsCompiler
-        >>= universalOptimizer
+      compile $
+        getResourceBody
+          >>= relativizeUrlsCompiler
+          >>= universalOptimizer
 
     match "root/photos/gallery.typ" $ do
       reroute toRootHTML
