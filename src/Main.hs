@@ -21,6 +21,7 @@ import Data.Maybe (fromMaybe)
 import Data.UnixTime (UnixTime (..), formatUnixTime, webDateFormat)
 import Data.Version (showVersion)
 import Hakyll
+Hakyll.Web.Urls.Relativize
 import System.Environment.Blank (getEnvDefault)
 import System.FilePath (
   dropExtension,
@@ -85,7 +86,6 @@ generateSite = do
     match "web-out/*" $ do
       sameRoute
       compile copyFileCompiler
-      relativizeUrlsCompiler
 
     match "root/favicon.ico" $ do
       reroute takeFileName
