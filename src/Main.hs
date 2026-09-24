@@ -21,7 +21,6 @@ import Data.Maybe (fromMaybe)
 import Data.UnixTime (UnixTime (..), formatUnixTime, webDateFormat)
 import Data.Version (showVersion)
 import Hakyll
-import Hakyll.Web.Urls.Relativize
 import System.Environment.Blank (getEnvDefault)
 import System.FilePath (
   dropExtension,
@@ -99,7 +98,7 @@ generateSite = do
       sameRoute
       compile $
         getResourceBody
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match "root/photos/gallery.typ" $ do
@@ -107,7 +106,7 @@ generateSite = do
       compile $
         typstIndexCompiler defaultContext
           >>= blazeTemplater (photoTemplate True) defaultContext
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match "root/photos/viewer.html" $ do
@@ -115,7 +114,7 @@ generateSite = do
       compile $
         getResourceBody
           >>= blazeTemplater (photoTemplate False) defaultContext
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match "posts/**.typ" $ do
@@ -125,7 +124,7 @@ generateSite = do
         typstHtmlCompiler postContext
           >>= saveSnapshot snapshotDir
           >>= blazeTemplater Templates.postTemplate postContext
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match "microblog/**.typ" $ do
@@ -137,7 +136,7 @@ generateSite = do
           >> typstHtmlCompiler postContext
           >>= saveSnapshot snapshotDir
           >>= blazeTemplater Templates.noteTemplate postContext
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match "microblog/**.md" $ do
@@ -151,7 +150,7 @@ generateSite = do
             (defaultHakyllWriterOptions{writerHTMLMathMethod = MathML})
           >>= saveSnapshot snapshotDir
           >>= blazeTemplater Templates.noteTemplate postContext
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     create ["archive.html"] $ do
@@ -165,7 +164,7 @@ generateSite = do
         makeItem ""
           >>= blazeTemplater Templates.archivePage archiveCtx
           >>= blazeTemplater Templates.archiveTemplate archiveCtx
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     create ["notes.html"] $ do
@@ -179,7 +178,7 @@ generateSite = do
         makeItem ""
           >>= blazeTemplater Templates.notesPage archiveCtx
           >>= blazeTemplater Templates.archiveTemplate archiveCtx
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     create ["explore.html"] $ do
@@ -193,7 +192,7 @@ generateSite = do
         makeItem ""
           >>= blazeTemplater Templates.explorePage exploreCtx
           >>= blazeTemplater Templates.defaultTemplate exploreCtx
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match ("root/index.typ" .||. "root/404.typ") $ do
@@ -201,7 +200,7 @@ generateSite = do
       compile $
         typstIndexCompiler defaultContext
           >>= blazeTemplater indexTemplate defaultContext
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match ("cv/index.typ" .||. "cv/short.typ") $ do
@@ -209,7 +208,7 @@ generateSite = do
       compile $
         typstHtmlCompiler defaultContext
           >>= blazeTemplater Templates.cvTemplate defaultContext
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match "cv/index.typ" $ version "pdf" $ do
@@ -236,7 +235,7 @@ generateSite = do
       compile $
         typstHtmlCompiler defaultContext
           >>= blazeTemplater Templates.defaultTemplate defaultContext
-          >>= relativizeUrlsCompiler
+          >>= relativizeUrls
           >>= universalOptimizer
 
     match "root/photos/manifest.json" $ do
