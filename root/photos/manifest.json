@@ -1,8 +1,135 @@
 {
   "version": 4,
-  "revision": 172,
-  "updatedAt": "2026-09-11T22:26:40.811Z",
+  "revision": 175,
+  "updatedAt": "2026-10-06T08:24:57.692Z",
   "photos": [
+    {
+      "id": "1eff6f36-98c0-4444-b463-233c9eded585",
+      "uploadedAt": "2026-10-06T08:24:57.177Z",
+      "description": "Mission district, dusk.",
+      "altText": "dusk in an alleyway in sf mission district",
+      "originalName": "DSC03576.jpeg",
+      "originalKey": "originals/2026/10/1eff6f36-98c0-4444-b463-233c9eded585.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/10/1eff6f36-98c0-4444-b463-233c9eded585.jpg",
+      "originalBytes": 4039129,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "originalOrientation": 1,
+      "megapixels": 14.16,
+      "rating": 3,
+      "location": {
+        "city": "San Francisco",
+        "country": "USA"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-10-05T17:25:14-08:00",
+        "exposureTimeSeconds": 0.005,
+        "fNumber": 5.6,
+        "iso": 250
+      },
+      "webKey": "web/2026/10/1eff6f36-98c0-4444-b463-233c9eded585.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/10/1eff6f36-98c0-4444-b463-233c9eded585.webp",
+      "webBytes": 281186,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775
+    },
+    {
+      "id": "6253ddb9-6f4e-44e9-af36-ba4265d859a7",
+      "uploadedAt": "2026-10-06T08:24:55.281Z",
+      "altText": "a dreamy sunset",
+      "originalName": "DSC03574.jpeg",
+      "originalKey": "originals/2026/10/6253ddb9-6f4e-44e9-af36-ba4265d859a7.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/10/6253ddb9-6f4e-44e9-af36-ba4265d859a7.jpg",
+      "originalBytes": 5862491,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4608,
+      "originalHeight": 3072,
+      "originalOrientation": 1,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Berkeley",
+        "country": "USA"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-10-04T18:11:55-08:00",
+        "exposureTimeSeconds": 0.02,
+        "fNumber": 1.8,
+        "iso": 1600
+      },
+      "webKey": "web/2026/10/6253ddb9-6f4e-44e9-af36-ba4265d859a7.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/10/6253ddb9-6f4e-44e9-af36-ba4265d859a7.webp",
+      "webBytes": 300338,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183
+    },
+    {
+      "id": "7e161059-ce5c-4f74-b195-a1b049506dc5",
+      "uploadedAt": "2026-10-06T08:23:50.115Z",
+      "altText": "wellman hall, uc berkeley",
+      "originalName": "DSC03550.jpeg",
+      "originalKey": "originals/2026/10/7e161059-ce5c-4f74-b195-a1b049506dc5.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/10/7e161059-ce5c-4f74-b195-a1b049506dc5.jpg",
+      "originalBytes": 8740254,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4608,
+      "originalHeight": 3072,
+      "originalOrientation": 1,
+      "megapixels": 14.16,
+      "rating": 0,
+      "location": {
+        "city": "Berkeley",
+        "country": "USA"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 55mm F1.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 55,
+          "maxFocalLengthMm": 55,
+          "minFNumberAtMinFocalLength": 1.8,
+          "minFNumberAtMaxFocalLength": 1.8
+        },
+        "focalLengthMm": 55,
+        "focalLength35mmEquivalent": 55,
+        "capturedAt": "2026-10-04T17:06:34-08:00",
+        "exposureTimeSeconds": 0.0003125,
+        "fNumber": 5,
+        "iso": 3200
+      },
+      "webKey": "web/2026/10/7e161059-ce5c-4f74-b195-a1b049506dc5.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/10/7e161059-ce5c-4f74-b195-a1b049506dc5.webp",
+      "webBytes": 687474,
+      "webMime": "image/webp",
+      "webWidth": 1775,
+      "webHeight": 1183
+    },
     {
       "id": "4a1fd166-51a3-4911-86f3-eb76332c8ee7",
       "uploadedAt": "2026-09-10T00:50:44.511Z",
