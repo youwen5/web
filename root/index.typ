@@ -122,14 +122,25 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 //   the category theorist.
 // ]
 
+// #html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
+//     "https://en.wikipedia.org/wiki/David_Hilbert",
+//   )[#smallcaps[Hilbert]]])[
+//   We must not believe those, who today, with philosophical bearing and
+//   deliberative tone, prophesy the fall of culture and accept the _ignorabimus_.
+//   For us there is no _ignorabimus_, and in my opinion none whatever in natural
+//   science. In opposition to the foolish _ignorabimus_ our slogan shall be _Wir
+//   müssen wissen---wir werden wissen_ ("We must know---we will know").
+// ])
+
 #html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
-    "https://en.wikipedia.org/wiki/David_Hilbert",
-  )[#smallcaps[Hilbert]]])[
-  We must not believe those, who today, with philosophical bearing and
-  deliberative tone, prophesy the fall of culture and accept the _ignorabimus_.
-  For us there is no _ignorabimus_, and in my opinion none whatever in natural
-  science. In opposition to the foolish _ignorabimus_ our slogan shall be _Wir
-  müssen wissen---wir werden wissen_ ("We must know---we will know").
+    "https://en.wikipedia.org/wiki/Alexander_Grothendieck",
+  )[#smallcaps[Alexander Grothendieck]]])[
+  And every science, when we understand it not as an instrument of power and
+  domination but as an adventure in knowledge pursued by our species across the
+  ages, is nothing but this harmony, more or less vast, more or less rich from
+  one epoch to another, which unfurls over the course of generations and
+  centuries, by the delicate counterpoint of all the themes appearing in turn,
+  as if summoned from the void.
 ])
 
 // #html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
