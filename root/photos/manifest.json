@@ -1,8 +1,92 @@
 {
   "version": 4,
-  "revision": 175,
-  "updatedAt": "2026-10-06T08:24:57.692Z",
+  "revision": 177,
+  "updatedAt": "2026-10-09T03:36:05.095Z",
   "photos": [
+    {
+      "id": "abdd4dc8-d906-4b84-b410-b02a3f0236f6",
+      "uploadedAt": "2026-10-09T03:36:04.470Z",
+      "altText": "side profile of doe memorial library, uc berkeley",
+      "originalName": "DSC03653.jpeg",
+      "originalKey": "originals/2026/10/abdd4dc8-d906-4b84-b410-b02a3f0236f6.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/10/abdd4dc8-d906-4b84-b410-b02a3f0236f6.jpg",
+      "originalBytes": 4738316,
+      "originalMime": "image/jpeg",
+      "originalWidth": 3072,
+      "originalHeight": 4608,
+      "originalOrientation": 1,
+      "megapixels": 14.16,
+      "rating": 3,
+      "location": {
+        "city": "Berkeley",
+        "country": "USA"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 35mm F2.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 35,
+          "maxFocalLengthMm": 35,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 35,
+        "focalLength35mmEquivalent": 35,
+        "capturedAt": "2026-10-08T17:26:39-08:00",
+        "exposureTimeSeconds": 0.005,
+        "fNumber": 8,
+        "iso": 1600
+      },
+      "webKey": "web/2026/10/abdd4dc8-d906-4b84-b410-b02a3f0236f6.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/10/abdd4dc8-d906-4b84-b410-b02a3f0236f6.webp",
+      "webBytes": 401098,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775
+    },
+    {
+      "id": "09145116-7611-4f0e-95af-ba800630df11",
+      "uploadedAt": "2026-10-09T03:36:02.160Z",
+      "altText": "the campanile at uc berkeley",
+      "originalName": "DSC03648.jpeg",
+      "originalKey": "originals/2026/10/09145116-7611-4f0e-95af-ba800630df11.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/10/09145116-7611-4f0e-95af-ba800630df11.jpg",
+      "originalBytes": 3462003,
+      "originalMime": "image/jpeg",
+      "originalWidth": 2973,
+      "originalHeight": 4461,
+      "originalOrientation": 1,
+      "megapixels": 13.26,
+      "rating": 4,
+      "location": {
+        "city": "Berkeley",
+        "country": "USA"
+      },
+      "exif": {
+        "cameraMake": "SONY",
+        "cameraModel": "ILCE-7CM2",
+        "lensModel": "FE 35mm F2.8 ZA",
+        "lensSpecification": {
+          "minFocalLengthMm": 35,
+          "maxFocalLengthMm": 35,
+          "minFNumberAtMinFocalLength": 2.8,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 35,
+        "focalLength35mmEquivalent": 35,
+        "capturedAt": "2026-10-08T17:12:21-08:00",
+        "exposureTimeSeconds": 0.005,
+        "fNumber": 6.3,
+        "iso": 200
+      },
+      "webKey": "web/2026/10/09145116-7611-4f0e-95af-ba800630df11.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/10/09145116-7611-4f0e-95af-ba800630df11.webp",
+      "webBytes": 303532,
+      "webMime": "image/webp",
+      "webWidth": 1183,
+      "webHeight": 1775
+    },
     {
       "id": "1eff6f36-98c0-4444-b463-233c9eded585",
       "uploadedAt": "2026-10-06T08:24:57.177Z",
