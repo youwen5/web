@@ -132,9 +132,9 @@ what I'm up to right now. Or #link("/explore")[explore] the other pages on this 
 //   müssen wissen---wir werden wissen_ ("We must know---we will know").
 // ])
 
-#html.div(class: "prose-base max-w-xl", blockquote(attribution: [--- #link(
-    "https://en.wikipedia.org/wiki/Alexander_Grothendieck",
-  )[#smallcaps[Alexander Grothendieck, Récoltes et Semailles]]])[
+#html.div(class: "prose-base max-w-xl", blockquote(attribution: [#link(
+  "https://en.wikipedia.org/wiki/Alexander_Grothendieck",
+)[--- #smallcaps[Alexander Grothendieck, Récoltes et Semailles]]])[
   And every science, when we understand it not as an instrument of power and
   domination but as an adventure in knowledge pursued by our species across the
   ages, is nothing but this harmony, more or less vast, more or less rich from
