@@ -1,3 +1,5 @@
+
+
 <p align="center"><a href="https://web.youwen.dev"><img src="https://web.youwen.dev/static/logo/button.png"></a></p>
 
 # web.youwen.dev
@@ -66,7 +68,7 @@ installed automatically. Inspect `justfile` for useful scripts.
 Before submitting a PR run all Haskell tests, formatting checks, lints, etc, using
 
 ```sh
-nix build .#checks.x86_64-linux.pre-commit-check
+nix build .#checks.x86_64-linux.pre-commit-check --accept-flake-config
 ```
 
 Note that `nix flake check` always fails due to `haskell.nix` IFD jank so we
