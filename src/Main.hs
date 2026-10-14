@@ -200,7 +200,6 @@ generateSite = do
       compile $
         typstIndexCompiler defaultContext
           >>= blazeTemplater indexTemplate defaultContext
-          >>= relativizeUrls
           >>= universalOptimizer
 
     match ("cv/index.typ" .||. "cv/short.typ") $ do
