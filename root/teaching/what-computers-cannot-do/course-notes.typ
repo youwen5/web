@@ -10,7 +10,7 @@ description: "Course notes on theorem proving in Lean for Splash! at Berkeley 20
 
 These are the notes for homepage for #smallcaps[M1698: What computers cannot
   do], taught in Fall 2026 at UC Berkeley's Splash program for high schoolers.
-If you are a prospective student, please instead check the #link("home")[course
-  homepage.]
+If you are a prospective student, please instead check the
+#link("/teaching/what-computers-cannot-do/home")[course homepage.]
 
 = Notions

@@ -14,7 +14,7 @@ prospective student, please register on the
 #link("https://berkeley.learningu.org/learn/splash.html")[Splash at Berkeley
   website.] The course is listed under Category: Math & Computer Science. The
 class is taught by #link("/")[me.] I'm also teaching another class on
-#link("../theorem-proving-in-lean/home")[theorem proving in Lean 4] on the same
+#link("/teaching/theorem-proving-in-lean/home")[theorem proving in Lean 4] on the same
 day.
 
 You can view #link("course-notes")[the course notes here] (under construction currently).

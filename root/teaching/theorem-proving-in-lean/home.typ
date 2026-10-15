@@ -15,10 +15,11 @@ on the #link("https://berkeley.learningu.org/learn/splash.html")[Splash at
   Berkeley website.] The course is listed under Category: Math & Computer
 Science. The class is taught by #link("/")[me] and
 #link("https://www.linkedin.com/in/nicholas-luo-b29504280/")[Nicholas.] I am
-also teaching another #link("../what-computers-cannot-do/home")[class on
+also teaching another #link("/teaching/what-computers-cannot-do/home")[class on
   computability theory] on the same day.
 
-You can view #link("course-notes")[the course notes here] (under construction currently).
+You can view #link("/teaching/theorem-proving-in-lean/course-notes")[the course
+  notes here] (under construction currently).
 
 
 #callout[Catalog Description][
