@@ -14,4 +14,3 @@ If you are a prospective student, please instead check the #link("home")[course
   homepage.]
 
 = Notions
-
