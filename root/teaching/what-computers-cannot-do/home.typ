@@ -17,7 +17,8 @@ class is taught by #link("/")[me.] I'm also teaching another class on
 #link("/teaching/theorem-proving-in-lean/home")[theorem proving in Lean 4] on the same
 day.
 
-You can view #link("course-notes")[the course notes here] (under construction currently).
+You can view #link("/teaching/what-computers-cannot-do/course-notes")[the
+  course notes here] (under construction currently).
 
 
 #callout[Catalog Description][
