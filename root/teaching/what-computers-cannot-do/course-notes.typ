@@ -458,5 +458,3 @@ Note $"Char"_R$ is always total.
   1. $x | y <==> exists z <= y (x dot z = y)$.
   2. $P(x) <==> forall z <= x, (z | x ==> (z = 1 or z = x))$.
 ]
-
-
