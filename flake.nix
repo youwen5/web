@@ -199,6 +199,7 @@
             TZ = "America/Los_Angeles";
             GIT_COMMIT_HASH = builtins.toString (if (self ? rev) then self.rev else "unstable");
             LAST_COMMIT_TIMESTAMP = builtins.toString (self.lastModified);
+            SOURCE_DATE_EPOCH = toString self.lastModified;
 
             buildPhase = ''
               mkdir -p web-out
@@ -210,8 +211,6 @@
               mkdir -p $out
               mv ./_site/* $out
             '';
-
-            SOURCE_DATE_EPOCH = toString self.lastModified;
           };
 
           # actual website to be deployed in production (cannot be built without access to private repo)
