@@ -202,6 +202,16 @@ generateSite = do
           >>= blazeTemplater indexTemplate defaultContext
           >>= universalOptimizer
 
+    match "root/teaching/what-computers-cannot-do/course-notes.typ" $ version "pdf" $ do
+      reroute $ \p ->
+        dropFirstParent $
+          takeDirectory p
+            </> ( (takeFileName . flip replaceBaseName "course-notes")
+                    . (takeFileName . flip replaceExtension "pdf")
+                )
+              p
+      compile typstPdfCompiler
+
     match ("cv/index.typ" .||. "cv/short.typ") $ do
       route $ setExtension "html"
       compile $
