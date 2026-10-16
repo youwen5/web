@@ -16,6 +16,8 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen.url = "github:youwen5/zen.typ";
   };
 
   outputs =
@@ -27,6 +29,7 @@
       pre-commit,
       valkyrie-font,
       treefmt-nix,
+      zen,
     }:
     let
       supportedSystems = [
@@ -50,9 +53,11 @@
             cmarker_0_1_5
             showybox_2_0_4
             self.packages.${system}.html-shim
+            self.packages.${system}.zen-typ
             bullseye
             based_0_2_0
             mitex_0_2_5
+            ctheorems_1_1_3
           ]
         );
 
@@ -235,6 +240,12 @@
             pname = "html-shim";
             version = "0.1.0";
             src = ./typst/pkgs/html-shim/0.1.0;
+          };
+
+          zen-typ = pkgs.buildTypstPackage {
+            pname = "zen";
+            version = "0.6.0";
+            src = "${zen}/typst";
           };
 
           typst-html-wrapper = pkgs.writeShellScriptBin "typst-html-wrapper" ''

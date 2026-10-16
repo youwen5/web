@@ -1,6 +1,7 @@
 // Adds support for HTML-based math rendering
 #import "@preview/bullseye:0.1.0": *
 #import "@preview/showybox:2.0.4": showybox
+#import "@preview/zen:0.6.0"
 
 #let blockquote = (attribution: none, body) => context {
   if target() == "html" {
@@ -265,24 +266,68 @@
 
 // math stuff
 
-#let definition(body) = callout("Definition", body)
-#let abuse(body) = callout("Abuse of Notation", body)
-#let theorem(body) = callout("Theorem", body)
-#let example(body) = callout("Example", body)
-#let proof(body, name: none) = {
-  [_Proof_]
-  if name != none {
-    [ #thmname[#name]]
+#let definition(body) = context {
+  if target() == "html" {
+    callout("Definition", body)
+  } else {
+    zen.definition(body)
   }
-  [.]
-  body
-
-  // Add a word-joiner so that the proof square and the last word before the
-  // 1fr spacing are kept together.
-  sym.wj
-
-  // Add a non-breaking space to ensure a minimum amount of space between the
-  // text and the proof square.
-  sym.space.nobreak
-  tombstone
 }
+#let abuse(body) = context {
+  if target() == "html" {
+    callout("Abuse of Notation", body)
+  } else {
+    zen.abuse(body)
+  }
+}
+#let lemma(body) = context {
+  if target() == "html" {
+    callout("Abuse of Notation", body)
+  } else {
+    zen.lemma(body)
+  }
+}
+#let theorem(body) = context {
+  if target() == "html" {
+    callout("Theorem", body)
+  } else {
+    zen.theorem(body)
+  }
+}
+#let example(body) = context {
+  if target() == "html" {
+    callout("Example", body)
+  } else {
+    zen.example(body)
+  }
+}
+#let proof(body, name: none) = context {
+  if target() == "html" {
+    [_Proof_]
+    if name != none {
+      [ #thmname[#name]]
+    }
+    [.]
+    body
+
+    // Add a word-joiner so that the proof square and the last word before the
+    // 1fr spacing are kept together.
+    sym.wj
+
+    // Add a non-breaking space to ensure a minimum amount of space between the
+    // text and the proof square.
+    sym.space.nobreak
+    tombstone
+  } else {
+    zen.proof(body)
+  }
+}
+#let proposition(body) = context {
+  if target() == "html" {
+    callout("Proposition", body)
+  } else {
+    zen.proposition(body)
+  }
+}
+
+#let zen = zen.zen

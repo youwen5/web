@@ -672,7 +672,8 @@
         ],
         "pre-commit": "pre-commit",
         "treefmt-nix": "treefmt-nix",
-        "valkyrie-font": "valkyrie-font"
+        "valkyrie-font": "valkyrie-font",
+        "zen": "zen"
       }
     },
     "stackage": {
@@ -743,6 +744,21 @@
       "original": {
         "owner": "youwen5",
         "repo": "valkyrie",
+        "type": "github"
+      }
+    },
+    "zen": {
+      "locked": {
+        "lastModified": 1792122941,
+        "narHash": "sha256-S1WgIwF0XWzwvPl12Zxeunx97ePtA97YETOhG4tZKno=",
+        "owner": "youwen5",
+        "repo": "zen.typ",
+        "rev": "fe55692c70e45155a11f283b88443ca03cd33e73",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen.typ",
         "type": "github"
       }
     }
