@@ -8,7 +8,7 @@ description: "Course notes on theorem proving in Lean for Splash! at Berkeley 20
 
 #show: html-shim
 
-These are the notes for homepage for #smallcaps[M1697: Interactive theorem
+These are the notes for #smallcaps[M1697: Interactive theorem
   proving alongside computers in Lean 4], taught in Fall 2026 at UC Berkeley's
 Splash program for high schoolers. If you are a prospective student, please
 instead check the #link("/teaching/theorem-proving-in-lean/home")[course homepage.]
