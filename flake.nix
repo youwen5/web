@@ -210,6 +210,8 @@
               mkdir -p $out
               mv ./_site/* $out
             '';
+
+            SOURCE_DATE_EPOCH = toString self.lastModified;
           };
 
           # actual website to be deployed in production (cannot be built without access to private repo)
