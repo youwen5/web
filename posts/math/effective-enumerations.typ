@@ -25,13 +25,19 @@ arbitrary inputs.
   write $f(x) arrow.t$.
 ]
 
+A total function $f : A -> B$ (note the arrow) is simply a partial function
+where $D = A$. (Total functions are a subcategory of partial functions.)
+
 Say a partial function is computable or recursive (same meaning) if it is
 constant or can be defined from substitution, composition, primitive recursion,
 or minimization of other computable partial functions.
 
 We will consider only partial functions $f : NN^n harpoon NN$.
 
-Now we play with the idea of encoding data structures into partial functions.
+Now we play with the idea of encoding data structures into functions. To encode
+lists of arbitrary natural numbers, we will leverage the unique prime
+factorization of natural numbers.
+
 Let $x_1, x_2, ..., x_n in NN$. Let $chevron dot, dot, dots, dot chevron.r$ be
 an $n$-ary total function that does the following:
 
@@ -43,11 +49,14 @@ an $n$-ary total function that does the following:
   We call $chevron x_1, ..., x_n chevron.r$ a *sequence code*.
 ]
 
+A sequence code is essentially just an $n$-tuple encoded as a single natural
+number.
+
 We want to show sequence coding is computable.
 
 #proposition[
-  The function $rho : NN -> NN$ giving $rho(n)$ is the $n^"th"$ prime number,
-  where $rho(1) = 2$.
+  There is a computable function $rho : NN -> NN$ giving $rho(n)$ is the
+  $n^"th"$ prime number, where $rho(1) = 2$.
 ]
 
 #proof[
