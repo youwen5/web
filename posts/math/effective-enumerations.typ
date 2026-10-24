@@ -12,6 +12,10 @@ published: 2026-10-18
   zen(body)
 }
 
+This is part of a series of articles I am preparing for further reading in
+#link("/teaching/what-computers-cannot-do/home")[my computability theory
+  course.]
+
 We will introduce the idea of enumerating all computable partial functions and
 then defining a universal machine that computes any program description on
 arbitrary inputs.
