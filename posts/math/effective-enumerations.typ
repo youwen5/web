@@ -49,7 +49,7 @@ $
   ) y [f(y) arrow.b = x].
 $
 
-This $y$ will satisfy $(forall x < y)(f(x) != x) and f(y) = x$. It's just the
+This $y$ will satisfy $(forall z < y)(f(z) != x) and f(y) = x$. It's just the
 smallest $y in NN$ such that $f(y) = x$. However, if no such $y$ exists, then $g(x) arrow.t$.
 
 Minimization is the key definition scheme that allows divergent partials to be
