@@ -32,11 +32,35 @@ arbitrary inputs.
 A total function $f : A -> B$ (note the arrow) is simply a partial function
 where $D = A$. (Total functions are a subcategory of partial functions.)
 
-Say a partial function is computable or recursive (same meaning) if it is
-constant or can be defined from substitution, composition, primitive recursion,
-or minimization of other computable partial functions.
-
 We will consider only partial functions $f : NN^n harpoon NN$.
+
+Say a partial function from $NN^n harpoon NN$ is computable or recursive (same
+meaning) if it is primitive or can be defined from substitution, composition,
+primitive recursion, or minimization of other computable partial functions.
+Primitive partial functions include the constant functions returning the same
+constant output on all inputs or the projection functions. Primitive recursion
+is essentially a "for-loop" that always terminates. Minimization $mu$ is the
+definition scheme, where for an partial function $f : NN harpoon NN$,
+define a new function $g : NN harpoon NN$ s.t.
+$
+  g(x) = underbrace(
+    mu,
+    "smallest"
+  ) y [f(y) arrow.b = x].
+$
+
+This $y$ will satisfy $(forall x < y)(f(x) != x) and f(y) = x$. It's just the
+smallest $y in NN$ such that $f(y) = x$. However, if no such $y$ exists, then $g(x) arrow.t$.
+
+Minimization is the key definition scheme that allows divergent partials to be
+defined. The other schemes alone can only define total functions and together
+construct the _primitive recursive functions_. Taken with minimization, we
+obtain the _general recursive functions_. If you are not familiar with these
+definitions, we adopt the conventions in
+#link("https://en.wikipedia.org/wiki/General_recursive_function")[the Wiki
+  article.]
+
+== Towards data
 
 Now we play with the idea of encoding data structures into functions. To encode
 lists of arbitrary natural numbers, we will leverage the unique prime
@@ -95,6 +119,8 @@ $"Seq"(s)$ for if $s$ is a valid sequence code, and the partial function
 $"lh"(s)$ to count the length of the code. Let $(s)_i$ be the element at index
 $i$ (0-indexed).
 
+== Unlimited register machines
+
 #definition[
   An *unlimited register machine* (URM) will refer to the definition in
   #link(
@@ -106,11 +132,33 @@ To summarize, we are using a URM that has an unlimited supply of natural number
 registers which can be addressed using $0$-based indexing and supports zero,
 successor, transfer, and jump instructions. However, no indirect addressing is
 allowed, i.e. we cannot have a program compute a "variable" $n$ and say "access
-the register $n$."
+the register $n$." A URM program $P$ is just a sequence of URM instructions
+$I_0, I_1, I_2, ...$, where each $I_k$ is just a zero, successor, transfer, or
+jump instruction.
 
 A URM is basically an abstract machine that is often easier to analyze than a
 Turing machine. Keeping with Church-Turing, it is of course equivalent to TMs.
 We will work with URMs.
+
+#definition[
+  For every URM program $P$, we define the $n$-ary partial function $f^((n))_P
+  : NN^n harpoon NN$. To compute $f^((n))_P (arrow(X))$, populate the first
+  $n$ registers with the entries of some $arrow(x) in NN^n$ and run $P$. The
+  value of $f^((n))_P (arrow(x))$ is the value in the first register after the
+  machine halts, or if it never halts, then $f^((n))_P arrow.t$.
+]
+
+The idea is just that every URM computes some partial function by filling in
+its registers with the parameter vector and then reading out the first register
+as the output. Now we seek to show that URM-computable partial functions are
+exactly the general recursive functions. This is a truly magical fact. To do
+this, we need to show that every general recursive function can be computed on
+a URM, and every URM can be exactly simulated by general recursive functions.
+The first fact is not terribly hard to convince yourself is possible,
+especially if you have a bit of programming experience; we will take that URMs
+compute general recursive functions for granted from now on. We will speak
+about the other way, as general recursive functions simulating the general
+abstract machine of URMs is less obvious.
 
 Since we have the basic list data structure via sequence coding, we can give a
 sketch towards how to simulate any URM using only recursive partial functions.
