@@ -6,11 +6,11 @@ $m$-reductions are tricky for students to wrap their heads around at first. To
 show a given relation $A$ is undecidable, it suffices to show that the
 (diagonal) *Halting Problem* $Kappa$ reduces to *it*. The relation is denoted
 $
-  A attach(<=, br: m) Kappa.
+  Kappa attach(<=, br: m) m.
 $
 This is converse to what you need to do when you prove that $B$ is decidable given that $C$ is decidable. In this case, we need to show a reduction from $B$ to $C$, that is
 $
-  C attach(<=, br: m) B.
+  B attach(<=, br: m) C.
 $
 It's pretty obvious why the order reverses when you say it out loud: if $C$ is
 decidable, then if deciding $B$ can be (computably) reduced to deciding $C$, we
