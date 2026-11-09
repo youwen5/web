@@ -1,8 +1,52 @@
 {
   "version": 4,
-  "revision": 177,
-  "updatedAt": "2026-10-09T03:36:05.095Z",
+  "revision": 178,
+  "updatedAt": "2026-11-09T01:47:24.119Z",
   "photos": [
+    {
+      "id": "4072257f-1eb3-496d-984d-236d302e5da1",
+      "uploadedAt": "2026-11-09T01:47:23.135Z",
+      "description": "Unreasonably majestic.",
+      "altText": "the left wing of a commercial jet against daybreak in a sea of clouds",
+      "originalName": "IMG_3379.jpeg",
+      "originalKey": "originals/2026/11/4072257f-1eb3-496d-984d-236d302e5da1.jpg",
+      "originalUrl": "https://photos.youwen.dev/originals/2026/11/4072257f-1eb3-496d-984d-236d302e5da1.jpg",
+      "originalBytes": 2357894,
+      "originalMime": "image/jpeg",
+      "originalWidth": 4032,
+      "originalHeight": 3024,
+      "originalOrientation": 1,
+      "megapixels": 12.19,
+      "rating": 4,
+      "location": {
+        "city": "Boston",
+        "country": "USA"
+      },
+      "exif": {
+        "cameraMake": "Apple",
+        "cameraModel": "iPhone 14 Pro",
+        "lensMake": "Apple",
+        "lensModel": "iPhone 14 Pro back triple camera 6.86mm f/1.78",
+        "lensSpecification": {
+          "minFocalLengthMm": 2.220000028611935,
+          "maxFocalLengthMm": 9,
+          "minFNumberAtMinFocalLength": 1.7799999713880652,
+          "minFNumberAtMaxFocalLength": 2.8
+        },
+        "focalLengthMm": 6.86,
+        "focalLength35mmEquivalent": 48,
+        "capturedAt": "2026-11-08T06:39:33-05:00",
+        "exposureTimeSeconds": 0.001,
+        "fNumber": 1.78,
+        "iso": 64
+      },
+      "webKey": "web/2026/11/4072257f-1eb3-496d-984d-236d302e5da1.webp",
+      "webUrl": "https://photos.youwen.dev/web/2026/11/4072257f-1eb3-496d-984d-236d302e5da1.webp",
+      "webBytes": 228972,
+      "webMime": "image/webp",
+      "webWidth": 1673,
+      "webHeight": 1255
+    },
     {
       "id": "abdd4dc8-d906-4b84-b410-b02a3f0236f6",
       "uploadedAt": "2026-10-09T03:36:04.470Z",
