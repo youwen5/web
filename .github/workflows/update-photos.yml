@@ -16,11 +16,21 @@ jobs:
           token: ${{ secrets.PAT }}
 
       - name: Check for update and perform update
+        shell: bash
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          curl "https://photos.youwen.dev/_system/manifest.json" > root/photos/manifest.json
+          curl --fail --show-error --location "https://photos.youwen.dev/_system/manifest.json" --output root/photos/manifest.json
 
-          git add -A
+          git add -- root/photos/manifest.json
+          if git diff --cached --quiet -- root/photos/manifest.json; then
+            echo "Photo manifest is unchanged."
+            exit 0
+          else
+            status=$?
+            if [ "$status" -ne 1 ]; then
+              exit "$status"
+            fi
+          fi
           git commit -m "auto: update photos"
-          git push || exit 0
+          git push
